@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <include
+        android:id="@+id/common_top_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_top_title_bar_height"
+        android:layout_gravity="top|left"
+        layout="@layout/activity_taoguba_common_top" />
+
+    <include
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        layout="@layout/common_taoguba_loading" />
+
+</merge>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 网络错误异常提示 start -->
+    <string-array name="err_toast_string">
+
+        <!-- 0 -->
+        <item>@string/ehttpio_msg</item>
+        <!-- 1 -->
+        <item>@string/emobilenetuseless_msg</item>
+        <!-- 2 -->
+        <item>@string/enetworkio_msg</item>
+        <!-- 3 -->
+        <item>@string/enotfoundmethods_msg</item>
+        <!-- 4 -->
+        <item>@string/ehttpprotocol_msg</item>
+        <!-- 5 -->
+        <item>@string/exmlparser_msg</item>
+        <!-- 6 -->
+        <item>@string/exmlio_msg</item>
+        <!-- 7 -->
+        <item>@string/eclassnotfound_msg</item>
+        <!-- 8 -->
+        <item>@string/eillegalaccess_msg</item>
+        <!-- 9 -->
+        <item>@string/esecurity_msg</item>
+        <!-- 10 -->
+        <item>@string/econnecttimeout_msg</item>
+        <!-- 11 -->
+        <item>@string/eparamhasnull_msg</item>
+        <!-- 12 -->
+        <item>@string/eparamuninvalid_msg</item>
+        <!-- 13 -->
+        <item>@string/ejsonparser_msg</item>
+        <!-- 14 -->
+        <item>@string/enotdefine_msg</item>
+        <!-- 15 -->
+        <item>@string/ehttp_request_fail400</item>
+        <!-- 16 -->
+        <item>@string/ehttp_request_fail403</item>
+        <!-- 17 -->
+        <item>@string/ehttp_request_fail404</item>
+        <!-- 18 -->
+        <item>@string/ehttp_request_fail502</item>
+        <!-- 19 -->
+        <item>@string/ehttp_request_fail503</item>
+        <!-- 20 -->
+        <item>@string/ehttp_request_fail504</item>
+        <!-- 21 -->
+        <item>@string/ehttp_eunknownhost_msg</item>
+        <!-- 22 -->
+        <item>@string/ehttp_unknownservice_msg</item>
+        <!-- 23 -->
+        <item>@string/ehttp_unsupportedencoding_msg</item>
+        <!-- 24 -->
+        <item>@string/ehttp_request_fail500</item>
+        <!-- 25 -->
+        <item>@string/ehttp_request_fail405</item>
+    </string-array>
+    <!-- 网络错误异常提示 end -->
+
+
+  
+    <!-- ————————————————————————————————————————————————————————————皮肤图片 0：白天，1夜间  end —————————————————————— -->
+
+</resources>

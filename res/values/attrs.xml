@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="PagerSlidingTabStrip">
+        <attr name="pstsIndicatorColor" format="color" />
+        <attr name="pstsUnderlineColor" format="color" />
+        <attr name="pstsDividerColor" format="color" />
+        <attr name="pstsIndicatorHeight" format="dimension" />
+        <attr name="pstsUnderlineHeight" format="dimension" />
+        <attr name="pstsDividerPadding" format="dimension" />
+        <attr name="pstsTabPaddingLeftRight" format="dimension" />
+        <attr name="pstsScrollOffset" format="dimension" />
+        <attr name="pstsTabBackground" format="reference" />
+        <attr name="pstsShouldExpand" format="boolean" />
+        <attr name="pstsTextAllCaps" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="AbstractWheelView">
+        <attr name="visibleItems" format="integer" />
+        <attr name="isAllVisible" format="boolean" />
+        <attr name="itemOffsetPercent" format="integer" />
+        <attr name="itemsPadding" format="dimension" />
+        <attr name="selectionDividerDimmedAlpha" format="integer" />
+        <attr name="selectionDividerActiveAlpha" format="integer" />
+        <attr name="selectionDivider" format="reference" />
+        <attr name="itemsDimmedAlpha" format="integer" />
+        <attr name="isCyclic" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="WheelVerticalView">
+        <attr name="selectionDividerHeight" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="WheelHorizontalView">
+        <attr name="selectionDividerWidth" format="dimension" />
+    </declare-styleable>
+
+    <attr name="abstractWheelViewStyle" format="reference" />
+
+    <declare-styleable name="RatioImageView">
+        <attr name="ratio" format="float" />
+    </declare-styleable>
+    <declare-styleable name="NineGridLayout">
+        <attr name="sapcing" format="dimension" />
+    </declare-styleable>
+
+</resources>

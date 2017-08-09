@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="drag_handle" type="id"/>
+    <item name="click_remove" type="id"/>
+    <item name="top_title_bar_other_image" type="id"/>
+    <item name="top_title_bar_left_txt_bank_secu" type="id"/>
+    <item name="top_title_bar_left_txt_typ_news" type="id"/>
+
+</resources>

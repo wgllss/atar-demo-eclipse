@@ -1,0 +1,346 @@
+if(ID == 9){//跳转到 WeexTabHostWithWebViewActivity 配置事例
+            var optionJson = [
+                {
+                    "ID":4554,
+                    "menuIcon":"assets://images/kxian.png",
+                    "menuName":"大V观点",
+                    "menuNameTextSize":9,
+                    "orientation":"1",
+                    "isShowIcon":true,
+                    "menuIconWidthAndHeight":25,
+                    "infoNum":10,
+                    "infoNumColor":"#FFFFFF",
+                    "infoNumMarginLeft":10,
+                    "onClickInfo":{
+                        "needLogin":true,
+                        "className":"com.open.taogubaweex.MainActivity",
+                        "optionJson":"[{\"intentKey\":\"URL_KEY\",\"intentKeyValueClassName\":\"String\",\"intentKeyValue\":\"dav/build/src/viewpoint-pager.js\"}]"
+
+                    }
+                },
+                {
+                    "ID":1005,
+                    "menuIcon":"assets://images/shipan_match.png",
+                    "menuName":"管理模板",
+                    "menuNameTextSize":9,
+                    "orientation":"1",
+                    "isShowIcon":true,
+                    "menuIconWidthAndHeight":25,
+                    "infoNum":0,
+                    "onClickInfo":{
+                        "needLogin":false,
+                        "className":"com.taoguba.app.activity.html.TaogubaDynamicWebViewActivity",
+                        "optionJson":"[{\"intentKey\":\"PULL_TO_REFRESH_MODE_KEY\",\"intentKeyValueClassName\":\"String\",\"intentKeyValue\":\"0\"},{\"intentKey\":\"URL_KEY\",\"intentKeyValueClassName\":\"String\",\"intentKeyValue\":\"assets/html/manage_test.html\"},{\"intentKey\":\"TITLE_KEY\",\"intentKeyValueClassName\":\"String\",\"intentKeyValue\":\"观点最终页\"}]"
+                    }
+                },
+                {
+                    "ID":4034,
+                    "menuIcon":"assets://images/zhibo.png",
+                    "menuName":"直播",
+                    "menuNameTextSize":9,
+                    "orientation":"1",
+                    "isShowIcon":true,
+                    "menuIconWidthAndHeight":25,
+                    "infoNum":0,
+                    "infoNumColor":"#FFFFFF",
+                    "huo_flag_icon_url":"assets://images/huo_flag.png",
+                    "huo_flag_marginLeft":0,
+                    "huo_flag_marginTop":0,
+                    "onClickInfo":{
+                        "className":"com.open.taogubaweex.MainActivity",
+                        "optionJson":"[{\"intentKey\":\"URL_KEY\",\"intentKeyValueClassName\":\"String\",\"intentKeyValue\":\"storm/build/src/slider-pager.js\"}]",
+                        "onEventInfo":"{\"eventName\":\"股市直播\",\"eventID\":\"4034\",\"eventType\":\"0\"}"
+                    }
+                },
+                {
+                    "ID":1013,
+                    "menuIcon":"assets://images/waner.png",
+                    "menuName":"开户",
+                    "menuNameTextSize":9,
+                    "orientation":"1",
+                    "isShowIcon":true,
+                    "menuIconWidthAndHeight":25,
+                    "infoNum":0,
+                    "infoNumColor":"#FFFFFF",
+                    "infoNumMarginLeft":10,
+                    "onClickInfo":{
+                        "className":"com.taoguba.app.activity.tpy.TpyAccountLoginActivity",
+                        "onEventInfo":"{\"eventName\":\"买啥-开户\",\"eventID\":\"1013\",\"eventType\":\"0\"}"
+                    }
+                },
+                {
+                    "ID":1007,
+                    "menuIcon":"assets://images/kxian.png",
+                    "menuName":"牛人榜",
+                    "menuNameTextSize":9,
+                    "orientation":"1",
+                    "isShowIcon":true,
+                    "menuIconWidthAndHeight":25,
+                    "infoNum":0,
+                    "onClickInfo":{
+                        "className":"com.taoguba.app.activity.TopicOnListActivityNew",
+                        "onEventInfo":"{\"eventName\":\"买啥-牛人榜\",\"eventID\":\"1007\",\"eventType\":\"0\"}"
+                    }
+                }
+            ];
+            var tab_option_json ={
+                "TAB_OPTION_JSON_KEY":JSON.stringify(optionJson)
+            }
+            webviewAndroidScript.startOtherNativeActivity('com.taoguba.app.activity.html.WeexTabHostWithWebViewActivity',JSON.stringify(tab_option_json) );
+}else if(ID == 10){ //跳转到 WebViewPagerActivity tab底部 配置事例
+    var VIEWPAGER_OPTION_JSON_KEY ={
+        "TITLE":"viewpager_webview",
+        "TOP_RIGHT_TXT":"设置",
+        "showDividerLine":false,
+        "indicatorColor":"#1191f6,#1191f6",
+        "underlineColor":"#00000000,#00000000",
+        "shouldExpand":true;
+        "position":1,
+        "listFragment":[
+            {
+                "ID":4554,
+                "menuIcon":"assets://images/kxian.png",
+                "menuName":"大V观点",
+                "menuNameTextSize":9,
+                "orientation":"1",
+                "isShowIcon":true,
+                "menuIconWidthAndHeight":25,
+                "infoNum":10,
+                "infoNumColor":"#FFFFFF",
+                "infoNumMarginLeft":10,
+                "onClickInfo":{
+                    "needLogin":true,
+                    "className":"assets/html/manage_test.html",
+                    "PULL_TO_REFRESH_MODE":"0",
+                    "optionJson":""
+
+                }
+            },
+            {
+                "ID":1005,
+                "menuIcon":"assets://images/shipan_match.png",
+                "menuName":"管理模板",
+                "menuNameTextSize":9,
+                "orientation":"1",
+                "isShowIcon":true,
+                "menuIconWidthAndHeight":25,
+                "infoNum":0,
+                "onClickInfo":{
+                    "needLogin":true,
+                    "className":"assets/html/manage_test.html",
+                    "PULL_TO_REFRESH_MODE":"0",
+                    "optionJson":""
+
+                }
+            },
+            {
+                "ID":4034,
+                "menuIcon":"assets://images/zhibo.png",
+                "menuName":"直播",
+                "menuNameTextSize":9,
+                "orientation":"1",
+                "isShowIcon":true,
+                "menuIconWidthAndHeight":25,
+                "infoNum":0,
+                "infoNumColor":"#FFFFFF",
+                "huo_flag_icon_url":"assets://images/huo_flag.png",
+                "huo_flag_marginLeft":10,
+                "huo_flag_marginTop":0,
+                "onClickInfo":{
+                    "needLogin":true,
+                    "className":"assets/html/manage_test.html",
+                    "PULL_TO_REFRESH_MODE":"0",
+                    "optionJson":""
+
+                }
+            },
+            {
+                "ID":1013,
+                "menuIcon":"assets://images/waner.png",
+                "menuName":"开户",
+                "menuNameTextSize":9,
+                "orientation":"1",
+                "isShowIcon":true,
+                "menuIconWidthAndHeight":25,
+                "infoNum":0,
+                "infoNumColor":"#FFFFFF",
+                "infoNumMarginLeft":10,
+                "onClickInfo":{
+                    "needLogin":true,
+                    "className":"assets/html/manage_message.html",
+                    "PULL_TO_REFRESH_MODE":"0",
+                    "optionJson":"{\"seq_key\":\"22\"}"
+
+                }
+            },
+            {
+                "ID":1007,
+                "menuIcon":"assets://images/kxian.png",
+                "menuName":"牛人榜",
+                "menuNameTextSize":9,
+                "orientation":"1",
+                "isShowIcon":true,
+                "menuIconWidthAndHeight":25,
+                "infoNum":0,
+                "onClickInfo":{
+                    "needLogin":true,
+                    "className":"assets/html/manage_message.html",
+                    "PULL_TO_REFRESH_MODE":"0",
+                    "optionJson":"{\"seq_key\":\"22\"}"
+
+                }
+            },
+            {
+                "ID":4554,
+                "menuIcon":"assets://images/kxian.png",
+                "menuName":"大V观点",
+                "menuNameTextSize":9,
+                "orientation":"1",
+                "isShowIcon":true,
+                "menuIconWidthAndHeight":25,
+                "infoNum":0,
+                "infoNumColor":"#FFFFFF",
+                "infoNumMarginLeft":10,
+                "onClickInfo":{
+                    "needLogin":true,
+                    "className":"assets/html/manage_message.html",
+                    "PULL_TO_REFRESH_MODE":"0",
+                    "optionJson":"{\"seq_key\":\"22\"}"
+
+                }
+            }
+        ]
+    }
+    var option_json ={
+        "VIEWPAGER_OPTION_JSON_KEY":JSON.stringify(VIEWPAGER_OPTION_JSON_KEY)
+    }
+    webviewAndroidScript.startOtherNativeActivity('com.taoguba.app.activity.html.WebViewPagerActivity',JSON.stringify(option_json) );
+}else if(ID == 11) {//跳转到 WebViewPagerActivity tab顶部 配置事例
+    var VIEWPAGER_OPTION_JSON_KEY = {
+        "TITLE": "viewpager_webview",
+        "TOP_RIGHT_TXT": "设置",
+        "showDividerLine": false,
+        "IndicatorColor": "#1191f6,#1191f6",
+        "underlineColor": "#00000000,#00000000",
+        "shouldExpand":true;
+        "position": 0,
+        "listFragment": [
+            {
+                "ID": 4554,
+                "menuIcon": "assets://images/kxian.png",
+                "menuName": "大V观点",
+                "menuNameTextSize": 14,
+                "orientation": "1",
+                "isShowIcon": false,
+                "menuIconWidthAndHeight": 25,
+                "infoNum": 10,
+                "infoNumColor": "#FFFFFF",
+                "infoNumMarginLeft": 10,
+                "onClickInfo": {
+                    "needLogin": true,
+                    "className": "assets/html/manage_test.html",
+                    "PULL_TO_REFRESH_MODE": "0",
+                    "optionJson": ""
+
+                }
+            },
+            {
+                "ID": 1005,
+                "menuIcon": "assets://images/shipan_match.png",
+                "menuName": "管理模板",
+                "menuNameTextSize": 14,
+                "orientation": "1",
+                "isShowIcon": false,
+                "menuIconWidthAndHeight": 25,
+                "infoNum": 0,
+                "onClickInfo": {
+                    "needLogin": true,
+                    "className": "assets/html/manage_test.html",
+                    "PULL_TO_REFRESH_MODE": "0",
+                    "optionJson": ""
+
+                }
+            },
+            {
+                "ID": 4034,
+                "menuIcon": "assets://images/zhibo.png",
+                "menuName": "直播",
+                "menuNameTextSize": 14,
+                "orientation": "1",
+                "isShowIcon": false,
+                "menuIconWidthAndHeight": 25,
+                "infoNum": 0,
+                "infoNumColor": "#FFFFFF",
+                "huo_flag_icon_url":"assets://images/huo_flag.png",
+                "huo_flag_marginLeft":15,
+                "huo_flag_marginTop":0,
+                "onClickInfo": {
+                    "needLogin": true,
+                    "className": "assets/html/manage_test.html",
+                    "PULL_TO_REFRESH_MODE": "0",
+                    "optionJson": ""
+
+                }
+            },
+            {
+                "ID": 1013,
+                "menuIcon": "assets://images/waner.png",
+                "menuName": "开户",
+                "menuNameTextSize": 14,
+                "orientation": "1",
+                "isShowIcon": false,
+                "menuIconWidthAndHeight": 25,
+                "infoNum": 0,
+                "infoNumColor": "#FFFFFF",
+                "infoNumMarginLeft": 10,
+                "onClickInfo": {
+                    "needLogin": true,
+                    "className": "assets/html/manage_message.html",
+                    "PULL_TO_REFRESH_MODE": "0",
+                    "optionJson": "{\"seq_key\":\"22\"}"
+
+                }
+            },
+            {
+                "ID": 1007,
+                "menuIcon": "assets://images/kxian.png",
+                "menuName": "牛人榜",
+                "menuNameTextSize": 14,
+                "orientation": "1",
+                "isShowIcon": false,
+                "menuIconWidthAndHeight": 25,
+                "infoNum": 0,
+                "onClickInfo": {
+                    "needLogin": true,
+                    "className": "assets/html/manage_message.html",
+                    "PULL_TO_REFRESH_MODE": "0",
+                    "optionJson": "{\"seq_key\":\"22\"}"
+
+                }
+            },
+            {
+                "ID": 4554,
+                "menuIcon": "assets://images/kxian.png",
+                "menuName": "大V观点",
+                "menuNameTextSize": 14,
+                "orientation": "1",
+                "isShowIcon": false,
+                "menuIconWidthAndHeight": 25,
+                "infoNum": 0,
+                "infoNumColor": "#FFFFFF",
+                "infoNumMarginLeft": 10,
+                "onClickInfo": {
+                    "needLogin": true,
+                    "className": "assets/html/manage_message.html",
+                    "PULL_TO_REFRESH_MODE": "0",
+                    "optionJson": "{\"seq_key\":\"22\"}"
+
+                }
+            }
+        ]
+    }
+    var option_json ={
+        "VIEWPAGER_OPTION_JSON_KEY":JSON.stringify(VIEWPAGER_OPTION_JSON_KEY)
+    }
+    webviewAndroidScript.startOtherNativeActivity('com.taoguba.app.activity.html.WebViewPagerActivity',JSON.stringify(option_json) );
+}

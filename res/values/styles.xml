@@ -1,0 +1,219 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <!-- ListView的父style,去除一些基本设置 -->
+    <style name="BaseListViewStyle" parent="android:Widget.ListView.White">
+        <item name="android:cacheColorHint">#00000000</item> <!-- 去除拖动时默认的黑色背景 -->
+        <item name="android:divider">#00000000</item>
+        <item name="android:dividerHeight">0.3dp</item>
+        <item name="android:listSelector">#00000000</item> <!-- 去除选中时的黄色底色 -->
+       <!-- <item name="android:overScrollMode">never</item>--><!-- 去除下拉上拉水阴影虚化 -->
+        <!-- <item name="android:scrollbars">none</item> -->
+        <!-- 去除滚动条 -->
+        <item name="android:fadingEdge">none</item> <!-- 去除ListView滑到顶部和底部时边缘的黑色阴影 -->
+    </style>
+
+    <!-- 自定义对话框样式 -->
+    <style name="MyDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowEnterAnimation">@anim/anim_alpha_021_scale_to_large</item>
+        <item name="android:windowExitAnimation">@anim/anim_alpha_120_scale_to_small</item>
+    </style>
+
+    <style name="MyDialog2" parent="android:Animation">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowEnterAnimation">@anim/anim_top_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_top_out</item>
+    </style>
+
+    <style name="LoadActivity" parent="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="ProgressBarStyleLarge" parent="@android:style/Widget.ProgressBar.Large">
+        <item name="android:minHeight">30dip</item>
+        <item name="android:minWidth">30dip</item>
+        <item name="android:maxHeight">30dip</item>
+        <item name="android:maxWidth">30dip</item>
+    </style>
+
+    <style name="ProgressBarStyleLarge2" parent="@android:style/Widget.ProgressBar.Large">
+        <item name="android:minHeight">25dip</item>
+        <item name="android:minWidth">25dip</item>
+        <item name="android:maxHeight">25dip</item>
+        <item name="android:maxWidth">25dip</item>
+    </style>
+
+    <!-- tab样式 -->
+    <style name="view_pager_tab">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">#003A57</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+
+    <!-- 行情标题 -->
+    <style name="stock_title">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/stock_title</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_margin">3dp</item>
+    </style>
+
+    <!-- 用户头像 -->
+    <style name="UserImg">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dip</item>
+        <item name="android:maxWidth">40dp</item>
+        <item name="android:maxHeight">40dip</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:layout_marginTop">3dp</item>
+    </style>
+    <!-- 动态标题 -->
+    <style name="Action_ActionTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">left</item>
+        <item name="android:layout_margin">5dip</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- 动态的日期 -->
+    <style name="Action_ActionDate">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">5dip</item>
+        <item name="android:textColor">@color/actionName_color</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="more_fontsize_color1">
+        <item name="android:textColor">#49698C</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="more_fontsize_color">
+        <item name="android:textColor">#222222</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="user_item_img">
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">60dip</item>
+        <item name="android:maxWidth">60dp</item>
+        <item name="android:maxHeight">60dip</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:layout_margin">5dip</item>
+    </style>
+
+    <style name="user_item">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_margin">0dip</item>
+        <item name="android:textColor">@color/action_actionTitle</item>
+    </style>
+    <!-- 显示用户名 -->
+    <style name="Action_UserName">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">5dip</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="popwin_anim_style">
+        <item name="android:windowEnterAnimation">@anim/anim_down_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_down_out</item>
+    </style>
+
+    <style name="popwin_anim_top_in_top_out_style">
+        <item name="android:windowEnterAnimation">@anim/anim_top_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_top_out</item>
+    </style>
+
+    <style name="detel_button_popwin_anim_style">
+        <item name="android:windowEnterAnimation">@anim/detel_button_anim_right_in</item>
+        <item name="android:windowExitAnimation">@anim/detel_button_anim_right_out</item>
+    </style>
+
+    <style name="like_toast_dialog_style">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@drawable/circle_white</item>
+    </style>
+
+    <style name="AnimBottom" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/anim_alpha_021</item>
+        <item name="android:windowExitAnimation">@anim/anim_alpha_120</item>
+    </style>
+
+    <style name="ActivityEnterAndExitAnimation" parent="android:Theme.Dialog">
+        <item name="android:windowAnimationStyle">@style/AnimBottom</item>
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- - 无标题 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 模糊 -->
+    </style>
+
+    <style name="PopupAnimation" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/anim_left_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_left_out</item>
+    </style>
+
+    <style name="hwpush_NoActionBar" parent="@android:Theme.Holo.Light">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+</resources>

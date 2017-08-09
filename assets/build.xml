@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project
+    name="hosa"
+    basedir="/Users/xuelanbin/Downloads/taogubaappgit/taogbaapp/lib"
+    default="makeSuperJar" > <!-- basedir 存放所有jar包路径 -->
+    <!-- 命令执行合并jar包 ant -buildfile /Users/xuelanbin/Downloads/taogubaappgit/taogbaapp/build.xml -->
+
+    <target
+        name="makeSuperJar"
+        description="description" >
+
+        <jar destfile="classes2.jar" > <!-- destfile 目标文件名 xxx.jar -->
+
+          <!--   <zipfileset src="alipaysdk.jar" /> -->
+
+           <!--  <zipfileset src="alipaysecsdk.jar" /> -->
+
+         <!--    <zipfileset src="alipayutdid.jar" /> -->
+
+            <zipfileset src="android-async-http-1.4.6.jar" />
+
+            <zipfileset src="bcmail-jdk15-1.46.jar" />
+            
+            <zipfileset src="bcprov-jdk16-1.46.jar" />
+            
+            <zipfileset src="cairh-sjkh-client-android-framework1.0.jar" />
+            
+            <zipfileset src="ClientTransferSyncTool_p.jar" />
+            
+          <!--   <zipfileset src="HwPush_SDK_V2705.jar" /> -->
+            
+            <zipfileset src="jackson-core-asl-1.9.7.jar" />
+            
+            <zipfileset src="jackson-mapper-asl-1.9.7.jar" />
+            
+            <zipfileset src="jpush-sdk-release1.8.0.jar" />
+            
+           <!--  <zipfileset src="locSDK_4.2.jar" /> -->
+            
+           <!--  <zipfileset src="MiPush_SDK_Client_3_0_3.jar" /> -->
+            
+            <zipfileset src="mta-sdk-1.6.2.jar" />
+            
+            <zipfileset src="open_sdk_r5509.jar" />
+            
+           <!--  <zipfileset src="pinyin4j-2.5.0.jar" /> -->
+            
+            <zipfileset src="SocialSDK_QQZone_3.jar" />
+            
+            <zipfileset src="SocialSDK_Sina.jar" />
+            
+            <zipfileset src="SocialSDK_tencentWB_1.jar" />
+            
+            <zipfileset src="SocialSDK_tencentWB_2.jar" />
+            
+            <zipfileset src="SocialSDK_tencentWB_3.jar" />
+            
+          <!--   <zipfileset src="SocialSDK_WeiXin_1.jar" /> -->
+            
+            <zipfileset src="SocialSDK_WeiXin_2.jar" />
+            
+            <zipfileset src="TestABC.jar" />
+            
+          <!--   <zipfileset src="umeng_sdk.jar" /> -->
+            
+           <!--  <zipfileset src="umeng_social_sdk.jar" /> -->
+            
+            <zipfileset src="user_profile_mtj_1.3.jar" />
+            
+            <zipfileset src="volley.jar" />
+            
+            <zipfileset src="weiboSDKCore_3.1.4.jar" />
+            
+        </jar>
+    </target>
+
+</project>

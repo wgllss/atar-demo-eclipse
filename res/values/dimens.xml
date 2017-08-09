@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_top_title_bar_height">45dp</dimen>
+    <dimen name="activity_tab_menu_bar_height">30dp</dimen>
+    <dimen name="activity_tab_line_margin_top">73dp</dimen>
+    <dimen name="activity_viewPage_margin_top">74.5dp</dimen>
+    <dimen name="activity_top_title_bar_imageview_padding">11.5dp</dimen>
+    <dimen name="activity_his_on_top_list">200dp</dimen>
+    <dimen name="activity_top_title_bar_txt_padding">6dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_k_home_margin_top">55dp</dimen>
+    <dimen name="activity_k_game_margin_buttom">50dp</dimen>
+    <dimen name="activity_K_home_margin_buttom">80dp</dimen>
+    <dimen name="activity_k_dialog_margin">35dp</dimen>
+	<dimen name="activity_k_dialog_jieguo_height">45dp</dimen>
+</resources>

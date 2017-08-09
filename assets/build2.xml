@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project
+    name="hosa"
+    basedir="/Users/xuelanbin/Downloads/taogubaappgit/taogbaapp/lib"
+    default="makeSuperJar" > <!-- basedir 存放所有jar包路径 -->
+    <!-- 命令执行合并jar包 ant -buildfile /Users/xuelanbin/Downloads/taogubaappgit/taogbaapp/build2.xml -->
+
+    <target
+        name="makeSuperJar"
+        description="description" >
+
+        <jar destfile="classes3.jar" > <!-- destfile 目标文件名 xxx.jar -->
+
+            <zipfileset src="fastjson-1.1.46.android.jar" />
+
+            <zipfileset src="okio-1.3.0.jar" />
+
+            <zipfileset src="android-support-v7-recyclerview.jar" />
+
+            <zipfileset src="weex_inspector-0.10.0.5.jar" />
+
+            <zipfileset src="weex_sdk-0.9.56.jar" />
+            
+            <zipfileset src="okhttp-2.3.0.jar" />
+            
+            <zipfileset src="okhttp-ws-2.3.0.jar" />
+        </jar>
+    </target>
+
+</project>

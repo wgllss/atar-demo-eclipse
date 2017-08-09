@@ -1,0 +1,85 @@
+public class AppConfigJson {
+	private String versionName;// 版本号 和apk 的versionName一样的值
+	private boolean isReplace = true;// 如果apk新发版本 这个配置也新发配置.txt文件，为true: 老版本要替换该配置.txt, false :老版本不替换该.txt
+	private FunctionMenu topMenu;// 顶部功能菜单
+	private FunctionMenu centerMenu;// 广告下面功能菜单
+	private List<String> loading_images;// 开机引道页图片
+	private HtmlsViewPagerJson CommunityActivityJson;// 社区配置json
+	private String tpyTel;// 太平洋开户联系电话
+	private String fmTel;// 福米开户联系电话
+}
+	
+public class FunctionMenu {
+	private boolean showDividerLine; //是否显示中间竖线
+	private boolean shouldExpand; // PagerSlidingTabStrip 是否均分
+	private List<TabMenuItemBean> menuList; //一排功能菜单
+}
+
+public class TabMenuItemBean {
+	private int ID; // 可不必须 特殊点击事件根据ID可在原生写时必须填
+
+	private String menuName;// 导航名称 必须
+	private String menuNameColor;// 导航名称颜色 不需要可以不用配置 如 "#00000000" ,"#ff3e1e"。"白天,间模式" 不需要可以不用配置
+
+	private boolean isShowIcon;// 是否显示 menuIcon 不需要可以不用配置
+	private String menuIcon;// 导航url地址 不需要可以不用配置
+	private int menuIconWidthAndHeight;// icon 图片大小 不需要可以不用配置
+	private String selectMenuIcon;// 选中导航图片url地址 viewpager 和tabhost用到 首页导航菜单不需要不用配置该字段 不需要可以不用配置
+
+	private int orientation;// LinearLayout.VERTICAL :1 LinearLayout.HORIZONTAL :0 必须
+
+	private int infoNum;// 右上角是否有数字 不需要可以不用配置
+	private String infoNumColor;// 右上角小红点数字颜色 可设为透明 or 和 背景同为 红色 就只有小红点 如 ："#00000000" ,"#ff3e1e"
+	private int infoNumSize;// 控制红点数字大小 //默认可不配
+	private int menuNameTextSize;// 导航名称字体大小 不需要可以不用配置
+	private int infoNumMarginLeft;// 调整小红点在 显示图片时才有 距离左边距离 让小红点在图片右上角 默认0 可为正 负数 不需要可以不用配置
+	private int infoNumMarginTop;// 调整小红点在 显示图片时才有 距离上边距离 让小红点在图片右上角 默认0 可为正 负数 不需要可以不用配置
+
+	private String huo_flag_icon_url;// 火字图标 assets://images/huo_flag.png //默认assets下文件 可配置线上url 不需要可以不用配置
+	private int huo_flag_marginLeft;// 调整huo_flag 图片 距离左边距离 让huo_flag在图片右上角 位置 默认0 可为正 负数 不需要可以不用配置
+	private int huo_flag_marginTop;// 调整huo_flag 图片 距离上边距离 让huo_flag在图片右上角 默认0 可为正 负数 不需要可以不用配置
+	private int huo_flag_size;// 调整huo_flag 图片 大小 不需要可以不用配置
+
+	private OnClickInfo onClickInfo;// 点击所需要的信息 不需要可以不用配置
+	
+	menuIcon:可配置说明
+	
+    String imageUri = "http://site.com/image.png"; // from Web  
+    String imageUri = "file:///mnt/sdcard/image.png"; // from SD card  
+    String imageUri = "content://media/external/audio/albumart/13"; // from content provider  
+    String imageUri = "assets://image.png"; // from assets  
+    String imageUri = "drawable://" + R.drawable.image; // from drawables (only images, non-9patch)  
+    
+    apk assets 下预置
+    股市直播 "assets://images/zhibo.png"
+    淘股宝 "assets://images/jiaoyi.png"
+    直呼吧 "assets://images/zhi_hu_icon.png"
+    实盘比赛 "assets://images/shipan_match.png"
+    交易练习 "assets://images/kxian.png"
+    实盘交易 "assets://images/shipan.png"
+    开户 "assets://images/waner.png"
+    牛人榜 "assets://images/niuren.png"
+}
+public class OnClickInfo {
+	private boolean needLogin;// 是否需要登陆
+	private String className;// 类名
+	// intentKeyValueClassName; // int or double or String or ArrayList<String> or MsgAndReMsgBean
+	// optionJson=[{"intentKey":"intnet传值Key","intentKeyValueClassName":"intent传值类型名","intentKeyValue":"intent所传值"},{"intentKey":"intnet传值Key","intentKeyValueClassName":"intent传值类型名","intentKeyValue":"intent所传值"}];
+	private String optionJson;// 参数
+	// eventType :0百度统计 1:友盟统计
+	// {\"eventName\":\"买啥-淘股宝\",\"eventID\":\"1002\",\"eventType\":\"0\"}
+	private String onEventInfo;// 统计点击事件json
+	// 特殊点击事件类型，会先判断再判断上面的 optionJson
+	private String specialInfo;
+}
+
+	
+
+如果  不需要   的字段   json  上可以不配置
+
+
+
+
+
+
+
