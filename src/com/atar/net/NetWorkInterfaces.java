@@ -5,7 +5,7 @@ import java.util.Map;
 
 import android.app.Activity;
 import android.http.HttpUrlConnectionRequest;
-import android.interfaces.HandleMessageListener;
+import android.interfaces.NetWorkCallListener;
 import android.reflection.ThreadPoolTool;
 import android.utils.CommonStringUtil;
 
@@ -29,7 +29,7 @@ import com.atar.modles.WonderfulTopicJson;
 public class NetWorkInterfaces {
 
 	/** 获取今日赞 **/
-	public static void GetWonderTopicList(Activity activity, HandleMessageListener handleMessageListener, String pageNo) {
+	public static void GetWonderTopicList(Activity activity, NetWorkCallListener handleMessageListener, String pageNo) {
 		Map<String, String> map = new HashMap<String, String>();
 		CommonStringUtil.setMap(map, "pageNo", pageNo);
 		Object[] params = new Object[] { UrlParamCommon.UrlWonderfulList, map, UrlParamCommon.UTF_8, activity };
@@ -38,7 +38,7 @@ public class NetWorkInterfaces {
 	}
 
 	/** 获取淘股论坛数据 **/
-	public static void GetForumList(Activity activity, HandleMessageListener handleMessageListener, int which, int which2, String actionName, String pageNo, String blockID, String flag) {
+	public static void GetForumList(Activity activity, NetWorkCallListener handleMessageListener, int which, int which2, String actionName, String pageNo, String blockID, String flag) {
 		Map<String, String> map = new HashMap<String, String>();
 		CommonStringUtil.setMap(map, "pageNo", pageNo);
 		CommonStringUtil.setMap(map, "blockID", blockID);

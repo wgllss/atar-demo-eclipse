@@ -6,7 +6,7 @@ import android.application.CrashHandler;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.interfaces.HandleMessageListener;
+import android.interfaces.NetWorkCallListener;
 import android.interfaces.OnOpenDrawerCompleteListener;
 import android.net.Uri;
 import android.os.Build.VERSION;
@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.reflection.NetWorkMsg;
 import android.utils.ApplicationManagement;
 import android.utils.ScreenUtils;
 import android.utils.ShowLog;
@@ -49,7 +50,7 @@ import com.atar.utils.IntentUtil;
  *****************************************************************************************************************************************************************************
  */
 @SuppressLint("InlinedApi")
-public class AtarCommonActivity extends CommonActivity implements OnClickListener, HandleMessageListener, OnOpenDrawerCompleteListener {
+public class AtarCommonActivity extends CommonActivity implements OnClickListener, NetWorkCallListener, OnOpenDrawerCompleteListener {
 	private String TAG = AtarCommonActivity.class.getSimpleName();
 
 	protected ImageView imgCommonTopLeft;
@@ -557,7 +558,7 @@ public class AtarCommonActivity extends CommonActivity implements OnClickListene
 	}// 初始化值
 
 	@Override
-	public void NetWorkHandlMessage(Message msg) {
+	public void NetWorkCall(NetWorkMsg msg) {
 		setLoadingViewGone();
 		// CommonLoading.dissMissLoading();
 	}
