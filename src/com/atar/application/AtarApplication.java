@@ -79,7 +79,7 @@ public class AtarApplication extends Application {
 
 	public IWXAPI getWxApi(Activity activity) {
 		if (api == null) {
-			api = WXAPIFactory.createWXAPI(activity, GlobeSettings.WeiXin_AppID, false);
+			// api = WXAPIFactory.createWXAPI(activity, GlobeSettings.WeiXin_AppID, false);
 		}
 		return api;
 	}

@@ -39,9 +39,9 @@ public class ShareTool {
 	public static ShareTool getInstance() {
 		if (mShareTool == null) {
 			Config.OpenEditor = true;
-			PlatformConfig.setWeixin(GlobeSettings.WeiXin_AppID, GlobeSettings.WeiXin_App_Secret);
-			PlatformConfig.setSinaWeibo(GlobeSettings.LOGIN_SINA_APP_KEY, GlobeSettings.WEIBO_APP_SECRET);
-			PlatformConfig.setQQZone(GlobeSettings.QQ_APP_ID, GlobeSettings.QQ_App_Secret);
+			// PlatformConfig.setWeixin(GlobeSettings.WeiXin_AppID, GlobeSettings.WeiXin_App_Secret);
+			// PlatformConfig.setSinaWeibo(GlobeSettings.LOGIN_SINA_APP_KEY, GlobeSettings.WEIBO_APP_SECRET);
+			// PlatformConfig.setQQZone(GlobeSettings.QQ_APP_ID, GlobeSettings.QQ_App_Secret);
 			mShareTool = new ShareTool();
 		}
 		return mShareTool;
@@ -267,7 +267,7 @@ public class ShareTool {
 	*/
 	public void shareTencentWeibo(final Activity activity, final String shareTitle, final String shareUrl, final String shareContent, final int ShareImgResID, final UMShareListener umShareListener) {
 		if (mShareAPI == null) {
-			PlatformConfig.setQQZone(GlobeSettings.QQ_APP_ID, GlobeSettings.QQ_App_Secret);
+			// PlatformConfig.setQQZone(GlobeSettings.QQ_APP_ID, GlobeSettings.QQ_App_Secret);
 			mShareAPI = UMShareAPI.get(activity);
 		}
 		mShareAPI.doOauthVerify(activity, SHARE_MEDIA.QQ, new UMAuthListener() {
