@@ -12,6 +12,44 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+        <!-- 阿里热修复 start -->
+
+
+        <!-- 自已账号 -->
+
+        <meta-data
+            android:name="com.taobao.android.hotfix.IDSECRET"
+            android:value="24571708-1" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.APPSECRET"
+            android:value="26b44ad2c34278a4620e5080a2403100" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.RSASECRET"
+            android:value="MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCDnDjkTPFdHb5eeUpkkzKa92FdXynqAi1lm+rJerFKEGpDA/gOLb4AqOrJcNbSEB6/9OJwuPP3dD52dGwiRKpKED8lbnMFFYRaoUWw8t5a/irih71ib+jRizqwdSgMIUfsYMshHna/cc1R5owKjLIRfzfZdU1aRCI997YO0M+Rx50aycrVy99CQAVh8hoeUn06IlRK9jj2hP46eL8NbzYncU4RfkWSMWqwVJRjErHbChgceVBrvr0s+2XbH/7N4NY7DnnYifiu8+94RC54/FjjbDfvKfD3W6aj0bu4y2glHuglr4PGaWer+9i2+roSFDo/LsT10d5WlZ8eFeagj+WTAgMBAAECggEAS5JpGK8V6WIq7hS3owjjBhkGz5bVeonFh5MAPrE1HFJQsiqVRY7+i2JzbzhcIkMfZRo47IFHldAqDdrMPOEw51Zs7BF/+mtglKoGWpUbGSTZezp2hQ+9oJVSHgEn/c8efZ0XBu13QncWbvDzeRtRJLroVvYEdNCq2OpkoB1HE224bsqECv3XUeB6rEMMFxXz8GXn1zbX2hkVutFhm3JpVYG0daRKoh7gM3Iw/7jFARPeBN3+YgKSBwAsiUjRx5nUnHTJcaWJkQvkHm8tXRrl/pTe1Lv+9XxQTk7jji3e3GYPzPeTlxFy5vi8er1y7WJhw+OU3BmJYvUONPWKy5PAAQKBgQDFThz1pMIyqgotFoCVjPMgpeKDHkVwbdDfGDOh9cq2hqInkLifatfV4hueBpvGNiwJQClZMbseSuA1tNrJA1mH91FNG9jcQCg2epb5dSsIOxO80B2/wVPqt3WrYz9Oq7rM3c7EkRf299cmVDo0JX2g5bcoAW4aiu+IULLRflutIQKBgQCqwxOrr0iR7gjqfmXQlJ+41dChvQaq0DUaNZiDGa7qPa+8VKGC2EPL+TMN95vlJ77vWGvOvJ6x+X4aUQJp7KBdkZtko45QTm6gUnF7Bs8d+xoFuPzR9n9sLXQbBVHjav1+Mu4Fo6a0rHHzxu3tQHh0hIhsoVpd8Rn/4ISbqBdoMwKBgCaEe07RHUA6xcXLkMqhO41yFOg37qJmLdJ/rQS/MRW07s7+h6xHdV9BxtZwv9RQGwSrS+cnuDnPsDmL1vJK/x12AJ8nAozs0WzhPbvxTbdLoSzJDCW1HibCLeyJcYBwMgVwf78L/DuwYoYPB1XKw923OqxKqy3vVZes+VvAaTFBAoGAHBnoRcudtK4od3Z/iNi8hC1jnQo/a6LB6mNBiumSGGg4YFTJE4BFf+6tkTHbTNXCnR6+9xGhSAaX0vrb29Sd+2f325Ly25JcsDOBC07ujK+C88giiub2xzWfssaoWDWGK9tzwifRSlBKnGRzSSTf7cTVspLHDUidD7fB+t+ponMCgYEAoRTZsV/L7m2XDqRVf6JhJ91C4cCHYSPLCjK23KdLF7X6UdnHpy6zjZ09tvI4EjztJBlmQjigZHCzH8lHkQuJRLSiwTJ4AzYk1QbKmAqkHLvcYcVtucBvS2dFjWCrQAVxEOR5U5MuiTkLqSfVTuOsHwdcnkeP5v9l/2au31uRpVk=" />
+
+        <!-- 自已账号 -->
+
+
+        <!-- 阿里热修复 start -->
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>
