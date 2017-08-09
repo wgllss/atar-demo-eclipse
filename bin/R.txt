@@ -427,6 +427,7 @@ int drawable corners_transparent8 0x7f020008
 int drawable corners_transparent9_blue 0x7f020009
 int drawable ic_launcher 0x7f02000a
 int drawable select_transparent0_to_transparent2_bg 0x7f02000b
+int id btn_net_test 0x7f0a0011
 int id clickRemove 0x7f0a0005
 int id click_remove 0x7f0a0001
 int id common_top_title_bar 0x7f0a000a
@@ -434,11 +435,11 @@ int id drag_handle 0x7f0a0000
 int id flingRemove 0x7f0a0006
 int id img_common_top_left 0x7f0a000b
 int id img_common_top_right 0x7f0a0010
-int id linear_loading 0x7f0a0011
+int id linear_loading 0x7f0a0012
 int id onDown 0x7f0a0007
 int id onLongPress 0x7f0a0008
 int id onMove 0x7f0a0009
-int id pull_to_refresh_progress 0x7f0a0012
+int id pull_to_refresh_progress 0x7f0a0013
 int id top_title_bar_left_txt_bank_secu 0x7f0a0003
 int id top_title_bar_left_txt_typ_news 0x7f0a0004
 int id top_title_bar_other_image 0x7f0a0002
@@ -446,10 +447,11 @@ int id txt_common_top_left 0x7f0a000c
 int id txt_common_top_right 0x7f0a000f
 int id txt_common_top_title 0x7f0a000d
 int id txt_common_top_title_right_txt 0x7f0a000e
-int id txt_loading_notice 0x7f0a0013
-int layout activity_taoguba_common 0x7f030000
-int layout activity_taoguba_common_top 0x7f030001
-int layout common_taoguba_loading 0x7f030002
+int id txt_loading_notice 0x7f0a0014
+int layout activity_atar_common 0x7f030000
+int layout activity_atar_common_top 0x7f030001
+int layout activity_maindemo 0x7f030002
+int layout common_atar_loading 0x7f030003
 int string String_edit_dynamic_group_more_view 0x7f050083
 int string String_n_stock_notice_2 0x7f050086
 int string String_reply_obj 0x7f050082

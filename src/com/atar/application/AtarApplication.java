@@ -15,7 +15,7 @@ import android.support.multidex.MultiDex;
 import android.utils.ShowLog;
 import android.widget.CommonToast;
 
-import com.atar.activity.R;
+import com.atar.activitys.R;
 import com.lidroid.xutils.DbUtils;
 import com.taobao.sophix.PatchStatus;
 import com.taobao.sophix.SophixManager;

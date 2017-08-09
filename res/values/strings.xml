@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">淘股吧</string>
+    <string name="app_name">Atar-demo</string>
     <string name="app_image_base_url">TGB</string>
     <string name="action_settings">Settings</string>
     <!-- 异常错误提示  by Atar start -->

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.atar.activity"
+    package="com.atar.activitys"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -8,11 +8,21 @@
         android:targetSdkVersion="19" />
 
     <application
+        android:name="com.atar.application.AtarApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainDemoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <!-- 阿里热修复 start -->
 
 

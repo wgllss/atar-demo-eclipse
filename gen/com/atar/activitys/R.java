@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.atar.activity;
+package com.atar.activitys;
 
 public final class R {
     public static final class anim {
@@ -1091,6 +1091,7 @@ containing a value of this type.
         public static final int select_transparent0_to_transparent2_bg=0x7f02000b;
     }
     public static final class id {
+        public static final int btn_net_test=0x7f0a0011;
         public static final int clickRemove=0x7f0a0005;
         public static final int click_remove=0x7f0a0001;
         public static final int common_top_title_bar=0x7f0a000a;
@@ -1098,11 +1099,11 @@ containing a value of this type.
         public static final int flingRemove=0x7f0a0006;
         public static final int img_common_top_left=0x7f0a000b;
         public static final int img_common_top_right=0x7f0a0010;
-        public static final int linear_loading=0x7f0a0011;
+        public static final int linear_loading=0x7f0a0012;
         public static final int onDown=0x7f0a0007;
         public static final int onLongPress=0x7f0a0008;
         public static final int onMove=0x7f0a0009;
-        public static final int pull_to_refresh_progress=0x7f0a0012;
+        public static final int pull_to_refresh_progress=0x7f0a0013;
         public static final int top_title_bar_left_txt_bank_secu=0x7f0a0003;
         public static final int top_title_bar_left_txt_typ_news=0x7f0a0004;
         public static final int top_title_bar_other_image=0x7f0a0002;
@@ -1110,12 +1111,13 @@ containing a value of this type.
         public static final int txt_common_top_right=0x7f0a000f;
         public static final int txt_common_top_title=0x7f0a000d;
         public static final int txt_common_top_title_right_txt=0x7f0a000e;
-        public static final int txt_loading_notice=0x7f0a0013;
+        public static final int txt_loading_notice=0x7f0a0014;
     }
     public static final class layout {
-        public static final int activity_taoguba_common=0x7f030000;
-        public static final int activity_taoguba_common_top=0x7f030001;
-        public static final int common_taoguba_loading=0x7f030002;
+        public static final int activity_atar_common=0x7f030000;
+        public static final int activity_atar_common_top=0x7f030001;
+        public static final int activity_maindemo=0x7f030002;
+        public static final int common_atar_loading=0x7f030003;
     }
     public static final class string {
         public static final int String_edit_dynamic_group_more_view=0x7f050083;
@@ -1420,15 +1422,15 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #AbstractWheelView_isAllVisible com.atar.activity:isAllVisible}</code></td><td></td></tr>
-           <tr><td><code>{@link #AbstractWheelView_isCyclic com.atar.activity:isCyclic}</code></td><td></td></tr>
-           <tr><td><code>{@link #AbstractWheelView_itemOffsetPercent com.atar.activity:itemOffsetPercent}</code></td><td></td></tr>
-           <tr><td><code>{@link #AbstractWheelView_itemsDimmedAlpha com.atar.activity:itemsDimmedAlpha}</code></td><td></td></tr>
-           <tr><td><code>{@link #AbstractWheelView_itemsPadding com.atar.activity:itemsPadding}</code></td><td></td></tr>
-           <tr><td><code>{@link #AbstractWheelView_selectionDivider com.atar.activity:selectionDivider}</code></td><td></td></tr>
-           <tr><td><code>{@link #AbstractWheelView_selectionDividerActiveAlpha com.atar.activity:selectionDividerActiveAlpha}</code></td><td></td></tr>
-           <tr><td><code>{@link #AbstractWheelView_selectionDividerDimmedAlpha com.atar.activity:selectionDividerDimmedAlpha}</code></td><td></td></tr>
-           <tr><td><code>{@link #AbstractWheelView_visibleItems com.atar.activity:visibleItems}</code></td><td></td></tr>
+           <tr><td><code>{@link #AbstractWheelView_isAllVisible com.atar.activitys:isAllVisible}</code></td><td></td></tr>
+           <tr><td><code>{@link #AbstractWheelView_isCyclic com.atar.activitys:isCyclic}</code></td><td></td></tr>
+           <tr><td><code>{@link #AbstractWheelView_itemOffsetPercent com.atar.activitys:itemOffsetPercent}</code></td><td></td></tr>
+           <tr><td><code>{@link #AbstractWheelView_itemsDimmedAlpha com.atar.activitys:itemsDimmedAlpha}</code></td><td></td></tr>
+           <tr><td><code>{@link #AbstractWheelView_itemsPadding com.atar.activitys:itemsPadding}</code></td><td></td></tr>
+           <tr><td><code>{@link #AbstractWheelView_selectionDivider com.atar.activitys:selectionDivider}</code></td><td></td></tr>
+           <tr><td><code>{@link #AbstractWheelView_selectionDividerActiveAlpha com.atar.activitys:selectionDividerActiveAlpha}</code></td><td></td></tr>
+           <tr><td><code>{@link #AbstractWheelView_selectionDividerDimmedAlpha com.atar.activitys:selectionDividerDimmedAlpha}</code></td><td></td></tr>
+           <tr><td><code>{@link #AbstractWheelView_visibleItems com.atar.activitys:visibleItems}</code></td><td></td></tr>
            </table>
            @see #AbstractWheelView_isAllVisible
            @see #AbstractWheelView_isCyclic
@@ -1446,7 +1448,7 @@ containing a value of this type.
             0x7f010013
         };
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#isAllVisible}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#isAllVisible}
           attribute's value can be found in the {@link #AbstractWheelView} array.
 
 
@@ -1456,11 +1458,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:isAllVisible
+          @attr name com.atar.activitys:isAllVisible
         */
         public static final int AbstractWheelView_isAllVisible = 1;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#isCyclic}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#isCyclic}
           attribute's value can be found in the {@link #AbstractWheelView} array.
 
 
@@ -1470,11 +1472,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:isCyclic
+          @attr name com.atar.activitys:isCyclic
         */
         public static final int AbstractWheelView_isCyclic = 8;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#itemOffsetPercent}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#itemOffsetPercent}
           attribute's value can be found in the {@link #AbstractWheelView} array.
 
 
@@ -1484,11 +1486,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:itemOffsetPercent
+          @attr name com.atar.activitys:itemOffsetPercent
         */
         public static final int AbstractWheelView_itemOffsetPercent = 2;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#itemsDimmedAlpha}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#itemsDimmedAlpha}
           attribute's value can be found in the {@link #AbstractWheelView} array.
 
 
@@ -1498,11 +1500,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:itemsDimmedAlpha
+          @attr name com.atar.activitys:itemsDimmedAlpha
         */
         public static final int AbstractWheelView_itemsDimmedAlpha = 7;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#itemsPadding}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#itemsPadding}
           attribute's value can be found in the {@link #AbstractWheelView} array.
 
 
@@ -1514,21 +1516,21 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:itemsPadding
+          @attr name com.atar.activitys:itemsPadding
         */
         public static final int AbstractWheelView_itemsPadding = 3;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#selectionDivider}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#selectionDivider}
           attribute's value can be found in the {@link #AbstractWheelView} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.atar.activity:selectionDivider
+          @attr name com.atar.activitys:selectionDivider
         */
         public static final int AbstractWheelView_selectionDivider = 6;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#selectionDividerActiveAlpha}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#selectionDividerActiveAlpha}
           attribute's value can be found in the {@link #AbstractWheelView} array.
 
 
@@ -1538,11 +1540,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:selectionDividerActiveAlpha
+          @attr name com.atar.activitys:selectionDividerActiveAlpha
         */
         public static final int AbstractWheelView_selectionDividerActiveAlpha = 5;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#selectionDividerDimmedAlpha}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#selectionDividerDimmedAlpha}
           attribute's value can be found in the {@link #AbstractWheelView} array.
 
 
@@ -1552,11 +1554,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:selectionDividerDimmedAlpha
+          @attr name com.atar.activitys:selectionDividerDimmedAlpha
         */
         public static final int AbstractWheelView_selectionDividerDimmedAlpha = 4;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#visibleItems}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#visibleItems}
           attribute's value can be found in the {@link #AbstractWheelView} array.
 
 
@@ -1566,7 +1568,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:visibleItems
+          @attr name com.atar.activitys:visibleItems
         */
         public static final int AbstractWheelView_visibleItems = 0;
         /** Attributes that can be used with a DragSortListView.
@@ -1575,24 +1577,24 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #DragSortListView_click_remove_id com.atar.activity:click_remove_id}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_collapsed_height com.atar.activity:collapsed_height}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_drag_enabled com.atar.activity:drag_enabled}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_drag_handle_id com.atar.activity:drag_handle_id}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_drag_scroll_start com.atar.activity:drag_scroll_start}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_drag_start_mode com.atar.activity:drag_start_mode}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_drop_animation_duration com.atar.activity:drop_animation_duration}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_fling_handle_id com.atar.activity:fling_handle_id}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_float_alpha com.atar.activity:float_alpha}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_float_background_color com.atar.activity:float_background_color}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_max_drag_scroll_speed com.atar.activity:max_drag_scroll_speed}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_remove_animation_duration com.atar.activity:remove_animation_duration}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_remove_enabled com.atar.activity:remove_enabled}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_remove_mode com.atar.activity:remove_mode}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_slide_shuffle_speed com.atar.activity:slide_shuffle_speed}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_sort_enabled com.atar.activity:sort_enabled}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_track_drag_sort com.atar.activity:track_drag_sort}</code></td><td></td></tr>
-           <tr><td><code>{@link #DragSortListView_use_default_controller com.atar.activity:use_default_controller}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_click_remove_id com.atar.activitys:click_remove_id}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_collapsed_height com.atar.activitys:collapsed_height}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_drag_enabled com.atar.activitys:drag_enabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_drag_handle_id com.atar.activitys:drag_handle_id}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_drag_scroll_start com.atar.activitys:drag_scroll_start}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_drag_start_mode com.atar.activitys:drag_start_mode}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_drop_animation_duration com.atar.activitys:drop_animation_duration}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_fling_handle_id com.atar.activitys:fling_handle_id}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_float_alpha com.atar.activitys:float_alpha}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_float_background_color com.atar.activitys:float_background_color}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_max_drag_scroll_speed com.atar.activitys:max_drag_scroll_speed}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_remove_animation_duration com.atar.activitys:remove_animation_duration}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_remove_enabled com.atar.activitys:remove_enabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_remove_mode com.atar.activitys:remove_mode}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_slide_shuffle_speed com.atar.activitys:slide_shuffle_speed}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_sort_enabled com.atar.activitys:sort_enabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_track_drag_sort com.atar.activitys:track_drag_sort}</code></td><td></td></tr>
+           <tr><td><code>{@link #DragSortListView_use_default_controller com.atar.activitys:use_default_controller}</code></td><td></td></tr>
            </table>
            @see #DragSortListView_click_remove_id
            @see #DragSortListView_collapsed_height
@@ -1621,7 +1623,7 @@ containing a value of this type.
             0x7f010029, 0x7f01002a
         };
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#click_remove_id}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#click_remove_id}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1631,11 +1633,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:click_remove_id
+          @attr name com.atar.activitys:click_remove_id
         */
         public static final int DragSortListView_click_remove_id = 16;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#collapsed_height}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#collapsed_height}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1647,11 +1649,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:collapsed_height
+          @attr name com.atar.activitys:collapsed_height
         */
         public static final int DragSortListView_collapsed_height = 0;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#drag_enabled}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#drag_enabled}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1661,11 +1663,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:drag_enabled
+          @attr name com.atar.activitys:drag_enabled
         */
         public static final int DragSortListView_drag_enabled = 10;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#drag_handle_id}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#drag_handle_id}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1675,11 +1677,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:drag_handle_id
+          @attr name com.atar.activitys:drag_handle_id
         */
         public static final int DragSortListView_drag_handle_id = 14;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#drag_scroll_start}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#drag_scroll_start}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1689,11 +1691,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:drag_scroll_start
+          @attr name com.atar.activitys:drag_scroll_start
         */
         public static final int DragSortListView_drag_scroll_start = 1;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#drag_start_mode}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#drag_start_mode}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1707,11 +1709,11 @@ containing a value of this type.
 <tr><td><code>onMove</code></td><td>1</td><td></td></tr>
 <tr><td><code>onLongPress</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name com.atar.activity:drag_start_mode
+          @attr name com.atar.activitys:drag_start_mode
         */
         public static final int DragSortListView_drag_start_mode = 13;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#drop_animation_duration}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#drop_animation_duration}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1721,11 +1723,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:drop_animation_duration
+          @attr name com.atar.activitys:drop_animation_duration
         */
         public static final int DragSortListView_drop_animation_duration = 9;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#fling_handle_id}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#fling_handle_id}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1735,11 +1737,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:fling_handle_id
+          @attr name com.atar.activitys:fling_handle_id
         */
         public static final int DragSortListView_fling_handle_id = 15;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#float_alpha}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#float_alpha}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1749,11 +1751,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:float_alpha
+          @attr name com.atar.activitys:float_alpha
         */
         public static final int DragSortListView_float_alpha = 6;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#float_background_color}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#float_background_color}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1764,11 +1766,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:float_background_color
+          @attr name com.atar.activitys:float_background_color
         */
         public static final int DragSortListView_float_background_color = 3;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#max_drag_scroll_speed}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#max_drag_scroll_speed}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1778,11 +1780,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:max_drag_scroll_speed
+          @attr name com.atar.activitys:max_drag_scroll_speed
         */
         public static final int DragSortListView_max_drag_scroll_speed = 2;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#remove_animation_duration}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#remove_animation_duration}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1792,11 +1794,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:remove_animation_duration
+          @attr name com.atar.activitys:remove_animation_duration
         */
         public static final int DragSortListView_remove_animation_duration = 8;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#remove_enabled}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#remove_enabled}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1806,11 +1808,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:remove_enabled
+          @attr name com.atar.activitys:remove_enabled
         */
         public static final int DragSortListView_remove_enabled = 12;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#remove_mode}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#remove_mode}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1823,11 +1825,11 @@ containing a value of this type.
 <tr><td><code>clickRemove</code></td><td>0</td><td></td></tr>
 <tr><td><code>flingRemove</code></td><td>1</td><td></td></tr>
 </table>
-          @attr name com.atar.activity:remove_mode
+          @attr name com.atar.activitys:remove_mode
         */
         public static final int DragSortListView_remove_mode = 4;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#slide_shuffle_speed}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#slide_shuffle_speed}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1837,11 +1839,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:slide_shuffle_speed
+          @attr name com.atar.activitys:slide_shuffle_speed
         */
         public static final int DragSortListView_slide_shuffle_speed = 7;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#sort_enabled}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#sort_enabled}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1851,11 +1853,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:sort_enabled
+          @attr name com.atar.activitys:sort_enabled
         */
         public static final int DragSortListView_sort_enabled = 11;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#track_drag_sort}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#track_drag_sort}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1865,11 +1867,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:track_drag_sort
+          @attr name com.atar.activitys:track_drag_sort
         */
         public static final int DragSortListView_track_drag_sort = 5;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#use_default_controller}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#use_default_controller}
           attribute's value can be found in the {@link #DragSortListView} array.
 
 
@@ -1879,7 +1881,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:use_default_controller
+          @attr name com.atar.activitys:use_default_controller
         */
         public static final int DragSortListView_use_default_controller = 17;
         /** Attributes that can be used with a NineGridLayout.
@@ -1888,7 +1890,7 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #NineGridLayout_sapcing com.atar.activity:sapcing}</code></td><td></td></tr>
+           <tr><td><code>{@link #NineGridLayout_sapcing com.atar.activitys:sapcing}</code></td><td></td></tr>
            </table>
            @see #NineGridLayout_sapcing
          */
@@ -1896,7 +1898,7 @@ containing a value of this type.
             0x7f010018
         };
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#sapcing}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#sapcing}
           attribute's value can be found in the {@link #NineGridLayout} array.
 
 
@@ -1908,7 +1910,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:sapcing
+          @attr name com.atar.activitys:sapcing
         */
         public static final int NineGridLayout_sapcing = 0;
         /** Attributes that can be used with a PagerSlidingTabStrip.
@@ -1917,17 +1919,17 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #PagerSlidingTabStrip_pstsDividerColor com.atar.activity:pstsDividerColor}</code></td><td></td></tr>
-           <tr><td><code>{@link #PagerSlidingTabStrip_pstsDividerPadding com.atar.activity:pstsDividerPadding}</code></td><td></td></tr>
-           <tr><td><code>{@link #PagerSlidingTabStrip_pstsIndicatorColor com.atar.activity:pstsIndicatorColor}</code></td><td></td></tr>
-           <tr><td><code>{@link #PagerSlidingTabStrip_pstsIndicatorHeight com.atar.activity:pstsIndicatorHeight}</code></td><td></td></tr>
-           <tr><td><code>{@link #PagerSlidingTabStrip_pstsScrollOffset com.atar.activity:pstsScrollOffset}</code></td><td></td></tr>
-           <tr><td><code>{@link #PagerSlidingTabStrip_pstsShouldExpand com.atar.activity:pstsShouldExpand}</code></td><td></td></tr>
-           <tr><td><code>{@link #PagerSlidingTabStrip_pstsTabBackground com.atar.activity:pstsTabBackground}</code></td><td></td></tr>
-           <tr><td><code>{@link #PagerSlidingTabStrip_pstsTabPaddingLeftRight com.atar.activity:pstsTabPaddingLeftRight}</code></td><td></td></tr>
-           <tr><td><code>{@link #PagerSlidingTabStrip_pstsTextAllCaps com.atar.activity:pstsTextAllCaps}</code></td><td></td></tr>
-           <tr><td><code>{@link #PagerSlidingTabStrip_pstsUnderlineColor com.atar.activity:pstsUnderlineColor}</code></td><td></td></tr>
-           <tr><td><code>{@link #PagerSlidingTabStrip_pstsUnderlineHeight com.atar.activity:pstsUnderlineHeight}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerSlidingTabStrip_pstsDividerColor com.atar.activitys:pstsDividerColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerSlidingTabStrip_pstsDividerPadding com.atar.activitys:pstsDividerPadding}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerSlidingTabStrip_pstsIndicatorColor com.atar.activitys:pstsIndicatorColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerSlidingTabStrip_pstsIndicatorHeight com.atar.activitys:pstsIndicatorHeight}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerSlidingTabStrip_pstsScrollOffset com.atar.activitys:pstsScrollOffset}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerSlidingTabStrip_pstsShouldExpand com.atar.activitys:pstsShouldExpand}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerSlidingTabStrip_pstsTabBackground com.atar.activitys:pstsTabBackground}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerSlidingTabStrip_pstsTabPaddingLeftRight com.atar.activitys:pstsTabPaddingLeftRight}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerSlidingTabStrip_pstsTextAllCaps com.atar.activitys:pstsTextAllCaps}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerSlidingTabStrip_pstsUnderlineColor com.atar.activitys:pstsUnderlineColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #PagerSlidingTabStrip_pstsUnderlineHeight com.atar.activitys:pstsUnderlineHeight}</code></td><td></td></tr>
            </table>
            @see #PagerSlidingTabStrip_pstsDividerColor
            @see #PagerSlidingTabStrip_pstsDividerPadding
@@ -1947,7 +1949,7 @@ containing a value of this type.
             0x7f010008, 0x7f010009, 0x7f01000a
         };
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#pstsDividerColor}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#pstsDividerColor}
           attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
 
 
@@ -1958,11 +1960,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:pstsDividerColor
+          @attr name com.atar.activitys:pstsDividerColor
         */
         public static final int PagerSlidingTabStrip_pstsDividerColor = 2;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#pstsDividerPadding}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#pstsDividerPadding}
           attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
 
 
@@ -1974,11 +1976,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:pstsDividerPadding
+          @attr name com.atar.activitys:pstsDividerPadding
         */
         public static final int PagerSlidingTabStrip_pstsDividerPadding = 5;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#pstsIndicatorColor}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#pstsIndicatorColor}
           attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
 
 
@@ -1989,11 +1991,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:pstsIndicatorColor
+          @attr name com.atar.activitys:pstsIndicatorColor
         */
         public static final int PagerSlidingTabStrip_pstsIndicatorColor = 0;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#pstsIndicatorHeight}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#pstsIndicatorHeight}
           attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
 
 
@@ -2005,11 +2007,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:pstsIndicatorHeight
+          @attr name com.atar.activitys:pstsIndicatorHeight
         */
         public static final int PagerSlidingTabStrip_pstsIndicatorHeight = 3;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#pstsScrollOffset}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#pstsScrollOffset}
           attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
 
 
@@ -2021,11 +2023,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:pstsScrollOffset
+          @attr name com.atar.activitys:pstsScrollOffset
         */
         public static final int PagerSlidingTabStrip_pstsScrollOffset = 7;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#pstsShouldExpand}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#pstsShouldExpand}
           attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
 
 
@@ -2035,21 +2037,21 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:pstsShouldExpand
+          @attr name com.atar.activitys:pstsShouldExpand
         */
         public static final int PagerSlidingTabStrip_pstsShouldExpand = 9;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#pstsTabBackground}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#pstsTabBackground}
           attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name com.atar.activity:pstsTabBackground
+          @attr name com.atar.activitys:pstsTabBackground
         */
         public static final int PagerSlidingTabStrip_pstsTabBackground = 8;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#pstsTabPaddingLeftRight}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#pstsTabPaddingLeftRight}
           attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
 
 
@@ -2061,11 +2063,11 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:pstsTabPaddingLeftRight
+          @attr name com.atar.activitys:pstsTabPaddingLeftRight
         */
         public static final int PagerSlidingTabStrip_pstsTabPaddingLeftRight = 6;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#pstsTextAllCaps}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#pstsTextAllCaps}
           attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
 
 
@@ -2075,11 +2077,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:pstsTextAllCaps
+          @attr name com.atar.activitys:pstsTextAllCaps
         */
         public static final int PagerSlidingTabStrip_pstsTextAllCaps = 10;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#pstsUnderlineColor}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#pstsUnderlineColor}
           attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
 
 
@@ -2090,11 +2092,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:pstsUnderlineColor
+          @attr name com.atar.activitys:pstsUnderlineColor
         */
         public static final int PagerSlidingTabStrip_pstsUnderlineColor = 1;
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#pstsUnderlineHeight}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#pstsUnderlineHeight}
           attribute's value can be found in the {@link #PagerSlidingTabStrip} array.
 
 
@@ -2106,7 +2108,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:pstsUnderlineHeight
+          @attr name com.atar.activitys:pstsUnderlineHeight
         */
         public static final int PagerSlidingTabStrip_pstsUnderlineHeight = 4;
         /** Attributes that can be used with a RatioImageView.
@@ -2115,7 +2117,7 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #RatioImageView_ratio com.atar.activity:ratio}</code></td><td></td></tr>
+           <tr><td><code>{@link #RatioImageView_ratio com.atar.activitys:ratio}</code></td><td></td></tr>
            </table>
            @see #RatioImageView_ratio
          */
@@ -2123,7 +2125,7 @@ containing a value of this type.
             0x7f010017
         };
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#ratio}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#ratio}
           attribute's value can be found in the {@link #RatioImageView} array.
 
 
@@ -2133,7 +2135,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:ratio
+          @attr name com.atar.activitys:ratio
         */
         public static final int RatioImageView_ratio = 0;
         /** Attributes that can be used with a WheelHorizontalView.
@@ -2142,7 +2144,7 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #WheelHorizontalView_selectionDividerWidth com.atar.activity:selectionDividerWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #WheelHorizontalView_selectionDividerWidth com.atar.activitys:selectionDividerWidth}</code></td><td></td></tr>
            </table>
            @see #WheelHorizontalView_selectionDividerWidth
          */
@@ -2150,7 +2152,7 @@ containing a value of this type.
             0x7f010015
         };
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#selectionDividerWidth}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#selectionDividerWidth}
           attribute's value can be found in the {@link #WheelHorizontalView} array.
 
 
@@ -2162,7 +2164,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:selectionDividerWidth
+          @attr name com.atar.activitys:selectionDividerWidth
         */
         public static final int WheelHorizontalView_selectionDividerWidth = 0;
         /** Attributes that can be used with a WheelVerticalView.
@@ -2171,7 +2173,7 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #WheelVerticalView_selectionDividerHeight com.atar.activity:selectionDividerHeight}</code></td><td></td></tr>
+           <tr><td><code>{@link #WheelVerticalView_selectionDividerHeight com.atar.activitys:selectionDividerHeight}</code></td><td></td></tr>
            </table>
            @see #WheelVerticalView_selectionDividerHeight
          */
@@ -2179,7 +2181,7 @@ containing a value of this type.
             0x7f010014
         };
         /**
-          <p>This symbol is the offset where the {@link com.atar.activity.R.attr#selectionDividerHeight}
+          <p>This symbol is the offset where the {@link com.atar.activitys.R.attr#selectionDividerHeight}
           attribute's value can be found in the {@link #WheelVerticalView} array.
 
 
@@ -2191,7 +2193,7 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name com.atar.activity:selectionDividerHeight
+          @attr name com.atar.activitys:selectionDividerHeight
         */
         public static final int WheelVerticalView_selectionDividerHeight = 0;
     };

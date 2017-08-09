@@ -11,7 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.utils.ShowLog;
 
-import com.atar.activity.R;
+import com.atar.activitys.R;
 
 /**
  *****************************************************************************************************************************************************************************

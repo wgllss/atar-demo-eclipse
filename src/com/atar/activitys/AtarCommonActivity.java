@@ -31,7 +31,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.atar.activity.R;
 import com.atar.utils.IntentUtil;
 
 /**
@@ -84,7 +83,7 @@ public class AtarCommonActivity extends CommonActivity implements OnClickListene
 			getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 		}
 		if (isExtendsTaogubaCommonActivity) {
-			setContentView(R.layout.activity_taoguba_common);
+			setContentView(R.layout.activity_atar_common);
 			txtCommonTopTitle = (TextView) findViewById(R.id.txt_common_top_title);
 			imgCommonTopLeft = (ImageView) findViewById(R.id.img_common_top_left);
 			imgCommonTopRight = (ImageView) findViewById(R.id.img_common_top_right);
