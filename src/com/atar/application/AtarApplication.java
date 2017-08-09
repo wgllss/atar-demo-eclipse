@@ -16,13 +16,11 @@ import android.utils.ShowLog;
 import android.widget.CommonToast;
 
 import com.atar.activity.R;
-import com.atar.globe.GlobeSettings;
 import com.lidroid.xutils.DbUtils;
 import com.taobao.sophix.PatchStatus;
 import com.taobao.sophix.SophixManager;
 import com.taobao.sophix.listener.PatchLoadStatusListener;
 import com.tencent.mm.sdk.openapi.IWXAPI;
-import com.tencent.mm.sdk.openapi.WXAPIFactory;
 
 /**
  *****************************************************************************************************************************************************************************

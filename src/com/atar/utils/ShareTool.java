@@ -8,9 +8,7 @@ import java.util.Map;
 import android.app.Activity;
 import android.widget.CommonToast;
 
-import com.atar.globe.GlobeSettings;
 import com.umeng.socialize.Config;
-import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMAuthListener;
 import com.umeng.socialize.UMShareAPI;

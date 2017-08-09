@@ -5,7 +5,6 @@ package com.atar.globe;
 
 import android.annotation.SuppressLint;
 import android.http.HttpRequest;
-import android.os.Environment;
 
 /**
  ******************************************************************************************
