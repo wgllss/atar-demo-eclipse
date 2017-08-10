@@ -6,6 +6,8 @@ package com.atar.activitys.demos;
 import java.util.HashMap;
 import java.util.Map;
 
+import android.appconfig.AppConfigSetting;
+import android.content.Intent;
 import android.interfaces.NetWorkCallTListenet;
 import android.os.Bundle;
 import android.reflection.NetWorkMsg;
@@ -15,8 +17,6 @@ import android.widget.CommonToast;
 
 import com.atar.activitys.AtarCommonActivity;
 import com.atar.activitys.R;
-import com.atar.activitys.R.id;
-import com.atar.activitys.R.layout;
 import com.atar.enums.EnumMsgWhat;
 import com.atar.modles.WonderfulTopicJson;
 import com.atar.net.NetWorkInterfaces;
@@ -44,12 +44,14 @@ public class MainDemoActivity extends AtarCommonActivity {
 	protected void bindEvent() {
 		findViewById(R.id.btn_net_test).setOnClickListener(this);
 		findViewById(R.id.btn_net_test2).setOnClickListener(this);
+		findViewById(R.id.btn_viewpagerdemoactivity).setOnClickListener(this);
 	}
 
 	@Override
 	protected void initValue() {
 		super.initValue();
 		setActivityTitle("demo主界面");
+		AppConfigSetting.getInstance().saveLoginUserId("15616915");
 	}
 
 	@Override
@@ -70,6 +72,9 @@ public class MainDemoActivity extends AtarCommonActivity {
 					}
 				}
 			}, UrlParamCommon.UrlWonderfulList, "GET", map, WonderfulTopicJson.class);
+			break;
+		case R.id.btn_viewpagerdemoactivity:
+			startActivity(new Intent(this, ViewPagerDemoActivity.class));
 			break;
 		}
 	}

@@ -30,7 +30,7 @@ public interface OnHandlerDataListener<T extends PullToRefreshBase<V>, V extends
 	 *@param t:
 	 *@description:
 	 */
-	void onHandlerData(Message msg, T t);
+	void onDataReceive(Message msg, T t);
 
 	/**
 	 * 发送操作标志
@@ -42,20 +42,7 @@ public interface OnHandlerDataListener<T extends PullToRefreshBase<V>, V extends
 	 *@param msgWhat:
 	 *@description:
 	 */
-	void sendEmptyMessage(int msgWhat);
-
-	/**
-	 * 延迟发送送操作标志
-	 *@atour: Atar
-	 *@createTime:2014年8月18日下午10:14:32
-	 *@modifyTime:
-	 *@modifyAtour:
-	 *@version: 1.0.0
-	 *@param msgWhat
-	 *@param delayMillis:
-	 *@description:
-	 */
-	void sendEmptyMessageDelayed(int msgWhat, long delayMillis);
+	void onDataReceive(int msgWhat);
 
 	/**
 	 * 发送消息带obj
@@ -68,7 +55,7 @@ public interface OnHandlerDataListener<T extends PullToRefreshBase<V>, V extends
 	 * @param obj
 	 * @description:
 	 */
-	void sendObtainMessage(int msgWhat, Object obj);
+	void onDataReceive(int msgWhat, Object obj);
 
 	/**
 	 * 发送消息带msg1,msg2
@@ -82,7 +69,7 @@ public interface OnHandlerDataListener<T extends PullToRefreshBase<V>, V extends
 	 * @param msg2
 	 * @description:
 	 */
-	void sendObtainMessage(int msgWhat, int msg1, int msg2);
+	void onDataReceive(int msgWhat, int msg1, int msg2);
 
 	/**
 	 *  发送消息带msg1,msg2,obj
@@ -97,7 +84,7 @@ public interface OnHandlerDataListener<T extends PullToRefreshBase<V>, V extends
 	 * @param obj
 	 * @description:
 	 */
-	void sendObtainMessage(int msgWhat, int msg1, int msg2, Object obj);
+	void onDataReceive(int msgWhat, int msg1, int msg2, Object obj);
 
 	/**
 	 * 设置正在刷新
@@ -122,7 +109,7 @@ public interface OnHandlerDataListener<T extends PullToRefreshBase<V>, V extends
 	void onStopRefresh();
 
 	/**
-	 * 得到handler
+	 * 得到DataDispose
 	 *@atour: Atar
 	 *@createTime:2014年9月1日下午11:09:48
 	 *@modifyTime:
@@ -131,7 +118,7 @@ public interface OnHandlerDataListener<T extends PullToRefreshBase<V>, V extends
 	 *@return:
 	 *@description:
 	 */
-	Handler getHandler();
+	DataDispose<T, V> getDataDispose();
 
 	/**
 	 * 是否下拉刷新

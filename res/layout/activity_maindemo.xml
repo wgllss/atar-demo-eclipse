@@ -18,4 +18,11 @@
         android:layout_marginTop="20dp"
         android:text="网络测试2" />
 
+    <Button
+        android:id="@+id/btn_viewpagerdemoactivity"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="ViewPagerDemoActivity" />
+
 </LinearLayout>

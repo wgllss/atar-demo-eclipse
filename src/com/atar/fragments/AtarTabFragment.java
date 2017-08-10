@@ -33,7 +33,7 @@ import com.atar.interfaces.OnTabInterface;
  * @description:
  *****************************************************************************************************************************************************************************
  */
-public class TaogubaTabFragment<V extends ViewGroup> extends CommonFragment implements OnTabInterface<V, CommonActivity> {
+public class AtarTabFragment<V extends ViewGroup> extends CommonFragment implements OnTabInterface<V, CommonActivity> {
 	protected ImplOnTabInterface<V, CommonActivity> mImplOnTabInterface;
 	protected View view;
 

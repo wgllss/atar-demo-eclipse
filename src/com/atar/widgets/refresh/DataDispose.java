@@ -5,7 +5,6 @@ package com.atar.widgets.refresh;
 
 import android.annotation.SuppressLint;
 import android.application.CrashHandler;
-import android.os.Handler;
 import android.os.Message;
 import android.utils.ShowLog;
 import android.view.View;
@@ -13,7 +12,6 @@ import android.widget.CommonToast;
 
 import com.atar.activitys.R;
 import com.atar.enums.EnumMsgWhat;
-import com.atar.globe.GlobeSettings;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnPullEventListener;
@@ -31,7 +29,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.State;
  ******************************************************************************************
  */
 @SuppressLint({ "SimpleDateFormat", "Recycle" })
-public class DataHandler<T extends PullToRefreshBase<V>, V extends View> extends Handler implements OnRefreshListener2<V>, OnPullEventListener<V> {
+public class DataDispose<T extends PullToRefreshBase<V>, V extends View> implements OnRefreshListener2<V>, OnPullEventListener<V> {
 	private T t;
 	private OnHandlerDataListener<T, V> listener;
 
@@ -40,15 +38,7 @@ public class DataHandler<T extends PullToRefreshBase<V>, V extends View> extends
 	// private String pullFromStartLastTime = "";
 	// private String pullFromEndLastTime = "";
 
-	// public static <T extends PullToRefreshBase<V>, V extends View> DataHandler<T, V> getInstance() {
-	// return new DataHandler<T, V>();
-	// }
-	//
-	// public DataHandler() {
-	// super();
-	// }
-
-	public DataHandler(T t, OnHandlerDataListener<T, V> listener) {
+	public DataDispose(T t, OnHandlerDataListener<T, V> listener) {
 		this.t = t;
 		this.listener = listener;
 		if (this.t != null && t.getContext() != null) {
@@ -58,11 +48,10 @@ public class DataHandler<T extends PullToRefreshBase<V>, V extends View> extends
 		}
 	}
 
-	@Override
-	public void handleMessage(Message msg) {
+	public void onDataReceive(Message msg) {
 		try {
 			if (listener != null) {
-				listener.onHandlerData(msg, t);
+				listener.onDataReceive(msg, t);
 			}
 			switch (msg.what) {
 			case EnumMsgWhat.REFRESHING_VIEW:
@@ -70,11 +59,10 @@ public class DataHandler<T extends PullToRefreshBase<V>, V extends View> extends
 					if (!isRequestingButNoutResult) {
 						isRequestingButNoutResult = true;
 						if (t.getCurrentMode() == Mode.PULL_FROM_START) {
-							sendEmptyMessageDelayed(EnumMsgWhat.REFRESH_PULL_DOWN, GlobeSettings.REFRESH_MIN_TIME);
+							listener.onDataReceive(EnumMsgWhat.REFRESH_PULL_DOWN);
 						} else if (t.getCurrentMode() == Mode.PULL_FROM_END) {
-							sendEmptyMessageDelayed(EnumMsgWhat.REFRESH_PULL_UP, GlobeSettings.REFRESH_MIN_TIME);
+							listener.onDataReceive(EnumMsgWhat.REFRESH_PULL_UP);
 						}
-						sendEmptyMessageDelayed(EnumMsgWhat.REFRESH_ERROR, GlobeSettings.REFRESH_MAX_TIME);
 					} else {
 						t.getLoadingLayoutProxy().setLastUpdatedLabel(t.getContext().getResources().getString(R.string.refreshing_waiting));
 						t.onRefreshComplete();
@@ -103,7 +91,7 @@ public class DataHandler<T extends PullToRefreshBase<V>, V extends View> extends
 				break;
 			}
 		} catch (Exception e) {
-			ShowLog.e(DataHandler.class.getSimpleName(), "handleMessage--e--->" + CrashHandler.crashToString(e));
+			ShowLog.e(DataDispose.class.getSimpleName(), "handleMessage--e--->" + CrashHandler.crashToString(e));
 		}
 	}
 
@@ -117,7 +105,7 @@ public class DataHandler<T extends PullToRefreshBase<V>, V extends View> extends
 	 *@description:
 	 */
 	public void onStopRefresh() {
-		sendEmptyMessage(EnumMsgWhat.REFRESH_COMPLETE3);
+		listener.onDataReceive(EnumMsgWhat.REFRESH_COMPLETE3);
 		if (t != null) {
 			// SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-HH:mm:ss");
 			// Date curDate = new Date(System.currentTimeMillis());// 获取当前时间
@@ -135,13 +123,13 @@ public class DataHandler<T extends PullToRefreshBase<V>, V extends View> extends
 	@Override
 	public void onPullUpToRefresh(PullToRefreshBase<V> refreshView) {
 		if (refreshView != null)
-			sendEmptyMessage(EnumMsgWhat.REFRESHING_VIEW);
+			listener.onDataReceive(EnumMsgWhat.REFRESHING_VIEW);
 	}
 
 	@Override
 	public void onPullDownToRefresh(PullToRefreshBase<V> refreshView) {
 		if (refreshView != null)
-			sendEmptyMessage(EnumMsgWhat.REFRESHING_VIEW);
+			listener.onDataReceive(EnumMsgWhat.REFRESHING_VIEW);
 	}
 
 	@SuppressLint("Recycle")

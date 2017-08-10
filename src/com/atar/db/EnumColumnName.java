@@ -18,4 +18,6 @@ public class EnumColumnName {
 	public static final String SQL_LOGIN_USER_ID = "loginUserId";
 	/* 自定义用于存某个地方数据 */
 	public static final String SQL_FLAG = "sqlFlag";
+	/* JsonBean表中 字段 whichPage */
+	public static final String WHICH_PAGE = "whichPage";
 }

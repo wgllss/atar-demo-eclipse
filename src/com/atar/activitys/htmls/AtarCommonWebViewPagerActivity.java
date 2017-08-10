@@ -34,7 +34,7 @@ import com.atar.widgets.PagerSlidingTabStrip;
  * @description:
  *****************************************************************************************************************************************************************************
  */
-public class TaogubaCommonWebViewPagerActivity extends AtarDropTitleBarActivity implements OnPageChangeListener {
+public class AtarCommonWebViewPagerActivity extends AtarDropTitleBarActivity implements OnPageChangeListener {
 	private boolean isExtendsTaogubaCommonWebViewPagerActivity;
 
 	protected List<TabMenuItemBean> listMenu = new ArrayList<TabMenuItemBean>();
