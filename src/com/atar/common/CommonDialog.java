@@ -1,65 +1,67 @@
-//package com.atar.common;
-//
-//import java.util.List;
-//
-//import android.annotation.SuppressLint;
-//import android.app.Activity;
-//import android.app.Dialog;
-//import android.appconfig.AppConfigSetting;
-//import android.content.Context;
-//import android.content.DialogInterface;
-//import android.content.DialogInterface.OnKeyListener;
-//import android.enums.SkinMode;
-//import android.graphics.Typeface;
-//import android.interfaces.HandleMessageListener;
-//import android.os.Message;
-//import android.text.Html;
-//import android.text.InputFilter;
-//import android.text.InputType;
-//import android.util.TypedValue;
-//import android.utils.CommonStringUtil;
-//import android.utils.ScreenUtils;
-//import android.view.Gravity;
-//import android.view.KeyEvent;
-//import android.view.LayoutInflater;
-//import android.view.View;
-//import android.view.View.OnClickListener;
-//import android.view.ViewGroup;
-//import android.view.Window;
-//import android.view.WindowManager;
-//import android.widget.Button;
-//import android.widget.CommonToast;
-//import android.widget.EditText;
-//import android.widget.ImageView;
-//import android.widget.LinearLayout.LayoutParams;
-//import android.widget.ListView;
-//import android.widget.ScrollView;
-//import android.widget.TextView;
-//
-//import com.atar.activity.R;
-//
-///**
-// ***************************************************************************************************************************************************************************** 
-// * 淘股吧订制 各种统一风格 对话框 样式，属性
-// * 
-// * @author :Atar
-// * @createTime:2014-7-4下午4:08:02
-// * @version:1.0.0
-// * @modifyTime:
-// * @modifyAuthor:
-// * @description:
-// ***************************************************************************************************************************************************************************** 
-// */
-//@SuppressLint("InflateParams")
-//public class CommonDialog {
-//	static Dialog mDialog;
-//
-//	public static void alertDialog(Context mContext, String strTitle, String strContent, OnClickListener ls) {
-//		if (mContext == null) {
-//			return;
-//		}
-//		dialogDismiss();
-//		mDialog = new Dialog(mContext, R.style.MyDialog);
+package com.atar.common;
+
+import java.util.List;
+
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.Dialog;
+import android.appconfig.AppConfigSetting;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnKeyListener;
+import android.enums.SkinMode;
+import android.graphics.Typeface;
+import android.os.Message;
+import android.text.Html;
+import android.text.InputFilter;
+import android.text.InputType;
+import android.util.TypedValue;
+import android.utils.CommonStringUtil;
+import android.utils.ScreenUtils;
+import android.view.Gravity;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.CommonToast;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout.LayoutParams;
+import android.widget.ListView;
+import android.widget.ScrollView;
+import android.widget.TextView;
+
+import com.atar.activitys.R;
+import com.atar.application.AtarApplication;
+import com.atar.enums.EnumMsgWhat;
+import com.atar.net.NetWorkInterfaces;
+
+/**
+ ***************************************************************************************************************************************************************************** 
+ * 淘股吧订制 各种统一风格 对话框 样式，属性
+ * 
+ * @author :Atar
+ * @createTime:2014-7-4下午4:08:02
+ * @version:1.0.0
+ * @modifyTime:
+ * @modifyAuthor:
+ * @description:
+ ***************************************************************************************************************************************************************************** 
+ */
+@SuppressLint("InflateParams")
+public class CommonDialog {
+	static Dialog mDialog;
+
+	public static void alertDialog(Context mContext, String strTitle, String strContent, OnClickListener ls) {
+		if (mContext == null) {
+			return;
+		}
+		dialogDismiss();
+		mDialog = new Dialog(mContext, R.style.MyDialog);
 //		mDialog.setContentView(R.layout.common_taoguba_alert_dialog);
 //		int widthPixels = AtarApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
 //		if (mContext.getResources().getConfiguration().orientation == 1) {
@@ -99,38 +101,38 @@
 //				}
 //			});
 //		}
-//		mDialog.setCanceledOnTouchOutside(false);
-//		mDialog.setOnKeyListener(new OnKeyListener() {
-//			@Override
-//			public boolean onKey(DialogInterface arg0, int keyCode, KeyEvent arg2) {
-//				return true;
-//			}
-//		});
-//		mDialog.show();
-//	}
-//
-//	/**
-//	 * 
-//	 * @param mContext
-//	 *            上下文
-//	 * @param strTitle
-//	 *            标题
-//	 * @param strContent
-//	 *            内容
-//	 * @param strCancle
-//	 *            取消文字
-//	 * @param lsOk
-//	 *            确定事件
-//	 * @param lsCacle
-//	 *            取消事件
-//	 * 
-//	 */
-//	public static void conformDialog(Context mContext, String strTitle, String strContent, String strOk, String strCancle, OnClickListener lsOk, OnClickListener lsCacle) {
-//		if (mContext == null) {
-//			return;
-//		}
-//		// 取得自定义View
-//		mDialog = new Dialog(mContext, R.style.MyDialog);
+		mDialog.setCanceledOnTouchOutside(false);
+		mDialog.setOnKeyListener(new OnKeyListener() {
+			@Override
+			public boolean onKey(DialogInterface arg0, int keyCode, KeyEvent arg2) {
+				return true;
+			}
+		});
+		mDialog.show();
+	}
+
+	/**
+	 * 
+	 * @param mContext
+	 *            上下文
+	 * @param strTitle
+	 *            标题
+	 * @param strContent
+	 *            内容
+	 * @param strCancle
+	 *            取消文字
+	 * @param lsOk
+	 *            确定事件
+	 * @param lsCacle
+	 *            取消事件
+	 * 
+	 */
+	public static void conformDialog(Context mContext, String strTitle, String strContent, String strOk, String strCancle, OnClickListener lsOk, OnClickListener lsCacle) {
+		if (mContext == null) {
+			return;
+		}
+		// 取得自定义View
+		mDialog = new Dialog(mContext, R.style.MyDialog);
 //		mDialog.setContentView(R.layout.common_taoguba_conform_dialog);
 //		int widthPixels = AtarApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
 //		if (mContext.getResources().getConfiguration().orientation == 1) {
@@ -165,69 +167,69 @@
 //		LoadUtil.setTextColor(mContext, txtContent, R.array.common_dialog_txt_color, skinType);
 //		LoadUtil.setTextColor(mContext, ok, R.array.common_activity_title_color, skinType);
 //		LoadUtil.setTextColor(mContext, cancel, R.array.common_activity_title_color, skinType);
-//		if (strOk != null && !strOk.equals("")) {
-//			ok.setText(strOk);
-//		}
-//		if (strCancle != null && !strCancle.equals("")) {
-//			cancel.setText(strCancle);
-//		}
-//		if (lsOk != null) {
-//			ok.setOnClickListener(lsOk);
-//		} else {
-//			ok.setOnClickListener(new View.OnClickListener() {
-//
-//				@Override
-//				public void onClick(View v) {
-//					dialogDismiss();
-//				}
-//			});
-//		}
-//		if (lsCacle != null) {
-//			cancel.setOnClickListener(lsCacle);
-//		} else {
-//			cancel.setOnClickListener(new View.OnClickListener() {
-//
-//				@Override
-//				public void onClick(View v) {
-//					dialogDismiss();
-//				}
-//			});
-//		}
-//		mDialog.setOnKeyListener(new OnKeyListener() {
-//			@Override
-//			public boolean onKey(DialogInterface arg0, int keyCode, KeyEvent arg2) {
-//				return true;
-//			}
-//		});
-//		mDialog.setCanceledOnTouchOutside(false);
-//		mDialog.show();
-//	}
-//
-//	public static void dialogDismiss() {
-//		if (mDialog != null && mDialog.isShowing()) {
-//			mDialog.dismiss();
-//		}
-//	}
-//
-//	/**
-//	 * 带有编辑框的对话框
-//	 * 
-//	 * @author :Atar
-//	 * @createTime:2014-7-17上午10:45:23
-//	 * @version:1.0.0
-//	 * @modifyTime:
-//	 * @modifyAuthor:
-//	 * @param mContext
-//	 * @param strTitle
-//	 * @param strOk
-//	 * @param strCancle
-//	 * @param lsOk
-//	 * @param lsCacle
-//	 * @description:
-//	 */
-//	public static void conformDialogWithEditText(Context mContext, String strTitle, final EditFinishListener lsOk) {
-//		// 取得自定义View
-//		mDialog = new Dialog(mContext, R.style.MyDialog);
+		// if (strOk != null && !strOk.equals("")) {
+		// ok.setText(strOk);
+		// }
+		// if (strCancle != null && !strCancle.equals("")) {
+		// cancel.setText(strCancle);
+		// }
+		// if (lsOk != null) {
+		// ok.setOnClickListener(lsOk);
+		// } else {
+		// ok.setOnClickListener(new View.OnClickListener() {
+		//
+		// @Override
+		// public void onClick(View v) {
+		// dialogDismiss();
+		// }
+		// });
+		// }
+		// if (lsCacle != null) {
+		// cancel.setOnClickListener(lsCacle);
+		// } else {
+		// cancel.setOnClickListener(new View.OnClickListener() {
+		//
+		// @Override
+		// public void onClick(View v) {
+		// dialogDismiss();
+		// }
+		// });
+		// }
+		mDialog.setOnKeyListener(new OnKeyListener() {
+			@Override
+			public boolean onKey(DialogInterface arg0, int keyCode, KeyEvent arg2) {
+				return true;
+			}
+		});
+		mDialog.setCanceledOnTouchOutside(false);
+		mDialog.show();
+	}
+
+	public static void dialogDismiss() {
+		if (mDialog != null && mDialog.isShowing()) {
+			mDialog.dismiss();
+		}
+	}
+
+	/**
+	 * 带有编辑框的对话框
+	 * 
+	 * @author :Atar
+	 * @createTime:2014-7-17上午10:45:23
+	 * @version:1.0.0
+	 * @modifyTime:
+	 * @modifyAuthor:
+	 * @param mContext
+	 * @param strTitle
+	 * @param strOk
+	 * @param strCancle
+	 * @param lsOk
+	 * @param lsCacle
+	 * @description:
+	 */
+	public static void conformDialogWithEditText(Context mContext, String strTitle, final EditFinishListener lsOk) {
+		// 取得自定义View
+		mDialog = new Dialog(mContext, R.style.MyDialog);
 //		mDialog.setContentView(R.layout.common_taoguba_conform_edit_dialog);
 //		int widthPixels = AtarApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
 //		mDialog.getWindow().setLayout(13 * widthPixels / 15, WindowManager.LayoutParams.WRAP_CONTENT);
@@ -264,27 +266,27 @@
 //				dialogDismiss();
 //			}
 //		});
-//		mDialog.setCanceledOnTouchOutside(false);
-//		mDialog.show();
-//	}
-//
-//	/**
-//	 * 
-//	 * @author :Atar
-//	 * @createTime:2017-6-23上午11:31:57
-//	 * @version:1.0.0
-//	 * @modifyTime:
-//	 * @modifyAuthor:
-//	 * @param mContext
-//	 * @param strTitle
-//	 * @param hinttext
-//	 * @param maxLength maxLength 默认不需要传0
-//	 * @param lsOk
-//	 * @description:
-//	 */
-//	public static void conformDialogWithEditText(Context mContext, String strTitle, String hinttext, int maxLength, final EditFinishListener lsOk) {
-//		// 取得自定义View
-//		mDialog = new Dialog(mContext, R.style.MyDialog);
+		mDialog.setCanceledOnTouchOutside(false);
+		mDialog.show();
+	}
+
+	/**
+	 * 
+	 * @author :Atar
+	 * @createTime:2017-6-23上午11:31:57
+	 * @version:1.0.0
+	 * @modifyTime:
+	 * @modifyAuthor:
+	 * @param mContext
+	 * @param strTitle
+	 * @param hinttext
+	 * @param maxLength maxLength 默认不需要传0
+	 * @param lsOk
+	 * @description:
+	 */
+	public static void conformDialogWithEditText(Context mContext, String strTitle, String hinttext, int maxLength, final EditFinishListener lsOk) {
+		// 取得自定义View
+		mDialog = new Dialog(mContext, R.style.MyDialog);
 //		mDialog.setContentView(R.layout.common_taoguba_conform_edit_dialog);
 //		int widthPixels = AtarApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
 //		mDialog.getWindow().setLayout(13 * widthPixels / 15, WindowManager.LayoutParams.WRAP_CONTENT);
@@ -328,29 +330,29 @@
 //				dialogDismiss();
 //			}
 //		});
-//		mDialog.setCanceledOnTouchOutside(false);
-//		mDialog.show();
-//	}
-//
-//	/**
-//	 * 报名需要验证码
-//	 * 
-//	 * @author :Atar
-//	 * @createTime:2014-7-17上午10:45:23
-//	 * @version:1.0.0
-//	 * @modifyTime:
-//	 * @modifyAuthor:
-//	 * @param mContext
-//	 * @param strTitle
-//	 * @param strOk
-//	 * @param strCancle
-//	 * @param lsOk
-//	 * @param lsCacle
-//	 * @description:
-//	 */
-//	public static void conformDialogForShiPanSignUp(Context mContext, final EditFinishListener lsOk) {
-//		// 取得自定义View
-//		mDialog = new Dialog(mContext, R.style.MyDialog);
+		mDialog.setCanceledOnTouchOutside(false);
+		mDialog.show();
+	}
+
+	/**
+	 * 报名需要验证码
+	 * 
+	 * @author :Atar
+	 * @createTime:2014-7-17上午10:45:23
+	 * @version:1.0.0
+	 * @modifyTime:
+	 * @modifyAuthor:
+	 * @param mContext
+	 * @param strTitle
+	 * @param strOk
+	 * @param strCancle
+	 * @param lsOk
+	 * @param lsCacle
+	 * @description:
+	 */
+	public static void conformDialogForShiPanSignUp(Context mContext, final EditFinishListener lsOk) {
+		// 取得自定义View
+		mDialog = new Dialog(mContext, R.style.MyDialog);
 //		mDialog.setContentView(R.layout.common_taoguba_shipan_signup_edit_dialog);
 //		int widthPixels = AtarApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
 //		mDialog.getWindow().setLayout(13 * widthPixels / 15, WindowManager.LayoutParams.WRAP_CONTENT);
@@ -385,41 +387,41 @@
 //				dialogDismiss();
 //			}
 //		});
-//
-//		mDialog.setCanceledOnTouchOutside(false);
-//		mDialog.setCancelable(false);
-//		mDialog.setOnKeyListener(new OnKeyListener() {
-//			@Override
-//			public boolean onKey(DialogInterface arg0, int keyCode, KeyEvent arg2) {
-//				return true;
-//			}
-//		});
-//		mDialog.show();
-//	}
-//
-//	/**
-//	 * 带有编辑框的对话框
-//	 * 
-//	 * @author :Atar
-//	 * @createTime:2015-5-25下午3:55:52
-//	 * @version:1.0.0
-//	 * @modifyTime:
-//	 * @modifyAuthor:
-//	 * @param mContext
-//	 * @param strTitle
-//	 * @param strOk
-//	 * @param strCancle
-//	 * @param lsOk
-//	 * @param lsCacle
-//	 * @param isSingleLine
-//	 * @param maxLines
-//	 *            最多输入字数
-//	 * @description:
-//	 */
-//	public static void conformDialogWithEditText(Context mContext, String strTitle, String strOk, String strCancle, final EditFinishListener lsOk, OnClickListener lsCacle, boolean isSingleLine,
-//			int maxLines) {
-//		// 取得自定义View
-//		mDialog = new Dialog(mContext, R.style.MyDialog);
+
+		mDialog.setCanceledOnTouchOutside(false);
+		mDialog.setCancelable(false);
+		mDialog.setOnKeyListener(new OnKeyListener() {
+			@Override
+			public boolean onKey(DialogInterface arg0, int keyCode, KeyEvent arg2) {
+				return true;
+			}
+		});
+		mDialog.show();
+	}
+
+	/**
+	 * 带有编辑框的对话框
+	 * 
+	 * @author :Atar
+	 * @createTime:2015-5-25下午3:55:52
+	 * @version:1.0.0
+	 * @modifyTime:
+	 * @modifyAuthor:
+	 * @param mContext
+	 * @param strTitle
+	 * @param strOk
+	 * @param strCancle
+	 * @param lsOk
+	 * @param lsCacle
+	 * @param isSingleLine
+	 * @param maxLines
+	 *            最多输入字数
+	 * @description:
+	 */
+	public static void conformDialogWithEditText(Context mContext, String strTitle, String strOk, String strCancle, final EditFinishListener lsOk, OnClickListener lsCacle, boolean isSingleLine,
+			int maxLines) {
+		// 取得自定义View
+		mDialog = new Dialog(mContext, R.style.MyDialog);
 //		mDialog.setContentView(R.layout.common_taoguba_conform_edit_dialog);
 //		int widthPixels = AtarApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
 //		mDialog.getWindow().setLayout(13 * widthPixels / 15, WindowManager.LayoutParams.WRAP_CONTENT);
@@ -479,33 +481,33 @@
 //				}
 //			});
 //		}
-//		mDialog.setCanceledOnTouchOutside(false);
-//		mDialog.show();
-//	}
-//
-//	/**
-//	 * 带有编辑框的对话框
-//	 * 
-//	 * @author :Atar
-//	 * @createTime:2015-5-25下午3:55:52
-//	 * @version:1.0.0
-//	 * @modifyTime:
-//	 * @modifyAuthor:
-//	 * @param mContext
-//	 * @param strTitle
-//	 * @param strOk
-//	 * @param strCancle
-//	 * @param lsOk
-//	 * @param lsCacle
-//	 * @param isSingleLine
-//	 * @param maxLines 最多输入字数
-//	 *            
-//	 * @description:
-//	 */
-//	public static void KGameConformDialogWithEditText(Context mContext, String strTitle, String strOk, String strCancle, final EditFinishListener lsOk, OnClickListener lsCacle, boolean isSingleLine,
-//			int maxLines, Typeface typeFace) {
-//		// 取得自定义View
-//		mDialog = new Dialog(mContext, R.style.MyDialog);
+		mDialog.setCanceledOnTouchOutside(false);
+		mDialog.show();
+	}
+
+	/**
+	 * 带有编辑框的对话框
+	 * 
+	 * @author :Atar
+	 * @createTime:2015-5-25下午3:55:52
+	 * @version:1.0.0
+	 * @modifyTime:
+	 * @modifyAuthor:
+	 * @param mContext
+	 * @param strTitle
+	 * @param strOk
+	 * @param strCancle
+	 * @param lsOk
+	 * @param lsCacle
+	 * @param isSingleLine
+	 * @param maxLines 最多输入字数
+	 *            
+	 * @description:
+	 */
+	public static void KGameConformDialogWithEditText(Context mContext, String strTitle, String strOk, String strCancle, final EditFinishListener lsOk, OnClickListener lsCacle, boolean isSingleLine,
+			int maxLines, Typeface typeFace) {
+		// 取得自定义View
+		mDialog = new Dialog(mContext, R.style.MyDialog);
 //		mDialog.setContentView(R.layout.dialog_conform_edit_kgame);
 //		int widthPixels = AtarApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
 //		mDialog.getWindow().setLayout(8 * widthPixels / 15, WindowManager.LayoutParams.WRAP_CONTENT);
@@ -564,10 +566,10 @@
 //				}
 //			});
 //		}
-//		mDialog.setCanceledOnTouchOutside(false);
-//		mDialog.show();
-//	}
-//
+		mDialog.setCanceledOnTouchOutside(false);
+		mDialog.show();
+	}
+
 //	/**
 //	 * 滚轮式对话框两列
 //	 * 
@@ -738,9 +740,9 @@
 //		}
 //	}
 //
-//	public interface EditFinishListener {
-//		public void finish(String strEditContent);
-//	}
+	public interface EditFinishListener {
+		public void finish(String strEditContent);
+	}
 //
 //	/**
 //	 * 
@@ -1333,4 +1335,4 @@
 //		win.setAttributes(params);
 //		mDialog.show();
 //	}
-//}
+}

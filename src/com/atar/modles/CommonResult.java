@@ -57,6 +57,14 @@ public class CommonResult<T> {
 		return status && errorCode == 0;
 	}
 
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
+	public void setErrorCode(int errorCode) {
+		this.errorCode = errorCode;
+	}
+
 	public int getErrorCode() {
 		return errorCode;
 	}

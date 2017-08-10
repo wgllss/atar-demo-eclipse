@@ -5,6 +5,7 @@ package com.atar.globe;
 
 import android.annotation.SuppressLint;
 import android.http.HttpRequest;
+import android.os.Environment;
 
 /**
  ******************************************************************************************
@@ -22,7 +23,10 @@ public class GlobeSettings {
 	public static final int everyPageGridViewCount = 28; // 每页Gridview显示的数量
 	public static final int everyPageGridViewNumColumns = 7; // 每页Gridview显示的列数
 	/*************************************************************************************************************************************************/
-
+	/* 拍照后保存图片 */
+	public static final String IMG_CAPTURE_PATH = Environment.getExternalStorageDirectory() + "/atar/photo/";
+	/* 保存图片 */
+	public static final String IMG_SAVE_PATH = Environment.getExternalStorageDirectory() + "/atar/image/";
 	/* 最小刷新动作时间 */
 	public static final int REFRESH_MIN_TIME = 300;
 	/* 最大刷新时间 */
@@ -30,6 +34,15 @@ public class GlobeSettings {
 
 	// 加载头像圆角度数
 	public static final int LOAD_IMG_ROUNDE = 100;
+	
+	public static final String REMAINING_COUNT_KEY = "REMAINING_COUNT_KEY";
+	public static final String UPLOAD_LOACL_FILE_PATH_KEY = "UPLOAD_LOACL_FILE_PATH_KEY";
+	public static final String UPLOAD_IMAGE_SESSTION_PATH = Environment.getExternalStorageDirectory() + "/atar/sesstion/";
+	
+	public static final int request_code_select_pic = 1007;
+	public static final int request_code_record = 1008;
+	public static final int request_code_at_user = 1009;
+	public static final int request_code_select_pic2 = 1010;
 
 	/**K线游戏字体*/
 	public static final String kGameFontsPath = "fonts/zzgflht.OTF";

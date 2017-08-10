@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/horizon_srcoll"
+        layout="@layout/common_gridview" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizon_srcoll"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/btn_complete"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/movie_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" />
+    </HorizontalScrollView>
+
+    <Button
+        android:id="@+id/btn_complete"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/select_day_btn_blue_light_blue"
+        android:text="完成"
+        android:textColor="@color/white"
+        android:textSize="12dp" />
+
+</RelativeLayout>
