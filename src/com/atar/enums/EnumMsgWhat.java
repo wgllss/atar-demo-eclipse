@@ -71,6 +71,8 @@ public class EnumMsgWhat {
 	public static final int EUnsupportedEncoding_msg = 0x1026;
 	/** 服务器异常500 **/
 	public static final int EHttpRequestFail500 = 0x1027;
+	/** 默认http请求值 **/
+	public static final int HttpDefaultRequest_Msg = 0x1029;
 	/*
 	 * 网络错误消息枚举 end *********************************************************************
 	 */

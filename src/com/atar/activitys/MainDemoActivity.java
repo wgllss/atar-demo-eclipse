@@ -3,10 +3,20 @@
  */
 package com.atar.activitys;
 
-import com.atar.net.NetWorkInterfaces;
+import java.util.HashMap;
+import java.util.Map;
 
+import android.interfaces.NetWorkCallTListenet;
 import android.os.Bundle;
+import android.reflection.NetWorkMsg;
+import android.utils.CommonStringUtil;
 import android.view.View;
+import android.widget.CommonToast;
+
+import com.atar.enums.EnumMsgWhat;
+import com.atar.modles.WonderfulTopicJson;
+import com.atar.net.NetWorkInterfaces;
+import com.atar.net.UrlParamCommon;
 
 /**
  *****************************************************************************************************************************************************************************
@@ -29,6 +39,7 @@ public class MainDemoActivity extends AtarCommonActivity {
 	@Override
 	protected void bindEvent() {
 		findViewById(R.id.btn_net_test).setOnClickListener(this);
+		findViewById(R.id.btn_net_test2).setOnClickListener(this);
 	}
 
 	@Override
@@ -43,6 +54,35 @@ public class MainDemoActivity extends AtarCommonActivity {
 		switch (v.getId()) {
 		case R.id.btn_net_test:
 			NetWorkInterfaces.GetWonderTopicList(this, this, "1");
+			break;
+		case R.id.btn_net_test2:
+			Map<String, String> map = new HashMap<String, String>();
+			CommonStringUtil.setMap(map, "pageNo", "1");
+			NetWorkInterfaces.NetWorkCall(this, new NetWorkCallTListenet<WonderfulTopicJson>() {
+				@Override
+				public void NetWorkCall(WonderfulTopicJson t) {
+					if (t != null) {
+						CommonToast.show(t.getDto().get(0).getSubject());
+					}
+				}
+			}, UrlParamCommon.UrlWonderfulList, "GET", map, WonderfulTopicJson.class);
+			break;
+		}
+	}
+
+	@Override
+	public void NetWorkCall(NetWorkMsg msg) {
+		super.NetWorkCall(msg);
+		switch (msg.what) {
+		case EnumMsgWhat.EInterface_Get_Wonder_Topic_List:
+			if (msg.obj != null) {
+				WonderfulTopicJson mWonderfulTopicJson = (WonderfulTopicJson) msg.obj;
+				if (mWonderfulTopicJson != null) {
+					CommonToast.show(mWonderfulTopicJson.getDto().get(1).getSubject());
+				}
+			}
+			break;
+		default:
 			break;
 		}
 	}
