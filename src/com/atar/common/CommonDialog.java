@@ -61,7 +61,7 @@
 //		dialogDismiss();
 //		mDialog = new Dialog(mContext, R.style.MyDialog);
 //		mDialog.setContentView(R.layout.common_taoguba_alert_dialog);
-//		int widthPixels = TaogubaApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
+//		int widthPixels = AtarApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
 //		if (mContext.getResources().getConfiguration().orientation == 1) {
 //			// 1竖屏
 //			mDialog.getWindow().setLayout(13 * widthPixels / 15, WindowManager.LayoutParams.WRAP_CONTENT);
@@ -132,7 +132,7 @@
 //		// 取得自定义View
 //		mDialog = new Dialog(mContext, R.style.MyDialog);
 //		mDialog.setContentView(R.layout.common_taoguba_conform_dialog);
-//		int widthPixels = TaogubaApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
+//		int widthPixels = AtarApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
 //		if (mContext.getResources().getConfiguration().orientation == 1) {
 //			// 1竖屏
 //			mDialog.getWindow().setLayout(13 * widthPixels / 15, WindowManager.LayoutParams.WRAP_CONTENT);
@@ -229,7 +229,7 @@
 //		// 取得自定义View
 //		mDialog = new Dialog(mContext, R.style.MyDialog);
 //		mDialog.setContentView(R.layout.common_taoguba_conform_edit_dialog);
-//		int widthPixels = TaogubaApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
+//		int widthPixels = AtarApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
 //		mDialog.getWindow().setLayout(13 * widthPixels / 15, WindowManager.LayoutParams.WRAP_CONTENT);
 //		TextView txtTitle = (TextView) mDialog.getWindow().findViewById(R.id.txt_title);
 //		if (strTitle != null && !strTitle.equals("")) {
@@ -286,7 +286,7 @@
 //		// 取得自定义View
 //		mDialog = new Dialog(mContext, R.style.MyDialog);
 //		mDialog.setContentView(R.layout.common_taoguba_conform_edit_dialog);
-//		int widthPixels = TaogubaApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
+//		int widthPixels = AtarApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
 //		mDialog.getWindow().setLayout(13 * widthPixels / 15, WindowManager.LayoutParams.WRAP_CONTENT);
 //		TextView txtTitle = (TextView) mDialog.getWindow().findViewById(R.id.txt_title);
 //		if (strTitle != null && !strTitle.equals("")) {
@@ -352,7 +352,7 @@
 //		// 取得自定义View
 //		mDialog = new Dialog(mContext, R.style.MyDialog);
 //		mDialog.setContentView(R.layout.common_taoguba_shipan_signup_edit_dialog);
-//		int widthPixels = TaogubaApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
+//		int widthPixels = AtarApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
 //		mDialog.getWindow().setLayout(13 * widthPixels / 15, WindowManager.LayoutParams.WRAP_CONTENT);
 //
 //		final EditText edtContent = (EditText) mDialog.getWindow().findViewById(R.id.edit_need_code);
@@ -421,7 +421,7 @@
 //		// 取得自定义View
 //		mDialog = new Dialog(mContext, R.style.MyDialog);
 //		mDialog.setContentView(R.layout.common_taoguba_conform_edit_dialog);
-//		int widthPixels = TaogubaApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
+//		int widthPixels = AtarApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
 //		mDialog.getWindow().setLayout(13 * widthPixels / 15, WindowManager.LayoutParams.WRAP_CONTENT);
 //		TextView txtTitle = (TextView) mDialog.getWindow().findViewById(R.id.txt_title);
 //		if (strTitle != null && !strTitle.equals("")) {
@@ -507,7 +507,7 @@
 //		// 取得自定义View
 //		mDialog = new Dialog(mContext, R.style.MyDialog);
 //		mDialog.setContentView(R.layout.dialog_conform_edit_kgame);
-//		int widthPixels = TaogubaApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
+//		int widthPixels = AtarApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
 //		mDialog.getWindow().setLayout(8 * widthPixels / 15, WindowManager.LayoutParams.WRAP_CONTENT);
 //		TextView txtTitle = (TextView) mDialog.getWindow().findViewById(R.id.txt_title);
 //		if (strTitle != null && !strTitle.equals("")) {
@@ -601,7 +601,7 @@
 //			OnWheelChangeListener mOnWheelChangedListener2, int currentPosition1, int currentPosition2, OnClickListener lsOk, OnClickListener lsCacle) {
 //		mDialog = new Dialog(context, R.style.MyDialog);
 //		mDialog.setContentView(R.layout.common_taoguba_wheel_dialog);
-//		int widthPixels = TaogubaApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
+//		int widthPixels = AtarApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
 //		mDialog.getWindow().setLayout(13 * widthPixels / 15, WindowManager.LayoutParams.WRAP_CONTENT);
 //		TextView txtTitle = (TextView) mDialog.getWindow().findViewById(R.id.txt_title);
 //		if (strTitle != null && !strTitle.equals("")) {
@@ -683,7 +683,7 @@
 //			OnClickListener lsOk, OnClickListener lsCacle) {
 //		mDialog = new Dialog(context, R.style.MyDialog);
 //		mDialog.setContentView(R.layout.common_taoguba_wheel_dialog_only_one);
-//		int widthPixels = TaogubaApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
+//		int widthPixels = AtarApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
 //		mDialog.getWindow().setLayout(13 * widthPixels / 15, WindowManager.LayoutParams.WRAP_CONTENT);
 //		TextView txtTitle = (TextView) mDialog.getWindow().findViewById(R.id.txt_title);
 //		if (strTitle != null && !strTitle.equals("")) {
@@ -758,8 +758,8 @@
 //		View view = inflater.inflate(R.layout.common_taoguba_list_dialog, null);
 //		mDialog.setContentView(view);
 //
-//		int widthPixels = TaogubaApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
-//		int heightPixels = TaogubaApplication.getApplication().getResources().getDisplayMetrics().heightPixels;
+//		int widthPixels = AtarApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
+//		int heightPixels = AtarApplication.getApplication().getResources().getDisplayMetrics().heightPixels;
 //
 //		if (mContext.getResources().getConfiguration().orientation == 1) {
 //			// 1竖屏
@@ -834,8 +834,8 @@
 //		View view = inflater.inflate(R.layout.common_taoguba_kgame_settings_dialog, null);
 //		mDialog.setContentView(view);
 //
-//		int widthPixels = TaogubaApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
-//		int heightPixels = TaogubaApplication.getApplication().getResources().getDisplayMetrics().heightPixels;
+//		int widthPixels = AtarApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
+//		int heightPixels = AtarApplication.getApplication().getResources().getDisplayMetrics().heightPixels;
 //		if (list != null && list.size() > 0) {
 //			mDialog.getWindow().setLayout(8 * widthPixels / 15, (int) (heightPixels * 0.5));
 //		} else {
@@ -932,7 +932,7 @@
 //		mDialog = null;
 //		mDialog = new Dialog(mContext, R.style.MyDialog);
 //		mDialog.setContentView(R.layout.common_taoguba_k_toast_dialog);
-//		int widthPixels = TaogubaApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
+//		int widthPixels = AtarApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
 //		if (width == 0) {
 //			width = 13 * widthPixels / 15;
 //		}
@@ -1022,7 +1022,7 @@
 //		mDialog = null;
 //		mDialog = new Dialog(mContext, R.style.MyDialog);
 //		mDialog.setContentView(R.layout.common_taoguba_kgame_dialog_mutil_style);
-//		int widthPixels = TaogubaApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
+//		int widthPixels = AtarApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
 //		if (width == 0) {
 //			width = 13 * widthPixels / 15;
 //		}
@@ -1145,7 +1145,7 @@
 //		// }
 //		mDialog = new Dialog(mContext, R.style.MyDialog);
 //		mDialog.setContentView(R.layout.common_taoguba_score_dialog);
-//		int widthPixels = TaogubaApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
+//		int widthPixels = AtarApplication.getApplication().getResources().getDisplayMetrics().widthPixels;
 //		if (mContext.getResources().getConfiguration().orientation == 1) {
 //			// 1竖屏
 //			mDialog.getWindow().setLayout(13 * widthPixels / 15, WindowManager.LayoutParams.WRAP_CONTENT);

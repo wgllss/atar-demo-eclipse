@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.atar.activitys;
+package com.atar.activitys.demos;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,6 +13,10 @@ import android.utils.CommonStringUtil;
 import android.view.View;
 import android.widget.CommonToast;
 
+import com.atar.activitys.AtarCommonActivity;
+import com.atar.activitys.R;
+import com.atar.activitys.R.id;
+import com.atar.activitys.R.layout;
 import com.atar.enums.EnumMsgWhat;
 import com.atar.modles.WonderfulTopicJson;
 import com.atar.net.NetWorkInterfaces;

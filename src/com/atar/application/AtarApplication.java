@@ -113,7 +113,7 @@ public class AtarApplication extends Application {
 		SophixManager.getInstance().setContext(this).setAppVersion(appVersion).setAesKey(null).setEnableDebug(true).setPatchLoadStatusStub(new PatchLoadStatusListener() {
 			@Override
 			public void onLoad(final int mode, final int code, final String info, final int handlePatchVersion) {
-				ShowLog.i("TaogubaApplication", "code-->" + code + "--info-->" + info + "--handlePatchVersion-->" + handlePatchVersion);
+				ShowLog.i("AtarApplication", "code-->" + code + "--info-->" + info + "--handlePatchVersion-->" + handlePatchVersion);
 				switch (code) {
 				case PatchStatus.CODE_LOAD_SUCCESS:// 1 表明补丁加载成功
 					break;

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lst_pop_win"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:cacheColorHint="#00000000"
+    android:divider="#30DDDDDD"
+    android:dividerHeight="0.3dp"
+    android:fadingEdge="none"
+    android:listSelector="@color/transparent3"
+    android:paddingBottom="0dp"
+    android:paddingTop="0dp" />

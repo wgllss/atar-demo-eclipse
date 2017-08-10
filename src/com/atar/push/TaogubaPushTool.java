@@ -101,26 +101,26 @@
 //				if (ApplicationManagement.shouldInit()) {
 //					MiPushClient.registerPush(context, APP_ID, APP_KEY);
 //				}
-//				JPushInterface.stopPush(TaogubaApplication.getApplication());
-//				PushManager.enableReceiveNormalMsg(TaogubaApplication.getApplication(), false);
-//				PushManager.enableReceiveNotifyMsg(TaogubaApplication.getApplication(), false);
+//				JPushInterface.stopPush(AtarApplication.getApplication());
+//				PushManager.enableReceiveNormalMsg(AtarApplication.getApplication(), false);
+//				PushManager.enableReceiveNotifyMsg(AtarApplication.getApplication(), false);
 //			} else if (android.os.Build.MANUFACTURER.equalsIgnoreCase("HUAWEI")) {
 //				// 获取客户端AccessToken,获取之前请先确定该应用（包名）已经在开发者联盟上创建成功，并申请、审核通过Push权益
 //				// 该测试应用已经注册过
 //				PushManager.requestToken(context);
-//				PushManager.enableReceiveNormalMsg(TaogubaApplication.getApplication(), true);
-//				PushManager.enableReceiveNotifyMsg(TaogubaApplication.getApplication(), true);
+//				PushManager.enableReceiveNormalMsg(AtarApplication.getApplication(), true);
+//				PushManager.enableReceiveNotifyMsg(AtarApplication.getApplication(), true);
 //				Log.i(TAG, "try to get Token ,current packageName is " + context.getPackageName());
-//				MiPushClient.pausePush(TaogubaApplication.getApplication(), null);
-//				JPushInterface.stopPush(TaogubaApplication.getApplication());
+//				MiPushClient.pausePush(AtarApplication.getApplication(), null);
+//				JPushInterface.stopPush(AtarApplication.getApplication());
 //			} else {
 //				JPushInterface.setDebugMode(true); // 极光设置开启日志,发布时请关闭日志
 //				JPushInterface.init(context); // 初始化 JPush
 //				JPushInterface.setLatestNotificationNumber(context, 50);
 //
-//				MiPushClient.pausePush(TaogubaApplication.getApplication(), null);
-//				PushManager.enableReceiveNormalMsg(TaogubaApplication.getApplication(), false);
-//				PushManager.enableReceiveNotifyMsg(TaogubaApplication.getApplication(), false);
+//				MiPushClient.pausePush(AtarApplication.getApplication(), null);
+//				PushManager.enableReceiveNormalMsg(AtarApplication.getApplication(), false);
+//				PushManager.enableReceiveNotifyMsg(AtarApplication.getApplication(), false);
 //			}
 //		} catch (Exception e) {
 //			ShowLog.i(TAG, "initPush()--->" + e.getMessage());
@@ -158,12 +158,12 @@
 //	 */
 //	public void stopPush() {
 //		if (android.os.Build.MANUFACTURER.equalsIgnoreCase("Xiaomi")) {
-//			MiPushClient.pausePush(TaogubaApplication.getApplication(), null);
+//			MiPushClient.pausePush(AtarApplication.getApplication(), null);
 //		} else if (android.os.Build.MANUFACTURER.equalsIgnoreCase("HUAWEI")) {
-//			PushManager.enableReceiveNormalMsg(TaogubaApplication.getApplication(), false);
-//			PushManager.enableReceiveNotifyMsg(TaogubaApplication.getApplication(), false);
+//			PushManager.enableReceiveNormalMsg(AtarApplication.getApplication(), false);
+//			PushManager.enableReceiveNotifyMsg(AtarApplication.getApplication(), false);
 //		} else {
-//			JPushInterface.stopPush(TaogubaApplication.getApplication());
+//			JPushInterface.stopPush(AtarApplication.getApplication());
 //		}
 //		AppConfigSetting.getInstance().setIsBindOpen(false);// 状态关闭
 //		ShowLog.i(TAG, "stopPush");
@@ -180,12 +180,12 @@
 //	 */
 //	public void resumePush() {
 //		if (android.os.Build.MANUFACTURER.equalsIgnoreCase("Xiaomi")) {
-//			MiPushClient.resumePush(TaogubaApplication.getApplication(), null);
+//			MiPushClient.resumePush(AtarApplication.getApplication(), null);
 //		} else if (android.os.Build.MANUFACTURER.equalsIgnoreCase("HUAWEI")) {
-//			PushManager.enableReceiveNormalMsg(TaogubaApplication.getApplication(), true);
-//			PushManager.enableReceiveNotifyMsg(TaogubaApplication.getApplication(), true);
+//			PushManager.enableReceiveNormalMsg(AtarApplication.getApplication(), true);
+//			PushManager.enableReceiveNotifyMsg(AtarApplication.getApplication(), true);
 //		} else {
-//			JPushInterface.resumePush(TaogubaApplication.getApplication());
+//			JPushInterface.resumePush(AtarApplication.getApplication());
 //		}
 //		AppConfigSetting.getInstance().setIsBindOpen(true);// 状态打开
 //		ShowLog.i(TAG, "恢复极光推送成功");
@@ -226,7 +226,7 @@
 //	public String getOnlyAlias() {
 //		String alias = "";
 //		try {
-//			TelephonyManager telephonyManager = (TelephonyManager) TaogubaApplication.getApplication().getSystemService(Context.TELEPHONY_SERVICE);
+//			TelephonyManager telephonyManager = (TelephonyManager) AtarApplication.getApplication().getSystemService(Context.TELEPHONY_SERVICE);
 //			alias = telephonyManager.getDeviceId();
 //		} catch (Exception e) {
 //			if (e != null) {
@@ -302,10 +302,10 @@
 //			int endtime = Integer.valueOf(strEndTime);
 //
 //			if (android.os.Build.MANUFACTURER.equalsIgnoreCase("Xiaomi")) {
-//				MiPushClient.setAcceptTime(TaogubaApplication.getApplication(), starTime, 0, endtime, 0, null);
+//				MiPushClient.setAcceptTime(AtarApplication.getApplication(), starTime, 0, endtime, 0, null);
 //			} else if (android.os.Build.MANUFACTURER.equalsIgnoreCase("HUAWEI")) {
 //			} else {
-//				JPushInterface.setPushTime(TaogubaApplication.getApplication(), days, starTime, endtime);
+//				JPushInterface.setPushTime(AtarApplication.getApplication(), days, starTime, endtime);
 //			}
 //		}
 //
@@ -327,7 +327,7 @@
 //		} else if (android.os.Build.MANUFACTURER.equalsIgnoreCase("HUAWEI")) {
 //			return false;
 //		} else {
-//			return JPushInterface.isPushStopped(TaogubaApplication.getApplication());
+//			return JPushInterface.isPushStopped(AtarApplication.getApplication());
 //		}
 //
 //	}
@@ -389,13 +389,13 @@
 //			Set<String> tag = new HashSet<String>();
 //			tag.add("tag");// 极光此参不能为空
 //			if (android.os.Build.MANUFACTURER.equalsIgnoreCase("Xiaomi")) {
-//				MiPushClient.setAlias(TaogubaApplication.getApplication(), alias, null);
+//				MiPushClient.setAlias(AtarApplication.getApplication(), alias, null);
 //			} else if (android.os.Build.MANUFACTURER.equalsIgnoreCase("HUAWEI")) {
 //				Map<String, String> tags = new HashMap<String, String>();
 //				tags.put("IMEI_KEY", alias);
-//				PushManager.setTags(TaogubaApplication.getApplication(), tags);
+//				PushManager.setTags(AtarApplication.getApplication(), tags);
 //			} else {
-//				JPushInterface.setAliasAndTags(TaogubaApplication.getApplication(), alias, tag, mAliasCallback);
+//				JPushInterface.setAliasAndTags(AtarApplication.getApplication(), alias, tag, mAliasCallback);
 //			}
 //		}
 //	}
@@ -410,7 +410,7 @@
 //	 * @description:
 //	 */
 //	public void clearPushSetting() {
-//		JPushInterface.setAliasAndTags(TaogubaApplication.getApplication(), "", null, mAliasCallback);
+//		JPushInterface.setAliasAndTags(AtarApplication.getApplication(), "", null, mAliasCallback);
 //	}
 //
 //	private TagAliasCallback mAliasCallback = new TagAliasCallback() {
