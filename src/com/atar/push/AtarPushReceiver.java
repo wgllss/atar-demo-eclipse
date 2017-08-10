@@ -1,3 +1,4 @@
+package com.atar.push;
 //package com.atar.push;
 //
 //import android.activity.ActivityManager;
