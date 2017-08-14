@@ -35,11 +35,6 @@ public class AtarRefreshActivity<T extends PullToRefreshBase<V>, V extends View>
 	private TextView txtToast;
 
 	@Override
-	public void onDataReceive(Message msg, T t) {
-		CommonLoading.dissMissLoading();
-	}
-
-	@Override
 	public void NetWorkCall(NetWorkMsg msg) {
 		super.NetWorkCall(msg);
 		CommonLoading.dissMissLoading();
@@ -47,44 +42,49 @@ public class AtarRefreshActivity<T extends PullToRefreshBase<V>, V extends View>
 	}
 
 	@Override
-	public void onDataReceive(int msgWhat) {
+	public void onHandlerData(Message msg) {
+		CommonLoading.dissMissLoading();
+	}
+
+	@Override
+	public void sendEmptyMessage(int msgWhat) {
 		if (mDataDispose != null) {
 			Message msg = new Message();
 			msg.what = msgWhat;
-			mDataDispose.onDataReceive(msg);
+			mDataDispose.onHandlerData(msg);
 		}
 	}
 
 	@Override
-	public void onDataReceive(int msgWhat, Object obj) {
+	public void sendMessage(int msgWhat, Object obj) {
 		if (mDataDispose != null) {
 			Message msg = new Message();
 			msg.what = msgWhat;
 			msg.obj = obj;
-			mDataDispose.onDataReceive(msg);
+			mDataDispose.onHandlerData(msg);
 		}
 	}
 
 	@Override
-	public void onDataReceive(int msgWhat, int msg1, int msg2) {
+	public void sendMessage(int msgWhat, int msg1, int msg2) {
 		if (mDataDispose != null) {
 			Message msg = new Message();
 			msg.what = msgWhat;
 			msg.arg1 = msg1;
 			msg.arg2 = msg2;
-			mDataDispose.onDataReceive(msg);
+			mDataDispose.onHandlerData(msg);
 		}
 	}
 
 	@Override
-	public void onDataReceive(int msgWhat, int msg1, int msg2, Object obj) {
+	public void sendMessage(int msgWhat, int msg1, int msg2, Object obj) {
 		if (mDataDispose != null) {
 			Message msg = new Message();
 			msg.what = msgWhat;
 			msg.arg1 = msg1;
 			msg.arg2 = msg2;
 			msg.obj = obj;
-			mDataDispose.onDataReceive(msg);
+			mDataDispose.onHandlerData(msg);
 		}
 	}
 

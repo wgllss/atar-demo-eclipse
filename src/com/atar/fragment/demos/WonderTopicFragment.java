@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.atar.fragments;
+package com.atar.fragment.demos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,13 +29,13 @@ import com.atar.adapters.ImageListAdapter;
 import com.atar.adapters.WonderfulTopicAdapter;
 import com.atar.beans.WonderfulTopicBean;
 import com.atar.enums.EnumMsgWhat;
+import com.atar.fragments.AtarRefreshListFragment;
 import com.atar.interfaces.ADOnTouchlistener;
 import com.atar.interfaces.ADOnTouchlistener.OnADItemClickListener;
 import com.atar.modles.WonderfulTopicJson;
 import com.atar.net.NetWorkInterfaces;
 import com.atar.utils.LoadUtil;
 import com.google.gson.reflect.TypeToken;
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 /**
  *****************************************************************************************************************************************************************************
@@ -49,7 +49,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
  *****************************************************************************************************************************************************************************
  */
 @SuppressLint("InflateParams")
-public class WonderTopicFragment extends TaogubaRefreshListFragment implements OnPageChangeListener, OnADItemClickListener {
+public class WonderTopicFragment extends AtarRefreshListFragment implements OnPageChangeListener, OnADItemClickListener {
 
 	private String whichPage = WonderTopicFragment.class.getSimpleName();
 
@@ -95,6 +95,7 @@ public class WonderTopicFragment extends TaogubaRefreshListFragment implements O
 		isVisibleToUser = false;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
@@ -123,7 +124,7 @@ public class WonderTopicFragment extends TaogubaRefreshListFragment implements O
 	}
 
 	@Override
-	public void onDataReceive(Message msg, PullToRefreshListView t) {
+	public void onHandlerData(Message msg) {
 		switch (msg.what) {
 		case EnumMsgWhat.LOAD_FROM_SQL:
 			LoadUtil.QueryDB(this, whichPage, "", "");
@@ -138,11 +139,11 @@ public class WonderTopicFragment extends TaogubaRefreshListFragment implements O
 			break;
 		case EnumMsgWhat.REFRESH_PULL_DOWN:
 			currentPager = 1;
-			onDataReceive(EnumMsgWhat.REFRESH_HANDLER);
+			sendEmptyMessage(EnumMsgWhat.REFRESH_HANDLER);
 			break;
 		case EnumMsgWhat.REFRESH_PULL_UP:
 			currentPager++;
-			onDataReceive(EnumMsgWhat.REFRESH_HANDLER);
+			sendEmptyMessage(EnumMsgWhat.REFRESH_HANDLER);
 			break;
 		case EnumMsgWhat.REFRESH_HANDLER:
 			NetWorkInterfaces.GetWonderTopicList(getActivity(), this, Integer.toString(currentPager));
@@ -181,7 +182,7 @@ public class WonderTopicFragment extends TaogubaRefreshListFragment implements O
 						// sendEmptyMessage(EnumMsgWhat.REFRESH_COMPLETE);
 					}
 				} else {
-					onDataReceive(EnumMsgWhat.REFRESH_COMPLETE);
+					sendEmptyMessage(EnumMsgWhat.REFRESH_COMPLETE);
 				}
 			}
 			break;
@@ -242,7 +243,7 @@ public class WonderTopicFragment extends TaogubaRefreshListFragment implements O
 					Thread.sleep(3000);
 					currentPosition++;
 					currentPosition = currentPosition > 2 ? 0 : currentPosition;
-					onDataReceive(EnumMsgWhat.REFRESH_HANDLER2, currentPosition, 0);
+					sendMessage(EnumMsgWhat.REFRESH_HANDLER2, currentPosition, 0);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

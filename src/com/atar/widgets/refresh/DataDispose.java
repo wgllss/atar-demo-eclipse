@@ -48,10 +48,10 @@ public class DataDispose<T extends PullToRefreshBase<V>, V extends View> impleme
 		}
 	}
 
-	public void onDataReceive(Message msg) {
+	public void onHandlerData(Message msg) {
 		try {
 			if (listener != null) {
-				listener.onDataReceive(msg, t);
+				listener.onHandlerData(msg);
 			}
 			switch (msg.what) {
 			case EnumMsgWhat.REFRESHING_VIEW:
@@ -59,9 +59,9 @@ public class DataDispose<T extends PullToRefreshBase<V>, V extends View> impleme
 					if (!isRequestingButNoutResult) {
 						isRequestingButNoutResult = true;
 						if (t.getCurrentMode() == Mode.PULL_FROM_START) {
-							listener.onDataReceive(EnumMsgWhat.REFRESH_PULL_DOWN);
+							listener.sendEmptyMessage(EnumMsgWhat.REFRESH_PULL_DOWN);
 						} else if (t.getCurrentMode() == Mode.PULL_FROM_END) {
-							listener.onDataReceive(EnumMsgWhat.REFRESH_PULL_UP);
+							listener.sendEmptyMessage(EnumMsgWhat.REFRESH_PULL_UP);
 						}
 					} else {
 						t.getLoadingLayoutProxy().setLastUpdatedLabel(t.getContext().getResources().getString(R.string.refreshing_waiting));
@@ -105,7 +105,7 @@ public class DataDispose<T extends PullToRefreshBase<V>, V extends View> impleme
 	 *@description:
 	 */
 	public void onStopRefresh() {
-		listener.onDataReceive(EnumMsgWhat.REFRESH_COMPLETE3);
+		listener.sendEmptyMessage(EnumMsgWhat.REFRESH_COMPLETE3);
 		if (t != null) {
 			// SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-HH:mm:ss");
 			// Date curDate = new Date(System.currentTimeMillis());// 获取当前时间
@@ -123,13 +123,13 @@ public class DataDispose<T extends PullToRefreshBase<V>, V extends View> impleme
 	@Override
 	public void onPullUpToRefresh(PullToRefreshBase<V> refreshView) {
 		if (refreshView != null)
-			listener.onDataReceive(EnumMsgWhat.REFRESHING_VIEW);
+			listener.sendEmptyMessage(EnumMsgWhat.REFRESHING_VIEW);
 	}
 
 	@Override
 	public void onPullDownToRefresh(PullToRefreshBase<V> refreshView) {
 		if (refreshView != null)
-			listener.onDataReceive(EnumMsgWhat.REFRESHING_VIEW);
+			listener.sendEmptyMessage(EnumMsgWhat.REFRESHING_VIEW);
 	}
 
 	@SuppressLint("Recycle")

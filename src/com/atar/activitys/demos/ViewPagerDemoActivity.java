@@ -8,7 +8,7 @@ import android.widget.RelativeLayout;
 
 import com.atar.activitys.AtarCommonTabActivity;
 import com.atar.activitys.R;
-import com.atar.fragments.WonderTopicFragment;
+import com.atar.fragment.demos.WonderTopicFragment;
 
 /**
  *****************************************************************************************************************************************************************************

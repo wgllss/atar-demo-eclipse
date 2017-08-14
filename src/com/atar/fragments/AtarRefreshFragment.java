@@ -5,9 +5,9 @@ package com.atar.fragments;
  */
 
 import android.annotation.SuppressLint;
+import android.common.CommonHandler;
 import android.fragment.CommonFragment;
 import android.interfaces.NetWorkCallListener;
-import android.os.Handler;
 import android.os.Message;
 import android.reflection.NetWorkMsg;
 import android.view.View;
@@ -43,7 +43,7 @@ public class AtarRefreshFragment<T extends PullToRefreshBase<V>, V extends View>
 	private TextView txtToast;
 
 	@Override
-	public void onDataReceive(Message msg, T t) {
+	public void onHandlerData(Message msg) {
 		CommonLoading.dissMissLoading();
 	}
 
@@ -54,44 +54,44 @@ public class AtarRefreshFragment<T extends PullToRefreshBase<V>, V extends View>
 	}
 
 	@Override
-	public void onDataReceive(int msgWhat) {
+	public void sendEmptyMessage(int msgWhat) {
 		if (mDataDispose != null) {
 			Message msg = new Message();
 			msg.what = msgWhat;
-			mDataDispose.onDataReceive(msg);
+			mDataDispose.onHandlerData(msg);
 		}
 	}
 
 	@Override
-	public void onDataReceive(int msgWhat, Object obj) {
+	public void sendMessage(int msgWhat, Object obj) {
 		if (mDataDispose != null) {
 			Message msg = new Message();
 			msg.what = msgWhat;
 			msg.obj = obj;
-			mDataDispose.onDataReceive(msg);
+			mDataDispose.onHandlerData(msg);
 		}
 	}
 
 	@Override
-	public void onDataReceive(int msgWhat, int msg1, int msg2) {
+	public void sendMessage(int msgWhat, int msg1, int msg2) {
 		if (mDataDispose != null) {
 			Message msg = new Message();
 			msg.what = msgWhat;
 			msg.arg1 = msg1;
 			msg.arg2 = msg2;
-			mDataDispose.onDataReceive(msg);
+			mDataDispose.onHandlerData(msg);
 		}
 	}
 
 	@Override
-	public void onDataReceive(int msgWhat, int msg1, int msg2, Object obj) {
+	public void sendMessage(int msgWhat, int msg1, int msg2, Object obj) {
 		if (mDataDispose != null) {
 			Message msg = new Message();
 			msg.what = msgWhat;
 			msg.arg1 = msg1;
 			msg.arg2 = msg2;
 			msg.obj = obj;
-			mDataDispose.onDataReceive(msg);
+			mDataDispose.onHandlerData(msg);
 		}
 	}
 
@@ -224,20 +224,15 @@ public class AtarRefreshFragment<T extends PullToRefreshBase<V>, V extends View>
 		initUI(isVisibleToUser);
 	}
 
-	private static Handler handler;
-
 	protected void initUI(final boolean isVisibleToUser) {
-		if (handler == null) {
-			handler = new Handler();
-		}
-		handler.postDelayed(new Runnable() {
+		CommonHandler.getInstatnce().getHandler().postDelayed(new Runnable() {
 			@Override
 			public void run() {
 				if (t == null || getActivity() == null || !isVisibleToUser) {
 					initUI(isVisibleToUser);
 				} else {
 					if (isFirstLoad()) {
-						onDataReceive(EnumMsgWhat.LOAD_FROM_SQL);
+						sendEmptyMessage(EnumMsgWhat.LOAD_FROM_SQL);
 						setIsFirstLoad(false);
 					}
 				}

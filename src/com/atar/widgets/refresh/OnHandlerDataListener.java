@@ -1,7 +1,6 @@
 package com.atar.widgets.refresh;
 
-import android.os.Handler;
-import android.os.Message;
+import android.interfaces.HandlerListener;
 import android.view.View;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -17,20 +16,20 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
  * @description:
  ******************************************************************************************
  */
-public interface OnHandlerDataListener<T extends PullToRefreshBase<V>, V extends View> {
+public interface OnHandlerDataListener<T extends PullToRefreshBase<V>, V extends View> extends HandlerListener {
 
-	/**
-	 * 操作本地动作或数据
-	 *@atour: Atar
-	 *@createTime:2014年8月9日上午12:12:53
-	 *@modifyTime:
-	 *@modifyAtour:
-	 *@version: 1.0.0
-	 *@param msg
-	 *@param t:
-	 *@description:
-	 */
-	void onDataReceive(Message msg, T t);
+	// /**
+	// * 操作本地动作或数据
+	// *@atour: Atar
+	// *@createTime:2014年8月9日上午12:12:53
+	// *@modifyTime:
+	// *@modifyAtour:
+	// *@version: 1.0.0
+	// *@param msg
+	// *@param t:
+	// *@description:
+	// */
+	// void onDataReceive(Message msg);
 
 	/**
 	 * 发送操作标志
@@ -42,7 +41,7 @@ public interface OnHandlerDataListener<T extends PullToRefreshBase<V>, V extends
 	 *@param msgWhat:
 	 *@description:
 	 */
-	void onDataReceive(int msgWhat);
+	void sendEmptyMessage(int msgWhat);
 
 	/**
 	 * 发送消息带obj
@@ -55,7 +54,7 @@ public interface OnHandlerDataListener<T extends PullToRefreshBase<V>, V extends
 	 * @param obj
 	 * @description:
 	 */
-	void onDataReceive(int msgWhat, Object obj);
+	void sendMessage(int msgWhat, Object obj);
 
 	/**
 	 * 发送消息带msg1,msg2
@@ -69,7 +68,7 @@ public interface OnHandlerDataListener<T extends PullToRefreshBase<V>, V extends
 	 * @param msg2
 	 * @description:
 	 */
-	void onDataReceive(int msgWhat, int msg1, int msg2);
+	void sendMessage(int msgWhat, int msg1, int msg2);
 
 	/**
 	 *  发送消息带msg1,msg2,obj
@@ -84,7 +83,7 @@ public interface OnHandlerDataListener<T extends PullToRefreshBase<V>, V extends
 	 * @param obj
 	 * @description:
 	 */
-	void onDataReceive(int msgWhat, int msg1, int msg2, Object obj);
+	void sendMessage(int msgWhat, int msg1, int msg2, Object obj);
 
 	/**
 	 * 设置正在刷新

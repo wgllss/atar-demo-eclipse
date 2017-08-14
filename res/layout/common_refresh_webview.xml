@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.handmark.pulltorefresh.library.PullToRefreshWebView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/pull_refresh_webview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    ptr:ptrAnimationStyle="dynamic"
+    ptr:ptrDrawable="@drawable/default_ptr_flip"
+    ptr:ptrHeaderBackground="@color/transparent1"
+    ptr:ptrHeaderSubTextColor="@color/common_buttom_hight"
+    ptr:ptrHeaderTextColor="@color/common_buttom_hight"
+    ptr:ptrMode="both" />

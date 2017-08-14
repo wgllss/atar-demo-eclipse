@@ -6,14 +6,13 @@ package com.atar.dao;
 import java.util.List;
 
 import android.appconfig.AppConfigSetting;
-import android.os.Handler;
-import android.os.Looper;
+import android.common.CommonHandler;
+import android.interfaces.HandlerListener;
 import android.os.Message;
 
 import com.atar.application.AtarApplication;
 import com.atar.db.EnumColumnName;
 import com.atar.enums.EnumMsgWhat;
-import com.atar.widgets.refresh.OnHandlerDataListener;
 import com.lidroid.xutils.db.sqlite.Selector;
 
 /**
@@ -30,8 +29,7 @@ import com.lidroid.xutils.db.sqlite.Selector;
 public class QueryRunnable<T> implements Runnable {
 
 	private Class<T> cls;
-	private static Handler handelr = new Handler(Looper.getMainLooper());
-	private OnHandlerDataListener mOnHandlerDataListener;
+	private HandlerListener mHandlerListener;
 	private String columnName = "";
 	private String value = "";
 	private String columnName2 = "";
@@ -40,22 +38,22 @@ public class QueryRunnable<T> implements Runnable {
 	private String loginUserId;
 	private String orderBy = "";
 
-	public QueryRunnable(Class<T> cls, OnHandlerDataListener mHandler) {
+	public QueryRunnable(Class<T> cls, HandlerListener mHandlerListener) {
 		this.cls = cls;
-		this.mOnHandlerDataListener = mHandler;
+		this.mHandlerListener = mHandlerListener;
 		this.msgWhat = EnumMsgWhat.LOAD_FROM_SQL_COMPLETE;// 默认用这个代替
 	}
 
-	public QueryRunnable(Class<T> cls, OnHandlerDataListener mHandler, String orderBy) {
+	public QueryRunnable(Class<T> cls, HandlerListener mHandlerListener, String orderBy) {
 		this.cls = cls;
-		this.mOnHandlerDataListener = mHandler;
+		this.mHandlerListener = mHandlerListener;
 		this.msgWhat = EnumMsgWhat.LOAD_FROM_SQL_COMPLETE;// 默认用这个代替
 		this.orderBy = orderBy;
 	}
 
-	public QueryRunnable(Class<T> cls, OnHandlerDataListener mHandler, int msgWhat) {
+	public QueryRunnable(Class<T> cls, HandlerListener mHandlerListener, int msgWhat) {
 		this.cls = cls;
-		this.mOnHandlerDataListener = mHandler;
+		this.mHandlerListener = mHandlerListener;
 		this.msgWhat = msgWhat;
 	}
 
@@ -66,9 +64,9 @@ public class QueryRunnable<T> implements Runnable {
 	 * @param columnName
 	 * @param value
 	 */
-	public QueryRunnable(Class<T> cls, OnHandlerDataListener mHandler, String columnName, String value) {
+	public QueryRunnable(Class<T> cls, HandlerListener mHandlerListener, String columnName, String value) {
 		this.cls = cls;
-		this.mOnHandlerDataListener = mHandler;
+		this.mHandlerListener = mHandlerListener;
 		this.columnName = columnName;
 		this.value = value;
 		this.msgWhat = EnumMsgWhat.LOAD_FROM_SQL_COMPLETE;
@@ -83,9 +81,9 @@ public class QueryRunnable<T> implements Runnable {
 	 * @param columnName2
 	 * @param value2
 	 */
-	public QueryRunnable(Class<T> cls, OnHandlerDataListener mHandler, String columnName, String value, String columnName2, String value2) {
+	public QueryRunnable(Class<T> cls, HandlerListener mHandlerListener, String columnName, String value, String columnName2, String value2) {
 		this.cls = cls;
-		this.mOnHandlerDataListener = mHandler;
+		this.mHandlerListener = mHandlerListener;
 		this.columnName = columnName;
 		this.value = value;
 		this.columnName2 = columnName2;
@@ -102,9 +100,9 @@ public class QueryRunnable<T> implements Runnable {
 	 * @param columnName2
 	 * @param value2
 	 */
-	public QueryRunnable(Class<T> cls, OnHandlerDataListener mHandler, String columnName, String value, String columnName2, String value2, int msgWhat) {
+	public QueryRunnable(Class<T> cls, HandlerListener mHandlerListener, String columnName, String value, String columnName2, String value2, int msgWhat) {
 		this.cls = cls;
-		this.mOnHandlerDataListener = mHandler;
+		this.mHandlerListener = mHandlerListener;
 		this.columnName = columnName;
 		this.value = value;
 		this.columnName2 = columnName2;
@@ -119,9 +117,9 @@ public class QueryRunnable<T> implements Runnable {
 	 * @param columnName : 查询的字段
 	 * @param value :查询的字段值
 	 */
-	public QueryRunnable(Class<T> cls, OnHandlerDataListener mHandler, String columnName, String value, int msgWhat) {
+	public QueryRunnable(Class<T> cls, HandlerListener mHandlerListener, String columnName, String value, int msgWhat) {
 		this.cls = cls;
-		this.mOnHandlerDataListener = mHandler;
+		this.mHandlerListener = mHandlerListener;
 		this.columnName = columnName;
 		this.value = value;
 		this.msgWhat = msgWhat;
@@ -131,7 +129,7 @@ public class QueryRunnable<T> implements Runnable {
 	public void run() {
 		List<T> list = null;
 		loginUserId = AppConfigSetting.getInstance().getUserId();
-		if (loginUserId != null && loginUserId.length() > 0 && mOnHandlerDataListener != null) {
+		if (loginUserId != null && loginUserId.length() > 0 && mHandlerListener != null) {
 			try {
 				if ("".equals(orderBy)) {
 					if (columnName != null && !"".equals(columnName)) {
@@ -164,11 +162,11 @@ public class QueryRunnable<T> implements Runnable {
 		final Message msg = new Message();
 		msg.what = msgWhat;
 		msg.obj = list;
-		handelr.post(new Runnable() {
+		CommonHandler.getInstatnce().getHandler().post(new Runnable() {
 
 			@Override
 			public void run() {
-				mOnHandlerDataListener.onDataReceive(msg, null);
+				mHandlerListener.onHandlerData(msg);
 			}
 		});
 		// Message msg = mOnHandlerDataListener.obtainMessage(msgWhat, list);
