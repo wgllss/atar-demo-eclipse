@@ -778,7 +778,7 @@ public class ImplInAndroidScript {
 
 	@JavascriptInterface
 	public void onfinish() {
-		IntentUtil.taogubaFinish(activity);
+		IntentUtil.finish(activity);
 	}
 
 	@JavascriptInterface
@@ -800,391 +800,391 @@ public class ImplInAndroidScript {
 		}
 	}
 
-//	@JavascriptInterface
-//	public void setWeexTabHostWithWebViewNewInfoNum(final String strposition, final String strnum) {
-//		if (handler != null) {
-//			handler.post(new Runnable() {
-//				@Override
-//				public void run() {
-//					try {
-//						int position = 0;
-//						int num = 0;
-//						try {
-//							if (strposition != null && strposition.length() > 0) {
-//								position = Integer.valueOf(strposition);
-//							}
-//							if (strnum != null && strnum.length() > 0) {
-//								num = Integer.valueOf(strnum);
-//							}
-//						} catch (Exception e) {
-//
-//						}
-//						if (ActivityManager.getActivityManager().getActivity(WeexTabHostWithWebViewActivity.class) != null) {
-//							ActivityManager.getActivityManager().getActivity(WeexTabHostWithWebViewActivity.class).setNewInfoNum(position, num);
-//						}
-//					} catch (Exception e) {
-//
-//					}
-//				}
-//			});
-//		}
-//	}
-//
-//	@JavascriptInterface
-//	public void setWeexTabHostWithWebViewsetCurrentTab(final String strposition) {
-//		if (handler != null) {
-//			handler.post(new Runnable() {
-//				@Override
-//				public void run() {
-//					try {
-//						int position = 0;
-//						try {
-//							if (strposition != null && strposition.length() > 0) {
-//								position = Integer.valueOf(strposition);
-//							}
-//						} catch (Exception e) {
-//
-//						}
-//						if (ActivityManager.getActivityManager().getActivity(WeexTabHostWithWebViewActivity.class) != null) {
-//							ActivityManager.getActivityManager().getActivity(WeexTabHostWithWebViewActivity.class).setCurrentTab(position);
-//						}
-//					} catch (Exception e) {
-//
-//					}
-//				}
-//			});
-//		}
-//	}
-//
-//	/**
-//	 * weex页面 一个we调另一个we页面
-//	 * 
-//	 * @author :Atar
-//	 * @createTime:2017-5-11下午2:29:09
-//	 * @version:1.0.0
-//	 * @modifyTime:
-//	 * @modifyAuthor:
-//	 * @param activityClassName
-//	 * @param callback_key
-//	 * @param callback_value
-//	 * @description:
-//	 */
-//	@JavascriptInterface
-//	public void callWeekActivity(String activityClassName, String callback_key, String callback_value) {
-//		try {
-//			if (activityClassName != null && activityClassName.length() > 0) {
-//				@SuppressWarnings("unchecked")
-//				Class<MainActivity> cls = (Class<MainActivity>) Class.forName(activityClassName);
-//				if (cls != null && ActivityManager.getActivityManager().getActivity(cls) != null) {
-//					ActivityManager.getActivityManager().getActivity(cls).weekCallback(callback_key, callback_value);
-//				}
-//			}
-//		} catch (Exception e) {
-//			ShowLog.e(TAG, CrashHandler.crashToString(e));
-//		}
-//	}
-//
-//	/**
-//	 *  html页面 调另一个we页面
-//	 * @author :Atar
-//	 * @createTime:2017-6-28下午1:43:34
-//	 * @version:1.0.0
-//	 * @modifyTime:
-//	 * @modifyAuthor:
-//	 * @param strlastPosition 为倒数第几个MainActivity or MainActivity的子类WeexNavigatorActivity （可能开了多个）
-//	 * @param activityClassName
-//	 * @param callback_key
-//	 * @param callback_value
-//	 * @description:
-//	 */
-//	@JavascriptInterface
-//	public void callWeekActivity(String activityClassName, String callback_key, String callback_value, String strlastPosition) {
-//		try {
-//			if (activityClassName != null && activityClassName.length() > 0) {
-//				@SuppressWarnings("unchecked")
-//				Class<MainActivity> cls = (Class<MainActivity>) Class.forName(activityClassName);
-//				int lastPosition = 0;
-//				try {
-//					lastPosition = Integer.valueOf(strlastPosition);
-//				} catch (Exception e) {
-//				}
-//				if (cls != null && ActivityManager.getActivityManager().getActivity(cls, lastPosition) != null) {
-//					ActivityManager.getActivityManager().getActivity(cls, lastPosition).weekCallback(callback_key, callback_value);
-//				}
-//			}
-//		} catch (Exception e) {
-//			ShowLog.e(TAG, CrashHandler.crashToString(e));
-//		}
-//	}
-//
-//	/**
-//	 * html页面 调用 另一个 TaogubaDynamicWebViewActivity html中js方法
-//	 * @author :Atar
-//	 * @createTime:2017-6-28下午1:43:34
-//	 * @version:1.0.0
-//	 * @modifyTime:
-//	 * @modifyAuthor:
-//	 * @param strlastPosition 为倒数第几个TaogubaDynamicWebViewActivity（可能开了多个）
-//	 * @param javascriptUrl
-//	 * @description:
-//	 */
-//	@JavascriptInterface
-//	public void callDynamicWebViewctivity(final String strlastPosition, final String javascriptUrl) {
-//		try {
-//			if (handler != null) {
-//				handler.post(new Runnable() {
-//					@Override
-//					public void run() {
-//						int lastPosition = 0;
-//						try {
-//							lastPosition = Integer.valueOf(strlastPosition);
-//						} catch (Exception e) {
-//						}
-//						if (ActivityManager.getActivityManager().getActivity(TaogubaDynamicWebViewActivity.class, lastPosition) != null) {
-//							ActivityManager.getActivityManager().getActivity(TaogubaDynamicWebViewActivity.class, lastPosition).loadWebViewUrl(javascriptUrl);
-//						}
-//					}
-//				});
-//			}
-//		} catch (Exception e) {
-//			ShowLog.e(TAG, CrashHandler.crashToString(e));
-//		}
-//	}
-//
-//	/**
-//	 * 设置WeOrWebViewPagerActivity 标题
-//	 * @author :Atar
-//	 * @createTime:2017-6-29下午2:05:19
-//	 * @version:1.0.0
-//	 * @modifyTime:
-//	 * @modifyAuthor:
-//	 * @param title
-//	 * @description:
-//	 */
-//	@JavascriptInterface
-//	public void setWebViewPagerActivityTitle(final String activityName, final String title) {
-//		try {
-//			if (handler != null) {
-//				handler.post(new Runnable() {
-//					@Override
-//					public void run() {
-//						if (activityName.contains("WebViewPagerActivity")) {
-//							if (ActivityManager.getActivityManager().getActivity(WebViewPagerActivity.class) != null) {
-//								ActivityManager.getActivityManager().getActivity(WebViewPagerActivity.class).setActivityTitle(title);
-//							}
-//						} else if (activityName.contains("CommunityActivity")) {
-//							if (ActivityManager.getActivityManager().getActivity(CommunityActivity.class) != null) {
-//								ActivityManager.getActivityManager().getActivity(CommunityActivity.class).setActivityTitle(title);
-//							}
-//						}
-//					}
-//				});
-//			}
-//		} catch (Exception e) {
-//			ShowLog.e(TAG, CrashHandler.crashToString(e));
-//		}
-//	}
-//
-//	/**
-//	 *  调用 另一个 WebViewPagerActivity 第几个 html中js方法
-//	 * @author :Atar
-//	 * @createTime:2017-6-28下午1:43:34
-//	 * @version:1.0.0
-//	 * @modifyTime:
-//	 * @modifyAuthor:
-//	 * @param strlastPosition 为倒数第几个WebViewPagerActivity（可能开了多个）
-//	 * @param strCurrntPosition 第几个 html
-//	 * @param javascriptUrl
-//	 * @description:
-//	 */
-//	@JavascriptInterface
-//	public void callWebViewPagerActivityFragment(final String activityName, final String strlastPosition, final String strCurrntPosition, final String javascriptUrl) {
-//		try {
-//			if (handler != null) {
-//				handler.post(new Runnable() {
-//					@Override
-//					public void run() {
-//						int lastPosition = 0;
-//						int currntPosition = 0;
-//						try {
-//							lastPosition = Integer.valueOf(strlastPosition);
-//							currntPosition = Integer.valueOf(strCurrntPosition);
-//						} catch (Exception e) {
-//							ShowLog.e(TAG, CrashHandler.crashToString(e));
-//						}
-//						try {
-//							if (activityName.contains("WebViewPagerActivity")) {
-//								((TaogubaDynamicFragment) ActivityManager.getActivityManager().getActivity(WebViewPagerActivity.class, lastPosition).getFragmentList().get(currntPosition))
-//										.loadWebViewUrl(javascriptUrl);
-//							} else if (activityName.contains("CommunityActivity")) {
-//								((TaogubaDynamicFragment) ActivityManager.getActivityManager().getActivity(CommunityActivity.class, lastPosition).getFragmentList().get(currntPosition))
-//										.loadWebViewUrl(javascriptUrl);
-//							}
-//						} catch (Exception e) {
-//							ShowLog.e(TAG, CrashHandler.crashToString(e));
-//						}
-//					}
-//				});
-//			}
-//		} catch (Exception e) {
-//			ShowLog.e(TAG, CrashHandler.crashToString(e));
-//		}
-//	}
-//
-//	/**
-//	 * 设置小红点数字
-//	 * @author :Atar
-//	 * @createTime:2017-7-4上午10:32:53
-//	 * @version:1.0.0
-//	 * @modifyTime:
-//	 * @modifyAuthor:
-//	 * @param strlastPosition 倒数第几个WebViewPagerActivity
-//	 * @param strCurrntPosition 第几个tab下数字
-//	 * @param strNewNum 数字值
-//	 * @description:
-//	 */
-//	@JavascriptInterface
-//	public void setWebViewPagerActivityNewInfoNum(final String activityName, final String strlastPosition, final String strCurrntPosition, final String strNewNum) {
-//		try {
-//			if (handler != null) {
-//				handler.post(new Runnable() {
-//					@Override
-//					public void run() {
-//						int lastPosition = 0;
-//						int currntPosition = 0;
-//						int num = 0;
-//						try {
-//							lastPosition = Integer.valueOf(strlastPosition);
-//							currntPosition = Integer.valueOf(strCurrntPosition);
-//							num = Integer.valueOf(strNewNum);
-//						} catch (Exception e) {
-//							ShowLog.e(TAG, CrashHandler.crashToString(e));
-//						}
-//						try {
-//							if (activityName.contains("WebViewPagerActivity")) {
-//								ActivityManager.getActivityManager().getActivity(WebViewPagerActivity.class, lastPosition).setNewInfoNum(currntPosition, num);
-//							} else if (activityName.contains("CommunityActivity")) {
-//								ActivityManager.getActivityManager().getActivity(CommunityActivity.class, lastPosition).setNewInfoNum(currntPosition, num);
-//							}
-//						} catch (Exception e) {
-//							ShowLog.e(TAG, CrashHandler.crashToString(e));
-//						}
-//					}
-//				});
-//			}
-//		} catch (Exception e) {
-//			ShowLog.e(TAG, CrashHandler.crashToString(e));
-//		}
-//	}
-//
-//	/**
-//	 * 设置WebViewPagerActivity切换tab
-//	 * @author :Atar
-//	 * @createTime:2017-7-4上午10:32:17
-//	 * @version:1.0.0
-//	 * @modifyTime:
-//	 * @modifyAuthor:
-//	 * @param strlastPosition 倒数第几个WebViewPagerActivity
-//	 * @param strCurrntPosition 第几个tab
-//	 * @description:
-//	 */
-//	@JavascriptInterface
-//	public void setWebViewPagerActivityCurrentItem(final String activityName, final String strlastPosition, final String strCurrntPosition) {
-//		try {
-//			if (handler != null) {
-//				handler.post(new Runnable() {
-//					@Override
-//					public void run() {
-//						int lastPosition = 0;
-//						int currntPosition = 0;
-//						try {
-//							lastPosition = Integer.valueOf(strlastPosition);
-//							currntPosition = Integer.valueOf(strCurrntPosition);
-//						} catch (Exception e) {
-//							ShowLog.e(TAG, CrashHandler.crashToString(e));
-//						}
-//						try {
-//							if (activityName.contains("WebViewPagerActivity")) {
-//								ActivityManager.getActivityManager().getActivity(WebViewPagerActivity.class, lastPosition).setCurrentItem(currntPosition, true);
-//							} else if (activityName.contains("CommunityActivity")) {
-//								ActivityManager.getActivityManager().getActivity(CommunityActivity.class, lastPosition).setCurrentItem(currntPosition, true);
-//							}
-//						} catch (Exception e) {
-//							ShowLog.e(TAG, CrashHandler.crashToString(e));
-//						}
-//					}
-//				});
-//			}
-//		} catch (Exception e) {
-//			ShowLog.e(TAG, CrashHandler.crashToString(e));
-//		}
-//	}
+	// @JavascriptInterface
+	// public void setWeexTabHostWithWebViewNewInfoNum(final String strposition, final String strnum) {
+	// if (handler != null) {
+	// handler.post(new Runnable() {
+	// @Override
+	// public void run() {
+	// try {
+	// int position = 0;
+	// int num = 0;
+	// try {
+	// if (strposition != null && strposition.length() > 0) {
+	// position = Integer.valueOf(strposition);
+	// }
+	// if (strnum != null && strnum.length() > 0) {
+	// num = Integer.valueOf(strnum);
+	// }
+	// } catch (Exception e) {
+	//
+	// }
+	// if (ActivityManager.getActivityManager().getActivity(WeexTabHostWithWebViewActivity.class) != null) {
+	// ActivityManager.getActivityManager().getActivity(WeexTabHostWithWebViewActivity.class).setNewInfoNum(position, num);
+	// }
+	// } catch (Exception e) {
+	//
+	// }
+	// }
+	// });
+	// }
+	// }
+	//
+	// @JavascriptInterface
+	// public void setWeexTabHostWithWebViewsetCurrentTab(final String strposition) {
+	// if (handler != null) {
+	// handler.post(new Runnable() {
+	// @Override
+	// public void run() {
+	// try {
+	// int position = 0;
+	// try {
+	// if (strposition != null && strposition.length() > 0) {
+	// position = Integer.valueOf(strposition);
+	// }
+	// } catch (Exception e) {
+	//
+	// }
+	// if (ActivityManager.getActivityManager().getActivity(WeexTabHostWithWebViewActivity.class) != null) {
+	// ActivityManager.getActivityManager().getActivity(WeexTabHostWithWebViewActivity.class).setCurrentTab(position);
+	// }
+	// } catch (Exception e) {
+	//
+	// }
+	// }
+	// });
+	// }
+	// }
+	//
+	// /**
+	// * weex页面 一个we调另一个we页面
+	// *
+	// * @author :Atar
+	// * @createTime:2017-5-11下午2:29:09
+	// * @version:1.0.0
+	// * @modifyTime:
+	// * @modifyAuthor:
+	// * @param activityClassName
+	// * @param callback_key
+	// * @param callback_value
+	// * @description:
+	// */
+	// @JavascriptInterface
+	// public void callWeekActivity(String activityClassName, String callback_key, String callback_value) {
+	// try {
+	// if (activityClassName != null && activityClassName.length() > 0) {
+	// @SuppressWarnings("unchecked")
+	// Class<MainActivity> cls = (Class<MainActivity>) Class.forName(activityClassName);
+	// if (cls != null && ActivityManager.getActivityManager().getActivity(cls) != null) {
+	// ActivityManager.getActivityManager().getActivity(cls).weekCallback(callback_key, callback_value);
+	// }
+	// }
+	// } catch (Exception e) {
+	// ShowLog.e(TAG, CrashHandler.crashToString(e));
+	// }
+	// }
+	//
+	// /**
+	// * html页面 调另一个we页面
+	// * @author :Atar
+	// * @createTime:2017-6-28下午1:43:34
+	// * @version:1.0.0
+	// * @modifyTime:
+	// * @modifyAuthor:
+	// * @param strlastPosition 为倒数第几个MainActivity or MainActivity的子类WeexNavigatorActivity （可能开了多个）
+	// * @param activityClassName
+	// * @param callback_key
+	// * @param callback_value
+	// * @description:
+	// */
+	// @JavascriptInterface
+	// public void callWeekActivity(String activityClassName, String callback_key, String callback_value, String strlastPosition) {
+	// try {
+	// if (activityClassName != null && activityClassName.length() > 0) {
+	// @SuppressWarnings("unchecked")
+	// Class<MainActivity> cls = (Class<MainActivity>) Class.forName(activityClassName);
+	// int lastPosition = 0;
+	// try {
+	// lastPosition = Integer.valueOf(strlastPosition);
+	// } catch (Exception e) {
+	// }
+	// if (cls != null && ActivityManager.getActivityManager().getActivity(cls, lastPosition) != null) {
+	// ActivityManager.getActivityManager().getActivity(cls, lastPosition).weekCallback(callback_key, callback_value);
+	// }
+	// }
+	// } catch (Exception e) {
+	// ShowLog.e(TAG, CrashHandler.crashToString(e));
+	// }
+	// }
+	//
+	// /**
+	// * html页面 调用 另一个 TaogubaDynamicWebViewActivity html中js方法
+	// * @author :Atar
+	// * @createTime:2017-6-28下午1:43:34
+	// * @version:1.0.0
+	// * @modifyTime:
+	// * @modifyAuthor:
+	// * @param strlastPosition 为倒数第几个TaogubaDynamicWebViewActivity（可能开了多个）
+	// * @param javascriptUrl
+	// * @description:
+	// */
+	// @JavascriptInterface
+	// public void callDynamicWebViewctivity(final String strlastPosition, final String javascriptUrl) {
+	// try {
+	// if (handler != null) {
+	// handler.post(new Runnable() {
+	// @Override
+	// public void run() {
+	// int lastPosition = 0;
+	// try {
+	// lastPosition = Integer.valueOf(strlastPosition);
+	// } catch (Exception e) {
+	// }
+	// if (ActivityManager.getActivityManager().getActivity(TaogubaDynamicWebViewActivity.class, lastPosition) != null) {
+	// ActivityManager.getActivityManager().getActivity(TaogubaDynamicWebViewActivity.class, lastPosition).loadWebViewUrl(javascriptUrl);
+	// }
+	// }
+	// });
+	// }
+	// } catch (Exception e) {
+	// ShowLog.e(TAG, CrashHandler.crashToString(e));
+	// }
+	// }
+	//
+	// /**
+	// * 设置WeOrWebViewPagerActivity 标题
+	// * @author :Atar
+	// * @createTime:2017-6-29下午2:05:19
+	// * @version:1.0.0
+	// * @modifyTime:
+	// * @modifyAuthor:
+	// * @param title
+	// * @description:
+	// */
+	// @JavascriptInterface
+	// public void setWebViewPagerActivityTitle(final String activityName, final String title) {
+	// try {
+	// if (handler != null) {
+	// handler.post(new Runnable() {
+	// @Override
+	// public void run() {
+	// if (activityName.contains("WebViewPagerActivity")) {
+	// if (ActivityManager.getActivityManager().getActivity(WebViewPagerActivity.class) != null) {
+	// ActivityManager.getActivityManager().getActivity(WebViewPagerActivity.class).setActivityTitle(title);
+	// }
+	// } else if (activityName.contains("CommunityActivity")) {
+	// if (ActivityManager.getActivityManager().getActivity(CommunityActivity.class) != null) {
+	// ActivityManager.getActivityManager().getActivity(CommunityActivity.class).setActivityTitle(title);
+	// }
+	// }
+	// }
+	// });
+	// }
+	// } catch (Exception e) {
+	// ShowLog.e(TAG, CrashHandler.crashToString(e));
+	// }
+	// }
+	//
+	// /**
+	// * 调用 另一个 WebViewPagerActivity 第几个 html中js方法
+	// * @author :Atar
+	// * @createTime:2017-6-28下午1:43:34
+	// * @version:1.0.0
+	// * @modifyTime:
+	// * @modifyAuthor:
+	// * @param strlastPosition 为倒数第几个WebViewPagerActivity（可能开了多个）
+	// * @param strCurrntPosition 第几个 html
+	// * @param javascriptUrl
+	// * @description:
+	// */
+	// @JavascriptInterface
+	// public void callWebViewPagerActivityFragment(final String activityName, final String strlastPosition, final String strCurrntPosition, final String javascriptUrl) {
+	// try {
+	// if (handler != null) {
+	// handler.post(new Runnable() {
+	// @Override
+	// public void run() {
+	// int lastPosition = 0;
+	// int currntPosition = 0;
+	// try {
+	// lastPosition = Integer.valueOf(strlastPosition);
+	// currntPosition = Integer.valueOf(strCurrntPosition);
+	// } catch (Exception e) {
+	// ShowLog.e(TAG, CrashHandler.crashToString(e));
+	// }
+	// try {
+	// if (activityName.contains("WebViewPagerActivity")) {
+	// ((TaogubaDynamicFragment) ActivityManager.getActivityManager().getActivity(WebViewPagerActivity.class, lastPosition).getFragmentList().get(currntPosition))
+	// .loadWebViewUrl(javascriptUrl);
+	// } else if (activityName.contains("CommunityActivity")) {
+	// ((TaogubaDynamicFragment) ActivityManager.getActivityManager().getActivity(CommunityActivity.class, lastPosition).getFragmentList().get(currntPosition))
+	// .loadWebViewUrl(javascriptUrl);
+	// }
+	// } catch (Exception e) {
+	// ShowLog.e(TAG, CrashHandler.crashToString(e));
+	// }
+	// }
+	// });
+	// }
+	// } catch (Exception e) {
+	// ShowLog.e(TAG, CrashHandler.crashToString(e));
+	// }
+	// }
+	//
+	// /**
+	// * 设置小红点数字
+	// * @author :Atar
+	// * @createTime:2017-7-4上午10:32:53
+	// * @version:1.0.0
+	// * @modifyTime:
+	// * @modifyAuthor:
+	// * @param strlastPosition 倒数第几个WebViewPagerActivity
+	// * @param strCurrntPosition 第几个tab下数字
+	// * @param strNewNum 数字值
+	// * @description:
+	// */
+	// @JavascriptInterface
+	// public void setWebViewPagerActivityNewInfoNum(final String activityName, final String strlastPosition, final String strCurrntPosition, final String strNewNum) {
+	// try {
+	// if (handler != null) {
+	// handler.post(new Runnable() {
+	// @Override
+	// public void run() {
+	// int lastPosition = 0;
+	// int currntPosition = 0;
+	// int num = 0;
+	// try {
+	// lastPosition = Integer.valueOf(strlastPosition);
+	// currntPosition = Integer.valueOf(strCurrntPosition);
+	// num = Integer.valueOf(strNewNum);
+	// } catch (Exception e) {
+	// ShowLog.e(TAG, CrashHandler.crashToString(e));
+	// }
+	// try {
+	// if (activityName.contains("WebViewPagerActivity")) {
+	// ActivityManager.getActivityManager().getActivity(WebViewPagerActivity.class, lastPosition).setNewInfoNum(currntPosition, num);
+	// } else if (activityName.contains("CommunityActivity")) {
+	// ActivityManager.getActivityManager().getActivity(CommunityActivity.class, lastPosition).setNewInfoNum(currntPosition, num);
+	// }
+	// } catch (Exception e) {
+	// ShowLog.e(TAG, CrashHandler.crashToString(e));
+	// }
+	// }
+	// });
+	// }
+	// } catch (Exception e) {
+	// ShowLog.e(TAG, CrashHandler.crashToString(e));
+	// }
+	// }
+	//
+	// /**
+	// * 设置WebViewPagerActivity切换tab
+	// * @author :Atar
+	// * @createTime:2017-7-4上午10:32:17
+	// * @version:1.0.0
+	// * @modifyTime:
+	// * @modifyAuthor:
+	// * @param strlastPosition 倒数第几个WebViewPagerActivity
+	// * @param strCurrntPosition 第几个tab
+	// * @description:
+	// */
+	// @JavascriptInterface
+	// public void setWebViewPagerActivityCurrentItem(final String activityName, final String strlastPosition, final String strCurrntPosition) {
+	// try {
+	// if (handler != null) {
+	// handler.post(new Runnable() {
+	// @Override
+	// public void run() {
+	// int lastPosition = 0;
+	// int currntPosition = 0;
+	// try {
+	// lastPosition = Integer.valueOf(strlastPosition);
+	// currntPosition = Integer.valueOf(strCurrntPosition);
+	// } catch (Exception e) {
+	// ShowLog.e(TAG, CrashHandler.crashToString(e));
+	// }
+	// try {
+	// if (activityName.contains("WebViewPagerActivity")) {
+	// ActivityManager.getActivityManager().getActivity(WebViewPagerActivity.class, lastPosition).setCurrentItem(currntPosition, true);
+	// } else if (activityName.contains("CommunityActivity")) {
+	// ActivityManager.getActivityManager().getActivity(CommunityActivity.class, lastPosition).setCurrentItem(currntPosition, true);
+	// }
+	// } catch (Exception e) {
+	// ShowLog.e(TAG, CrashHandler.crashToString(e));
+	// }
+	// }
+	// });
+	// }
+	// } catch (Exception e) {
+	// ShowLog.e(TAG, CrashHandler.crashToString(e));
+	// }
+	// }
 
-//	/**
-//	 * 设置CommunityActivity顶部左边图片
-//	 * @author :Atar
-//	 * @createTime:2017-7-31上午10:26:05
-//	 * @version:1.0.0
-//	 * @modifyTime:
-//	 * @modifyAuthor:
-//	 * @param activityName
-//	 * @param strlastPosition
-//	 * @param strCurrntPosition
-//	 * @description:
-//	 */
-//	@JavascriptInterface
-//	public void setCommunityActivityTopLeftImage(final String imgUrl) {
-//		try {
-//			if (handler != null) {
-//				handler.post(new Runnable() {
-//					@Override
-//					public void run() {
-//						try {
-//							ActivityManager.getActivityManager().getActivity(CommunityActivity.class).setTopLeftImage(imgUrl);
-//						} catch (Exception e) {
-//							ShowLog.e(TAG, CrashHandler.crashToString(e));
-//						}
-//					}
-//				});
-//			}
-//		} catch (Exception e) {
-//			ShowLog.e(TAG, CrashHandler.crashToString(e));
-//		}
-//	}
-//
-//	/**
-//	 * 设置顶部右边图片显示or 隐藏
-//	 * @author :Atar
-//	 * @createTime:2017-7-31上午10:38:46
-//	 * @version:1.0.0
-//	 * @modifyTime:
-//	 * @modifyAuthor:
-//	 * @param strVisivility 0：VISIBLE， 8 GONE
-//	 * @description:
-//	 */
-//	@JavascriptInterface
-//	public void setCommunityActivitysetRightVisibility(final String strVisivility) {
-//		try {
-//			if (handler != null) {
-//				handler.post(new Runnable() {
-//					@Override
-//					public void run() {
-//						int visivility = 0;
-//						try {
-//							visivility = Integer.valueOf(strVisivility);
-//						} catch (Exception e) {
-//							ShowLog.e(TAG, CrashHandler.crashToString(e));
-//						}
-//						try {
-//							ActivityManager.getActivityManager().getActivity(CommunityActivity.class).setRightVisibility(visivility);
-//						} catch (Exception e) {
-//							ShowLog.e(TAG, CrashHandler.crashToString(e));
-//						}
-//					}
-//				});
-//			}
-//		} catch (Exception e) {
-//			ShowLog.e(TAG, CrashHandler.crashToString(e));
-//		}
-//	}
+	// /**
+	// * 设置CommunityActivity顶部左边图片
+	// * @author :Atar
+	// * @createTime:2017-7-31上午10:26:05
+	// * @version:1.0.0
+	// * @modifyTime:
+	// * @modifyAuthor:
+	// * @param activityName
+	// * @param strlastPosition
+	// * @param strCurrntPosition
+	// * @description:
+	// */
+	// @JavascriptInterface
+	// public void setCommunityActivityTopLeftImage(final String imgUrl) {
+	// try {
+	// if (handler != null) {
+	// handler.post(new Runnable() {
+	// @Override
+	// public void run() {
+	// try {
+	// ActivityManager.getActivityManager().getActivity(CommunityActivity.class).setTopLeftImage(imgUrl);
+	// } catch (Exception e) {
+	// ShowLog.e(TAG, CrashHandler.crashToString(e));
+	// }
+	// }
+	// });
+	// }
+	// } catch (Exception e) {
+	// ShowLog.e(TAG, CrashHandler.crashToString(e));
+	// }
+	// }
+	//
+	// /**
+	// * 设置顶部右边图片显示or 隐藏
+	// * @author :Atar
+	// * @createTime:2017-7-31上午10:38:46
+	// * @version:1.0.0
+	// * @modifyTime:
+	// * @modifyAuthor:
+	// * @param strVisivility 0：VISIBLE， 8 GONE
+	// * @description:
+	// */
+	// @JavascriptInterface
+	// public void setCommunityActivitysetRightVisibility(final String strVisivility) {
+	// try {
+	// if (handler != null) {
+	// handler.post(new Runnable() {
+	// @Override
+	// public void run() {
+	// int visivility = 0;
+	// try {
+	// visivility = Integer.valueOf(strVisivility);
+	// } catch (Exception e) {
+	// ShowLog.e(TAG, CrashHandler.crashToString(e));
+	// }
+	// try {
+	// ActivityManager.getActivityManager().getActivity(CommunityActivity.class).setRightVisibility(visivility);
+	// } catch (Exception e) {
+	// ShowLog.e(TAG, CrashHandler.crashToString(e));
+	// }
+	// }
+	// });
+	// }
+	// } catch (Exception e) {
+	// ShowLog.e(TAG, CrashHandler.crashToString(e));
+	// }
+	// }
 }

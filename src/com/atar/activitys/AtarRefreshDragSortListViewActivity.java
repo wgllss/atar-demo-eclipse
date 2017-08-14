@@ -31,24 +31,24 @@ import com.atar.widgets.refresh.PullToRefreshDragSortListView;
  *****************************************************************************************************************************************************************************
  */
 @SuppressLint("Recycle")
-public abstract class AtarRefreshDragSortListViewActivity<T> extends AtarRefreshActivity<PullToRefreshDragSortListView, DragSortListView> implements DropListener, RemoveListener,
-		OnRemoveingListener, OnRemoveingDoingListener, OnItemClickListener, OnItemLongClickListener {
+public abstract class AtarRefreshDragSortListViewActivity<T> extends AtarRefreshActivity<PullToRefreshDragSortListView, DragSortListView> implements DropListener, RemoveListener, OnRemoveingListener,
+		OnRemoveingDoingListener, OnItemClickListener, OnItemLongClickListener {
 
-	private boolean isTaogubaRefreshDragSortListViewActivity = true;
+	private boolean isAtarRefreshDragSortListViewActivity = true;
 	private CommonAdapter<T> adapter;
 	private boolean isRemoveEnable;
 
 	@Override
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
-		if (isTaogubaRefreshDragSortListViewActivity) {
+		if (isAtarRefreshDragSortListViewActivity) {
 			addContentView(R.layout.common_refresh_dragsort_list);
 		}
 	}
 
 	@Override
 	protected void initControl() {
-		if (isTaogubaRefreshDragSortListViewActivity) {
+		if (isAtarRefreshDragSortListViewActivity) {
 			setRefreshView((PullToRefreshDragSortListView) findViewById(R.id.common_refresh_dragsort_lst));
 		}
 	}
@@ -56,7 +56,7 @@ public abstract class AtarRefreshDragSortListViewActivity<T> extends AtarRefresh
 	@Override
 	protected void bindEvent() {
 		super.bindEvent();
-		if (isTaogubaRefreshDragSortListViewActivity) {
+		if (isAtarRefreshDragSortListViewActivity) {
 
 		}
 	}
@@ -87,17 +87,17 @@ public abstract class AtarRefreshDragSortListViewActivity<T> extends AtarRefresh
 	}
 
 	/**
-	 * 设置是否继承TaogubaRefreshDragSortListViewActivity内布局
+	 * 设置是否继承AtarRefreshDragSortListViewActivity内布局
 	 * @author :Atar
 	 * @createTime:2015-6-18下午3:01:14
 	 * @version:1.0.0
 	 * @modifyTime:
 	 * @modifyAuthor:
-	 * @param isTaogubaRefreshDragSortListViewActivity
+	 * @param isAtarRefreshDragSortListViewActivity
 	 * @description:
 	 */
-	protected void setIsTaogubaRefreshDragSortListViewActivity(boolean isTaogubaRefreshDragSortListViewActivity) {
-		this.isTaogubaRefreshDragSortListViewActivity = isTaogubaRefreshDragSortListViewActivity;
+	protected void setIsAtarRefreshDragSortListViewActivity(boolean isAtarRefreshDragSortListViewActivity) {
+		this.isAtarRefreshDragSortListViewActivity = isAtarRefreshDragSortListViewActivity;
 	}
 
 	/**

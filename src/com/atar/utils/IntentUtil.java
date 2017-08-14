@@ -162,7 +162,7 @@ public class IntentUtil {
 	 * @modifyAuthor:
 	 * @description:
 	 */
-	public static void taogubaFinish(Activity mActivity) {
+	public static void finish(Activity mActivity) {
 		try {
 			if (mActivity != null) {
 				ActivityManager.getActivityManager().finishActivity(mActivity.getClass());
@@ -184,7 +184,7 @@ public class IntentUtil {
 	 * @modifyAuthor:
 	 * @description:
 	 */
-	public static void taogubaFinishWithOutTween(Activity mActivity) {
+	public static void finishWithOutTween(Activity mActivity) {
 		try {
 			if (mActivity != null) {
 				ActivityManager.getActivityManager().finishActivity(mActivity.getClass());
@@ -206,7 +206,7 @@ public class IntentUtil {
 	 * @modifyAuthor:
 	 * @description:
 	 */
-	public static void taogubaFinishWitTweenAlpha(Activity mActivity) {
+	public static void finishWitTweenAlpha(Activity mActivity) {
 		try {
 			if (mActivity != null) {
 				ActivityManager.getActivityManager().finishActivity(mActivity.getClass());

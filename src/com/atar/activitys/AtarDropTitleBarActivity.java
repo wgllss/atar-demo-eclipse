@@ -42,7 +42,7 @@ import com.atar.interfaces.OnDropDownListener;
 public abstract class AtarDropTitleBarActivity extends AtarCommonActivity implements OnDropDownListener, OnDismissListener {
 
 	/* 是否继承 */
-	private boolean isExtendsTaogubaDropTitleBarActivity;
+	private boolean isExtendsAtarDropTitleBarActivity;
 	private OnDropDownListener mOnDropDownListener;
 	private PopupWindow mPopupWindow;
 	/* 可选设置下拉模式 默认下拉中间 */
@@ -68,7 +68,7 @@ public abstract class AtarDropTitleBarActivity extends AtarCommonActivity implem
 	};
 
 	/* 是否 在选择时，改变标题 */
-	private boolean isChangeTitleTaogubaDropTitleBarActivity = true;
+	private boolean isChangeTitleAtarDropTitleBarActivity = true;
 
 	@Override
 	protected void onPause() {
@@ -96,7 +96,7 @@ public abstract class AtarDropTitleBarActivity extends AtarCommonActivity implem
 
 	@Override
 	protected void bindEvent() {
-		if (txtCommonTopTitle != null && isExtendsTaogubaDropTitleBarActivity) {
+		if (txtCommonTopTitle != null && isExtendsAtarDropTitleBarActivity) {
 			txtCommonTopTitle.setOnClickListener(this);
 			setOnDropDownListener(this);
 		}
@@ -144,11 +144,11 @@ public abstract class AtarDropTitleBarActivity extends AtarCommonActivity implem
 	 * @version:1.0.0
 	 * @modifyTime:
 	 * @modifyAuthor:
-	 * @param isExtendsTaogubaDropTitleBarActivity
+	 * @param isExtendsAtarDropTitleBarActivity
 	 * @description:
 	 */
-	public void setExtendsTaogubaDropTitleBarActivity(boolean isExtendsTaogubaDropTitleBarActivity) {
-		this.isExtendsTaogubaDropTitleBarActivity = isExtendsTaogubaDropTitleBarActivity;
+	public void setExtendsAtarDropTitleBarActivity(boolean isExtendsAtarDropTitleBarActivity) {
+		this.isExtendsAtarDropTitleBarActivity = isExtendsAtarDropTitleBarActivity;
 	}
 
 	/**
@@ -184,7 +184,7 @@ public abstract class AtarDropTitleBarActivity extends AtarCommonActivity implem
 				}
 				if (mOnDropDownListener != null) {
 					if (statusMode == DropDownMode.DROP_DOWN_CENTER) {
-						if (isChangeTitleTaogubaDropTitleBarActivity) {
+						if (isChangeTitleAtarDropTitleBarActivity) {
 							txtCommonTopTitle.setText(mList.get(arg2).getDropDownItemName());
 						}
 						// txtCommonTopTitle.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().obtainTypedArray(R.array.drop_down).getDrawable(getCurrentSkinType()), null);
@@ -384,16 +384,16 @@ public abstract class AtarDropTitleBarActivity extends AtarCommonActivity implem
 	@Override
 	public void ChangeSkin(int skinType) {
 		super.ChangeSkin(skinType);
-		if (isExtendsTaogubaDropTitleBarActivity && (mDropDownMode == DropDownMode.DROP_DOWN_CENTER || mDropDownMode == DropDownMode.DROP_DOWN_BOTH)) {
+		if (isExtendsAtarDropTitleBarActivity && (mDropDownMode == DropDownMode.DROP_DOWN_CENTER || mDropDownMode == DropDownMode.DROP_DOWN_BOTH)) {
 			// txtCommonTopTitle.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().obtainTypedArray(R.array.drop_down).getDrawable(skinType), null);
 		}
-		if (isExtendsTaogubaDropTitleBarActivity && (mDropDownMode == DropDownMode.DROP_DOWN_RIGHT || mDropDownMode == DropDownMode.DROP_DOWN_BOTH)) {
+		if (isExtendsAtarDropTitleBarActivity && (mDropDownMode == DropDownMode.DROP_DOWN_RIGHT || mDropDownMode == DropDownMode.DROP_DOWN_BOTH)) {
 			// LoadUtil.setImageDrawable(this, imgCommonTopRight, R.array.common_more_drop, skinType);
 		}
 	}
 
-	public void setChangeTitleTaogubaDropTitleBarActivity(boolean isChangeTitleTaogubaDropTitleBarActivity) {
-		this.isChangeTitleTaogubaDropTitleBarActivity = isChangeTitleTaogubaDropTitleBarActivity;
+	public void setChangeTitleAtarDropTitleBarActivity(boolean isChangeTitleAtarDropTitleBarActivity) {
+		this.isChangeTitleAtarDropTitleBarActivity = isChangeTitleAtarDropTitleBarActivity;
 	}
 
 }

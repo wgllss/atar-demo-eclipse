@@ -1250,7 +1250,7 @@ containing a value of this type.
         public static final int top_left=0x7f02001a;
     }
     public static final class id {
-        public static final int activity_common_tab=0x7f06004e;
+        public static final int activity_common_tab=0x7f060053;
         public static final int activity_content=0x7f060017;
         public static final int ad_indicator=0x7f06002e;
         public static final int app_app_viewPager=0x7f06002c;
@@ -1265,14 +1265,16 @@ containing a value of this type.
         public static final int common_gridview=0x7f06004a;
         public static final int common_line=0x7f06002a;
         public static final int common_normal_lst=0x7f06004b;
+        public static final int common_refresh_dragsort_lst=0x7f06004c;
+        public static final int common_refresh_section_list=0x7f060050;
         public static final int common_top_title_bar=0x7f06001b;
         public static final int disabled=0x7f060009;
         public static final int drag_handle=0x7f060003;
         public static final int dynamic=0x7f06000f;
-        public static final int fl_inner=0x7f060052;
+        public static final int fl_inner=0x7f060057;
         public static final int flingRemove=0x7f060013;
         public static final int flip=0x7f060010;
-        public static final int frame_move=0x7f060050;
+        public static final int frame_move=0x7f060055;
         public static final int gridview=0x7f060000;
         public static final int horizon_srcoll=0x7f060018;
         public static final int img_ad=0x7f06003a;
@@ -1287,7 +1289,7 @@ containing a value of this type.
         public static final int img_topic_praise=0x7f060040;
         public static final int img_user=0x7f06003c;
         public static final int linear_loading=0x7f060047;
-        public static final int linear_tab_bar=0x7f06004f;
+        public static final int linear_tab_bar=0x7f060054;
         public static final int lst_pop_win=0x7f06001c;
         public static final int manualOnly=0x7f06000a;
         public static final int menu_icon=0x7f060043;
@@ -1301,16 +1303,19 @@ containing a value of this type.
         public static final int pullFromEnd=0x7f06000c;
         public static final int pullFromStart=0x7f06000d;
         public static final int pullUpFromBottom=0x7f06000e;
-        public static final int pull_to_refresh_image=0x7f060053;
+        public static final int pull_refresh_gridview=0x7f06004d;
+        public static final int pull_refresh_webview=0x7f060052;
+        public static final int pull_to_refresh_image=0x7f060058;
         public static final int pull_to_refresh_progress=0x7f060048;
-        public static final int pull_to_refresh_sub_text=0x7f060055;
-        public static final int pull_to_refresh_text=0x7f060054;
+        public static final int pull_to_refresh_sub_text=0x7f06005a;
+        public static final int pull_to_refresh_text=0x7f060059;
         public static final int rel_indicator_layout=0x7f06002d;
         public static final int relative_tabhost=0x7f060029;
         public static final int rotate=0x7f060011;
         public static final int scrollview=0x7f060002;
         public static final int tabs=0x7f060027;
-        public static final int tgb_refresh_lst=0x7f06004c;
+        public static final int tgb_refresh_lst=0x7f06004f;
+        public static final int tgb_refresh_scrollview=0x7f060051;
         public static final int title=0x7f060039;
         public static final int top_title_bar_left_txt_bank_secu=0x7f060006;
         public static final int top_title_bar_left_txt_typ_news=0x7f060007;
@@ -1323,7 +1328,7 @@ containing a value of this type.
         public static final int txt_content=0x7f06003b;
         public static final int txt_desc=0x7f060033;
         public static final int txt_drop_dowm_title=0x7f060036;
-        public static final int txt_list_toast=0x7f06004d;
+        public static final int txt_list_toast=0x7f06004e;
         public static final int txt_loading_notice=0x7f060049;
         public static final int txt_num=0x7f060045;
         public static final int txt_reply_num=0x7f06003f;
@@ -1332,7 +1337,7 @@ containing a value of this type.
         public static final int txt_user_name=0x7f06003d;
         public static final int view_drop_dowm_line_left=0x7f060035;
         public static final int view_drop_dowm_line_right=0x7f060037;
-        public static final int view_move=0x7f060051;
+        public static final int view_move=0x7f060056;
         public static final int view_pager=0x7f060026;
         public static final int view_select=0x7f060038;
         public static final int webview=0x7f060001;
@@ -1357,10 +1362,15 @@ containing a value of this type.
         public static final int common_atar_loading=0x7f030010;
         public static final int common_gridview=0x7f030011;
         public static final int common_listview=0x7f030012;
-        public static final int common_refresh_listview=0x7f030013;
-        public static final int common_tab_viewpager=0x7f030014;
-        public static final int pull_to_refresh_header_horizontal=0x7f030015;
-        public static final int pull_to_refresh_header_vertical=0x7f030016;
+        public static final int common_refresh_dragsort_list=0x7f030013;
+        public static final int common_refresh_gridview=0x7f030014;
+        public static final int common_refresh_listview=0x7f030015;
+        public static final int common_refresh_section_listveiw=0x7f030016;
+        public static final int common_refresh_srollview=0x7f030017;
+        public static final int common_refresh_webview=0x7f030018;
+        public static final int common_tab_viewpager=0x7f030019;
+        public static final int pull_to_refresh_header_horizontal=0x7f03001a;
+        public static final int pull_to_refresh_header_vertical=0x7f03001b;
     }
     public static final class string {
         public static final int String_edit_dynamic_group_more_view=0x7f070089;

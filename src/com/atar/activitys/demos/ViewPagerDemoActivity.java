@@ -26,7 +26,7 @@ public class ViewPagerDemoActivity extends AtarCommonTabActivity<RelativeLayout>
 
 	@Override
 	protected void onCreate(Bundle bundle) {
-		setIsExtendsTaogubaCommonTab(true);
+		setIsExtendsAtarCommonTab(true);
 		super.onCreate(bundle);
 		setOnDrawerBackEnabled(false);
 	}

@@ -64,7 +64,7 @@ public class AtarCommonActivity extends CommonActivity implements OnClickListene
 	protected TextView txtActivityRightTxt;
 	private LinearLayout linearLoading;
 	/* 是否需要该父类所有布局 */
-	private boolean isExtendsTaogubaCommonActivity = true;
+	private boolean isExtendsAtarCommonActivity = true;
 	/* android 4.4+上状态栏默认透明 */
 	protected boolean isFlagTranslucentStatus = true;
 
@@ -83,7 +83,7 @@ public class AtarCommonActivity extends CommonActivity implements OnClickListene
 			// 透明状态栏
 			getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 		}
-		if (isExtendsTaogubaCommonActivity) {
+		if (isExtendsAtarCommonActivity) {
 			setContentView(R.layout.activity_atar_common);
 			txtCommonTopTitle = (TextView) findViewById(R.id.txt_common_top_title);
 			imgCommonTopLeft = (ImageView) findViewById(R.id.img_common_top_left);
@@ -104,7 +104,7 @@ public class AtarCommonActivity extends CommonActivity implements OnClickListene
 	@Override
 	protected void onResume() {
 		super.onResume();
-		// TaogubaPushTool.getInstance().bindPush();
+		// AtarPushTool.getInstance().bindPush();
 		// android.app.ActivityManager activityManager = (android.app.ActivityManager) getSystemService(ACTIVITY_SERVICE);
 		// android.app.ActivityManager.MemoryInfo info = new android.app.ActivityManager.MemoryInfo();
 		// activityManager.getMemoryInfo(info);
@@ -148,7 +148,7 @@ public class AtarCommonActivity extends CommonActivity implements OnClickListene
 		switch (v.getId()) {
 		case R.id.img_common_top_left:// 顶部左边
 			if (commonTopLeftIsBack) {
-				IntentUtil.taogubaFinish(this);
+				IntentUtil.finish(this);
 			}
 			break;
 		case R.id.img_common_top_right:// 顶部右边图片
@@ -171,7 +171,7 @@ public class AtarCommonActivity extends CommonActivity implements OnClickListene
 	 * @description:
 	 */
 	protected void addContentView(int layoutResId) {
-		if (isExtendsTaogubaCommonActivity) {
+		if (isExtendsAtarCommonActivity) {
 			LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			commonContentBg = inflater.inflate(layoutResId, null);
 			FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
@@ -241,7 +241,7 @@ public class AtarCommonActivity extends CommonActivity implements OnClickListene
 	 * @description:
 	 */
 	protected void setActivityTitle(int resStringID) {
-		if (txtCommonTopTitle != null && isExtendsTaogubaCommonActivity)
+		if (txtCommonTopTitle != null && isExtendsAtarCommonActivity)
 			txtCommonTopTitle.setText(getResources().getString(resStringID));
 	}
 
@@ -565,7 +565,7 @@ public class AtarCommonActivity extends CommonActivity implements OnClickListene
 
 	@Override
 	public void onOpenDrawerComplete() {
-		IntentUtil.taogubaFinishWithOutTween(this);
+		IntentUtil.finishWithOutTween(this);
 	}
 
 	@Override
@@ -630,17 +630,17 @@ public class AtarCommonActivity extends CommonActivity implements OnClickListene
 	}
 
 	/**
-	 * 是否继承该TaogubaCommonActivity所有布局
+	 * 是否继承该AtarCommonActivity所有布局
 	 * @author :Atar
 	 * @createTime:2014-8-25下午5:05:32
 	 * @version:1.0.0
 	 * @modifyTime:
 	 * @modifyAuthor:
-	 * @param isExtendsTaogubaCommonActivity 在super.onCreat() 之前调用
+	 * @param isExtendsAtarCommonActivity 在super.onCreat() 之前调用
 	 * @description:
 	 */
-	public void setIsExtendsTaogubaCommonActivity(boolean isExtendsTaogubaCommonActivity) {
-		this.isExtendsTaogubaCommonActivity = isExtendsTaogubaCommonActivity;
+	public void setIsExtendsAtarCommonActivity(boolean isExtendsAtarCommonActivity) {
+		this.isExtendsAtarCommonActivity = isExtendsAtarCommonActivity;
 	}
 
 	/**
@@ -847,12 +847,12 @@ public class AtarCommonActivity extends CommonActivity implements OnClickListene
 			return;
 		}
 		super.onBackPressed();
-		IntentUtil.taogubaFinish(this);
+		IntentUtil.finish(this);
 	}
 
 	@Override
 	public void ChangeSkin(int skinType) {
-		if (isExtendsTaogubaCommonActivity) {
+		if (isExtendsAtarCommonActivity) {
 			// LoadUtil.setBackgroundColor(this, commonContentBg, R.array.common_content_bg_color, skinType);
 			// LoadUtil.setBackgroundColor(this, topTitleBarBg, R.array.common_top_title_bar_bg_color2, skinType);
 			// LoadUtil.setTextColor(this, txtCommonTopTitle, R.array.common_activity_title_color, skinType);

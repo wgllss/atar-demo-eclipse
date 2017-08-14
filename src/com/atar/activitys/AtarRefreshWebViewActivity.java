@@ -26,20 +26,20 @@ import com.handmark.pulltorefresh.library.PullToRefreshWebView;
  */
 @SuppressLint("SetJavaScriptEnabled")
 public class AtarRefreshWebViewActivity extends AtarRefreshActivity<PullToRefreshWebView, WebView> {
-	/* 是否继承TaogubaWebViewActivity布局 */
-	protected boolean isExtendsTaogubaWebViewActivity;
+	/* 是否继承AtarWebViewActivity布局 */
+	protected boolean isExtendsAtarWebViewActivity;
 
 	@Override
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
-		if (isExtendsTaogubaWebViewActivity) {
+		if (isExtendsAtarWebViewActivity) {
 			addContentView(R.layout.common_refresh_webview);
 		}
 	}
 
 	@Override
 	protected void initControl() {
-		if (isExtendsTaogubaWebViewActivity) {
+		if (isExtendsAtarWebViewActivity) {
 			setRefreshView((PullToRefreshWebView) findViewById(R.id.pull_refresh_webview));
 		}
 	}

@@ -155,11 +155,11 @@ public class AlbumChildrenActivity extends AtarCommonActivity implements OnItemC
 		switch (v.getId()) {
 		case R.id.txt_common_top_right:
 			IntentUtil.finishActivityOfClass(AlbumActivity.class);
-			IntentUtil.taogubaFinish(this);
+			IntentUtil.finish(this);
 			break;
 		case R.id.btn_complete:
 			setResult(RESULT_OK);
-			IntentUtil.taogubaFinish(this);
+			IntentUtil.finish(this);
 			break;
 		default:
 			break;
@@ -171,7 +171,7 @@ public class AlbumChildrenActivity extends AtarCommonActivity implements OnItemC
 		if (currentMode == 0) {
 			AlbumContainer.getInstance().add(mPhotoAlbumBean.getBitList().get(position));
 			setResult(RESULT_OK);
-			IntentUtil.taogubaFinish(this);
+			IntentUtil.finish(this);
 		} else {
 			try {
 				if (mPhotoAlbumBean.getBitList().get(position).isSelect()) {

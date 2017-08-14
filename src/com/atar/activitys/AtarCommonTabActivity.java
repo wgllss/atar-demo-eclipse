@@ -35,13 +35,13 @@ import com.atar.interfaces.OnTabInterface;
 @SuppressLint("Recycle")
 public abstract class AtarCommonTabActivity<V extends ViewGroup> extends AtarDropTitleBarActivity implements OnTabInterface<V, CommonActivity> {
 	/** 默认不继承此类 */
-	private boolean isExtendsTaogubaCommonTab;
+	private boolean isExtendsAtarCommonTab;
 	protected ImplOnTabInterface<V, CommonActivity> mImplOnTabInterface;
 
 	@Override
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
-		if (isExtendsTaogubaCommonTab) {
+		if (isExtendsAtarCommonTab) {
 			addContentView(R.layout.common_tab_viewpager);
 		}
 	}
@@ -53,7 +53,7 @@ public abstract class AtarCommonTabActivity<V extends ViewGroup> extends AtarDro
 
 	@Override
 	protected void initControl() {
-		if (isExtendsTaogubaCommonTab && mImplOnTabInterface == null) {
+		if (isExtendsAtarCommonTab && mImplOnTabInterface == null) {
 			setTabUI((ViewPager) findViewById(R.id.view_pager), (FrameLayout) findViewById(R.id.frame_move), (LinearLayout) findViewById(R.id.linear_tab_bar), findViewById(R.id.view_move));
 		}
 	}
@@ -65,11 +65,11 @@ public abstract class AtarCommonTabActivity<V extends ViewGroup> extends AtarDro
 	 * @version:1.0.0
 	 * @modifyTime:
 	 * @modifyAuthor:
-	 * @param isExtendsTaogubaCommonFiveTab
+	 * @param isExtendsAtarCommonFiveTab
 	 * @description:
 	 */
-	public void setIsExtendsTaogubaCommonTab(boolean isExtendsTaogubaCommonTab) {
-		this.isExtendsTaogubaCommonTab = isExtendsTaogubaCommonTab;
+	public void setIsExtendsAtarCommonTab(boolean isExtendsAtarCommonTab) {
+		this.isExtendsAtarCommonTab = isExtendsAtarCommonTab;
 	}
 
 	/**
@@ -196,7 +196,7 @@ public abstract class AtarCommonTabActivity<V extends ViewGroup> extends AtarDro
 	@Override
 	public void ChangeSkin(int skinType) {
 		super.ChangeSkin(skinType);
-		if (isExtendsTaogubaCommonTab) {
+		if (isExtendsAtarCommonTab) {
 			setChangeTabSkin(skinType);
 		}
 		try {
