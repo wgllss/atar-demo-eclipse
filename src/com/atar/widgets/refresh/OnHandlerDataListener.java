@@ -18,19 +18,6 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
  */
 public interface OnHandlerDataListener<T extends PullToRefreshBase<V>, V extends View> extends HandlerListener {
 
-	// /**
-	// * 操作本地动作或数据
-	// *@atour: Atar
-	// *@createTime:2014年8月9日上午12:12:53
-	// *@modifyTime:
-	// *@modifyAtour:
-	// *@version: 1.0.0
-	// *@param msg
-	// *@param t:
-	// *@description:
-	// */
-	// void onDataReceive(Message msg);
-
 	/**
 	 * 发送操作标志
 	 *@atour: Atar

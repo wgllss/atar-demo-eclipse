@@ -3,6 +3,7 @@
  */
 package com.atar.activitys.demos;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -47,6 +48,7 @@ public class MainDemoActivity extends AtarCommonActivity {
 		findViewById(R.id.btn_viewpagerdemoactivity).setOnClickListener(this);
 		findViewById(R.id.btn_album).setOnClickListener(this);
 		findViewById(R.id.demorefreshlistviewactivity).setOnClickListener(this);
+		findViewById(R.id.btn_showImage).setOnClickListener(this);
 	}
 
 	@Override
@@ -83,6 +85,13 @@ public class MainDemoActivity extends AtarCommonActivity {
 			break;
 		case R.id.demorefreshlistviewactivity:
 			startActivity(new Intent(this, DemoRefreshListViewActivity.class));
+			break;
+		case R.id.btn_showImage:
+			ArrayList<String> imgList = new ArrayList<String>();
+			imgList.add("http://img4.imgtn.bdimg.com/it/u=1906744648,758477532&fm=26&gp=0.jpg");
+			imgList.add("http://img0.imgtn.bdimg.com/it/u=3368323297,2417132385&fm=26&gp=0.jpg");
+			imgList.add("http://img2.imgtn.bdimg.com/it/u=917052547,4265044967&fm=26&gp=0.jpg");
+			ShowImageActivity.startShowImage(this, imgList, 0);
 			break;
 		}
 	}

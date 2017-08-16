@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.taoguba.widget.refresh.PullToRefreshDragSortListView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.atar.widgets.refresh.PullToRefreshDragSortListView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ptr="http://schemas.android.com/apk/res-auto"
     xmlns:dslv="http://schemas.android.com/apk/res-auto"
     android:id="@+id/common_refresh_dragsort_lst"

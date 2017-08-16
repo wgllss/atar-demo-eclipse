@@ -39,4 +39,11 @@
         android:layout_marginTop="20dp"
         android:text="DemoRefreshListViewActivity" />
 
+    <Button
+        android:id="@+id/btn_showImage"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="图片浏览" />
+
 </LinearLayout>
