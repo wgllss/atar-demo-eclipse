@@ -45,6 +45,8 @@ public class MainDemoActivity extends AtarCommonActivity {
 		findViewById(R.id.btn_net_test).setOnClickListener(this);
 		findViewById(R.id.btn_net_test2).setOnClickListener(this);
 		findViewById(R.id.btn_viewpagerdemoactivity).setOnClickListener(this);
+		findViewById(R.id.btn_album).setOnClickListener(this);
+		findViewById(R.id.demorefreshlistviewactivity).setOnClickListener(this);
 	}
 
 	@Override
@@ -75,6 +77,12 @@ public class MainDemoActivity extends AtarCommonActivity {
 			break;
 		case R.id.btn_viewpagerdemoactivity:
 			startActivity(new Intent(this, ViewPagerDemoActivity.class));
+			break;
+		case R.id.btn_album:
+			startActivity(new Intent(this, AlbumActivity.class));
+			break;
+		case R.id.demorefreshlistviewactivity:
+			startActivity(new Intent(this, DemoRefreshListViewActivity.class));
 			break;
 		}
 	}

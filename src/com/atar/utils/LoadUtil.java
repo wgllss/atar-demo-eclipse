@@ -9,7 +9,7 @@ import java.util.List;
 
 import android.annotation.SuppressLint;
 import android.application.CrashHandler;
-import android.os.Handler;
+import android.interfaces.HandlerListener;
 import android.os.Message;
 import android.reflection.ThreadPoolTool;
 import android.utils.ShowLog;
@@ -21,7 +21,6 @@ import com.atar.dao.DeleteRunnable;
 import com.atar.dao.InsertRunnable;
 import com.atar.dao.QueryRunnable;
 import com.atar.db.EnumColumnName;
-import com.atar.widgets.refresh.OnHandlerDataListener;
 import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 
@@ -53,8 +52,8 @@ public class LoadUtil {
 	 * @param value 等于条件字段值
 	 * @description:
 	 */
-	public static void QueryDB(OnHandlerDataListener mOnHandlerDataListener, String whichPage, String columnName, String value) {
-		ThreadPoolTool.getInstance().execute(new QueryRunnable<JsonBean>(JsonBean.class, mOnHandlerDataListener, EnumColumnName.WHICH_PAGE, whichPage, columnName, value));// 从数据库获取动态分组
+	public static void QueryDB(HandlerListener mHandlerListener, String whichPage, String columnName, String value) {
+		ThreadPoolTool.getInstance().execute(new QueryRunnable<JsonBean>(JsonBean.class, mHandlerListener, EnumColumnName.WHICH_PAGE, whichPage, columnName, value));// 从数据库获取动态分组
 	}
 
 	/**
@@ -71,8 +70,8 @@ public class LoadUtil {
 	 * @param msgWhat 查询后的标志
 	 * @description:
 	 */
-	public static void QueryDB(OnHandlerDataListener mHandler, String whichPage, String columnName, String value, int msgWhat) {
-		ThreadPoolTool.getInstance().execute(new QueryRunnable<JsonBean>(JsonBean.class, mHandler, EnumColumnName.WHICH_PAGE, whichPage, columnName, value, msgWhat));// 从数据库获取动态分组
+	public static void QueryDB(HandlerListener mHandlerListener, String whichPage, String columnName, String value, int msgWhat) {
+		ThreadPoolTool.getInstance().execute(new QueryRunnable<JsonBean>(JsonBean.class, mHandlerListener, EnumColumnName.WHICH_PAGE, whichPage, columnName, value, msgWhat));// 从数据库获取动态分组
 	}
 
 	/**

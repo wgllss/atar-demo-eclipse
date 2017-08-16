@@ -3,6 +3,7 @@
  */
 package com.atar.activitys;
 
+import android.common.CommonHandler;
 import android.os.Message;
 import android.reflection.NetWorkMsg;
 import android.view.View;
@@ -53,6 +54,16 @@ public class AtarRefreshActivity<T extends PullToRefreshBase<V>, V extends View>
 			msg.what = msgWhat;
 			mDataDispose.onHandlerData(msg);
 		}
+	}
+
+	@Override
+	public void sendEmptyMessageDelayed(final int msgWhat, long delayMillis) {
+		CommonHandler.getInstatnce().getHandler().postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				sendEmptyMessage(msgWhat);
+			}
+		}, delayMillis);
 	}
 
 	@Override
@@ -253,5 +264,4 @@ public class AtarRefreshActivity<T extends PullToRefreshBase<V>, V extends View>
 		}
 		// LoadUtil.setTextColor(this, txtToast, R.array.txt_day_grey_night_greyblack_color, skinType);
 	}
-
 }

@@ -25,4 +25,18 @@
         android:layout_marginTop="20dp"
         android:text="ViewPagerDemoActivity" />
 
+    <Button
+        android:id="@+id/btn_album"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="相册" />
+
+    <Button
+        android:id="@+id/demorefreshlistviewactivity"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="DemoRefreshListViewActivity" />
+
 </LinearLayout>

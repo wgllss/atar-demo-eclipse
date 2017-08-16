@@ -42,7 +42,7 @@ public abstract class AtarRefreshScrollViewActivity extends AtarRefreshActivity<
 	@Override
 	protected void initControl() {
 		if (isExtendsRefreshScrollView) {
-			setRefreshView((PullToRefreshScrollView) findViewById(R.id.tgb_refresh_scrollview));
+			setRefreshView((PullToRefreshScrollView) findViewById(R.id.atar_refresh_scrollview));
 			setTextView((TextView) findViewById(R.id.txt_list_toast));
 			setRefreshMode(Mode.PULL_FROM_START);
 		}

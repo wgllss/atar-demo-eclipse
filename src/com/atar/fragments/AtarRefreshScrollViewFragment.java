@@ -34,7 +34,7 @@ public abstract class AtarRefreshScrollViewFragment extends AtarRefreshFragment<
 		if (view == null) {
 			view = inflater.inflate(R.layout.common_refresh_srollview, container, false);
 			setTextView((TextView) view.findViewById(R.id.txt_list_toast));
-			setRefreshView((PullToRefreshScrollView) view.findViewById(R.id.tgb_refresh_scrollview));
+			setRefreshView((PullToRefreshScrollView) view.findViewById(R.id.atar_refresh_scrollview));
 		}
 		if (view != null && view.getParent() != null) {
 			ViewGroup parent = (ViewGroup) view.getParent();

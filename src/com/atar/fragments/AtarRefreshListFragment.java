@@ -36,7 +36,7 @@ public abstract class AtarRefreshListFragment extends AtarRefreshFragment<PullTo
 		if (view == null) {
 			view = inflater.inflate(R.layout.common_refresh_listview, container, false);
 			setTextView((TextView) view.findViewById(R.id.txt_list_toast));
-			setRefreshView((PullToRefreshListView) view.findViewById(R.id.tgb_refresh_lst));
+			setRefreshView((PullToRefreshListView) view.findViewById(R.id.atar_refresh_lst));
 		}
 		if (view != null && view.getParent() != null) {
 			ViewGroup parent = (ViewGroup) view.getParent();

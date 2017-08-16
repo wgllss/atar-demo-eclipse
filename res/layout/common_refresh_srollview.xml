@@ -5,7 +5,7 @@
 
     <com.handmark.pulltorefresh.library.PullToRefreshScrollView
         xmlns:ptr="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/tgb_refresh_scrollview"
+        android:id="@+id/atar_refresh_scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fastScrollEnabled="true"

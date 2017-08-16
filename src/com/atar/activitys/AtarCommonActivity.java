@@ -46,7 +46,7 @@ import com.atar.utils.IntentUtil;
  * @version:1.0.0
  * @modifyTime:
  * @modifyAuthor:
- * @description:
+ * @description: https://github.com/wgllss/atar-demo.git
  *****************************************************************************************************************************************************************************
  */
 @SuppressLint("InlinedApi")

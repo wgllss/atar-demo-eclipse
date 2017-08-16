@@ -63,6 +63,16 @@ public class AtarRefreshFragment<T extends PullToRefreshBase<V>, V extends View>
 	}
 
 	@Override
+	public void sendEmptyMessageDelayed(final int msgWhat, long delayMillis) {
+		CommonHandler.getInstatnce().getHandler().postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				sendEmptyMessage(msgWhat);
+			}
+		}, delayMillis);
+	}
+
+	@Override
 	public void sendMessage(int msgWhat, Object obj) {
 		if (mDataDispose != null) {
 			Message msg = new Message();

@@ -44,6 +44,19 @@ public interface OnHandlerDataListener<T extends PullToRefreshBase<V>, V extends
 	void sendEmptyMessage(int msgWhat);
 
 	/**
+	 * 延迟发送送操作标志
+	 *@atour: Atar
+	 *@createTime:2014年8月18日下午10:14:32
+	 *@modifyTime:
+	 *@modifyAtour:
+	 *@version: 1.0.0
+	 *@param msgWhat
+	 *@param delayMillis:
+	 *@description:
+	 */
+	void sendEmptyMessageDelayed(int msgWhat, long delayMillis);
+
+	/**
 	 * 发送消息带obj
 	 * @author :Atar
 	 * @createTime:2014-9-16下午5:48:28
