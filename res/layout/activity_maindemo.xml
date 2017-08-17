@@ -46,4 +46,11 @@
         android:layout_marginTop="20dp"
         android:text="图片浏览" />
 
+    <Button
+        android:id="@+id/download"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="下载" />
+
 </LinearLayout>

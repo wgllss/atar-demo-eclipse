@@ -49,6 +49,7 @@ public class MainDemoActivity extends AtarCommonActivity {
 		findViewById(R.id.btn_album).setOnClickListener(this);
 		findViewById(R.id.demorefreshlistviewactivity).setOnClickListener(this);
 		findViewById(R.id.btn_showImage).setOnClickListener(this);
+		findViewById(R.id.download).setOnClickListener(this);
 	}
 
 	@Override
@@ -92,6 +93,9 @@ public class MainDemoActivity extends AtarCommonActivity {
 			imgList.add("http://img0.imgtn.bdimg.com/it/u=3368323297,2417132385&fm=26&gp=0.jpg");
 			imgList.add("http://img2.imgtn.bdimg.com/it/u=917052547,4265044967&fm=26&gp=0.jpg");
 			ShowImageActivity.startShowImage(this, imgList, 0);
+			break;
+		case R.id.download:
+			startActivity(new Intent(this, DownLoadActivity.class));
 			break;
 		}
 	}
