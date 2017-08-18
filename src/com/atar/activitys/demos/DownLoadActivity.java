@@ -29,20 +29,24 @@ import com.atar.activitys.R;
  */
 public class DownLoadActivity extends AtarRefreshScrollViewActivity {
 	private String TAG = DownLoadActivity.class.getSimpleName();
+	private int[] resProgressBarArrID = { R.id.progressbar, R.id.progressbar2, R.id.progressbar3, R.id.progressbar4, R.id.progressbar5, R.id.progressbar6 };
+	private int[] restxt_percentArrID = { R.id.txt_percent, R.id.txt_percent2, R.id.txt_percent3, R.id.txt_percent4, R.id.txt_percent5, R.id.txt_percent6 };
 
-	private ProgressBar progressbar, progressbar2, progressbar3;
+	private ProgressBar[] ProgressBarArr = new ProgressBar[6];
+	private TextView[] txt_percentArr = new TextView[6];
 
 	private String strDownloadDir = Environment.getExternalStorageDirectory() + "";
 
 	private String strDownloadFileName1 = "baiduteiba.apk";
 	private String strDownloadFileName2 = "baiduxinwen.apk";
-	private String strDownloadFileName3 = "baiduxinwen1.apk";
+	private String strDownloadFileName3 = "baiduxinwen3.apk";
+	private String strDownloadFileName4 = "baiduxinwen4.apk";
+	private String strDownloadFileName5 = "baiduxinwen5.apk";
+	private String strDownloadFileName6 = "baiduxinwen6.apk";
 
 	private String url1 = "http://gdown.baidu.com/data/wisegame/6e220cc18d807060/shoujibaidu_38032640.apk";
 	private String url2 = "http://gdown.baidu.com/data/wisegame/23315dd5f0bbe8ab/baiduxinwen_6402.apk";
 	private String url3 = "http://gdown.baidu.com/data/wisegame/23315dd5f0bbe8ab/baiduxinwen_6402.apk";
-
-	private TextView txt_percent1, txt_percent2, txt_percent3;
 
 	@Override
 	protected void onCreate(Bundle bundle) {
@@ -56,16 +60,19 @@ public class DownLoadActivity extends AtarRefreshScrollViewActivity {
 		findViewById(R.id.btn_down2).setOnClickListener(this);
 		findViewById(R.id.btn_down3).setOnClickListener(this);
 		findViewById(R.id.btn_down4).setOnClickListener(this);
-		progressbar = (ProgressBar) findViewById(R.id.progressbar);
-		progressbar2 = (ProgressBar) findViewById(R.id.progressbar2);
-		progressbar3 = (ProgressBar) findViewById(R.id.progressbar3);
+		findViewById(R.id.btn_down5).setOnClickListener(this);
+		findViewById(R.id.btn_down6).setOnClickListener(this);
+		findViewById(R.id.btn_down7).setOnClickListener(this);
+		for (int i = 0; i < ProgressBarArr.length; i++) {
+			ProgressBarArr[i] = (ProgressBar) findViewById(resProgressBarArrID[i]);
+			txt_percentArr[i] = (TextView) findViewById(restxt_percentArrID[i]);
+		}
 		findViewById(R.id.btn_down_cancle).setOnClickListener(this);
 		findViewById(R.id.btn_down_cancle2).setOnClickListener(this);
 		findViewById(R.id.btn_down_cancle3).setOnClickListener(this);
-
-		txt_percent1 = (TextView) findViewById(R.id.txt_percent);
-		txt_percent2 = (TextView) findViewById(R.id.txt_percent2);
-		txt_percent3 = (TextView) findViewById(R.id.txt_percent3);
+		findViewById(R.id.btn_down_cancle4).setOnClickListener(this);
+		findViewById(R.id.btn_down_cancle5).setOnClickListener(this);
+		findViewById(R.id.btn_down_cancle6).setOnClickListener(this);
 	}
 
 	@Override
@@ -74,6 +81,9 @@ public class DownLoadActivity extends AtarRefreshScrollViewActivity {
 		DownLoadFileManager.getInstance().initTempFilePercent(0, this, url1, strDownloadFileName1, strDownloadDir);
 		DownLoadFileManager.getInstance().initTempFilePercent(1, this, url2, strDownloadFileName2, strDownloadDir);
 		DownLoadFileManager.getInstance().initTempFilePercent(2, this, url3, strDownloadFileName3, strDownloadDir);
+		DownLoadFileManager.getInstance().initTempFilePercent(3, this, url3, strDownloadFileName4, strDownloadDir);
+		DownLoadFileManager.getInstance().initTempFilePercent(4, this, url3, strDownloadFileName5, strDownloadDir);
+		DownLoadFileManager.getInstance().initTempFilePercent(5, this, url3, strDownloadFileName6, strDownloadDir);
 	}
 
 	@Override
@@ -89,6 +99,15 @@ public class DownLoadActivity extends AtarRefreshScrollViewActivity {
 		case R.id.btn_down3:
 			DownLoadFileManager.getInstance().downLoad(this, this, 2, url3, strDownloadFileName3, strDownloadDir);
 			break;
+		case R.id.btn_down4:
+			DownLoadFileManager.getInstance().downLoad(this, this, 3, url3, strDownloadFileName4, strDownloadDir);
+			break;
+		case R.id.btn_down5:
+			DownLoadFileManager.getInstance().downLoad(this, this, 4, url3, strDownloadFileName5, strDownloadDir);
+			break;
+		case R.id.btn_down6:
+			DownLoadFileManager.getInstance().downLoad(this, this, 5, url3, strDownloadFileName6, strDownloadDir);
+			break;
 		case R.id.btn_down_cancle:
 			DownLoadFileManager.getInstance().pauseDownload(0);
 			break;
@@ -98,7 +117,16 @@ public class DownLoadActivity extends AtarRefreshScrollViewActivity {
 		case R.id.btn_down_cancle3:
 			DownLoadFileManager.getInstance().pauseDownload(2);
 			break;
-		case R.id.btn_down4:
+		case R.id.btn_down_cancle4:
+			DownLoadFileManager.getInstance().pauseDownload(3);
+			break;
+		case R.id.btn_down_cancle5:
+			DownLoadFileManager.getInstance().pauseDownload(4);
+			break;
+		case R.id.btn_down_cancle6:
+			DownLoadFileManager.getInstance().pauseDownload(5);
+			break;
+		case R.id.btn_down7:
 			new DownLoadUtil().downFile(this, "http://gdown.baidu.com/data/wisegame/6e220cc18d807060/shoujibaidu_38032640.apk", "title", "说明", "tgb", "baiduteiba.apk");
 			break;
 		}
@@ -107,61 +135,22 @@ public class DownLoadActivity extends AtarRefreshScrollViewActivity {
 	@Override
 	public void onHandlerData(Message msg) {
 		super.onHandlerData(msg);
-		switch (msg.what) {
-		case 0:
-			switch (msg.arg2) {
-			case android.download.DownLoadFileBean.DOWLOAD_FLAG_FAIL:
-				ShowLog.i(TAG, msg.what + "---" + "下载失败");
-				break;
-			case android.download.DownLoadFileBean.DOWLOAD_FLAG_SUCCESS:
-				progressbar.setProgress(100);
-				txt_percent1.setText("100%");
-				ShowLog.i(TAG, msg.what + "---" + "DOWLOAD_FLAG_SUCCESS");
-				break;
-			case android.download.DownLoadFileBean.DOWLOAD_FLAG_ING:
-				ShowLog.i(TAG, msg.what + "---" + "下载成功");
-				int progress = (Integer) msg.obj;
-				progressbar.setProgress(progress);
-				txt_percent1.setText(progress + "%");
-				break;
-			}
+		switch (msg.arg2) {
+		case android.download.DownLoadFileBean.DOWLOAD_FLAG_FAIL:
+			ShowLog.i(TAG, msg.what + "---" + "下载失败");
 			break;
-		case 1:
-			switch (msg.arg2) {
-			case android.download.DownLoadFileBean.DOWLOAD_FLAG_FAIL:
-				ShowLog.i(TAG, msg.what + "---" + "下载失败");
-				break;
-			case android.download.DownLoadFileBean.DOWLOAD_FLAG_SUCCESS:
-				progressbar2.setProgress(100);
-				txt_percent2.setText("100%");
-				ShowLog.i(TAG, msg.what + "---" + "下载成功");
-				break;
-			case android.download.DownLoadFileBean.DOWLOAD_FLAG_ING:
-				ShowLog.i(TAG, "下载进度-->" + msg.what + "---" + msg.obj);
-				int progress = (Integer) msg.obj;
-				progressbar2.setProgress(progress);
-				txt_percent2.setText(progress + "%");
-				break;
-			}
+		case android.download.DownLoadFileBean.DOWLOAD_FLAG_SUCCESS:
+			ProgressBarArr[msg.what].setProgress(100);
+			txt_percentArr[msg.what].setText("100%");
+			ShowLog.i(TAG, msg.what + "---" + "DOWLOAD_FLAG_SUCCESS");
 			break;
-		case 2:
-			switch (msg.arg2) {
-			case android.download.DownLoadFileBean.DOWLOAD_FLAG_FAIL:
-				ShowLog.i(TAG, msg.what + "---" + "下载失败");
-				break;
-			case android.download.DownLoadFileBean.DOWLOAD_FLAG_SUCCESS:
-				progressbar3.setProgress(100);
-				txt_percent3.setText("100%");
-				ShowLog.i(TAG, msg.what + "---" + "下载成功");
-				break;
-			case android.download.DownLoadFileBean.DOWLOAD_FLAG_ING:
-				ShowLog.i(TAG, "下载进度-->" + msg.what + "---" + msg.obj);
-				int progress = (Integer) msg.obj;
-				progressbar3.setProgress(progress);
-				txt_percent3.setText(progress + "%");
-				break;
-			}
+		case android.download.DownLoadFileBean.DOWLOAD_FLAG_ING:
+			ShowLog.i(TAG, msg.what + "---" + "下载成功");
+			int progress = (Integer) msg.obj;
+			ProgressBarArr[msg.what].setProgress(progress);
+			txt_percentArr[msg.what].setText(progress + "%");
 			break;
 		}
+
 	}
 }

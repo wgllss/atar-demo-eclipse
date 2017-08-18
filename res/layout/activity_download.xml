@@ -114,10 +114,121 @@
 
     <Button
         android:id="@+id/btn_down4"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/progressbar3"
+        android:layout_marginTop="10dp"
+        android:text="下载方式1-4" />
+
+    <Button
+        android:id="@+id/btn_down_cancle4"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@+id/progressbar3"
         android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/btn_down4"
+        android:text="方式1-4暂停" />
+
+    <ProgressBar
+        android:id="@+id/progressbar4"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_down4"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="50dp"
+        android:layout_toLeftOf="@+id/txt_percent4"
+        android:max="100"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/txt_percent4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/btn_down4"
+        android:layout_marginTop="5dp" />
+
+    <Button
+        android:id="@+id/btn_down5"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/progressbar4"
+        android:layout_marginTop="10dp"
+        android:text="下载方式1-5" />
+
+    <Button
+        android:id="@+id/btn_down_cancle5"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/progressbar4"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/btn_down5"
+        android:text="方式1-5暂停" />
+
+    <ProgressBar
+        android:id="@+id/progressbar5"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_down5"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="50dp"
+        android:layout_toLeftOf="@+id/txt_percent5"
+        android:max="100"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/txt_percent5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/btn_down5"
+        android:layout_marginTop="5dp" />
+
+    <Button
+        android:id="@+id/btn_down6"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/progressbar5"
+        android:layout_marginTop="10dp"
+        android:text="下载方式1-6" />
+
+    <Button
+        android:id="@+id/btn_down_cancle6"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/progressbar5"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/btn_down6"
+        android:text="方式1-6暂停" />
+
+    <ProgressBar
+        android:id="@+id/progressbar6"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_down6"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="50dp"
+        android:layout_toLeftOf="@+id/txt_percent6"
+        android:max="100"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/txt_percent6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/btn_down6"
+        android:layout_marginTop="5dp" />
+
+    <Button
+        android:id="@+id/btn_down7"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/progressbar6"
+        android:layout_marginTop="30dp"
         android:text="下载方式3" />
 
 </RelativeLayout>
