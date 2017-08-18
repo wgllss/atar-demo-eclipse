@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.atar.activitys.AtarRefreshScrollViewActivity;
 import com.atar.activitys.R;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 
 /**
  *****************************************************************************************************************************************************************************
@@ -78,6 +79,8 @@ public class DownLoadActivity extends AtarRefreshScrollViewActivity {
 	@Override
 	protected void initValue() {
 		super.initValue();
+		setRefreshMode(Mode.DISABLED);
+
 		DownLoadFileManager.getInstance().initTempFilePercent(0, this, url1, strDownloadFileName1, strDownloadDir);
 		DownLoadFileManager.getInstance().initTempFilePercent(1, this, url2, strDownloadFileName2, strDownloadDir);
 		DownLoadFileManager.getInstance().initTempFilePercent(2, this, url3, strDownloadFileName3, strDownloadDir);
