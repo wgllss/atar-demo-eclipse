@@ -14,6 +14,7 @@ import com.atar.widgets.refresh.DataDispose;
 import com.atar.widgets.refresh.OnHandlerDataListener;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
+import com.handmark.pulltorefresh.library.internal.DynamicLoadingLayout;
 
 /**
  *****************************************************************************************************************************************************************************
@@ -235,12 +236,13 @@ public class AtarRefreshActivity<T extends PullToRefreshBase<V>, V extends View>
 				getPullView().getHeaderLayout().setRefreshingLabel(getResources().getString(R.string.refreshing_waiting));
 				getPullView().getHeaderLayout().setPullLabel(getResources().getString(R.string.pull_to_start_refresh));
 				getPullView().getHeaderLayout().setReleaseLabel(getResources().getString(R.string.pull_to_start_reset));
-				// ((DynamicLoadingLayout) getPullView().getHeaderLayout()).setRefreshingDrawable(GlobeSettings.refreshImg[skinType]);
+				((DynamicLoadingLayout) getPullView().getHeaderLayout()).setRefreshingDrawable(com.handmark.pulltorefresh.library.R.drawable.default_ptr_rotate);
 			}
 			if (getPullView().getFooterLayout() != null) {
 				getPullView().getFooterLayout().setRefreshingLabel(getResources().getString(R.string.refreshing_waiting));
 				getPullView().getFooterLayout().setPullLabel(getResources().getString(R.string.pull_to_up_load_more));
 				getPullView().getFooterLayout().setReleaseLabel(getResources().getString(R.string.pull_to_up_reset));
+				((DynamicLoadingLayout) getPullView().getHeaderLayout()).setRefreshingDrawable(com.handmark.pulltorefresh.library.R.drawable.default_ptr_rotate);
 				// ((DynamicLoadingLayout) getPullView().getFooterLayout()).setRefreshingDrawable(GlobeSettings.refreshImg[skinType]);
 			}
 			// if (getPullView().getHeaderLayout() != null && getPullView().getHeaderLayout().getHeaderText() != null) {

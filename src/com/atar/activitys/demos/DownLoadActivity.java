@@ -83,10 +83,10 @@ public class DownLoadActivity extends AtarRefreshScrollViewActivity {
 
 		DownLoadFileManager.getInstance().initTempFilePercent(0, this, url1, strDownloadFileName1, strDownloadDir);
 		DownLoadFileManager.getInstance().initTempFilePercent(1, this, url2, strDownloadFileName2, strDownloadDir);
-		DownLoadFileManager.getInstance().initTempFilePercent(2, this, url3, strDownloadFileName3, strDownloadDir);
-		DownLoadFileManager.getInstance().initTempFilePercent(3, this, url3, strDownloadFileName4, strDownloadDir);
-		DownLoadFileManager.getInstance().initTempFilePercent(4, this, url3, strDownloadFileName5, strDownloadDir);
-		DownLoadFileManager.getInstance().initTempFilePercent(5, this, url3, strDownloadFileName6, strDownloadDir);
+		DownLoadFileManager.getInstance().initTempFilePercent(2, this, url1, strDownloadFileName3, strDownloadDir);
+		DownLoadFileManager.getInstance().initTempFilePercent(3, this, url1, strDownloadFileName4, strDownloadDir);
+		DownLoadFileManager.getInstance().initTempFilePercent(4, this, url1, strDownloadFileName5, strDownloadDir);
+		DownLoadFileManager.getInstance().initTempFilePercent(5, this, url1, strDownloadFileName6, strDownloadDir);
 	}
 
 	@Override
@@ -103,13 +103,13 @@ public class DownLoadActivity extends AtarRefreshScrollViewActivity {
 			DownLoadFileManager.getInstance().downLoad(this, this, 2, url3, strDownloadFileName3, strDownloadDir);
 			break;
 		case R.id.btn_down4:
-			DownLoadFileManager.getInstance().downLoad(this, this, 3, url3, strDownloadFileName4, strDownloadDir);
+			DownLoadFileManager.getInstance().downLoad(this, this, 3, url3, 2, strDownloadFileName4, strDownloadDir);
 			break;
 		case R.id.btn_down5:
-			DownLoadFileManager.getInstance().downLoad(this, this, 4, url3, strDownloadFileName5, strDownloadDir);
+			DownLoadFileManager.getInstance().downLoad(this, this, 4, url3, 3, strDownloadFileName5, strDownloadDir);
 			break;
 		case R.id.btn_down6:
-			DownLoadFileManager.getInstance().downLoad(this, this, 5, url3, strDownloadFileName6, strDownloadDir);
+			DownLoadFileManager.getInstance().downLoad(this, this, 5, url3, 4, strDownloadFileName6, strDownloadDir);
 			break;
 		case R.id.btn_down_cancle:
 			DownLoadFileManager.getInstance().pauseDownload(0);
@@ -138,20 +138,20 @@ public class DownLoadActivity extends AtarRefreshScrollViewActivity {
 	@Override
 	public void onHandlerData(Message msg) {
 		super.onHandlerData(msg);
-		switch (msg.arg2) {
+		switch (msg.what) {
 		case android.download.DownLoadFileBean.DOWLOAD_FLAG_FAIL:
-			ShowLog.i(TAG, msg.what + "---" + "下载失败");
+			ShowLog.i(TAG, msg.arg2 + "---" + "下载失败");
 			break;
 		case android.download.DownLoadFileBean.DOWLOAD_FLAG_SUCCESS:
-			ProgressBarArr[msg.what].setProgress(100);
-			txt_percentArr[msg.what].setText("100%");
-			ShowLog.i(TAG, msg.what + "---" + "DOWLOAD_FLAG_SUCCESS");
+			ProgressBarArr[msg.arg2].setProgress(100);
+			txt_percentArr[msg.arg2].setText("100%");
+			ShowLog.i(TAG, msg.arg2 + "---" + "DOWLOAD_FLAG_SUCCESS");
 			break;
 		case android.download.DownLoadFileBean.DOWLOAD_FLAG_ING:
-			ShowLog.i(TAG, msg.what + "---" + "下载成功");
+			ShowLog.i(TAG, msg.arg2 + "---" + "下载成功");
 			int progress = (Integer) msg.obj;
-			ProgressBarArr[msg.what].setProgress(progress);
-			txt_percentArr[msg.what].setText(progress + "%");
+			ProgressBarArr[msg.arg2].setProgress(progress);
+			txt_percentArr[msg.arg2].setText(progress + "%");
 			break;
 		}
 
