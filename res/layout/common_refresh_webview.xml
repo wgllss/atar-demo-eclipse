@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="vertical"
-    ptr:ptrAnimationStyle="dynamic"
+    ptr:ptrAnimationStyle="flip"
     ptr:ptrDrawable="@drawable/default_ptr_flip"
     ptr:ptrHeaderBackground="@color/transparent1"
     ptr:ptrHeaderSubTextColor="@color/common_buttom_hight"

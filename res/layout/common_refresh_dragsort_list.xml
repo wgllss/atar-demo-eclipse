@@ -20,7 +20,7 @@
     dslv:sort_enabled="true"
     dslv:track_drag_sort="false"
     dslv:use_default_controller="true"
-    ptr:ptrAnimationStyle="dynamic"
+    ptr:ptrAnimationStyle="flip"
     ptr:ptrHeaderBackground="@color/transparent1"
     ptr:ptrHeaderSubTextColor="@color/common_buttom_hight"
     ptr:ptrHeaderTextColor="@color/common_buttom_hight" />

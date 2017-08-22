@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.atar.common.CommonLoading;
+import com.atar.globe.GlobeSettings;
 import com.atar.widgets.refresh.DataDispose;
 import com.atar.widgets.refresh.OnHandlerDataListener;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -232,37 +233,37 @@ public class AtarRefreshActivity<T extends PullToRefreshBase<V>, V extends View>
 
 	protected void setRefreshSkin(int skinType) {
 		if (getPullView() != null) {
-			if (getPullView().getHeaderLayout() != null) {
-				getPullView().getHeaderLayout().setRefreshingLabel(getResources().getString(R.string.refreshing_waiting));
-				getPullView().getHeaderLayout().setPullLabel(getResources().getString(R.string.pull_to_start_refresh));
-				getPullView().getHeaderLayout().setReleaseLabel(getResources().getString(R.string.pull_to_start_reset));
-				((DynamicLoadingLayout) getPullView().getHeaderLayout()).setRefreshingDrawable(com.handmark.pulltorefresh.library.R.drawable.default_ptr_rotate);
-			}
-			if (getPullView().getFooterLayout() != null) {
-				getPullView().getFooterLayout().setRefreshingLabel(getResources().getString(R.string.refreshing_waiting));
-				getPullView().getFooterLayout().setPullLabel(getResources().getString(R.string.pull_to_up_load_more));
-				getPullView().getFooterLayout().setReleaseLabel(getResources().getString(R.string.pull_to_up_reset));
-				((DynamicLoadingLayout) getPullView().getHeaderLayout()).setRefreshingDrawable(com.handmark.pulltorefresh.library.R.drawable.default_ptr_rotate);
-				// ((DynamicLoadingLayout) getPullView().getFooterLayout()).setRefreshingDrawable(GlobeSettings.refreshImg[skinType]);
-			}
-			// if (getPullView().getHeaderLayout() != null && getPullView().getHeaderLayout().getHeaderText() != null) {
-			// getPullView().getHeaderLayout().setHeaderTextColor(getResources().obtainTypedArray(R.array.txt_day_grey_night_greyblack_color).getColor(skinType, 0));
-			// }
-			// if (getPullView().getFooterLayout() != null && getPullView().getFooterLayout().getHeaderText() != null) {
-			// getPullView().getFooterLayout().setHeaderTextColor(getResources().obtainTypedArray(R.array.txt_day_grey_night_greyblack_color).getColor(skinType, 0));
-			// }
-			// if (getPullView().getHeaderLayout() != null && getPullView().getHeaderLayout().getSubHeaderText() != null) {
-			// getPullView().getHeaderLayout().setSubHeaderTextColor(getResources().obtainTypedArray(R.array.txt_day_grey_night_greyblack_color).getColor(skinType, 0));
-			// }
-			// if (getPullView().getFooterLayout() != null && getPullView().getFooterLayout().getSubHeaderText() != null) {
-			// getPullView().getFooterLayout().setSubHeaderTextColor(getResources().obtainTypedArray(R.array.txt_day_grey_night_greyblack_color).getColor(skinType, 0));
-			// }
 			// if (getPullView().getHeaderLayout() != null) {
-			// getPullView().getHeaderLayout().setRefreshBgColor(getResources().obtainTypedArray(R.array.refresh_bg_color).getColor(skinType, 0));
+			// getPullView().getHeaderLayout().setRefreshingLabel(getResources().getString(R.string.refreshing_waiting));
+			// getPullView().getHeaderLayout().setPullLabel(getResources().getString(R.string.pull_to_start_refresh));
+			// getPullView().getHeaderLayout().setReleaseLabel(getResources().getString(R.string.pull_to_start_reset));
+			((DynamicLoadingLayout) getPullView().getHeaderLayout()).setRefreshingDrawable(GlobeSettings.refreshImg[skinType]);
 			// }
 			// if (getPullView().getFooterLayout() != null) {
-			// getPullView().getFooterLayout().setRefreshBgColor(getResources().obtainTypedArray(R.array.refresh_bg_color).getColor(skinType, 0));
+			// getPullView().getFooterLayout().setRefreshingLabel(getResources().getString(R.string.refreshing_waiting));
+			// getPullView().getFooterLayout().setPullLabel(getResources().getString(R.string.pull_to_up_load_more));
+			// getPullView().getFooterLayout().setReleaseLabel(getResources().getString(R.string.pull_to_up_reset));
+			// ((DynamicLoadingLayout) getPullView().getHeaderLayout()).setRefreshingDrawable(com.handmark.pulltorefresh.library.R.drawable.default_ptr_rotate);
+			((DynamicLoadingLayout) getPullView().getFooterLayout()).setRefreshingDrawable(GlobeSettings.refreshImg[skinType]);
 			// }
+			if (getPullView().getHeaderLayout() != null && getPullView().getHeaderLayout().getHeaderText() != null) {
+				getPullView().getHeaderLayout().setHeaderTextColor(getResources().getColor(R.color.black));
+			}
+			if (getPullView().getFooterLayout() != null && getPullView().getFooterLayout().getHeaderText() != null) {
+				getPullView().getFooterLayout().setHeaderTextColor(getResources().getColor(R.color.black));
+			}
+			if (getPullView().getHeaderLayout() != null && getPullView().getHeaderLayout().getSubHeaderText() != null) {
+				getPullView().getHeaderLayout().setSubHeaderTextColor(getResources().getColor(R.color.black));
+			}
+			if (getPullView().getFooterLayout() != null && getPullView().getFooterLayout().getSubHeaderText() != null) {
+				getPullView().getFooterLayout().setSubHeaderTextColor(getResources().getColor(R.color.black));
+			}
+			if (getPullView().getHeaderLayout() != null) {
+				getPullView().getHeaderLayout().setRefreshBgColor(getResources().getColor(R.color.common_txt_hint_color_day));
+			}
+			if (getPullView().getFooterLayout() != null) {
+				getPullView().getFooterLayout().setRefreshBgColor(getResources().getColor(R.color.common_txt_hint_color_day));
+			}
 		}
 		// LoadUtil.setTextColor(this, txtToast, R.array.txt_day_grey_night_greyblack_color, skinType);
 	}

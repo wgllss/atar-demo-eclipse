@@ -3,9 +3,6 @@
  */
 package com.atar.widgets.refresh;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import android.annotation.SuppressLint;
 import android.application.CrashHandler;
 import android.os.Message;
@@ -13,7 +10,6 @@ import android.utils.ShowLog;
 import android.view.View;
 import android.widget.CommonToast;
 
-import com.atar.activitys.R;
 import com.atar.enums.EnumMsgWhat;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
@@ -38,15 +34,15 @@ public class DataDispose<T extends PullToRefreshBase<V>, V extends View> impleme
 
 	private boolean isRequestingButNoutResult;
 
-	private String pullFromStartLastTime = "";
-	private String pullFromEndLastTime = "";
+	// private String pullFromStartLastTime = "";
+	// private String pullFromEndLastTime = "";
 
 	public DataDispose(T t, OnHandlerDataListener<T, V> listener) {
 		this.t = t;
 		this.listener = listener;
 		if (this.t != null && t.getContext() != null) {
 			this.t.setOnRefreshListener(this);
-			this.t.setOnPullEventListener(this);
+			// this.t.setOnPullEventListener(this);
 			this.t.setMode(Mode.BOTH);
 		}
 	}
@@ -67,7 +63,7 @@ public class DataDispose<T extends PullToRefreshBase<V>, V extends View> impleme
 							listener.sendEmptyMessage(EnumMsgWhat.REFRESH_PULL_UP);
 						}
 					} else {
-						t.getLoadingLayoutProxy().setLastUpdatedLabel(t.getContext().getResources().getString(R.string.refreshing_waiting));
+						// t.getLoadingLayoutProxy().setLastUpdatedLabel(t.getContext().getResources().getString(R.string.refreshing_waiting));
 						t.onRefreshComplete();
 					}
 				}
@@ -87,11 +83,11 @@ public class DataDispose<T extends PullToRefreshBase<V>, V extends View> impleme
 			case EnumMsgWhat.REFRESH_ERROR:
 				onStopRefresh();
 				break;
-			case EnumMsgWhat.REFRESH_COMPLETE3:
-				isRequestingButNoutResult = false;
-				break;
-			default:
-				break;
+			// case EnumMsgWhat.REFRESH_COMPLETE3:
+			// isRequestingButNoutResult = false;
+			// break;
+			// default:
+			// break;
 			}
 		} catch (Exception e) {
 			ShowLog.e(DataDispose.class.getSimpleName(), "handleMessage--e--->" + CrashHandler.crashToString(e));
@@ -108,18 +104,18 @@ public class DataDispose<T extends PullToRefreshBase<V>, V extends View> impleme
 	 *@description:
 	 */
 	public void onStopRefresh() {
-		listener.sendEmptyMessage(EnumMsgWhat.REFRESH_COMPLETE3);
+		isRequestingButNoutResult = false;
 		if (t != null) {
-			SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-HH:mm:ss");
-			Date curDate = new Date(System.currentTimeMillis());// 获取当前时间
-			String time = formatter.format(curDate);
-			if (t.getCurrentMode() == Mode.PULL_FROM_START) {
-				pullFromStartLastTime = time;
-			} else if (t.getCurrentMode() == Mode.PULL_FROM_END) {
-				pullFromEndLastTime = time;
-			}
-			t.getLoadingLayoutProxy().setLastUpdatedLabel(t.getContext().getResources().getString(R.string.refreshing_waiting));
 			t.onRefreshComplete();
+			// SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-HH:mm:ss");
+			// Date curDate = new Date(System.currentTimeMillis());// 获取当前时间
+			// String time = formatter.format(curDate);
+			// if (t.getCurrentMode() == Mode.PULL_FROM_START) {
+			// pullFromStartLastTime = time;
+			// } else if (t.getCurrentMode() == Mode.PULL_FROM_END) {
+			// pullFromEndLastTime = time;
+			// }
+			// t.getLoadingLayoutProxy().setLastUpdatedLabel(t.getContext().getResources().getString(R.string.refreshing_waiting));
 		}
 	}
 
@@ -146,23 +142,23 @@ public class DataDispose<T extends PullToRefreshBase<V>, V extends View> impleme
 			// if (refreshView.getFooterLayout() != null) {
 			// ((DynamicLoadingLayout) refreshView.getFooterLayout()).setRefreshingDrawable(GlobeSettings.refreshImg[skinType]);
 			// }
-			if (direction == Mode.PULL_FROM_START) {
-				refreshView.getLoadingLayoutProxy().setRefreshingLabel(refreshView.getContext().getResources().getString(R.string.refreshing_waiting));
-				refreshView.getLoadingLayoutProxy().setPullLabel(refreshView.getContext().getResources().getString(R.string.pull_to_start_refresh));
-				refreshView.getLoadingLayoutProxy().setReleaseLabel(refreshView.getContext().getResources().getString(R.string.pull_to_start_reset));
-				if (!"".equals(pullFromStartLastTime)) {
-					refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(refreshView.getContext().getResources().getString(R.string.refreshing_waiting));
-				}
-			} else if (direction == Mode.PULL_FROM_END) {
-				refreshView.getLoadingLayoutProxy().setRefreshingLabel(refreshView.getContext().getResources().getString(R.string.refreshing_waiting));
-				refreshView.getLoadingLayoutProxy().setPullLabel(refreshView.getContext().getResources().getString(R.string.pull_to_up_load_more));
-				refreshView.getLoadingLayoutProxy().setReleaseLabel(refreshView.getContext().getResources().getString(R.string.pull_to_up_reset));
-				if (!"".equals(pullFromEndLastTime)) {
-					refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(refreshView.getContext().getResources().getString(R.string.refreshing_waiting));
-				}
-			} else {
-
-			}
+			// if (direction == Mode.PULL_FROM_START) {
+			// refreshView.getLoadingLayoutProxy().setRefreshingLabel(refreshView.getContext().getResources().getString(R.string.refreshing_waiting));
+			// refreshView.getLoadingLayoutProxy().setPullLabel(refreshView.getContext().getResources().getString(R.string.pull_to_start_refresh));
+			// refreshView.getLoadingLayoutProxy().setReleaseLabel(refreshView.getContext().getResources().getString(R.string.pull_to_start_reset));
+			// if (!"".equals(pullFromStartLastTime)) {
+			// refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(refreshView.getContext().getResources().getString(R.string.refreshing_waiting));
+			// }
+			// } else if (direction == Mode.PULL_FROM_END) {
+			// refreshView.getLoadingLayoutProxy().setRefreshingLabel(refreshView.getContext().getResources().getString(R.string.refreshing_waiting));
+			// refreshView.getLoadingLayoutProxy().setPullLabel(refreshView.getContext().getResources().getString(R.string.pull_to_up_load_more));
+			// refreshView.getLoadingLayoutProxy().setReleaseLabel(refreshView.getContext().getResources().getString(R.string.pull_to_up_reset));
+			// if (!"".equals(pullFromEndLastTime)) {
+			// refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(refreshView.getContext().getResources().getString(R.string.refreshing_waiting));
+			// }
+			// } else {
+			//
+			// }
 		}
 	}
 }

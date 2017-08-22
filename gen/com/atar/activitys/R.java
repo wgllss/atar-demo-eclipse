@@ -1241,23 +1241,27 @@ containing a value of this type.
         public static final int indicator_arrow=0x7f020011;
         public static final int indicator_bg_bottom=0x7f020012;
         public static final int indicator_bg_top=0x7f020013;
-        public static final int jiantou_9=0x7f020014;
-        public static final int niu02=0x7f020015;
-        public static final int oval_red=0x7f020016;
-        public static final int progressbar=0x7f020017;
-        public static final int select_day_btn_blue_light_blue=0x7f020018;
-        public static final int select_transparent0_to_transparent2_bg=0x7f020019;
-        public static final int top_left=0x7f02001a;
+        public static final int jiantou_1=0x7f020014;
+        public static final int jiantou_2=0x7f020015;
+        public static final int jiantou_3=0x7f020016;
+        public static final int jiantou_4=0x7f020017;
+        public static final int jiantou_5=0x7f020018;
+        public static final int jiantou_6=0x7f020019;
+        public static final int jiantou_7=0x7f02001a;
+        public static final int jiantou_8=0x7f02001b;
+        public static final int oval_red=0x7f02001c;
+        public static final int progressbar=0x7f02001d;
+        public static final int select_day_btn_blue_light_blue=0x7f02001e;
+        public static final int select_transparent0_to_transparent2_bg=0x7f02001f;
     }
     public static final class id {
-        public static final int activity_common_tab=0x7f060070;
+        public static final int activity_common_tab=0x7f06006a;
         public static final int activity_content=0x7f060017;
-        public static final int ad_indicator=0x7f06004b;
-        public static final int app_app_viewPager=0x7f060049;
-        public static final int atar_refresh_lst=0x7f06006c;
-        public static final int atar_refresh_scrollview=0x7f06006e;
+        public static final int ad_indicator=0x7f060044;
+        public static final int app_app_viewPager=0x7f060042;
+        public static final int atar_refresh_lst=0x7f060066;
+        public static final int atar_refresh_scrollview=0x7f060068;
         public static final int both=0x7f060008;
-        public static final int btn_album=0x7f06003f;
         public static final int btn_complete=0x7f060019;
         public static final int btn_down=0x7f060023;
         public static final int btn_down2=0x7f060027;
@@ -1272,48 +1276,42 @@ containing a value of this type.
         public static final int btn_down_cancle4=0x7f060030;
         public static final int btn_down_cancle5=0x7f060034;
         public static final int btn_down_cancle6=0x7f060038;
-        public static final int btn_net_test=0x7f06003c;
-        public static final int btn_net_test2=0x7f06003d;
-        public static final int btn_showImage=0x7f060041;
-        public static final int btn_viewpagerdemoactivity=0x7f06003e;
         public static final int clickRemove=0x7f060012;
         public static final int click_remove=0x7f060004;
-        public static final int common_buttom_menu=0x7f060048;
-        public static final int common_gridview=0x7f060067;
-        public static final int common_line=0x7f060047;
-        public static final int common_normal_lst=0x7f060068;
-        public static final int common_refresh_dragsort_lst=0x7f060069;
-        public static final int common_refresh_section_list=0x7f06006d;
+        public static final int common_buttom_menu=0x7f060041;
+        public static final int common_gridview=0x7f060061;
+        public static final int common_line=0x7f060040;
+        public static final int common_normal_lst=0x7f060062;
+        public static final int common_refresh_dragsort_lst=0x7f060063;
+        public static final int common_refresh_section_list=0x7f060067;
         public static final int common_top_title_bar=0x7f06001b;
-        public static final int demorefreshlistviewactivity=0x7f060040;
         public static final int disabled=0x7f060009;
-        public static final int download=0x7f060042;
         public static final int drag_handle=0x7f060003;
         public static final int dynamic=0x7f06000f;
-        public static final int fl_inner=0x7f060074;
+        public static final int fl_inner=0x7f06006e;
         public static final int flingRemove=0x7f060013;
         public static final int flip=0x7f060010;
-        public static final int frame_move=0x7f060072;
+        public static final int frame_move=0x7f06006c;
         public static final int gridview=0x7f060000;
         public static final int horizon_srcoll=0x7f060018;
-        public static final int img_ad=0x7f060057;
-        public static final int img_album=0x7f06004f;
+        public static final int img_ad=0x7f060050;
+        public static final int img_album=0x7f060048;
         public static final int img_common_top_left=0x7f06001d;
         public static final int img_common_top_right=0x7f060022;
-        public static final int img_huo_flag=0x7f060063;
-        public static final int img_is_check=0x7f06004e;
-        public static final int img_more=0x7f060051;
-        public static final int img_photo=0x7f06004d;
-        public static final int img_reply=0x7f06005b;
-        public static final int img_topic_praise=0x7f06005d;
-        public static final int img_user=0x7f060059;
-        public static final int linear_loading=0x7f060064;
-        public static final int linear_tab_bar=0x7f060071;
+        public static final int img_huo_flag=0x7f06005d;
+        public static final int img_is_check=0x7f060047;
+        public static final int img_more=0x7f06004a;
+        public static final int img_photo=0x7f060046;
+        public static final int img_reply=0x7f060054;
+        public static final int img_topic_praise=0x7f060056;
+        public static final int img_user=0x7f060052;
+        public static final int linear_loading=0x7f06005e;
+        public static final int linear_tab_bar=0x7f06006b;
         public static final int lst_pop_win=0x7f06001c;
         public static final int manualOnly=0x7f06000a;
-        public static final int menu_icon=0x7f060060;
-        public static final int menu_lineLayout_item=0x7f06005f;
-        public static final int menu_title=0x7f060061;
+        public static final int menu_icon=0x7f06005a;
+        public static final int menu_lineLayout_item=0x7f060059;
+        public static final int menu_title=0x7f06005b;
         public static final int movie_layout=0x7f06001a;
         public static final int onDown=0x7f060014;
         public static final int onLongPress=0x7f060015;
@@ -1328,47 +1326,49 @@ containing a value of this type.
         public static final int pullFromEnd=0x7f06000c;
         public static final int pullFromStart=0x7f06000d;
         public static final int pullUpFromBottom=0x7f06000e;
-        public static final int pull_refresh_gridview=0x7f06006a;
-        public static final int pull_refresh_webview=0x7f06006f;
-        public static final int pull_to_refresh_image=0x7f060075;
-        public static final int pull_to_refresh_progress=0x7f060065;
-        public static final int pull_to_refresh_sub_text=0x7f060077;
-        public static final int pull_to_refresh_text=0x7f060076;
-        public static final int rel_indicator_layout=0x7f06004a;
-        public static final int relative_tabhost=0x7f060046;
+        public static final int pull_refresh_gridview=0x7f060064;
+        public static final int pull_refresh_webview=0x7f060069;
+        public static final int pull_to_refresh_image=0x7f06006f;
+        public static final int pull_to_refresh_progress=0x7f06005f;
+        public static final int pull_to_refresh_sub_text=0x7f060071;
+        public static final int pull_to_refresh_text=0x7f060070;
+        public static final int refresh_quick_list_view=0x7f060072;
+        public static final int rel_indicator_layout=0x7f060043;
+        public static final int relative_tabhost=0x7f06003f;
         public static final int rotate=0x7f060011;
         public static final int scrollview=0x7f060002;
-        public static final int tabs=0x7f060044;
-        public static final int title=0x7f060056;
+        public static final int tabs=0x7f06003d;
+        public static final int title=0x7f06004f;
         public static final int top_title_bar_left_txt_bank_secu=0x7f060006;
         public static final int top_title_bar_left_txt_typ_news=0x7f060007;
         public static final int top_title_bar_other_image=0x7f060005;
-        public static final int txt_ad_title=0x7f06004c;
+        public static final int txt_ad_title=0x7f060045;
         public static final int txt_common_top_left=0x7f06001e;
         public static final int txt_common_top_right=0x7f060021;
         public static final int txt_common_top_title=0x7f06001f;
         public static final int txt_common_top_title_right_txt=0x7f060020;
-        public static final int txt_content=0x7f060058;
-        public static final int txt_desc=0x7f060050;
-        public static final int txt_drop_dowm_title=0x7f060053;
-        public static final int txt_list_toast=0x7f06006b;
-        public static final int txt_loading_notice=0x7f060066;
-        public static final int txt_num=0x7f060062;
+        public static final int txt_content=0x7f060051;
+        public static final int txt_desc=0x7f060049;
+        public static final int txt_drop_dowm_title=0x7f06004c;
+        public static final int txt_item_name=0x7f060058;
+        public static final int txt_list_toast=0x7f060065;
+        public static final int txt_loading_notice=0x7f060060;
+        public static final int txt_num=0x7f06005c;
         public static final int txt_percent=0x7f060026;
         public static final int txt_percent2=0x7f06002a;
         public static final int txt_percent3=0x7f06002e;
         public static final int txt_percent4=0x7f060032;
         public static final int txt_percent5=0x7f060036;
         public static final int txt_percent6=0x7f06003a;
-        public static final int txt_reply_num=0x7f06005c;
-        public static final int txt_toast=0x7f060045;
-        public static final int txt_topic_praise=0x7f06005e;
-        public static final int txt_user_name=0x7f06005a;
-        public static final int view_drop_dowm_line_left=0x7f060052;
-        public static final int view_drop_dowm_line_right=0x7f060054;
-        public static final int view_move=0x7f060073;
-        public static final int view_pager=0x7f060043;
-        public static final int view_select=0x7f060055;
+        public static final int txt_reply_num=0x7f060055;
+        public static final int txt_toast=0x7f06003e;
+        public static final int txt_topic_praise=0x7f060057;
+        public static final int txt_user_name=0x7f060053;
+        public static final int view_drop_dowm_line_left=0x7f06004b;
+        public static final int view_drop_dowm_line_right=0x7f06004d;
+        public static final int view_move=0x7f06006d;
+        public static final int view_pager=0x7f06003c;
+        public static final int view_select=0x7f06004e;
         public static final int webview=0x7f060001;
     }
     public static final class layout {
@@ -1377,17 +1377,17 @@ containing a value of this type.
         public static final int activity_atar_common_title_drop=0x7f030002;
         public static final int activity_atar_common_top=0x7f030003;
         public static final int activity_download=0x7f030004;
-        public static final int activity_maindemo=0x7f030005;
-        public static final int activity_show_img=0x7f030006;
-        public static final int activity_webview_pager=0x7f030007;
-        public static final int activity_webview_pager_buttom=0x7f030008;
-        public static final int activity_weex_main=0x7f030009;
-        public static final int activity_weex_webview_tabhost=0x7f03000a;
-        public static final int activity_wonder_topic_head=0x7f03000b;
-        public static final int adapter_album_children_item=0x7f03000c;
-        public static final int adapter_album_item=0x7f03000d;
-        public static final int adapter_drop_dowm_item=0x7f03000e;
-        public static final int adapter_home_item3_recommend=0x7f03000f;
+        public static final int activity_show_img=0x7f030005;
+        public static final int activity_webview_pager=0x7f030006;
+        public static final int activity_webview_pager_buttom=0x7f030007;
+        public static final int activity_weex_main=0x7f030008;
+        public static final int activity_weex_webview_tabhost=0x7f030009;
+        public static final int activity_wonder_topic_head=0x7f03000a;
+        public static final int adapter_album_children_item=0x7f03000b;
+        public static final int adapter_album_item=0x7f03000c;
+        public static final int adapter_drop_dowm_item=0x7f03000d;
+        public static final int adapter_home_item3_recommend=0x7f03000e;
+        public static final int adapter_main_demo_item=0x7f03000f;
         public static final int adapter_menu_item=0x7f030010;
         public static final int common_atar_loading=0x7f030011;
         public static final int common_gridview=0x7f030012;
@@ -1401,6 +1401,8 @@ containing a value of this type.
         public static final int common_tab_viewpager=0x7f03001a;
         public static final int pull_to_refresh_header_horizontal=0x7f03001b;
         public static final int pull_to_refresh_header_vertical=0x7f03001c;
+        public static final int pull_to_refresh_header_vertical_dynamic=0x7f03001d;
+        public static final int refresh_list_view=0x7f03001e;
     }
     public static final class string {
         public static final int String_edit_dynamic_group_more_view=0x7f070089;
@@ -1668,9 +1670,31 @@ containing a value of this type.
         res/values-v11/styles.xml on API 14+ devices.
     
  API 14 theme customizations can go here. 
+
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
+
+        Base application theme for API 11+. This theme completely replaces
+        AppBaseTheme from res/values/styles.xml on API 11+ devices.
+    
+ API 11 theme customizations can go here. 
+
+        Base application theme for API 14+. This theme completely replaces
+        AppBaseTheme from BOTH res/values/styles.xml and
+        res/values-v11/styles.xml on API 14+ devices.
+    
+ API 14 theme customizations can go here. 
          */
         public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
+ Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
