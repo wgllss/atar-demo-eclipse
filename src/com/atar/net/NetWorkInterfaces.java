@@ -13,7 +13,7 @@ import android.reflection.ThreadPoolTool;
 import android.utils.CommonStringUtil;
 
 import com.atar.enums.EnumMsgWhat;
-import com.atar.modles.TaoguBBSJson;
+import com.atar.modles.AtarBBSJson;
 import com.atar.modles.WonderfulTopicJson;
 
 /**
@@ -89,7 +89,7 @@ public class NetWorkInterfaces {
 		CommonStringUtil.setMap(map, "flag", flag);
 		Object[] params = new Object[] { actionName, map, UrlParamCommon.UTF_8, activity };
 		ThreadPoolTool.getInstance().setAsyncTask(EnumMsgWhat.EInterface_Get_Forum_List, which, which2, mNetWorkCallListener, activity, HttpUrlConnectionRequest.class.getName(),
-				HttpUrlConnectionRequest.GET, params, TaoguBBSJson.class);
+				HttpUrlConnectionRequest.GET, params, AtarBBSJson.class);
 	}
 
 }

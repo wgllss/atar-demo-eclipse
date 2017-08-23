@@ -28,6 +28,7 @@ public class DemoRefreshWebViewActivity extends AtarRefreshWebViewActivity {
 	@Override
 	protected void initValue() {
 		super.initValue();
+		setActivityTitle(getIntent().getStringExtra(DemoRefreshActivity.TITLE_KEY));
 		if (getRefreshView() != null) {
 			getRefreshView().loadUrl("file:///android_asset/html/atar_topic5.html");
 		}

@@ -3,44 +3,42 @@
  */
 package com.atar.activitys.demos;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.common.CommonHandler;
-import android.os.Bundle;
 import android.os.Message;
 
-import com.atar.activitys.AtarRefreshScrollViewActivity;
-import com.atar.activitys.R;
+import com.atar.activitys.AtarRefreshPinnedSectionListViewActivity;
+import com.atar.adapters.DemoPinnesSectionAdapter;
+import com.atar.beans.DemoPinnesBean;
 import com.atar.enums.EnumMsgWhat;
-import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 
 /**
  *****************************************************************************************************************************************************************************
  * 
  * @author :Atar
- * @createTime:2017-8-23上午10:02:16
+ * @createTime:2017-8-23上午11:18:53
  * @version:1.0.0
  * @modifyTime:
  * @modifyAuthor:
  * @description:
  *****************************************************************************************************************************************************************************
  */
-public class DemoRefreshScrollViewActivity extends AtarRefreshScrollViewActivity {
+public class DemoRefreshPinnedSectionListViewActivity extends AtarRefreshPinnedSectionListViewActivity {
 
-	@Override
-	protected void onCreate(Bundle bundle) {
-		super.onCreate(bundle);
-		addScrollView(R.layout.activity_demo_refersh_scrollview);
-	}
-
-	@Override
-	protected void initScrollControl() {
-
-	}
+	private List<DemoPinnesBean> list = new ArrayList<DemoPinnesBean>();
+	private DemoPinnesSectionAdapter mDemoPinnesSectionAdapter = new DemoPinnesSectionAdapter(list);
 
 	@Override
 	protected void initValue() {
 		super.initValue();
 		setActivityTitle(getIntent().getStringExtra(DemoRefreshActivity.TITLE_KEY));
-		setRefreshMode(Mode.BOTH);
+		for (int i = 0; i < 50; i++) {
+			list.add(new DemoPinnesBean(i % 5 == 1 ? 1 : 0, "item" + i));
+		}
+		mDemoPinnesSectionAdapter.notifyDataSetChanged();
+		setAdapter(mDemoPinnesSectionAdapter);
 		sendEmptyMessageDelayed(EnumMsgWhat.LOAD_FROM_SQL, 400);
 	}
 
@@ -55,6 +53,7 @@ public class DemoRefreshScrollViewActivity extends AtarRefreshScrollViewActivity
 			break;
 		case EnumMsgWhat.REFRESH_PULL_DOWN:
 		case EnumMsgWhat.REFRESH_PULL_UP:
+		case EnumMsgWhat.REFRESH_HANDLER:
 			CommonHandler.getInstatnce().getHandler().postDelayed(new Runnable() {
 
 				@Override
@@ -63,9 +62,6 @@ public class DemoRefreshScrollViewActivity extends AtarRefreshScrollViewActivity
 				}
 			}, 1000);
 			break;
-		case EnumMsgWhat.REFRESH_HANDLER:
-			break;
 		}
 	}
-
 }

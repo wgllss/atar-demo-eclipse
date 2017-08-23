@@ -80,7 +80,7 @@ public abstract class AtarRefreshDragSortListViewActivity<T> extends AtarRefresh
 			getRefreshView().setOnItemClickListener(this);
 			getRefreshView().setOnItemLongClickListener(this);
 			getRefreshView().setDragEnabled(true);
-			// getRefreshView().setRemoveEnabled(true);
+			getRefreshView().setRemoveEnabled(true);
 			getRefreshView().setAdapter(adapter);
 			listView = getRefreshView();
 		}
@@ -168,35 +168,35 @@ public abstract class AtarRefreshDragSortListViewActivity<T> extends AtarRefresh
 		return false;
 	}
 
-	// @Override
-	// protected void setRefreshSkin(int skinType) {
-	// super.setRefreshSkin(skinType);
-	// if (getPullView() != null) {
-	// if (getPullView().getHeaderLoadingView() != null) {
-	// getPullView().getHeaderLoadingView().setRefreshingDrawable(GlobeSettings.refreshImg[skinType]);
-	// }
-	// if (getPullView().getFooterLoadingView() != null) {
-	// getPullView().getFooterLoadingView().setRefreshingDrawable(GlobeSettings.refreshImg[skinType]);
-	// }
-	// if (getPullView().getHeaderLoadingView() != null && getPullView().getHeaderLayout().getHeaderText() != null) {
-	// getPullView().getHeaderLoadingView().setHeaderTextColor(getResources().obtainTypedArray(R.array.txt_day_grey_night_greyblack_color).getColor(skinType, 0));
-	// }
-	// if (getPullView().getFooterLoadingView() != null && getPullView().getFooterLayout().getHeaderText() != null) {
-	// getPullView().getFooterLoadingView().setHeaderTextColor(getResources().obtainTypedArray(R.array.txt_day_grey_night_greyblack_color).getColor(skinType, 0));
-	// }
-	// if (getPullView().getHeaderLoadingView() != null && getPullView().getHeaderLayout().getSubHeaderText() != null) {
-	// getPullView().getHeaderLoadingView().setSubHeaderTextColor(getResources().obtainTypedArray(R.array.txt_day_grey_night_greyblack_color).getColor(skinType, 0));
-	// }
-	// if (getPullView().getFooterLoadingView() != null && getPullView().getFooterLayout().getSubHeaderText() != null) {
-	// getPullView().getFooterLoadingView().setSubHeaderTextColor(getResources().obtainTypedArray(R.array.txt_day_grey_night_greyblack_color).getColor(skinType, 0));
-	// }
-	// if (getPullView().getHeaderLoadingView() != null) {
-	// getPullView().getHeaderLoadingView().setRefreshBgColor(getResources().obtainTypedArray(R.array.refresh_bg_color).getColor(skinType, 0));
-	// }
-	// if (getPullView().getFooterLoadingView() != null) {
-	// getPullView().getFooterLoadingView().setRefreshBgColor(getResources().obtainTypedArray(R.array.refresh_bg_color).getColor(skinType, 0));
-	// }
-	// }
-	// }
+	@Override
+	protected void setRefreshSkin(int skinType) {
+		super.setRefreshSkin(skinType);
+		if (getPullView() != null) {
+			// if (getPullView().getHeaderLoadingView() != null) {
+			// getPullView().getHeaderLoadingView().setRefreshingDrawable(GlobeSettings.refreshImg[skinType]);
+			// }
+			// if (getPullView().getFooterLoadingView() != null) {
+			// getPullView().getFooterLoadingView().setRefreshingDrawable(GlobeSettings.refreshImg[skinType]);
+			// }
+			if (getPullView().getHeaderLoadingView() != null) {
+				getPullView().getHeaderLoadingView().setHeaderTextColor(getResources().getColor(R.color.black));
+			}
+			if (getPullView().getFooterLoadingView() != null) {
+				getPullView().getFooterLoadingView().setHeaderTextColor(getResources().getColor(R.color.black));
+			}
+			if (getPullView().getHeaderLoadingView() != null) {
+				getPullView().getHeaderLoadingView().setSubHeaderTextColor(getResources().getColor(R.color.black));
+			}
+			if (getPullView().getFooterLoadingView() != null) {
+				getPullView().getFooterLoadingView().setSubHeaderTextColor(getResources().getColor(R.color.black));
+			}
+			if (getPullView().getHeaderLoadingView() != null) {
+				getPullView().getHeaderLoadingView().setRefreshBgColor(getResources().getColor(R.color.common_txt_hint_color_day));
+			}
+			if (getPullView().getFooterLoadingView() != null) {
+				getPullView().getFooterLoadingView().setRefreshBgColor(getResources().getColor(R.color.common_txt_hint_color_day));
+			}
+		}
+	}
 
 }

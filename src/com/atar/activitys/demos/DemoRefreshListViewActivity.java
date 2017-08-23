@@ -39,6 +39,7 @@ public class DemoRefreshListViewActivity extends AtarRefreshListViewActivity {
 	@Override
 	protected void initValue() {
 		super.initValue();
+		setActivityTitle(getIntent().getStringExtra(DemoRefreshActivity.TITLE_KEY));
 		setAdapter(mWonderfulTopicAdapter);
 		sendEmptyMessageDelayed(EnumMsgWhat.LOAD_FROM_SQL, 400);
 	}

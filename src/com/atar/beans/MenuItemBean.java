@@ -45,6 +45,17 @@ public class MenuItemBean implements Serializable {
 	 * @param itemId
 	 * @param menuItemName
 	 */
+	public MenuItemBean(String itemId, String menuItemName, String itemName2) {
+		this.menuItemName = menuItemName;
+		this.itemId = itemId;
+		this.itemName2 = itemName2;
+	}
+
+	/**
+	 * 总设置
+	 * @param itemId
+	 * @param menuItemName
+	 */
 	public MenuItemBean(String itemId, String menuItemName) {
 		this.menuItemName = menuItemName;
 		this.itemId = itemId;

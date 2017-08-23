@@ -133,7 +133,7 @@ public class MainDemoActivity extends AtarRefreshListViewActivity {
 			startActivity(new Intent(this, DownLoadActivity.class));
 			break;
 		case 7:
-			startActivity(new Intent(this, RefreshDemoActivity.class));
+			startActivity(new Intent(this, DemoRefreshActivity.class));
 			break;
 		}
 	}

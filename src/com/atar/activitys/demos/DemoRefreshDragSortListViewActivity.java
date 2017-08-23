@@ -3,12 +3,15 @@
  */
 package com.atar.activitys.demos;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.common.CommonHandler;
-import android.os.Bundle;
 import android.os.Message;
 
-import com.atar.activitys.AtarRefreshScrollViewActivity;
-import com.atar.activitys.R;
+import com.atar.activitys.AtarRefreshDragSortListViewActivity;
+import com.atar.adapters.DragAdapter;
+import com.atar.beans.MenuItemBean;
 import com.atar.enums.EnumMsgWhat;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 
@@ -16,31 +19,28 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
  *****************************************************************************************************************************************************************************
  * 
  * @author :Atar
- * @createTime:2017-8-23上午10:02:16
+ * @createTime:2017-8-23下午2:01:27
  * @version:1.0.0
  * @modifyTime:
  * @modifyAuthor:
  * @description:
  *****************************************************************************************************************************************************************************
  */
-public class DemoRefreshScrollViewActivity extends AtarRefreshScrollViewActivity {
-
-	@Override
-	protected void onCreate(Bundle bundle) {
-		super.onCreate(bundle);
-		addScrollView(R.layout.activity_demo_refersh_scrollview);
-	}
-
-	@Override
-	protected void initScrollControl() {
-
-	}
+public class DemoRefreshDragSortListViewActivity extends AtarRefreshDragSortListViewActivity<MenuItemBean> {
+	private List<MenuItemBean> list = new ArrayList<MenuItemBean>();
+	private DragAdapter mDragAdapter;// 可拖动的ListView对应的适配器
 
 	@Override
 	protected void initValue() {
 		super.initValue();
 		setActivityTitle(getIntent().getStringExtra(DemoRefreshActivity.TITLE_KEY));
+		for (int i = 0; i < 50; i++) {
+			list.add(new MenuItemBean("" + i, "item--" + i));
+		}
+		mDragAdapter = new DragAdapter(list);
+		mDragAdapter.notifyDataSetChanged();
 		setRefreshMode(Mode.BOTH);
+		setAdapter(mDragAdapter);
 		sendEmptyMessageDelayed(EnumMsgWhat.LOAD_FROM_SQL, 400);
 	}
 
@@ -55,6 +55,7 @@ public class DemoRefreshScrollViewActivity extends AtarRefreshScrollViewActivity
 			break;
 		case EnumMsgWhat.REFRESH_PULL_DOWN:
 		case EnumMsgWhat.REFRESH_PULL_UP:
+		case EnumMsgWhat.REFRESH_HANDLER:
 			CommonHandler.getInstatnce().getHandler().postDelayed(new Runnable() {
 
 				@Override
@@ -63,9 +64,6 @@ public class DemoRefreshScrollViewActivity extends AtarRefreshScrollViewActivity
 				}
 			}, 1000);
 			break;
-		case EnumMsgWhat.REFRESH_HANDLER:
-			break;
 		}
 	}
-
 }

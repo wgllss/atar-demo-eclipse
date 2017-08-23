@@ -13,7 +13,7 @@ package com.atar.beans;
  * @description:
  ******************************************************************************************
  */
-public class TaoguBBSBean {
+public class AtarBBSBean {
 	private long lastReplyDate;// (Timestamp, optional): 回帖时间,
 	private long postDate;// (Timestamp, optional): 发表时间,
 	private String subject;// (string, optional): 帖子标题
@@ -98,8 +98,8 @@ public class TaoguBBSBean {
 
 	@Override
 	public boolean equals(Object o) {
-		if (o instanceof TaoguBBSBean) {
-			TaoguBBSBean mTaoguBBSBean = (TaoguBBSBean) o;
+		if (o instanceof AtarBBSBean) {
+			AtarBBSBean mTaoguBBSBean = (AtarBBSBean) o;
 			return this.topicID == mTaoguBBSBean.topicID;
 		}
 		return super.equals(o);

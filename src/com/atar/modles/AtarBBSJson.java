@@ -5,7 +5,7 @@ package com.atar.modles;
 
 import java.util.List;
 
-import com.atar.beans.TaoguBBSBean;
+import com.atar.beans.AtarBBSBean;
 
 /**
  ******************************************************************************************
@@ -17,5 +17,5 @@ import com.atar.beans.TaoguBBSBean;
  * @description:
  ******************************************************************************************
  */
-public class TaoguBBSJson extends CommonResult<List<TaoguBBSBean>> {
+public class AtarBBSJson extends CommonResult<List<AtarBBSBean>> {
 }

@@ -33,6 +33,7 @@ public class DemoRefreshGridViewActivity extends AtarRefreshGridActivity {
 	@Override
 	protected void initValue() {
 		super.initValue();
+		setActivityTitle(getIntent().getStringExtra(DemoRefreshActivity.TITLE_KEY));
 		for (int i = 0; i < 20; i++) {
 			list.add(new MenuItemBean("0", "refresh-ListView"));
 			list.add(new MenuItemBean("1", "refresh-GridView"));
