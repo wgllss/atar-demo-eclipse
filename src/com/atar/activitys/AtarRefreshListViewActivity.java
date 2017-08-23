@@ -55,8 +55,8 @@ public class AtarRefreshListViewActivity extends AtarRefreshActivity<PullToRefre
 	 * @param isExtendsRefreshGridView 默认true
 	 * @description:
 	 */
-	protected void setExtendsRefreshGridView(boolean isExtendsRefreshGridView) {
-		this.isExtendsRefreshListView = isExtendsRefreshGridView;
+	protected void setExtendsRefreshGridView(boolean isExtendsRefreshListView) {
+		this.isExtendsRefreshListView = isExtendsRefreshListView;
 	}
 
 	/**
