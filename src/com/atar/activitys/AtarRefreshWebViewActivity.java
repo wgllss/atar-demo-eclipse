@@ -27,7 +27,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshWebView;
 @SuppressLint("SetJavaScriptEnabled")
 public class AtarRefreshWebViewActivity extends AtarRefreshActivity<PullToRefreshWebView, WebView> {
 	/* 是否继承AtarWebViewActivity布局 */
-	protected boolean isExtendsAtarWebViewActivity;
+	protected boolean isExtendsAtarWebViewActivity = true;
 
 	@Override
 	protected void onCreate(Bundle bundle) {
@@ -49,15 +49,14 @@ public class AtarRefreshWebViewActivity extends AtarRefreshActivity<PullToRefres
 	protected void initValue() {
 		if (getRefreshView() != null) {
 			getRefreshView().clearHistory();
-			ImplInAndroidScript mInAndroidScript = new ImplInAndroidScript(this, getLocalHandler());
+			ImplInAndroidScript mInAndroidScript = new ImplInAndroidScript(this, this);
 			getRefreshView().addJavascriptInterface(mInAndroidScript, "injs");
 			WebSettings webSettings = getPullView().getRefreshableView().getSettings();
 			webSettings.setJavaScriptEnabled(true);
 			webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
 			webSettings.setTextSize(WebSettings.TextSize.NORMAL);
 			webSettings.setLayoutAlgorithm(LayoutAlgorithm.NORMAL);
-			getRefreshView().setWebViewClient(new ImplWebViewClient(this, getLocalHandler()));
-			// getRefreshView().loadUrl("file:///android_asset/html/TGBTemplate.html");
+			getRefreshView().setWebViewClient(new ImplWebViewClient(this, this));
 		}
 	}
 

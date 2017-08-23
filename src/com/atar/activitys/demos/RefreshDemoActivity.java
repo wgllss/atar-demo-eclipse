@@ -3,15 +3,17 @@
  */
 package com.atar.activitys.demos;
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.widget.ListView;
+import java.util.ArrayList;
+import java.util.List;
 
-import com.atar.activitys.AtarCommonActivity;
-import com.atar.activitys.R;
-import com.handmark.pulltorefresh.library.PullToRefreshBase;
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
-import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
+import android.appconfig.AppConfigSetting;
+import android.content.Intent;
+import android.view.View;
+import android.widget.AdapterView;
+
+import com.atar.activitys.AtarRefreshListViewActivity;
+import com.atar.adapters.MainDemoAdapter;
+import com.atar.beans.MenuItemBean;
 
 /**
  *****************************************************************************************************************************************************************************
@@ -24,36 +26,49 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
  * @description:
  *****************************************************************************************************************************************************************************
  */
-public class RefreshDemoActivity extends AtarCommonActivity {
+public class RefreshDemoActivity extends AtarRefreshListViewActivity {
+	private List<MenuItemBean> list = new ArrayList<MenuItemBean>();
+	private MainDemoAdapter mMainDemoAdapter = new MainDemoAdapter(list);
+
 	@Override
-	protected void onCreate(Bundle bundle) {
-		super.onCreate(bundle);
-		addContentView(R.layout.refresh_list_view);
-		final PullToRefreshListView mPullToRefreshListView = (PullToRefreshListView) findViewById(R.id.refresh_quick_list_view);
-		mPullToRefreshListView.setOnRefreshListener(new OnRefreshListener2<ListView>() {
+	protected void initValue() {
+		super.initValue();
+		setActivityTitle("demo主界面");
+		AppConfigSetting.getInstance().saveLoginUserId("15616915");
+		list.add(new MenuItemBean("0", "refresh-ListView"));
+		list.add(new MenuItemBean("1", "refresh-GridView"));
+		list.add(new MenuItemBean("2", "refresh-ScrollView"));
+		list.add(new MenuItemBean("3", "refresh-Webview"));
+		list.add(new MenuItemBean("4", "refresh-PinnedSectionListView"));
+		mMainDemoAdapter.notifyDataSetChanged();
+		setAdapter(mMainDemoAdapter);
+	}
 
-			@Override
-			public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
-				new Handler().postDelayed(new Runnable() {
-
-					@Override
-					public void run() {
-						mPullToRefreshListView.onRefreshComplete();
-
-					}
-				}, 1000);
-			}
-
-			@Override
-			public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
-				new Handler().postDelayed(new Runnable() {
-
-					@Override
-					public void run() {
-						mPullToRefreshListView.onRefreshComplete();
-					}
-				}, 1000);
-			}
-		});
+	@Override
+	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+		super.onItemClick(arg0, arg1, arg2, arg3);
+		int itemID = Integer.valueOf(list.get((int) arg3).getItemId());
+		switch (itemID) {
+		case 0:
+			startActivity(new Intent(this, DemoRefreshListViewActivity.class));
+			break;
+		case 1:
+			startActivity(new Intent(this, DemoRefreshGridViewActivity.class));
+			break;
+		case 2:
+			startActivity(new Intent(this, DemoRefreshScrollViewActivity.class));
+			break;
+		case 3:
+			startActivity(new Intent(this, DemoRefreshWebViewActivity.class));
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			break;
+		case 7:
+			break;
+		}
 	}
 }

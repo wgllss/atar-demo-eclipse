@@ -7,13 +7,14 @@ import java.io.InputStream;
 
 import android.annotation.SuppressLint;
 import android.appconfig.AppConfigModel;
-import android.os.Handler;
 import android.utils.ShowLog;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 
 import com.atar.activitys.AtarCommonActivity;
 import com.atar.config.AppConfigUtils;
+import com.atar.widgets.refresh.OnHandlerDataListener;
+import com.handmark.pulltorefresh.library.PullToRefreshWebView;
 
 /**
  *****************************************************************************************************************************************************************************
@@ -30,8 +31,8 @@ public class OffineImplWebViewClient extends ImplWebViewClient {
 	/**assets离线文件*/
 	private String strOfflineResources = "";
 
-	public OffineImplWebViewClient(AtarCommonActivity activity, Handler handler) {
-		super(activity, handler);
+	public OffineImplWebViewClient(AtarCommonActivity activity, OnHandlerDataListener<PullToRefreshWebView, WebView> onHandlerDataListener) {
+		super(activity, onHandlerDataListener);
 		strOfflineResources = AppConfigModel.getInstance().getString(AppConfigUtils.OFFINE_FILE_PATH_KEY, "");
 	}
 

@@ -14,12 +14,18 @@ import org.json.JSONObject;
 import android.annotation.SuppressLint;
 import android.appconfig.AppConfigSetting;
 import android.application.CrashHandler;
+import android.common.CommonHandler;
 import android.content.Context;
 import android.content.Intent;
 import android.enums.SkinMode;
 import android.http.HttpUrlConnectionRequest;
+import android.interfaces.HandlerListener;
+import android.interfaces.NetWorkCallListener;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.Message;
+import android.reflection.NetWorkMsg;
+import android.reflection.ThreadPoolTool;
 import android.utils.ScreenUtils;
 import android.utils.ShowLog;
 import android.view.Gravity;
@@ -29,6 +35,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.webkit.JavascriptInterface;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.CommonToast;
@@ -49,10 +56,13 @@ import com.atar.enums.EnumMsgWhat;
 import com.atar.modles.CommonResult;
 import com.atar.net.UrlParamCommon;
 import com.atar.utils.IntentUtil;
+import com.atar.utils.LoadUtil;
 import com.atar.utils.ShareTool;
 import com.atar.widgets.ToastWhthCheck;
+import com.atar.widgets.refresh.OnHandlerDataListener;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.handmark.pulltorefresh.library.PullToRefreshWebView;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 
 /**
@@ -70,19 +80,19 @@ public class ImplInAndroidScript {
 
 	private String TAG = ImplInAndroidScript.class.getSimpleName();
 	// 强制回主线程
-	private Handler handler = new Handler(Looper.getMainLooper());
+	private Handler handler = CommonHandler.getInstatnce().getHandler();
 
 	private AtarCommonActivity activity;
 
 	private String tempID = "";
 	private Map<String, String> tempJson = new HashMap<String, String>();
 
-	private Handler mhandler;
+	private OnHandlerDataListener<PullToRefreshWebView, WebView> onHandlerDataListener;
 
-	public ImplInAndroidScript(AtarCommonActivity activity, Handler mhandler) {
+	public ImplInAndroidScript(AtarCommonActivity activity, OnHandlerDataListener<PullToRefreshWebView, WebView> onHandlerDataListener) {
 		super();
 		this.activity = activity;
-		this.mhandler = mhandler;
+		this.onHandlerDataListener = onHandlerDataListener;
 	}
 
 	/**
@@ -128,38 +138,37 @@ public class ImplInAndroidScript {
 			Object[] params = new Object[] { UrlParamCommon.API_HOST + url, map, UrlParamCommon.UTF_8, activity };
 			final int requestMsgwhat = msgwhat;
 			final String savrUrl = url + map.hashCode() + msgwhat + msgArg1 + msgArg2;
-			// ThreadPoolTool.getInstance().setAsyncTask(msgwhat, msgArg1, msgArg2, new HandleMessageListener() {
-			// @Override
-			// public void NetWorkHandlMessage(final Message msg) {
-			// try {
-			// if (mhandler != null) {
-			// mhandler.sendEmptyMessage(EnumMsgWhat.REFRESH_HANDLER3);
-			// if (requestMsgwhat == msg.what && msg.obj != null) {
-			// String resultJson = (String) msg.obj;
-			// if (!"POST".equals(requestMethod)) {// GET才接口数据，post不存入
-			// LoadUtil.saveToDB(resultJson, savrUrl, "", "");
-			// }
-			// callWebViewData(resultJson, msgWhat, whichThred1, whichThred2, specialHtml);
-			// } else if (!"POST".equals(requestMethod) && EnumMsgWhat.EMobileNetUseless_Msg == msg.what) {// 没有网络
-			// LoadUtil.QueryDB(new Handler(Looper.getMainLooper()) {
-			// @Override
-			// public void handleMessage(Message msg1) {
-			// super.handleMessage(msg1);
-			// switch (msg1.what) {
-			// case EnumMsgWhat.LOAD_FROM_SQL_COMPLETE:
-			// String resultJson = LoadUtil.loadFromSqlComelete(msg1, String.class);
-			// callWebViewData(resultJson, msgWhat, whichThred1, whichThred2, specialHtml);
-			// break;
-			// }
-			// }
-			// }, savrUrl, "", "");
-			// }
-			// }
-			// } catch (Exception e) {
-			// ShowLog.e(TAG, CrashHandler.crashToString(e));
-			// }
-			// }
-			// }, activity, HttpUrlConnectionRequest.class.getName(), httpRequestMethod, params, String.class);
+			ThreadPoolTool.getInstance().setAsyncTask(msgwhat, msgArg1, msgArg2, new NetWorkCallListener() {
+				@Override
+				public void NetWorkCall(final NetWorkMsg msg) {
+					try {
+						if (onHandlerDataListener != null) {
+							onHandlerDataListener.sendEmptyMessage(EnumMsgWhat.REFRESH_HANDLER3);
+							if (requestMsgwhat == msg.what && msg.obj != null) {
+								String resultJson = (String) msg.obj;
+								if (!"POST".equals(requestMethod)) {// GET才接口数据，post不存入
+									LoadUtil.saveToDB(resultJson, savrUrl, "", "");
+								}
+								callWebViewData(resultJson, msgWhat, whichThred1, whichThred2, specialHtml);
+							} else if (!"POST".equals(requestMethod) && EnumMsgWhat.EMobileNetUseless_Msg == msg.what) {// 没有网络
+								LoadUtil.QueryDB(new HandlerListener() {
+									@Override
+									public void onHandlerData(Message msg1) {
+										switch (msg1.what) {
+										case EnumMsgWhat.LOAD_FROM_SQL_COMPLETE:
+											String resultJson = LoadUtil.loadFromSqlComelete(msg1, String.class);
+											callWebViewData(resultJson, msgWhat, whichThred1, whichThred2, specialHtml);
+											break;
+										}
+									}
+								}, savrUrl, "", "");
+							}
+						}
+					} catch (Exception e) {
+						ShowLog.e(TAG, CrashHandler.crashToString(e));
+					}
+				}
+			}, activity, HttpUrlConnectionRequest.class.getName(), httpRequestMethod, params, String.class);
 		} catch (Exception e) {
 			ShowLog.e(TAG, CrashHandler.crashToString(e));
 		}
@@ -179,7 +188,7 @@ public class ImplInAndroidScript {
 	 * @description:
 	 */
 	private void callWebViewData(String resultJson, String strMsgWhat, String strMsgArg1, String strMsgArg2, String specialHtml) {
-		if (mhandler != null) {
+		if (onHandlerDataListener != null) {
 			if (resultJson != null && resultJson.length() > 0 && "1".equals(specialHtml)) {
 				resultJson = resultJson.replace("loadImg(this,", "window.injs.runOnAndroid(");// 替换图片点击事件
 				resultJson = resultJson.replace("placeHolder.png", AppConfigSetting.getInstance().getInt(SkinMode.SKIN_MODE_KEY, 0) == SkinMode.NIGHT_MODE ? "../img/loading_n.png"
@@ -187,8 +196,7 @@ public class ImplInAndroidScript {
 				tempJson.put(TAG + strMsgWhat + "_" + strMsgArg1 + "_" + strMsgArg2, resultJson);
 				resultJson = "";
 			}
-			mhandler.sendMessage(mhandler
-					.obtainMessage(EnumMsgWhat.REFRESH_HANDLER2, "javascript:netWorkCallBack('" + strMsgWhat + "','" + strMsgArg1 + "','" + strMsgArg2 + "','" + resultJson + "')"));
+			onHandlerDataListener.sendMessage(EnumMsgWhat.REFRESH_HANDLER2, "javascript:netWorkCallBack('" + strMsgWhat + "','" + strMsgArg1 + "','" + strMsgArg2 + "','" + resultJson + "')");
 		}
 	}
 
@@ -405,8 +413,8 @@ public class ImplInAndroidScript {
 	@JavascriptInterface
 	public void setZoomTextSize(final String value) {
 		try {
-			if (mhandler != null) {
-				mhandler.sendMessage(mhandler.obtainMessage(EnumMsgWhat.REFRESH_HANDLER4, "1".equals(value)));
+			if (onHandlerDataListener != null) {
+				onHandlerDataListener.sendMessage(EnumMsgWhat.REFRESH_HANDLER4, "1".equals(value));
 				// activity.setZoomTextSize("0".equals(value));
 			}
 		} catch (Exception e) {
@@ -492,8 +500,8 @@ public class ImplInAndroidScript {
 						@Override
 						public void onClick(View v) {
 							CommonDialog.dialogDismiss();
-							if (mhandler != null) {
-								mhandler.sendMessage(mhandler.obtainMessage(EnumMsgWhat.REFRESH_HANDLER2, "javascript:" + callbackMethod + "()"));
+							if (onHandlerDataListener != null) {
+								onHandlerDataListener.sendMessage(EnumMsgWhat.REFRESH_HANDLER2, "javascript:" + callbackMethod + "()");
 							}
 							// activity.loadWebViewUrl("javascript:" + callbackMethod + "()");
 						}
@@ -515,8 +523,8 @@ public class ImplInAndroidScript {
 						@Override
 						public void onClick(View v) {
 							CommonDialog.dialogDismiss();
-							if (mhandler != null) {
-								mhandler.sendMessage(mhandler.obtainMessage(EnumMsgWhat.REFRESH_HANDLER2, "javascript:" + callbackMethodOk + "('" + callbackMethodOkJson + "')"));
+							if (onHandlerDataListener != null) {
+								onHandlerDataListener.sendMessage(EnumMsgWhat.REFRESH_HANDLER2, "javascript:" + callbackMethodOk + "('" + callbackMethodOkJson + "')");
 							}
 							// activity.loadWebViewUrl("javascript:" + callbackMethodOk + "('" + callbackMethodOkJson + "')");
 						}
@@ -524,8 +532,8 @@ public class ImplInAndroidScript {
 						@Override
 						public void onClick(View v) {
 							CommonDialog.dialogDismiss();
-							if (mhandler != null) {
-								mhandler.sendMessage(mhandler.obtainMessage(EnumMsgWhat.REFRESH_HANDLER2, "javascript:" + callbackMethodCancle + "('" + callbackMethodCancleJson + "')"));
+							if (onHandlerDataListener != null) {
+								onHandlerDataListener.sendMessage(EnumMsgWhat.REFRESH_HANDLER2, "javascript:" + callbackMethodCancle + "('" + callbackMethodCancleJson + "')");
 							}
 							// activity.loadWebViewUrl("javascript:" + callbackMethodCancle + "('" + callbackMethodCancleJson + "')");
 						}
@@ -549,9 +557,8 @@ public class ImplInAndroidScript {
 						@Override
 						public void finish(String strEditContent) {
 							CommonDialog.dialogDismiss();
-							if (mhandler != null) {
-								mhandler.sendMessage(mhandler.obtainMessage(EnumMsgWhat.REFRESH_HANDLER2, "javascript:" + callbackMethod + "('" + strEditContent + "','" + callbackMethodOptionJson
-										+ "')"));
+							if (onHandlerDataListener != null) {
+								onHandlerDataListener.sendMessage(EnumMsgWhat.REFRESH_HANDLER2, "javascript:" + callbackMethod + "('" + strEditContent + "','" + callbackMethodOptionJson + "')");
 							}
 							// activity.loadWebViewUrl("javascript:" + callbackMethod + "('" + strEditContent + "','" + callbackMethodOptionJson + "')");
 						}
@@ -583,6 +590,7 @@ public class ImplInAndroidScript {
 			final String onItemClickcallbackMethod) {
 		if (handler != null && activity != null) {
 			handler.post(new Runnable() {
+				@SuppressWarnings({ "null", "unused" })
 				@SuppressLint("InflateParams")
 				@Override
 				public void run() {
@@ -650,9 +658,9 @@ public class ImplInAndroidScript {
 									AppConfigSetting.getInstance().putInt(spKey, position);
 								}
 								mPopupWindow.dismiss();
-								if (mhandler != null) {
-									mhandler.sendMessage(mhandler.obtainMessage(EnumMsgWhat.REFRESH_HANDLER2, "javascript:" + onItemClickcallbackMethod + "('"
-											+ mDropDownAdapter.getItem(position).getDropDownItemId() + "')"));
+								if (onHandlerDataListener != null) {
+									onHandlerDataListener.sendMessage(EnumMsgWhat.REFRESH_HANDLER2, "javascript:" + onItemClickcallbackMethod + "('"
+											+ mDropDownAdapter.getItem(position).getDropDownItemId() + "')");
 								}
 								// activity.loadWebViewUrl("javascript:" + onItemClickcallbackMethod + "('" + mDropDownAdapter.getItem(position).getDropDownItemId() + "')");
 							}
@@ -740,11 +748,11 @@ public class ImplInAndroidScript {
 
 	@JavascriptInterface
 	public void setRefreshing() {
-		if (handler != null && mhandler != null) {
+		if (handler != null && onHandlerDataListener != null) {
 			handler.post(new Runnable() {
 				@Override
 				public void run() {
-					mhandler.sendEmptyMessage(EnumMsgWhat.REFRESH_HANDLER7);
+					onHandlerDataListener.sendEmptyMessage(EnumMsgWhat.REFRESH_HANDLER7);
 					// activity.setRefreshing();
 				}
 			});
@@ -753,11 +761,11 @@ public class ImplInAndroidScript {
 
 	@JavascriptInterface
 	public void onStopRefresh() {
-		if (handler != null && mhandler != null) {
+		if (handler != null && onHandlerDataListener != null) {
 			handler.post(new Runnable() {
 				@Override
 				public void run() {
-					mhandler.sendEmptyMessage(EnumMsgWhat.REFRESH_HANDLER3);
+					onHandlerDataListener.sendEmptyMessage(EnumMsgWhat.REFRESH_HANDLER3);
 				}
 			});
 		}
@@ -765,11 +773,11 @@ public class ImplInAndroidScript {
 
 	@JavascriptInterface
 	public void setTopRightImgUrl(final String top_right_img_url) {
-		if (top_right_img_url != null && top_right_img_url.length() > 0 && handler != null && mhandler != null) {
+		if (top_right_img_url != null && top_right_img_url.length() > 0 && handler != null && onHandlerDataListener != null) {
 			handler.post(new Runnable() {
 				@Override
 				public void run() {
-					mhandler.sendMessage(mhandler.obtainMessage(EnumMsgWhat.REFRESH_HANDLER6, top_right_img_url));
+					onHandlerDataListener.sendMessage(EnumMsgWhat.REFRESH_HANDLER6, top_right_img_url);
 					// activity.setTopRightImgUrl(top_right_img_url);
 				}
 			});
@@ -790,11 +798,11 @@ public class ImplInAndroidScript {
 
 	@JavascriptInterface
 	public void loginOut() {
-		if (handler != null && mhandler != null) {
+		if (handler != null && onHandlerDataListener != null) {
 			handler.post(new Runnable() {
 				@Override
 				public void run() {
-					mhandler.sendEmptyMessage(EnumMsgWhat.REFRESH_HANDLER5);
+					onHandlerDataListener.sendEmptyMessage(EnumMsgWhat.REFRESH_HANDLER5);
 				}
 			});
 		}

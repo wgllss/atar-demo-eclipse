@@ -21,16 +21,17 @@ import android.application.CrashHandler;
 import android.enums.TypefaceMode;
 import android.http.HttpRequest;
 import android.os.Environment;
-import android.os.Handler;
 import android.reflection.ThreadPoolTool;
 import android.utils.CommonStringUtil;
 import android.utils.FileUtils;
 import android.utils.MDPassword;
 import android.utils.ShowLog;
+import android.webkit.WebView;
 
 import com.atar.activitys.AtarCommonActivity;
 import com.atar.activitys.R;
 import com.atar.widgets.ToastWhthCheck;
+import com.atar.widgets.refresh.OnHandlerDataListener;
 import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshWebView;
@@ -70,8 +71,8 @@ public class DynamicHtmlUtils {
 	 * @return
 	 * @description:
 	 */
-	public static String getInitValue(AtarCommonActivity activity, Handler handler, PullToRefreshWebView mPullToRefreshWebView, String options, String mode, String url, int skinType,
-			ImplOnTouchChanceTextSizeListener mImplOnTouchChanceTextSizeListener) {
+	public static String getInitValue(AtarCommonActivity activity, OnHandlerDataListener<PullToRefreshWebView, WebView> onHandlerDataListener, PullToRefreshWebView mPullToRefreshWebView,
+			String options, String mode, String url, int skinType, ImplOnTouchChanceTextSizeListener mImplOnTouchChanceTextSizeListener) {
 		String optionsJson = "";
 		/* 向html传入初始参数 start */
 		try {
@@ -99,7 +100,7 @@ public class DynamicHtmlUtils {
 		optionsJson = CommonStringUtil.emptyIfNull(optionsJson);
 		/* 向html传入初始参数 end */
 
-		OffineImplWebViewClient mOffineImplWebViewClient = new OffineImplWebViewClient(activity, handler);
+		OffineImplWebViewClient mOffineImplWebViewClient = new OffineImplWebViewClient(activity, onHandlerDataListener);
 		if (mPullToRefreshWebView != null && mPullToRefreshWebView.getRefreshableView() != null) {
 			mImplOnTouchChanceTextSizeListener = new ImplOnTouchChanceTextSizeListener(mPullToRefreshWebView, activity);
 			mImplOnTouchChanceTextSizeListener.setTypefaceModeStasus(AppConfigSetting.getInstance().getString(TypefaceMode.TYPE_FACE_MODE_KEY.getValue(), TypefaceMode.MIDDLE.getValue()));
@@ -120,7 +121,7 @@ public class DynamicHtmlUtils {
 
 			mOffineImplWebViewClient.initWebViewSettings(mPullToRefreshWebView.getRefreshableView());
 
-			mPullToRefreshWebView.getRefreshableView().addJavascriptInterface(new ImplInAndroidScript(activity, handler), "injs");
+			mPullToRefreshWebView.getRefreshableView().addJavascriptInterface(new ImplInAndroidScript(activity, onHandlerDataListener), "injs");
 
 			mPullToRefreshWebView.getRefreshableView().setWebViewClient(mOffineImplWebViewClient);
 			mPullToRefreshWebView.getRefreshableView().setWebChromeClient(new ImplWebChromeClient(activity));

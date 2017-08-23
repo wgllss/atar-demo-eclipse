@@ -51,7 +51,7 @@ public class MainDemoActivity extends AtarRefreshListViewActivity {
 		list.add(new MenuItemBean("1", "网络测试2"));
 		list.add(new MenuItemBean("2", "ViewPagerDemoActivity"));
 		list.add(new MenuItemBean("3", "相册"));
-		list.add(new MenuItemBean("4", "DemoRefreshListViewActivity"));
+		// list.add(new MenuItemBean("4", "DemoRefreshListViewActivity"));
 		list.add(new MenuItemBean("5", "图片浏览"));
 		list.add(new MenuItemBean("6", "下载"));
 		list.add(new MenuItemBean("7", "刷新"));
