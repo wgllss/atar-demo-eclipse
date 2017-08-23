@@ -1,0 +1,372 @@
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>正文页模板</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="alternate" media="handheld" href="">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="width">
+<meta name="format-detection" content="telephone=no">
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/jquery-1.5.2.min.js"></script>
+<script type="text/javascript" src="../js/highcharts.js"></script>
+<style>
+*{
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+html, body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+body {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-size: 16px;
+	word-wrap: break-word;
+	-webkit-text-size-adjust: 100%;
+	padding-bottom: 0px;
+}
+.container{
+	
+}	
+
+.road_biao {
+    border: 0px solid #DCDEDB;
+    height: 95%;
+    margin-top: 0px;
+    padding-top:6px;
+    width:100%;
+}
+
+.curveValue{
+ 	height: 5px;
+    width:270px;
+    font-size: 10px;
+    padding-left:10px;
+}
+	
+</style>
+</head>
+
+<body>
+	<div id='curveValue' class="curveValue" ></div>
+	<div id='container' class="road_biao" ></div>
+</body>
+<script type="text/javascript">
+	var tlApiPath="https://gw.wmcloud.com/";
+	var chart1;
+	
+ //获取某一主题的基期(获取时间)
+ function getBasePeriod(val,name){
+	 var url=tlApiPath+"irr/newsapi/getSubjectBaseDate?subjectId="+val;
+	 $.getJSON(url, function(d){
+		 if(d.message=='success'){ 
+			 var insertTime =d.data.insertTime;
+			 var baseDate =d.data.baseDate;  
+			 baseDate = getSmpFormatDateByLong(baseDate,false);
+			 getYieldsApi(val,name,baseDate);
+			 //获取泸市曲线
+			 getHushenDailyReturn(baseDate);
+		 }
+	 })
+	 
+ }
+ 
+ //3.主题指定日期内的收益率API
+ function getYieldsApi(val,sName,sTime) { 
+	var url = tlApiPath+"irr/newsapi/getSubjectDailyReturn?subjectId="+val+"&subjectType=0&start="+sTime+"&end=";
+	 $.getJSON(url, function(d){
+		   var size2 = d.data.length;
+			var txyDate =[];
+			for(var i=0;i<size2;i++){
+				if(size2 > 60){
+					if( i > size2-60){
+						var aryDate =[]; 
+				 		var  eTime  = d.data[i].date;//时间
+						var tr1= getSmpFormatDateByLong(eTime,false);
+				 		var  returnRate  = d.data[i].returnRate*100;//涨幅 数据
+						var txDate = returnRate.toFixed(2);
+						aryDate.push(eTime); 
+						aryDate.push(Number(txDate)); 
+						txyDate.push(aryDate);  
+					}
+				}else{
+					var aryDate =[]; 
+				 	var  eTime  = d.data[i].date;//时间
+					var tr1= getSmpFormatDateByLong(eTime,false);
+				 	var  returnRate  = d.data[i].returnRate*100;//涨幅 数据
+					var txDate = returnRate.toFixed(2);
+					aryDate.push(eTime); 
+					aryDate.push(Number(txDate)); 
+					txyDate.push(aryDate);  
+				}
+			}
+			 chart1.addSeries({name:sName, data:txyDate});
+	});
+}
+
+ 	//获取泸市曲线
+ 	function getHushenDailyReturn(sTime) { 
+		var url = tlApiPath+"irr/getHushenDailyReturn?start="+sTime+"&end=";
+		 $.getJSON(url, function(d){
+			   var size2 = d.data.length;
+				var txyDate =[];
+				for(var i=0;i<size2;i++){
+					if(size2>60){
+						if(i > size2-60 ){
+							var aryDate =[]; 
+							 var  eTime  = d.data[i].date;//时间
+							 var  returnRate  = d.data[i].returnRate*100;//涨幅 数据
+							var txDate = returnRate.toFixed(2);
+							aryDate.push(eTime); 
+							aryDate.push(Number(txDate)); 
+							txyDate.push(aryDate); 
+						}
+					}else{
+						 var aryDate =[]; 
+						 var  eTime  = d.data[i].date;//时间
+					 	 var  returnRate  = d.data[i].returnRate*100;//涨幅 数据
+						 var txDate = returnRate.toFixed(2);
+						 aryDate.push(eTime); 
+						 aryDate.push(Number(txDate)); 
+						 txyDate.push(aryDate); 
+					}
+				}
+				 chart1.addSeries({color:"#5695c4",name:'沪深300', data:txyDate}); 
+		});
+	}
+	
+function openTlUrl(){
+	var url = "https://app.wmcloud.com/irr?refer=taoguba";
+	window.open(url,"_blank");
+ }
+	
+//显示报表 曲线图 
+function  lineReport(){
+	chart1 = new Highcharts.Chart({
+			 global: { 
+//			 timezoneOffset: 3600*8,
+			 useUTC: false // UTC 
+			 },
+		 credits:{
+			    enabled:false,                    // 默认值，如果想去掉版权信息，设置为false即可
+				text:'数据由通联提供',               // 显示的文字
+				href: 'javascript:openTlUrl();', // 链接地址
+				style: {                            // 样式设置
+					cursor: 'pointer', 
+					fontSize: '11px'
+				}
+		},
+		colors:[  
+//		        '#5695c4',//蓝  
+                '#FF0000',//红  
+              ], 
+		 title: {
+			 	style:{ fontSize:'8',
+			 			color: '#5695c4'
+			 	 },
+	        	align:"left",
+	            text:'收益率', 
+	            x: 0 //center
+	        },
+	        lang:{
+	        	enabled:false
+	        },
+	        chart: {
+	        	 renderTo: 'container',
+	        	 type:'line',
+//	        	margin:[5,5,10,10], //整个图表的位置(上下左右的空隙) 
+//	        	 defaultSeriesType: 'line', //图表类型line(折线图), 
+	            marginBottom:45,
+	            backgroundColor:null,
+	            plotBackgroundColor: null,
+//	            marginTop:60,
+	            padding:0.2 
+	        },
+//	        subtitle: {
+//	            text: 'Source: WorldClimate.com',
+//	            x: -20
+//	        }, 
+	        xAxis: {
+	        	type: 'datetime',
+               dateTimeLabelFormats: { // don't display the dummy year
+                	second:'%H:%M:%S',
+                	minute:'%H:%M',
+                	hour:'%H:%M', 
+                	day:'%m-%d', 
+                	week:'%m-%d',
+                	month:'%m-\%d',
+                	year:'%Y'
+                }, 
+//	            tickPixelInterval: 120,
+//                title: {
+//                    text: 'Date'
+//                },
+//	            labels:{
+//	            	formatter:function(){
+////	            		alert("this.value:  "+this.value);
+//	            			return this.value;
+//	            	}
+//	            }
+	        },
+	        yAxis: { 
+	        	labels:{
+	        		 formatter : function() {//设置纵坐标值的样式  
+	                     return this.value + '%';  
+	        		 }
+	        	},  
+	        	minPadding: 0.2,
+	        	gridLineDashStyle: 'longdash',
+	            title: null,
+	            plotLines: [{
+	                value: 0,
+	                width: 1,
+	                color: '#808080'
+	            }]
+	        }, 
+	        tooltip: {
+	        	formatter:function(){
+	        		var curPointList = this.points;
+	        		var textDate = getFormatDate(new Date(curPointList[0].x), "yyyy/MM/dd");
+	        		var tooltipStr =textDate+" "; 
+	        			for( var i=curPointList.length-1; i>=0; i--){
+//				 for ( var i = 0; i < curPointList.length; i++) {
+					 var vPrice = curPointList[i].y;
+					 var  tColor;
+					 if(vPrice>0){
+						    tColor = 'style="color: #FF0000;"';
+					 }else if(vPrice<0){
+						 tColor='style="color:#28ae65;"';
+					 } 
+					tooltipStr += "  <strong>" + curPointList[i].series.name + "</strong>"; 
+					tooltipStr +=  ': <strong><a '+tColor+'> ' + vPrice + '</a></strong>%'; 
+					tooltipStr += " ";
+					
+				}         
+					$("#curveValue").html(tooltipStr);       
+	        		return "" ;
+	        		
+	        	},
+	        	positioner: function () {
+	        		return { x: 33, y: -1000 };
+	        	},
+	        	borderWidth: 0,//边框宽度
+	        	backgroundColor:'#00000000',
+//	        	borderRadius:0,
+	            valueSuffix: ' %',
+	            shared: true,
+//	            return Highcharts.dateFormat('%Y-%m-%d',this.x)+': '+this.y;
+	            dateTimeLabelFormats:{  
+                    day: '%Y/%m/%d',  
+                    week: '%Y%m-%d',  
+                    month: '%Y-%m',  
+                    year: '%Y' 
+	            },
+	            shadow: false ,//不显示阴影
+	            crosshairs: true 
+	        },
+	        legend: {
+	        	enabled: false,
+	            layout: 'vertical', 
+	           　align: "center",  //程度标的目标地位
+　　				verticalAlign: "top",  //垂直标的目标地位
+　　				x: 60,  //间隔x轴的间隔
+　　				y: 20,  //间隔Y轴的间隔
+	            itemDistance: 1,
+	            borderWidth: 0
+	        }, 
+	        plotOptions : {
+	        	line: {
+					marker:{
+						enabled:false
+					}
+			    },
+			spline : {
+				lineWidth: 0.2, 
+			    fillOpacity: 0.1,  
+				marker : { 
+					enabled:true,
+					radius : 3,
+					lineColor : '#666666',
+					lineWidth : 1
+				}
+			},
+			series: {
+                lineWidth: 1.5
+            }
+		},
+		exporting: { 
+            enabled: false  //设置导出按钮不可用 
+        }, 
+	        series:null
+     }); 
+ }
+
+//扩展Date的format方法   
+Date.prototype.format = function(format) {
+	var o = {
+		"M+" : this.getMonth() + 1,
+		"d+" : this.getDate(),
+		"h+" : this.getHours(),
+		"m+" : this.getMinutes(),
+		"s+" : this.getSeconds(),
+		"q+" : Math.floor((this.getMonth() + 3) / 3),
+		"S" : this.getMilliseconds()
+	}
+	if (/(y+)/.test(format)) {
+		format = format.replace(RegExp.$1, (this.getFullYear() + "")
+				.substr(4 - RegExp.$1.length));
+	}
+	for ( var k in o) {
+		if (new RegExp("(" + k + ")").test(format)) {
+			format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k]
+					: ("00" + o[k]).substr(("" + o[k]).length));
+		}
+	}
+	return format;
+} 
+ 
+ //转换long值为日期字符串   
+function getSmpFormatDateByLong(l, isFull) {
+	return getSmpFormatDate(new Date(l), isFull);
+}
+
+//转换日期对象为日期字符串
+function getSmpFormatDate(date, isFull) {
+	var pattern = "";
+	if (isFull == true || isFull == undefined) {
+		pattern = "yyyy-MM-dd hh:mm:ss";
+	} else {
+		pattern = "yyyyMMdd";
+	}
+	return getFormatDate(date, pattern);
+}
+
+//转换日期对象为日期字符串
+function getFormatDate(date, pattern) {
+	if (date == undefined) {
+		date = new Date();
+	}
+	if (pattern == undefined) {
+		pattern = "yyyy-MM-dd hh:mm:ss";
+	}
+	return date.format(pattern);
+} 
+	
+	//加载曲线
+	function loadCurve(subjectId,name) {
+		$("#container").html(""); 
+		lineReport();
+		getBasePeriod(subjectId,name);
+	} 
+	
+	function changeSkin(mode){
+		if(mode=='day'){//白天模式
+			 $("#curveValue").css("background","#F6F6F6");//背景颜色
+			 $("#curveValue").css("color","#222222");//文字颜色
+		}else if(mode=='night'){
+			 $("#curveValue").css("background","#15253d");//背景颜色
+			 $("#curveValue").css("color","#B0B0B0");//文字背景颜色
+		}
+	}
+</script>
+</html>

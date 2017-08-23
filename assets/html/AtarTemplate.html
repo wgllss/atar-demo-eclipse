@@ -1,0 +1,975 @@
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>正文页模板</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="alternate" media="handheld" href="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="width">
+    <meta name="format-detection" content="telephone=no">
+    <script type="text/javascript" src="../js/jquery-1.5.2.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/jquery.lazyload.js"></script>
+	<style>
+*{
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+html, body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+body {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-size: 16px;
+	word-wrap: break-word;
+	-webkit-text-size-adjust: 100%;
+	padding-bottom: 0px;
+}
+h1 {
+	margin: auto;
+}
+input {
+	font-size: 1em;
+}
+p, ul, li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a, a:visited {
+	text-decoration: none !important;
+}
+p span {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+	font-size: 15px !important;
+}
+u {
+	text-decoration: none
+}
+table {
+	width: 100% !important;
+}
+td {
+	width: 10% !important;
+}
+.iosTitle {
+	text-align: left;
+	font-size: 17px;
+	padding-left:5px;
+	padding-right:5px;
+	font-weight: bold;
+	margin-top: 5px;
+	margin-bottom:5px;
+}
+.iosReply, .iosTopic {
+	font-size: 16px;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-bottom:0px;
+	margin-bottom:0px;
+}
+.theLandlord{
+ 	margin-left:5px;
+ 	padding-left:3px;
+ 	padding-right:3px;
+ 	padding-top:1px;
+ 	padding-bottom:1px;
+ 	font-size: 11px;
+}
+
+.title{
+	width:100%;
+}
+
+.best{
+ 	padding-left:2px;
+ 	padding-right:3px;
+ 	padding-top:1px;
+ 	padding-bottom:1px;
+ 	text-align:center;
+ 	font-weight:100;
+ 	line-height:16px;
+	vertical-align:17%;
+ 	font-size:13px;
+ 	color:#FFFFFF;
+ 	margin-bottom:5px;
+}
+
+.iosTopic, div[class^="forumReply_"], .shuoReply_page {
+	padding-bottom: 5px;
+	margin-left:5px;
+	margin-right:5px;
+}
+.top, .bottom {
+	width: 100%
+}
+.top {
+	margin-top: 3px;
+	height: 40px;
+}
+.top .left, .top .right {
+	display: inline-block;
+}
+.top .left {
+	width: 11%
+}
+.top .right {
+	width: 89%
+}
+.top .left img {
+	width: 34px;
+	height: 34px;
+}
+
+.top .right span img {
+	width: 30px;
+	height: 30px;
+}
+
+.top .right .up {
+	height: 20px;
+}
+.top .right .up .userName {
+	float: left;
+	font-size: 12px;
+}
+.zhihuta {
+	float: right;
+	font-size: 12px;
+	margin-left:3px;
+}
+.ztzhihuta{
+	font-size: 12px;
+}
+.top .right .up .postDate {
+	float: right;
+	font-size: 12px;
+}
+.top .right .down {
+	height: 20px;
+	font-size: 12px;
+}
+.top .right .down .ShowNum {
+	float: left;
+	height: 20px;
+	font-size: 12px;
+}
+.top .right .down .findStock {
+	float: right;
+	height: 20px;
+	font-size: 12px;
+}
+
+.stock{
+	width:92%;
+	margin-left: 2%;
+	margin-right: 2%;
+	padding:2%;
+	margin-top: 5px;
+	border:1px solid #DDDDDD;
+	font-size:12px; 
+	color:#f3f3f3;
+	display:none;
+}
+.stock.penc_tr{
+   font-size:12px; 
+   width:auto;
+   border-spacing:35px;
+   border-collapse:separate;
+}
+
+.stockCode {
+	font-size:12px; 
+}
+
+.bottom {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 98%;
+	margin-top: 5px;
+}
+
+img,ul,li,h2,p{padding:0; margin:0;}
+ul,li{ list-style-type:none;}
+.qipk{ overflow:auto; background:#eee; padding:7px; 
+	margin-top:5px;
+}
+.qipk_one{ overflow:auto;}
+.qipk_one ul li{ float:left;}
+.qipk_time{ color:#aaa; font-size:12px; line-height:34px; margin-left:10px;}
+.qipk_one .left{ float:left;}
+.qipk_one .right{ float:right; font-size:12px; color:#bfbfbf; line-height:34px; vertical-align:middle; padding-right:3px; }
+.qipk_two{ font-size:12px; color:#bfbfbf;}
+.qipk_radius{border-radius:15px; -moz-border-radius:15px; font-size:12px; color:#bfbfbf;} 
+.qipao{padding-top :8px; margin-left:-20px;}
+.toubg{width:150px; height:30px; line-height:30px; vertical-align:middle;  margin-top:2px; margin-left:-17px; padding:2px 11px 0px 11px; font-size:15px; color:#0288d1; font-family:微软雅黑; background:#F8F8F8; border-radius:20px; -moz-border-radius:20px; position:relative;}
+.toubg img{ margin-right:10px; margin-top:4px; float:left;}
+
+.answerUserName{
+	color:#1191f6;
+	font-size:12px;
+}
+
+.bottom p {
+	text-align: justify;
+	text-justify: distribute-all-lines;
+	font: 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.bottom p span {
+	font-size: 15px !important;
+}
+.bottom img.lazy {
+	max-width: 100%;
+}
+.bottom img.lazy {
+	padding: 0px;
+}
+.floorClass {
+	text-align: right;
+	font-size: 12px;
+	margin-top:3px;
+}
+.emotionImage {
+	vertical-align: middle;
+}
+img[data-type^="userImage"] {
+	-webkit-border-radius: 50px;
+}
+.shuoTopicRef {
+	margin-top: 2px;
+	margin-left: 5px;
+	font-size: 15px;
+	border: 1px;
+	padding-left: 5px;
+	max-height: 250px;
+	overflow: auto;
+}
+.shuoTopicRef .firstLine {
+	margin-top: 5px;
+	margin-left:5px;
+}
+.shuoTopicRef .firstLine .refUserName{
+	color: "#f39801";
+	font-size: 12px;
+}
+.shuoTopicRef .firstLine .refPostDate {
+	margin-right: 5px;
+	font-size: 12px;
+	float: right;
+}
+.shuoTopicRef .secondLine p {
+	margin-top: 5px;
+}
+.shuoTopicRef .secondLine p img {
+	max-width: 80px;
+}
+.shuoTopicRef .threeLine {
+	margin-bottom: 5px;
+	font-size: 13px;
+	text-align: right;
+}
+
+.topicLine{
+	height: 1px; 
+	border-top: 1px solid #dddddd;
+}
+
+.line{
+	height: 1px; 
+	border-top: 1px solid #dddddd;
+}
+
+.voice{
+	margin-left :3px;
+	margin-top:5px;
+    height:15px;
+	width:125px; 
+	background:#B1CC49;
+	padding:5px;
+	border-radius:10px;
+   -moz-border-radius:10px;
+    font-size:12px;
+}
+
+.voice .voiceimg{
+  float: left;
+}
+.voice .voiceimg img{
+  width: 15px;
+  height: 15px;
+}
+
+.voice .time{
+  float: right;
+  font-size: 12px;
+  color:white;
+}
+
+</style>
+</head>
+<body>
+<div class="iosPage" id="iosPage">
+	<div  id="iosTitle"></div>
+	<div class="iosTopic" id="iosTopic"></div>
+  	<div class="iosReply" id="iosReply"></div>
+</div>
+</body>
+<script type="text/javascript">
+
+	//插入主帖和跟帖一起
+	function insertTopicHtml(strJsonTopic,strJsonReply,currentReplyID,isMore,currentPage,isLoadImage,mode){
+		try{
+			if(strJsonTopic==""){
+				
+			}else{//主帖
+				if(isMore=='N' && currentPage=="1" ){//不是加载更多
+					 var topicObject = JSON.parse(strJsonTopic);
+         		 	topicObject.body=Filter(topicObject.body);
+			 	 	$("#iosPage").attr("pageType","forum");
+			 	 	if(topicObject.bestFlag=="Y"){
+			  			$("#iosTitle").html('<span class="best">精</span>' +" "+topicObject.subject);
+			 	 	}else{
+			  			$("#iosTitle").html(topicObject.subject);
+			 		 }
+         	 	 	$("#iosTitle").addClass("iosTitle");
+         	 
+         	 	 	var topicHtml ='';
+         	 	 	if(topicObject.recomStock==""){
+        		  		topicHtml = '<div class="topicLine"></div><div class="forumTopic" id="forumTopic" data-topicID="'+topicObject.topicID+'"><div class="top"><div class="left" data-userID="'+topicObject.userID+'"><img data-type="userImage" class="lazy" src="'+topicObject.headDefault+'" data-original="'+topicObject.headImg+'" data-userID="'+topicObject.userID+'"></div><div class="right"><div class="up"><div class="userName">'+topicObject.userName+'<span class="theLandlord" >楼主</span> <span class="ztzhihuta">+直呼Ta</span></div><div class="postDate" data-Date="'+topicObject.postDate+'">'+topicObject.postDate+'</div></div><div class="down">加油券:<span id="ios_topic_goldM'+topicObject.topicID+'">'+topicObject.monthGoldNum+"/"+topicObject.goldUsefulNum+'</span>&nbsp;&nbsp;赞:<span id="ios_topic_useful'+topicObject.topicID+'">'+topicObject.usefulNum+'</span>&nbsp;&nbsp;收藏:<span id="ios_topic_fav'+topicObject.topicID+'">'+topicObject.totalColNum+'</span>&nbsp;&nbsp;打赏:<span id="ios_topic_pc'+topicObject.topicID+'">'+topicObject.topicPcPoint+'</span></div></div></div><div class="bottom"><p>'+topicObject.body+'</p></div></div>';
+         		 	}else{//有赞股票
+         	 	  		topicHtml = '<div class="topicLine"></div><div class="forumTopic" id="forumTopic" data-topicID="'+topicObject.topicID+'"><div class="top"><div class="left" data-userID="'+topicObject.userID+'"><img data-type="userImage" class="lazy" src="'+topicObject.headDefault+'" data-original="'+topicObject.headImg+'" data-userID="'+topicObject.userID+'"></div><div class="right"><div class="up"><div class="userName">'+topicObject.userName+'<span class="theLandlord" >楼主</span> <span class="ztzhihuta">+直呼Ta</span></div><div class="postDate" data-Date="'+topicObject.postDate+'">'+topicObject.postDate+'</div></div><div class="down">加油券:<span id="ios_topic_goldM'+topicObject.topicID+'">'+topicObject.monthGoldNum+"/"+topicObject.goldUsefulNum+'</span>&nbsp;&nbsp;赞:<span id="ios_topic_useful'+topicObject.topicID+'">'+topicObject.usefulNum+'</span>&nbsp;&nbsp;收藏:<span id="ios_topic_fav'+topicObject.topicID+'">'+topicObject.totalColNum+'</span>&nbsp;&nbsp;打赏:<span id="ios_topic_pc'+topicObject.topicID+'">'+topicObject.topicPcPoint+'</span></div></div></div><div id="stock_'+topicObject.topicID+'" class="stock"></div><div class="bottom"><p>'+topicObject.body+'</p></div></div>';
+         	 	 	}
+         		 	$("#iosTopic").empty(); 
+         	 	 	$("#iosTopic").html(topicHtml);
+         	 	 	showTopicContent();
+         	 	 	window.scrollTo('0','1');
+         			window.scrollTo('1','0');
+         	 	 }else{
+         	 	 	hideTopicContent();
+         	 	 }
+			}
+			
+					
+			if(strJsonReply==""){
+				$("#iosReply").empty(); 
+			}else{//跟帖
+				var replyArray = JSON.parse(strJsonReply);
+      	 		var replyHtml = '';
+         		var pageReplyID = 0;
+    	 		for(var i=0;i<replyArray.length;i++){
+    	 	 		var reply = replyArray[i];
+    	 	 		reply.body = Filter(reply.body);
+    	 	 		if(reply.recomStock==""){
+    	 	 			if(reply.zh_qipao==""){
+    		 				replyHtml += '<a name="'+reply.replyID+'"></a><div class="line" ></div><div id="iosForumReply_'+reply.replyID+'" class="forumReply_'+reply.currentPager+'" data-replyID="'+reply.replyID+'" data-replyName="'+reply.userName+'" data-userID="'+reply.userID+'"><div class="top"><div class="left" data-userID="'+reply.userID+'"><img class="lazy" data-type="userImage" src="'+reply.headDefault+'" data-userID="'+reply.userID+'" data-original="'+reply.headImg+'"></div><div class="right"><div class="up"><div class="userName" data-userID="'+reply.userID+'">'+reply.userName+'<span class="zhihuta" id="'+reply.userName+'">+直呼Ta</span></div><div class="postDate" data-Date="'+reply.postDate+'">'+reply.postDate+'</div></div><div class="down">赞:<span id="ios_reply_useful'+reply.replyID+'">'+reply.usefulNum+'</span>&nbsp;&nbsp;打赏:<span id="ios_reply_pc'+reply.replyID+'">'+reply.topicPcPoint+'</span></div></div></div><div class="bottom"><p>'+reply.body+'</p></div></div><div class="floorClass">'+reply.footNo+'</div></div>';
+    	 				}else{
+    	 					if('W'==reply.questionState||'T'==reply.questionState){
+    	 	 					replyHtml += '<a name="'+reply.replyID+'"></a><div class="line" ></div><div id="iosForumReply_'+reply.replyID+'" class="forumReply_'+reply.currentPager+'" data-replyID="'+reply.replyID+'" data-replyName="'+reply.userName+'" data-userID="'+reply.userID+'"><div class="top"><div class="left" data-userID="'+reply.userID+'"><img class="lazy" data-type="userImage" src="'+reply.headDefault+'" data-userID="'+reply.userID+'" data-original="'+reply.headImg+'"></div><div class="right"><div class="up"><div class="userName" data-userID="'+reply.userID+'">'+reply.userName+'<span class="zhihuta" id="'+reply.userName+'">+直呼Ta</span></div><div class="postDate" data-Date="'+reply.postDate+'">'+reply.postDate+'</div></div><div class="down">赞:<span id="ios_reply_useful'+reply.replyID+'">'+reply.usefulNum+'</span>&nbsp;&nbsp;打赏:<span id="ios_reply_pc'+reply.replyID+'">'+reply.topicPcPoint+'</span></div></div></div><div class="bottom"><p>'+reply.body+'</p></div><div class="qipk qipk_radius" data-seq="'+reply.zh_seq+'"><div class="qipk_one"><div class="left"><ul><li style="margin-right:20px;"><img data-type="userImage" class="lazy" src="'+reply.headDefault+'" data-original="'+reply.answerPortrait+'" data-userID="'+reply.answerUserID+'" width="34" height="34" /></li><li><div class="qipao"><img src="'+reply.zh_qipao+'" width="26" height="25" /></div></li><li><div class="toubg" data-seq="'+reply.zh_seq+'" data-status="'+reply.questionState+'" ><img src="../img/toubga.png" width="18" height="18" /><span>'+reply.questionStateText+'</span></div></li><li class="qipk_time">'+reply.voiceSecond+'"</li></ul></div><div class="right">'+reply.tingNum+'人偷偷听</div></div></div><div class="floorClass">'+reply.footNo+'</div></div>';
+    	 	 				}else {
+    	 						replyHtml += '<a name="'+reply.replyID+'"></a><div class="line" ></div><div id="iosForumReply_'+reply.replyID+'" class="forumReply_'+reply.currentPager+'" data-replyID="'+reply.replyID+'" data-replyName="'+reply.userName+'" data-userID="'+reply.userID+'"><div class="top"><div class="left" data-userID="'+reply.userID+'"><img class="lazy" data-type="userImage" src="'+reply.headDefault+'" data-userID="'+reply.userID+'" data-original="'+reply.headImg+'"></div><div class="right"><div class="up"><div class="userName" data-userID="'+reply.userID+'">'+reply.userName+'<span class="zhihuta" id="'+reply.userName+'">+直呼Ta</span></div><div class="postDate" data-Date="'+reply.postDate+'">'+reply.postDate+'</div></div><div class="down">赞:<span id="ios_reply_useful'+reply.replyID+'">'+reply.usefulNum+'</span>&nbsp;&nbsp;打赏:<span id="ios_reply_pc'+reply.replyID+'">'+reply.topicPcPoint+'</span></div></div></div><div class="bottom"><p>'+reply.body+'</p></div><div class="qipk qipk_radius" data-seq="'+reply.zh_seq+'"><div class="qipk_one"><ul><li style="margin-right:20px;"><img data-type="userImage" class="lazy" src="'+reply.headDefault+'" data-original="'+reply.answerPortrait+'" data-userID="'+reply.answerUserID+'" width="34" height="34" /></li><li><div class="qipao"><img src="'+reply.zh_qipao+'" width="26" height="25" /></div></li><li><div class="toubg" data-seq="'+reply.zh_seq+'" data-status="'+reply.questionState+'" ><img src="../img/toubga.png" width="18" height="18" /><span>'+reply.questionStateText+'</span></div></li><li class="qipk_time">  </li></ul></div></div><div class="floorClass">'+reply.footNo+'</div></div>';
+    	 					}
+    	 	 			}
+    	 			}else{
+    	 	 			replyHtml += '<a name="'+reply.replyID+'"></a><div class="line" ></div><div id="iosForumReply_'+reply.replyID+'" class="forumReply_'+reply.currentPager+'" data-replyID="'+reply.replyID+'" data-replyName="'+reply.userName+'" data-userID="'+reply.userID+'"><div class="top"><div class="left" data-userID="'+reply.userID+'"><img class="lazy" data-type="userImage" src="'+reply.headDefault+'" data-userID="'+reply.userID+'" data-original="'+reply.headImg+'"></div><div class="right"><div class="up"><div class="userName" data-userID="'+reply.userID+'">'+reply.userName+'<span class="zhihuta" id="'+reply.userName+'">+直呼Ta</span></div><div class="postDate" data-Date="'+reply.postDate+'">'+reply.postDate+'</div></div><div class="down"><div class="ShowNum">赞:<span id="ios_reply_useful'+reply.replyID+'">'+reply.usefulNum+'</span>&nbsp;&nbsp;打赏:<span id="ios_reply_pc'+reply.replyID+'">'+reply.topicPcPoint+'</span></div><div class="findStock" data-stockID="'+reply.recomStock+'" data-itemID="'+reply.replyID+'"><a class="stockCode"> 点击查看Ta看好的股票</a></div></div></div></div><div class="stock" id ="stock_'+reply.replyID+'"></div><div class="bottom"><p>'+reply.body+'</p></div><div class="floorClass">'+reply.footNo+'</div></div>';
+    	 	 		}
+    	 		}
+    	 		if(isMore=='N'){
+    	    		$("#iosReply").empty(); 
+    	  			$("#iosReply").html(replyHtml);
+    	  			if(currentReplyID != ""){
+    	  				jump("iosForumReply_"+currentReplyID)
+    	  			}
+    			}else  if(isMore=='Y'){
+    				$("#iosReply").append(replyHtml);
+    	 		}
+			}
+			
+			
+         	setTimeout(function() {
+         	    changeSkin(mode);
+         		loadImage(isLoadImage);
+         		if(strJsonTopic==""){
+         		
+         		}else{
+         			var topicObject = JSON.parse(strJsonTopic);
+         			getStock(topicObject.recomStock,topicObject.topicID,"N");
+         		    $(".iosTopic .forumTopic .top .left").click(function(){//点击头像
+         				window.injs.runOnAndroidPortrait(topicObject.userID);
+		 	 		});
+		 	 		
+		 	 		$(".ztzhihuta").click(function(){
+		 	 			window.injs.runOnAndroidZhiHu(topicObject.userName);
+		 	 		});
+		 	 	}
+         		onClickVoice();
+        	 
+        	 	 
+        	 	if(strJsonReply==""){
+        	 	
+        	 	}else{ 
+        	 		$("div[class^='forumReply_'] .top .left").click(function(){//点击头像
+    	 				var userID = $(this).attr("data-userID");
+         				window.injs.runOnAndroidPortrait(userID);
+		    		});
+		    		
+		    		$("span.zhihuta").click(function(){//点击直呼Ta
+		    			event.stopPropagation();
+    	 				var answerName = event.target.id;
+    	 				//alert(answerName);
+         				window.injs.runOnAndroidZhiHu(answerName);
+		    		});
+		    		
+		 			$("div[class^='forumReply_']").unbind('click').click(function(event){
+		 				try{
+                      		event.stopPropagation();
+                      		if(event.target.nodeName=="IMG"||event.target.nodeName=="A"){
+                      		
+                      		//点击图片和链接
+                      		}else{
+                       		//点击整个回帖布局除了图片和链接
+                      	 		var replyID = $(this).attr("data-replyID");
+                      	 		var replyUserID = $("#iosForumReply_"+replyID+" .userName").attr('data-userID');
+                      	 		var replyUserName = $(this).attr("data-replyName");
+                      	 		var replyPostDate =$("#iosForumReply_"+replyID+" .postDate").html();
+                      	 		var replyBody = $("#iosForumReply_"+replyID+" .bottom").text();
+                      	 		var replyUsefullNum = $("#ios_reply_useful"+replyID).text();
+                      	 		window.injs.runOnAndroidReply(replyID,replyUserID,replyUserName,replyPostDate,replyBody,replyUsefullNum);
+                      		}
+                  		}catch(e){
+                                                   
+                   		}
+					});
+					
+					$(".qipk_one img.lazy").click(function(){//点击直呼头像
+						var answerUserID = $(this).attr("data-userID");
+		 	 			window.injs.runOnAndroidPortrait(answerUserID);
+		 	 		});
+		 	  		$(".toubg").click(function(){//点击直呼听
+		 	  			var zh_seq = $(this).attr("data-seq");
+		 	  			var zh_status = $(this).attr("data-status");
+		 	 			window.injs.runOnAndroidToZhiHuListener( zh_seq, zh_status);
+		 	 		});
+			
+					$(window).scroll(function(){
+		  		 		var elementArr = $("div[class^='forumReply_']");
+		    	 		for(var i=0;i<elementArr.length;i++){
+                 			var element = elementArr[i];
+                 			if(elementInViewport(element)){
+                  				var pageNo =parseInt($(element).attr("class").split("_")[1]);
+                  				window.injs.runOnAndroidPager(pageNo);
+                  				break;
+                 			}
+                 			
+             			}
+             			var elementArrStock = $("div[class^='forumReply_'] .top .right .down .findStock");
+             			for(var i=0;i<elementArrStock.length;i++){
+             				var element = elementArrStock[i];
+             				if(elementInViewport(element)){
+                 				var itemID = $(element).attr("data-itemID");
+    	 						var stockID = $(element).attr("data-stockID");
+    	 						if($("#stock_"+itemID).is(":hidden")){
+    	 							getStock(stockID,itemID);
+    	 						}else{
+    	 							//滚动时随时监听不收起来
+    	 							//$("#stock_"+itemID).slideUp();
+    	 						}
+                 			}
+             			}
+		    		});
+		    	
+		   			$("div[class^='forumReply_'] .top .right .down .findStock").click(function(){//查看股票
+    	 				var itemID = $(this).attr("data-itemID");
+    	 				var stockID = $(this).attr("data-stockID");
+    	 				if($("#stock_"+itemID).is(":hidden")){
+    	 					getStock(stockID,itemID);
+    	 				}else{
+    	 					$("#stock_"+itemID).slideUp();
+    	 				}
+	    			});
+		    	}
+        	},500);//延迟监听事件
+         	
+		}catch(e){
+		}
+	}
+
+
+    
+    function getStock(recomStock,itemID){
+    	if(recomStock==""){
+    	
+    	}else{
+    		try{
+    			var hodingday='0,2,4,21,65'; 
+        	 	$.ajax({
+        	  		url:'https://gw.wmcloud.com/nrnt/return?holding_day='+hodingday+'&id='+recomStock+'&callback=?',
+					dataType:"jsonp",
+					jsonp:"jsonpcallback",
+					success:function(json){  
+						var htmlStr = '<table  class="penc_tr" ><tr ><td width="25%"  style="font-size:12px">看好的股</td>';
+       					htmlStr += '<td width="15%"  style="font-size:12px">3日</td><td width="15%"  style="font-size:12px">5日</td><td width="15%"  style="font-size:12px">1月</td><td width="15%"  style="font-size:12px">1季</td></tr>';
+						for(j=0;j<json.length;j++){
+						      	var data = json[j].data;
+						        if(json[j].retCode =="0"){
+							   		 htmlStr += '<tr>';
+				        			 htmlStr += '</td><td class="stockCode" width="25%"><span style="font-size:12px"><a href="http://www.taoguba.com.cn/mSearch?searchContent='+getStockUrl(data.ticker)+'&type=2" target="_blank" style="color:#1191f6;font-size:12px">'+data.stock_name+'<br/>'+data.ticker+'</a></span></td>';
+				        			 var returns = data.returns;
+				        			 var mys = new Array(returns.length);
+				        			 var three="a";
+				    				 var five="b";
+				        			 var twenty="c";
+				    				 var end="d";
+				      				 for(z=0;z<returns.length;z++){
+				        				 	 var day = returns[z].actual_holding_day;
+				        					 var shouyi = returns[z]["return"];
+				        					 mys[z]=shouyi;
+				        	  		   		 if(parseInt(day)==-1 || parseInt(day)==0 ||parseInt(day)==1 || parseInt(day)==2){
+				        						   three=changeTwoDecimal_f(mys[1]);
+											 }
+				        					 if(parseInt(day)==2 ||parseInt(day)==3 || parseInt(day)==4){
+													five=changeTwoDecimal_f(mys[2]);
+											 }
+											 if(parseInt(day)>=4 && parseInt(day)<=21){
+												    twenty =changeTwoDecimal_f(mys[3]);
+										   	 }
+											 if(parseInt(day)>=21 && parseInt(day)==65){
+													end=changeTwoDecimal_f(mys[4]);
+											 }
+				        					 }
+				        					 if(three=="a"){
+													htmlStr += '<td width="15%" style="font-size:12px;"><b>- -</b></td>';
+											 }else{
+											        if(three.toString().indexOf("-")>=0){
+															htmlStr += '<td width="15%"><b><label style="color:green;font-size:12px;">'+three+'%</label></b></td>';
+													}  
+													if(three=="0"){
+															htmlStr += '<td width="15%"><b><label style="color:black;font-size:12px">'+three+'%</label></b></td>';
+													}
+													if(three.toString().indexOf("-")==-1 && three !="0"){
+															htmlStr += '<td width="15%" ><b><label style="color:red;font-size:12px">'+three+'%</label></b></td>';
+													}
+										   	 }
+										 	 if(five=="b"){
+													 htmlStr += '<td width="15%" style="font-size:12px"><b>- -</b></td>';
+											 }else{
+													 if(five.toString().indexOf("-")>=0){
+															htmlStr += '<td width="15%"><b><label style="color:green;font-size:12px">'+five+'%</label></b></td>';
+													 }  
+												     if(five=="0"){
+														htmlStr += '<td width="15%"><b><label style="color:black;font-size:12px">'+five+'%</label></b></td>';
+										   			 }
+													 if(five.toString().indexOf("-")==-1 && three !="0"){
+														htmlStr += '<td width="15%"><b><label style="color:red;font-size:12px">'+five+'%</label></b></td>';
+											 		 }
+											 }
+											 if(twenty=="c"){
+													htmlStr += '<td width="15%" style="font-size:12px"><b>- -</b></td>';
+											 }else{
+													if(twenty.toString().indexOf("-")>=0){
+															htmlStr += '<td width="15%"><b><label style="color:green;font-size:12px">'+twenty+'%</label></b></td>';
+													}  
+													if(twenty=="0"){
+															htmlStr += '<td width="15%"><b><label style="color:black;font-size:12px">'+twenty+'%</label></b></td>';
+													}
+													if(twenty.toString().indexOf("-")==-1 && three !="0"){
+															htmlStr += '<td width="15%"><b><label style="color:red;font-size:12px">'+twenty+'%</label></b></td>';
+													}
+											 }
+											if(end=="d"){
+													htmlStr += '<td width="15%" style="font-size:12px"><b>- -</b></td>';
+											}else{
+													if(end.toString().indexOf("-")>=0){
+															htmlStr += '<td width="15%"><b><label style="color:green;font-size:12px">'+end+'%</label></b></td>';
+													}  
+													if(end=="0"){
+															htmlStr += '<td width="15%"><b><label style="color:black;font-size:12px">'+end+'%</label></b></td>';
+													}
+													if(end.toString().indexOf("-")==-1 && three !="0"){
+															htmlStr += '<td width="15%"><b><label style="color:red;font-size:12px">'+end+'%</label></b></td>';
+													}
+											}
+				        					htmlStr += '</tr>'; 
+			        	//		}else if(json[j].retCode =="7" ||json[j].retCode =="6" ||json[j].retCode =="5"){
+						//                 	htmlStr += '<tr>';
+				        //				    htmlStr += '</td><td class="stockCode"  width="25%"><span style="font-size:12px"><a href="http://www.taoguba.com.cn/mSearch?searchContent='+getStockUrl(data.ticker)+'&type=2" target="_blank" style="color:#1191f6">'+data.stock_name+'<br/>'+data.ticker+'</a></span></td>';
+				        //				    htmlStr += '<td width="15%" style="font-size:12px"><b>- -</b></td>';
+				        //					htmlStr += '<td width="15%" style="font-size:12px"><b>- -</b></td>';
+				        //				    htmlStr += '<td width="15%" style="font-size:12px"><b>- -</b></td>';
+				        //				    htmlStr += '<td width="15%" style="font-size:12px"><b>- -</b></td></tr>';
+						        }else{
+						       				htmlStr += '<tr>';
+				        				    htmlStr += '</td><td class="stockCode"  width="25%"><span style="font-size:12px"><a href="http://www.taoguba.com.cn/mSearch?searchContent='+getStockUrl(data.ticker)+'&type=2" target="_blank" style="color:#1191f6">'+data.stock_name+'<br/>'+data.ticker+'</a></span></td>';
+				        					htmlStr += '<td width="15%" style="font-size:12px"><b>- -</b></td>';
+				        					htmlStr += '<td width="15%" style="font-size:12px"><b>- -</b></td>';
+				        				    htmlStr += '<td width="15%" style="font-size:12px"><b>- -</b></td>';
+				        				    htmlStr += '<td width="15%" style="font-size:12px"><b>- -</b></td></tr>';
+						        }
+						}
+						htmlStr +='</table>';
+						$("#stock_"+itemID).html(htmlStr);
+						$("#stock_"+itemID).slideDown();
+					},
+					error:function(){
+						//alert("dfdf");
+               		}
+				});
+			}catch(e){
+  		    	//alert("-->"+e);
+  			}
+    	}
+    }
+    
+	//强制保留两位小数 四舍五入
+	function changeTwoDecimal_f(x) {
+		var s_x="0.00";
+	 	try {
+	 		x=100*x;
+    		var f_x = parseFloat(x);
+    		if (isNaN(f_x)) {
+        		return false;
+    		}
+    		var f_x = Math.round(x * 100) / 100;
+    		s_x = f_x.toString();
+    		var pos_decimal = s_x.indexOf('.');
+    		if (pos_decimal < 0) {
+        		pos_decimal = s_x.length;
+        		s_x += '.';
+    		}
+   	   		 while (s_x.length <= pos_decimal + 2) {
+        		s_x += '0';
+    		}
+    	} catch (e) {
+
+		}   
+    	return s_x;
+	}
+	
+    //隐藏主帖内容
+    function hideTopicContent(){
+    	$(".forumTopic").hide();
+    	$(".topicLine").hide();
+    }
+    
+    //显示主帖内容
+    function showTopicContent(){
+    	$(".forumTopic").show();
+    	$(".topicLine").show();
+    }
+    
+    //隐藏主说说
+    function hideShuoTopicContent(){
+    	$(".iosTopic").hide();
+    }
+    
+    //显示主说说
+    function showShuoTopicContent(){
+    	$(".iosTopic").show();
+    }
+    
+    //删除回复的说说
+    function showDeleteReplyContent(){
+    	$(".iosReply").html("");
+    }
+    
+    //设置收藏数赞数
+    function setNum(topicID,colNum,useFullNum){
+    	 try{
+    		 $("#ios_topic_fav"+topicID).html(colNum);
+    		 $("#ios_topic_useful"+topicID).html(useFullNum);
+    	 }catch(e){
+    	 }
+    }
+    
+    //插入主说说
+    function insetShuoTopic(strJson,isLoadImage){
+    	   $("#iosPage").attr("pageType","shuo");
+    	   var shuoTopic=null;
+    	   try{
+    	 	  shuoTopic = JSON.parse(strJson);
+              shuoTopic.content=Filter(shuoTopic.content);
+              var shuoTopicHtml='';
+              if(shuoTopic.recomstock==""){
+              		if(shuoTopic.questionState!=""){
+              			if('W'==shuoTopic.questionState||'T'==shuoTopic.questionState){
+            		 		shuoTopicHtml = '<div class="shuoTopic" data-feedID="'+shuoTopic.feedID+'"><div class="top"><div class="left" data-userID="'+shuoTopic.userID+'"><img data-type="userImage" class="lazy" src="'+shuoTopic.defaultPortrait+'" data-original="'+shuoTopic.portrait+'" data-userID="'+shuoTopic.userID+'"></div><div class="right"><div class="up"><div class="userName">'+shuoTopic.userName+'&nbsp;&nbsp;&nbsp;&nbsp;<span class="ztzhihuta">+直呼Ta</span></div><div class="postDate">'+shuoTopic.time+'</div></div><div class="down">加油:<span id="stg'+shuoTopic.feedID+'">'+shuoTopic.bestNum+'<span>&nbsp;&nbsp;赞:<span id="stu'+shuoTopic.feedID+'">'+shuoTopic.usefulNum+'</span>&nbsp;&nbsp;转发:<span id="stt'+shuoTopic.feedID+'">'+shuoTopic.transferCount+'</span>&nbsp;&nbsp;评论:<span id="str'+shuoTopic.feedID+'">'+shuoTopic.commentCount+'</span>&nbsp;&nbsp;打赏:<span id="stp'+shuoTopic.feedID+'">'+shuoTopic.totalPcPoint+'</span></div></div></div><div class="bottom"><p>'+shuoTopic.content+'</p></div><div class="qipk qipk_radius" data-seq="'+shuoTopic.zh_seq+'"><div class="qipk_one"><div class="left"><ul><li style="margin-right:20px;"><img data-type="userImage" class="lazy" src="'+shuoTopic.defaultPortrait+'" data-original="'+shuoTopic.answerPortrait+'" data-userID="'+shuoTopic.answerUserID+'" width="34" height="34" /></li><li><div class="qipao"><img src="'+shuoTopic.zh_qipao+'" width="26" height="25" /></div></li><li><div class="toubg"><img src="../img/toubga.png" width="18" height="18" /><span>'+shuoTopic.questionStateText+'</span></div></li><li class="qipk_time">'+shuoTopic.voiceSecond+'"</li></ul></div><div class="right">'+shuoTopic.tingNum+'人偷偷听</div></div></div>';
+              			}else{
+              				shuoTopicHtml = '<div class="shuoTopic" data-feedID="'+shuoTopic.feedID+'"><div class="top"><div class="left" data-userID="'+shuoTopic.userID+'"><img data-type="userImage" class="lazy" src="'+shuoTopic.defaultPortrait+'" data-original="'+shuoTopic.portrait+'" data-userID="'+shuoTopic.userID+'"></div><div class="right"><div class="up"><div class="userName">'+shuoTopic.userName+'&nbsp;&nbsp;&nbsp;&nbsp;<span class="ztzhihuta">+直呼Ta</span></div><div class="postDate">'+shuoTopic.time+'</div></div><div class="down">加油:<span id="stg'+shuoTopic.feedID+'">'+shuoTopic.bestNum+'<span>&nbsp;&nbsp;赞:<span id="stu'+shuoTopic.feedID+'">'+shuoTopic.usefulNum+'</span>&nbsp;&nbsp;转发:<span id="stt'+shuoTopic.feedID+'">'+shuoTopic.transferCount+'</span>&nbsp;&nbsp;评论:<span id="str'+shuoTopic.feedID+'">'+shuoTopic.commentCount+'</span>&nbsp;&nbsp;打赏:<span id="stp'+shuoTopic.feedID+'">'+shuoTopic.totalPcPoint+'</span></div></div></div><div class="bottom"><p>'+shuoTopic.content+'</p></div><div class="qipk qipk_radius" data-seq="'+shuoTopic.zh_seq+'"><div class="qipk_one"><ul><li style="margin-right:20px;"><img data-type="userImage" class="lazy" src="'+shuoTopic.defaultPortrait+'" data-original="'+shuoTopic.answerPortrait+'" data-userID="'+shuoTopic.answerUserID+'" width="34" height="34" /></li><li><div class="qipao"><img src="'+shuoTopic.zh_qipao+'" width="26" height="25" /></div></li><li><div class="toubg"><img src="../img/toubga.png" width="18" height="18" /><span>'+shuoTopic.questionStateText+'</span></div></li><li class="qipk_time"></li></ul></div></div></div>';
+              			}
+            		}else{
+              			shuoTopicHtml = '<div class="shuoTopic" data-feedID="'+shuoTopic.feedID+'"><div class="top"><div class="left" data-userID="'+shuoTopic.userID+'"><img data-type="userImage" class="lazy" src="'+shuoTopic.defaultPortrait+'" data-original="'+shuoTopic.portrait+'" data-userID="'+shuoTopic.userID+'"></div><div class="right"><div class="up"><div class="userName">'+shuoTopic.userName+'&nbsp;&nbsp;&nbsp;&nbsp;<span class="ztzhihuta">+直呼Ta</span></div><div class="postDate">'+shuoTopic.time+'</div></div><div class="down">加油:<span id="stg'+shuoTopic.feedID+'">'+shuoTopic.bestNum+'<span>&nbsp;&nbsp;赞:<span id="stu'+shuoTopic.feedID+'">'+shuoTopic.usefulNum+'</span>&nbsp;&nbsp;转发:<span id="stt'+shuoTopic.feedID+'">'+shuoTopic.transferCount+'</span>&nbsp;&nbsp;评论:<span id="str'+shuoTopic.feedID+'">'+shuoTopic.commentCount+'</span>&nbsp;&nbsp;打赏:<span id="stp'+shuoTopic.feedID+'">'+shuoTopic.totalPcPoint+'</span></div></div></div><div class="bottom"><p>'+shuoTopic.content+'</p></div></div>';
+            		}
+              }else {
+              		shuoTopicHtml = '<div class="shuoTopic" data-feedID="'+shuoTopic.feedID+'"><div class="top"><div class="left" data-userID="'+shuoTopic.userID+'"><img data-type="userImage" class="lazy" src="'+shuoTopic.defaultPortrait+'" data-original="'+shuoTopic.portrait+'" data-userID="'+shuoTopic.userID+'"></div><div class="right"><div class="up"><div class="userName">'+shuoTopic.userName+'&nbsp;&nbsp;&nbsp;&nbsp;<span class="ztzhihuta">+直呼Ta</span></div><div class="postDate">'+shuoTopic.time+'</div></div><div class="down">加油:<span id="stg'+shuoTopic.feedID+'">'+shuoTopic.bestNum+'<span>&nbsp;&nbsp;赞:<span id="stu'+shuoTopic.feedID+'">'+shuoTopic.usefulNum+'</span>&nbsp;&nbsp;转发:<span id="stt'+shuoTopic.feedID+'">'+shuoTopic.transferCount+'</span>&nbsp;&nbsp;评论:<span id="str'+shuoTopic.feedID+'">'+shuoTopic.commentCount+'</span>&nbsp;&nbsp;打赏:<span id="stp'+shuoTopic.feedID+'">'+shuoTopic.totalPcPoint+'</span></div></div></div><div id="stock_'+shuoTopic.feedID+'" class="stock"></div><div class="bottom"><p>'+shuoTopic.content+'</p></div></div>';
+              }
+              
+              $("#iosTopic").html(shuoTopicHtml);
+              var refMsgID = shuoTopic.refMsgID;
+              if(refMsgID!='0'){
+           		 shuoTopic.reContent=Filter(shuoTopic.reContent);
+           		 if(shuoTopic.reDeleteflag == 'N'){
+           		  		var refTopicHtml = '<div class="shuoTopicRef"><div class="firstLine"><span class="refUserName">'+shuoTopic.reUserName+'</span><span class="refPostDate">'+shuoTopic.reTime+'</span></div><div class="secondLine"><p>'+shuoTopic.reContent+'</p></div><div class="threeLine"><span>转发('+shuoTopic.reTransferCount+') </span> | <span>评论('+shuoTopic.reCommentCount+')</span></div></div>';
+                        $("#iosTopic").append(refTopicHtml);
+                 }else{
+                        var refTopicHtml = '<div class="shuoTopicRef"><p>该说说已被删除</p></div>'
+                        $("#iosTopic").append(refTopicHtml);
+                 }
+             }
+             changeSkin(shuoTopic.mode);
+             loadImage(isLoadImage);
+             window.scrollTo('0','1');
+             window.scrollTo('1','0');
+             $(".left").click(function(){//点击头像
+         		window.injs.runOnAndroidPortrait(shuoTopic.userID);
+		 	 });
+		 	 
+		 	 $(".ztzhihuta").click(function(){
+		 	 	window.injs.runOnAndroidZhiHu(shuoTopic.userName);
+		 	 });
+		 			 	 
+		 	 $(".qipk_one img.lazy").click(function(){//点击直呼头像
+		 	 	window.injs.runOnAndroidPortrait(shuoTopic.answerUserID);
+		 	 });
+		 	  $(".toubg").click(function(){//点击直呼听
+		 	 	window.injs.runOnAndroidToZhiHuListener(shuoTopic.zh_seq,shuoTopic.questionState);
+		 	 });
+		 	 
+		 	 onClickVoice();
+		 	 setTimeout(function() {
+		 	 	getStock(shuoTopic.recomstock, shuoTopic.feedID);
+		 	 },500);//这个时间可适当的改下
+           }catch(e){
+            	//alert(e.toString());                                       
+           }
+    }
+    
+     //插入回复说说
+    function insetReplyShuo(strJson,isMore,isLoadImage){
+    	    $("#iosPage").attr("pageType","shuo");
+    	    var shuoReplyArray = JSON.parse(strJson);
+            var shuoReplyHtml = '';
+            for(var i=0;i<shuoReplyArray.length;i++){
+                  var shuoReply = shuoReplyArray[i];
+                  shuoReply.content=Filter(shuoReply.content);
+                  shuoReplyHtml += '<div class="line" ></div><div id="iosShuoReply_'+shuoReply.feedID+'" class="shuoReply_page" data-feedID="'+shuoReply.feedID+'" data-userID="'+shuoReply.userID+'" data-userName="'+shuoReply.userName+'" data-refMsgID="'+shuoReply.refMsgID+'" data-portrait = "'+shuoReply.portrait+'"><div class="top"><div class="left" data-userID="'+shuoReply.userID+'"><img data-type="userImage" class="lazy" src="'+shuoReply.defaultPortrait+'" data-original="'+shuoReply.portrait+'" data-userID="'+shuoReply.userID+'"></div><div class="right"><div class="up"><div class="userName" data-userID="'+shuoReply.userID+'">'+shuoReply.userName+'&nbsp;&nbsp;&nbsp;&nbsp;<span class="zhihuta" id="'+shuoReply.userName+'">+直呼Ta</span></div><div class="postDate">'+shuoReply.time+'</div></div><div class="down">赞:<span id="sru'+shuoReply.feedID+'">'+shuoReply.usefulNum+'</span>&nbsp;&nbsp;打赏:<span id="srp'+shuoReply.feedID+'">'+shuoReply.totalPcPoint+'</span></div></div></div><div class="bottom"><p>'+shuoReply.content+'</p></div></div>';
+            }
+            if(isMore=='N'){
+                $("#iosReply").empty(); 
+    	  		$("#iosReply").html(shuoReplyHtml);
+    	    }else  if(isMore=='Y'){
+    		 	$("#iosReply").append(shuoReplyHtml);
+    	    }
+    	    changeSkin(shuoReplyArray[0].mode);
+    	    loadImage(isLoadImage);
+    	    $(".shuoReply_page .top .left").click(function(){//点击头像
+    	 	 	 var userID = $(this).attr("data-userID");
+         	 	 window.injs.runOnAndroidPortrait(userID);
+		    });
+		    
+		    $("span.zhihuta").click(function(){//点击直呼Ta
+		    	event.stopPropagation();
+    	 		var answerName = event.target.id;
+    	 				//alert(answerName);
+         		window.injs.runOnAndroidZhiHu(answerName);
+		    });
+		    
+		    $(".shuoReply_page").unbind('click').click(function(event){
+		 		 try{
+                      event.stopPropagation();
+                      if(event.target.nodeName=="IMG"||event.target.nodeName=="A"){
+                      		
+                      		//点击图片和链接
+                      }else{
+                       		//点击整个回帖布局除了图片和链接
+                      	 var replyFeedID = $(this).attr("data-feedID"); 
+                      	 var replyUserID = $(this).attr("data-userID");
+                      	 var replyUserName = $(this).attr("data-userName");
+                      	 var refMsgID = $(this).attr("data-refMsgID");
+                      	 var rePortrait = $(this).attr("data-portrait");
+                      	 window.injs.runOnAndroidReplyShuo(replyFeedID,replyUserID,replyUserName,refMsgID,rePortrait);
+                      }
+                  }catch(e){
+                                                   
+                  }
+		   });
+		   onClickVoice();
+    }
+    
+    //点击语音
+    function onClickVoice(){
+    	$(".voice").unbind('click').click(function(event){
+    	 	try{
+                  event.stopPropagation();
+                  if(event.target.nodeName=="DIV"){
+    	 				var voiceUrl = $(this).attr("data-url");
+    	 				var voiceLocalTitle = $(this).attr("data-localTitle");
+         				window.injs.runOnAndroidVoice(voiceUrl,voiceLocalTitle);
+         	      }
+            }catch(e){
+                                                   
+            }
+	    });
+    }
+    
+    //帖子定位
+    function jump(divID) {
+    	setTimeout(function() {            
+　　			var scroll_offset = $("#"+divID).offset();  //得到Exam82这个div层的offset，包含两个值，top和left            
+　　			$("body,html").animate({scrollTop: scroll_offset.top}, 50); //2000 控制滚动的速度    //让body的scrollTop等于Exam82的top，就实现了滚动
+ 		},500); 
+	}      
+    
+    //替换图片
+    function switchImgSrc(imgID,status){
+    	if(status=='P'){//正在播放
+    		$("#"+imgID+" img").attr("src","../img/sound.gif");
+    	}else if(status=='S'){//停止播放
+    		$("#"+imgID+" img").attr("src","../img/sound3.png");
+    	}
+    }
+    
+    //还原敏感符号
+    function Filter(strJson){
+     	while( strJson.indexOf("&#39;") != -1 ) {
+     		strJson=strJson.replace("&#39;","'"); 
+		}
+		while( strJson.indexOf("&quot;") != -1 ) {
+     		strJson=strJson.replace("&quot;","\""); 
+		}
+		while( strJson.indexOf("[ZYXG]") != -1 ) {
+     		strJson=strJson.replace("[ZYXG]","\\"); 
+		}
+		while( strJson.indexOf("&#37;&#32;") != -1 ) {
+     		strJson=strJson.replace("&#37;&#32;","%\t"); 
+		}
+		while( strJson.indexOf("&#37;") != -1 ) {
+     		strJson=strJson.replace("&#37;","%"); 
+		}
+		while( strJson.indexOf("&#32;") != -1 ) {
+     		strJson=strJson.replace("&#32;","\t"); 
+		}
+		return strJson; 
+    }
+    
+     //判断某个元素是否在可见的屏幕内
+    function elementInViewport(el) {
+        var rect = el.getBoundingClientRect();
+        return rect.top >= 0 && rect.left >= 0 && rect.top <= (window.innerHeight+100 || document.documentElement.clientHeight+100);
+    }
+    
+    //加载图片
+    function loadImage(isLoadImage){
+    	 if(isLoadImage == 'Y'){//有图模式
+    	 	 setTimeout(function() {
+    	 	 	$("img.lazy").lazyload();
+    	 	 },300);
+    	 }else{
+    	 	 $(".bottom img.lazy").hide();
+    	 }
+    }
+    
+    function getStockUrl(stockCode){
+  	     	if(stockCode.substring(0,2) =="60"||stockCode.substring(0,2) =="51"||stockCode.substring(0,2) =="52"||stockCode.substring(0,2) =="90"){
+		    	stockCode = "sh"+stockCode;
+	     	}else{
+		   		 stockCode =  "sz"+stockCode;
+	     	}
+		return stockCode;
+	 }
+	 
+	 function changeNumByID(htmlID,num){
+	 		var oldNum = $(htmlID).html();
+	 		var newNum = parseFloat(oldNum) + parseFloat(num);
+	 		$(htmlID).html(newNum+"");
+	 }
+    
+    
+    //改变css 颜色 直接写死值了，传写的代码更多
+    function changeSkin(mode){
+    	if(mode=='day'){//白天模式
+    		 //设置文字颜色
+    	    $("body").css("color","#222222");//内容文字颜色
+         	$(".iosTitle").css("color","#000000");//帖子标题颜色
+         	$(".top .right .up .userName").css("color","#1191f6");//名字颜色
+         	$(".top .right .up .postDate").css("color","#BBBBBB");//日期颜色
+         	$(".top .right .down").css("color","#BBBBBB");//加油券 赞 收藏 打赏颜色
+         	$(".bottom").css("color","#222222");//内容颜色
+         	//$("p > span").css("color","#222222");//内容颜色
+         	$("p span").css("color","#222222");//内容颜色
+         	$(".floorClass").css("color","#BBBBBB");//楼层颜色
+         	$(".line").css({"height": "1px", "border-top":"1px solid #DDDDDD"});//分隔线颜色
+         	$(".topicLine").css({"height": "1px", "border-top":"1px solid #DDDDDD"});//分隔线颜色
+         	$(".theLandlord").css("background","#1191f6");//楼主背景颜色
+         	$(".theLandlord").css("color","#FFFFFF");//楼主字体颜色
+         	$(".best").css({"border":"1px solid #1191f6","color":"#1191f6","background":"FFFFFF"});//精华描边颜色 和字体颜色
+         	$(".stock").css({"border":"1px solid #DDDDDD","color":"#1191f6","background":"#f3f3f3"});//赞股
+         	$(".stockCode").css("color","#1191f6");//股票名字颜色
+         	$(".qipk").css("background","#eeeeee");
+         	$(".toubg").css("background","#f8f8f8");
+         	$(".answerUserName").css("color","#1191f6");//名字颜色
+         	
+         	//转发的说说
+         	$(".shuoTopicRef .firstLine .refUserName").css("color","#f39801");
+         	$(".shuoTopicRef .firstLine .refPostDate").css("color","#BBBBBB");
+         	$(".shuoTopicRef .secondLine").css("color","#222222");
+         	$(".shuoTopicRef").css({"border": "1px solid #CCCCCC","background-color":"#f3f3f3"});
+    	}else if(mode=='night'){
+    		$("body").css("color","#BBBBBB");//内容文字颜色
+    		$(".iosTitle").css("color","#B0B0B0");//帖子标题颜色
+    		$(".top .right .up .userName").css("color","#005e91");//名字颜色
+    		$(".top .right .up .postDate").css("color","#858585");//日期颜色
+    		$(".top .right .down").css("color","#858585");//加油券 赞 收藏 打赏颜色
+    		$(".bottom").css("color","#B0B0B0");//内容颜色
+    		//$("p>*").css("color","#B0B0B0");//内容颜色
+    		$("p span").css("color","#B0B0B0");//内容颜色
+    		$(".floorClass").css("color","#858585");//楼层颜色
+    		$(".line").css({"height": "1px", "border-top": "1px solid #0e1929"});//分隔线颜色
+    		$(".topicLine").css({"height": "1px", "border-top":"1px solid #0e1929"});//分隔线颜色
+    		$(".theLandlord").css("background","#005e91");//楼主背景颜色
+         	$(".theLandlord").css("color","#55aad8");//楼主字体颜色
+         	$(".best").css({"border":"1px solid #005e91","color":"#005e91"});//精华描边颜色 和字体颜色
+         	$(".stock").css({"border":"1px solid #0e1929","color":"#1191f6","background":"#132237"});//赞股
+         	$(".stockCode").css("color","#005e91");//股票名字颜色
+    		$(".qipk").css("background","#353535");
+    		$(".toubg").css("background","#404040");
+    		$(".answerUserName").css("color","#005e91");//名字颜色
+    		
+    		//转发的说说
+    		$(".shuoTopicRef .firstLine .refUserName").css("color","#f39801");
+    		$(".shuoTopicRef .firstLine .refPostDate").css("color","#858585");
+    		$(".shuoTopicRef .secondLine").css("color","#B0B0B0");
+    		$(".shuoTopicRef").css({"border": "1px solid #505050","background-color":"#303030"});
+    	} else if(mode=='kgame'){//K线游戏皮肤
+    	    $("body").css("color","#a0cde2");//内容文字颜色
+    	    $(".top .right .up .userName").css("color","#48b3e5");//名字颜色
+         	$(".top .right .up .postDate").css("color","#2e6b8a");//日期颜色
+         	$(".top .right .down").css("color","#2e6b8a");//加油券 赞 收藏 打赏颜色
+         	$(".bottom").css("color","#a0cde2");//内容颜色
+         	$("p span").css("color","#B0B0B0");//内容颜色
+         	$(".topicLine").css({"height": "1px", "border-top":"1px solid #0e1929"});//分隔线颜色
+         	$(".line").css({"height": "1px", "border-top": "1px solid #0e1929"});//分隔线颜色
+         	$(".theLandlord").css("background","#005e91");//楼主背景颜色
+         	$(".theLandlord").css("color","#2e6b8a");//楼主字体颜色
+         	$(".best").css({"border":"1px solid #005e91","color":"#2e6b8a"});//精华描边颜色 和字体颜色
+         	$(".stock").css({"border":"1px solid #505050","color":"#2e6b8a","background":"#303030"});//赞股
+         	$(".stockCode").css("color","#48b3e5");//股票名字颜色
+         	
+         	//转发的说说
+    		$(".shuoTopicRef .firstLine .refUserName").css("color","#f39801");
+    		$(".shuoTopicRef .firstLine .refPostDate").css("color","#858585");
+    		$(".shuoTopicRef .secondLine").css("color","#B0B0B0");
+    		$(".shuoTopicRef").css({"border": "1px solid #0e1929","background-color":"#0e1929"});
+    	}
+    }
+    
+    //设置文字大小
+    function setTextSize(size){
+    	if(size=='L'){
+    		$("P").css("font-size", "20px"); 
+    	}else if(size=='M'){
+    		$("P").css("font-size", "16px"); 
+    	}else if(size=='S'){
+    		$("P").css("font-size", "14px"); 
+    	}
+    }
+</script>
+</html>
