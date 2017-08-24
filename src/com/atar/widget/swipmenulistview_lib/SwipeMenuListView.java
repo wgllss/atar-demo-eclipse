@@ -10,12 +10,6 @@ import android.view.animation.Interpolator;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-/**
- * 
- * @author baoyz
- * @date 2014-8-18
- * 
- */
 public class SwipeMenuListView extends ListView {
 
 	private static final int TOUCH_STATE_NONE = 0;
@@ -68,11 +62,9 @@ public class SwipeMenuListView extends ListView {
 			}
 
 			@Override
-			public void onItemClick(SwipeMenuView view, SwipeMenu menu,
-					int index) {
+			public void onItemClick(SwipeMenuView view, SwipeMenu menu, int index) {
 				if (mOnMenuItemClickListener != null) {
-					mOnMenuItemClickListener.onMenuItemClick(
-							view.getPosition(), menu, index);
+					mOnMenuItemClickListener.onMenuItemClick(view.getPosition(), menu, index);
 				}
 				if (mTouchView != null) {
 					mTouchView.smoothCloseMenu();
@@ -117,8 +109,7 @@ public class SwipeMenuListView extends ListView {
 
 			mTouchPosition = pointToPosition((int) ev.getX(), (int) ev.getY());
 
-			if (mTouchPosition == oldPos && mTouchView != null
-					&& mTouchView.isOpen()) {
+			if (mTouchPosition == oldPos && mTouchView != null && mTouchView.isOpen()) {
 				mTouchState = TOUCH_STATE_X;
 				mTouchView.onSwipe(ev);
 				return true;
@@ -182,8 +173,7 @@ public class SwipeMenuListView extends ListView {
 	}
 
 	public void smoothOpenMenu(int position) {
-		if (position >= getFirstVisiblePosition()
-				&& position <= getLastVisiblePosition()) {
+		if (position >= getFirstVisiblePosition() && position <= getLastVisiblePosition()) {
 			View view = getChildAt(position - getFirstVisiblePosition());
 			if (view instanceof SwipeMenuLayout) {
 				mTouchPosition = position;
@@ -197,16 +187,14 @@ public class SwipeMenuListView extends ListView {
 	}
 
 	private int dp2px(int dp) {
-		return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
-				getContext().getResources().getDisplayMetrics());
+		return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, getContext().getResources().getDisplayMetrics());
 	}
 
 	public void setMenuCreator(SwipeMenuCreator menuCreator) {
 		this.mMenuCreator = menuCreator;
 	}
 
-	public void setOnMenuItemClickListener(
-			OnMenuItemClickListener onMenuItemClickListener) {
+	public void setOnMenuItemClickListener(OnMenuItemClickListener onMenuItemClickListener) {
 		this.mOnMenuItemClickListener = onMenuItemClickListener;
 	}
 

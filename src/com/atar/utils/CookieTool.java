@@ -22,10 +22,10 @@ public class CookieTool {
 		// }
 		String userId = AppConfigSetting.getInstance().getUserId();
 		if (!"".equals(userId)) {
-			if (cookieName.equals("tgbuser")) {
+			if (cookieName.equals("atar_user")) {
 				sb.append(userId);
 			}
-			if (cookieName.equals("tgbpwd")) {
+			if (cookieName.equals("atar_pwd")) {
 				sb.append(AppConfigSetting.getInstance().getPassword());
 			}
 		}
@@ -54,8 +54,8 @@ public class CookieTool {
 		// }
 		cookieManager.setAcceptCookie(true);
 		cookieManager.setCookie(url, CookieTool.getCookieStr("JSESSIONID"));// cookies是在HttpClient中获得的cookie
-		cookieManager.setCookie(url, CookieTool.getCookieStr("tgbuser"));// cookies是在HttpClient中获得的cookie
-		cookieManager.setCookie(url, CookieTool.getCookieStr("tgbpwd"));// cookies是在HttpClient中获得的cookie
+		cookieManager.setCookie(url, CookieTool.getCookieStr("atar_user"));// cookies是在HttpClient中获得的cookie
+		cookieManager.setCookie(url, CookieTool.getCookieStr("atar_pwd"));// cookies是在HttpClient中获得的cookie
 		StringBuilder sb = new StringBuilder("token");
 		sb.append("=");
 		sb.append(AppConfigSetting.getInstance().getToken());
@@ -78,8 +78,8 @@ public class CookieTool {
 		CookieManager cookieManager = CookieManager.getInstance();
 		String strCookie = cookieManager.getCookie(url);
 		ShowLog.i(TAG, "strCookie---->" + strCookie);
-		String tgbuser = "";
-		String tgbpwd = "";
+		String atar_user = "";
+		String atar_pwd = "";
 		if (strCookie != null && strCookie.length() > 0) {
 			String[] cookies = strCookie.split(";");
 			if (cookies != null && cookies.length > 0) {
@@ -93,32 +93,32 @@ public class CookieTool {
 								ShowLog.i(TAG, "得到jsessionID---------->" + JSESSIONID);
 							}
 						}
-						if (cookies[i].contains("tgbuser")) {
+						if (cookies[i].contains("atar_user")) {
 							String[] valueName = cookies[i].split("=");
 							if (valueName != null && valueName.length > 1) {
-								tgbuser = valueName[1];
+								atar_user = valueName[1];
 							}
 						}
-						if (cookies[i].contains("tgbpwd")) {
+						if (cookies[i].contains("atar_pwd")) {
 							String[] valueName = cookies[i].split("=");
 							if (valueName != null && valueName.length > 1) {
-								tgbpwd = valueName[1];
+								atar_pwd = valueName[1];
 							}
 						}
 					}
 				}
 			}
 		}
-		if (tgbuser == null || tgbuser.length() == 0) {// 退出登陆了
+		if (atar_user == null || atar_user.length() == 0) {// 退出登陆了
 			// LoginTool.getInstance().loginOut(activity);
 		} else {
-			ShowLog.i(TAG, "得到tgbuser---------->" + tgbuser);
-			if (tgbuser != null && tgbuser.length() > 0) {
-				AppConfigSetting.getInstance().saveLoginUserId(tgbuser);
+			ShowLog.i(TAG, "得到atar_user---------->" + atar_user);
+			if (atar_user != null && atar_user.length() > 0) {
+				AppConfigSetting.getInstance().saveLoginUserId(atar_user);
 			}
-			ShowLog.i(TAG, "得到tgbpwd---------->" + tgbpwd);
-			if (tgbpwd != null && tgbpwd.length() > 0) {
-				AppConfigSetting.getInstance().saveLoginPassword(tgbpwd);
+			ShowLog.i(TAG, "得到atar_pwd---------->" + atar_pwd);
+			if (atar_pwd != null && atar_pwd.length() > 0) {
+				AppConfigSetting.getInstance().saveLoginPassword(atar_pwd);
 			}
 		}
 	}

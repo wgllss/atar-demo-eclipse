@@ -130,7 +130,7 @@ public class DownLoadActivity extends AtarRefreshScrollViewActivity {
 			DownLoadFileManager.getInstance().pauseDownload(5);
 			break;
 		case R.id.btn_down7:
-			new DownLoadUtil().downFile(this, "http://gdown.baidu.com/data/wisegame/6e220cc18d807060/shoujibaidu_38032640.apk", "title", "说明", "tgb", "baiduteiba.apk");
+			new DownLoadUtil().downFile(this, "http://gdown.baidu.com/data/wisegame/6e220cc18d807060/shoujibaidu_38032640.apk", "title", "说明", "atar_", "baiduteiba.apk");
 			break;
 		}
 	}

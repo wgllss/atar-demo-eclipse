@@ -6,10 +6,7 @@ package com.atar.activitys.demos;
 import java.util.List;
 
 import android.common.CommonHandler;
-import android.content.ComponentName;
-import android.content.Intent;
 import android.content.pm.ApplicationInfo;
-import android.content.pm.ResolveInfo;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Message;
@@ -36,36 +33,52 @@ import com.atar.widget.swipmenulistview_lib.SwipeMenuItem;
  * @description:
  *****************************************************************************************************************************************************************************
  */
-public class DemoRefreshSwipeMenuListViewActivity extends AtarRefreshSwipeMenuListViewActivity {
+public class DemoRefreshSwipeMenuListViewDiffActivity extends AtarRefreshSwipeMenuListViewActivity {
 	private List<ApplicationInfo> mAppList;
 	private AppAdapter mAdapter;
 
 	@Override
 	public void create(SwipeMenu menu) {
-		// create "open" item
-		SwipeMenuItem openItem = new SwipeMenuItem(getApplicationContext());
-		// set item background
-		openItem.setBackground(new ColorDrawable(Color.rgb(0xC9, 0xC9, 0xCE)));
-		// set item width
-		openItem.setWidth((int) ScreenUtils.dpToPx(DemoRefreshSwipeMenuListViewActivity.this, 90));
-		// set item title
-		openItem.setTitle("Open");
-		// set item title fontsize
-		openItem.setTitleSize(18);
-		// set item title font color
-		openItem.setTitleColor(Color.WHITE);
-		// add to menu
-		menu.addMenuItem(openItem);
-		// create "delete" item
-		SwipeMenuItem deleteItem = new SwipeMenuItem(getApplicationContext());
-		// set item background
-		deleteItem.setBackground(new ColorDrawable(Color.rgb(0xF9, 0x3F, 0x25)));
-		// set item width
-		deleteItem.setWidth((int) ScreenUtils.dpToPx(DemoRefreshSwipeMenuListViewActivity.this, 90));
-		// set a icon
-		deleteItem.setIcon(R.drawable.ic_delete);
-		// add to menu
-		menu.addMenuItem(deleteItem);
+		// Create different menus depending on the view type
+		switch (menu.getViewType()) {
+		case 0:
+			SwipeMenuItem item1 = new SwipeMenuItem(getApplicationContext());
+			item1.setBackground(new ColorDrawable(Color.rgb(0xE5, 0x18, 0x5E)));
+			item1.setWidth((int) ScreenUtils.dpToPx(this, 90));
+			item1.setIcon(R.drawable.ic_action_favorite);
+			menu.addMenuItem(item1);
+
+			SwipeMenuItem item2 = new SwipeMenuItem(getApplicationContext());
+			item2.setBackground(new ColorDrawable(Color.rgb(0xC9, 0xC9, 0xCE)));
+			item2.setWidth((int) ScreenUtils.dpToPx(this, 90));
+			item2.setIcon(R.drawable.ic_action_good);
+			menu.addMenuItem(item2);
+			break;
+		case 1:
+			SwipeMenuItem item3 = new SwipeMenuItem(getApplicationContext());
+			item3.setBackground(new ColorDrawable(Color.rgb(0xE5, 0xE0, 0x3F)));
+			item3.setWidth((int) ScreenUtils.dpToPx(this, 90));
+			item3.setIcon(R.drawable.ic_action_important);
+			menu.addMenuItem(item3);
+			SwipeMenuItem item4 = new SwipeMenuItem(getApplicationContext());
+			item4.setBackground(new ColorDrawable(Color.rgb(0xF9, 0x3F, 0x25)));
+			item4.setWidth((int) ScreenUtils.dpToPx(this, 90));
+			item4.setIcon(R.drawable.ic_action_discard);
+			menu.addMenuItem(item4);
+			break;
+		case 2:
+			SwipeMenuItem item5 = new SwipeMenuItem(getApplicationContext());
+			item5.setBackground(new ColorDrawable(Color.rgb(0x30, 0xB1, 0xF5)));
+			item5.setWidth((int) ScreenUtils.dpToPx(this, 90));
+			item5.setIcon(R.drawable.ic_action_about);
+			menu.addMenuItem(item5);
+			SwipeMenuItem item6 = new SwipeMenuItem(getApplicationContext());
+			item6.setBackground(new ColorDrawable(Color.rgb(0xC9, 0xC9, 0xCE)));
+			item6.setWidth((int) ScreenUtils.dpToPx(this, 90));
+			item6.setIcon(R.drawable.ic_action_share);
+			menu.addMenuItem(item6);
+			break;
+		}
 	}
 
 	@Override
@@ -74,10 +87,9 @@ public class DemoRefreshSwipeMenuListViewActivity extends AtarRefreshSwipeMenuLi
 		setActivityTitle(getIntent().getStringExtra(DemoRefreshActivity.TITLE_KEY));
 		mAppList = getPackageManager().getInstalledApplications(0);
 		mAdapter = new AppAdapter(mAppList);
-		setAdapter(mAdapter);
 		// set creator
 		getRefreshView().setMenuCreator(this);
-
+		setAdapter(mAdapter);
 		sendEmptyMessageDelayed(EnumMsgWhat.LOAD_FROM_SQL, 400);
 	}
 
@@ -117,11 +129,10 @@ public class DemoRefreshSwipeMenuListViewActivity extends AtarRefreshSwipeMenuLi
 
 	@Override
 	public void onMenuItemClick(int position, SwipeMenu menu, int index) {
-		ApplicationInfo item = mAppList.get(position);
+		// ApplicationInfo item = mAppList.get(position);
 		switch (index) {
 		case 0:
 			// open
-			open(item);
 			break;
 		case 1:
 			// delete
@@ -131,25 +142,4 @@ public class DemoRefreshSwipeMenuListViewActivity extends AtarRefreshSwipeMenuLi
 			break;
 		}
 	}
-
-	private void open(ApplicationInfo item) {
-		// open app
-		Intent resolveIntent = new Intent(Intent.ACTION_MAIN, null);
-		resolveIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-		resolveIntent.setPackage(item.packageName);
-		List<ResolveInfo> resolveInfoList = getPackageManager().queryIntentActivities(resolveIntent, 0);
-		if (resolveInfoList != null && resolveInfoList.size() > 0) {
-			ResolveInfo resolveInfo = resolveInfoList.get(0);
-			String activityPackageName = resolveInfo.activityInfo.packageName;
-			String className = resolveInfo.activityInfo.name;
-
-			Intent intent = new Intent(Intent.ACTION_MAIN);
-			intent.addCategory(Intent.CATEGORY_LAUNCHER);
-			ComponentName componentName = new ComponentName(activityPackageName, className);
-
-			intent.setComponent(componentName);
-			startActivity(intent);
-		}
-	}
-
 }

@@ -1,15 +1,8 @@
 package com.atar.widget.swipmenulistview_lib;
 
-
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 
-/**
- * 
- * @author baoyz
- * @date 2014-8-23
- * 
- */
 public class SwipeMenuItem {
 
 	private int id;

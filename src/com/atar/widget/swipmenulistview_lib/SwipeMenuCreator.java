@@ -1,12 +1,5 @@
 package com.atar.widget.swipmenulistview_lib;
 
-
-/**
- * 
- * @author baoyz
- * @date 2014-8-24
- *
- */
 public interface SwipeMenuCreator {
 
 	void create(SwipeMenu menu);

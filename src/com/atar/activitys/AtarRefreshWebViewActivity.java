@@ -26,22 +26,20 @@ import com.handmark.pulltorefresh.library.PullToRefreshWebView;
  */
 @SuppressLint("SetJavaScriptEnabled")
 public class AtarRefreshWebViewActivity extends AtarRefreshActivity<PullToRefreshWebView, WebView> {
-	/* 是否继承AtarWebViewActivity布局 */
-	protected boolean isExtendsAtarWebViewActivity = true;
 
 	@Override
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
-		if (isExtendsAtarWebViewActivity) {
-			addContentView(R.layout.common_refresh_webview);
-		}
+		addContentView(getResLayoutID());
+	}
+
+	protected int getResLayoutID() {
+		return R.layout.common_refresh_webview;
 	}
 
 	@Override
 	protected void initControl() {
-		if (isExtendsAtarWebViewActivity) {
-			setRefreshView((PullToRefreshWebView) findViewById(R.id.pull_refresh_webview));
-		}
+		setRefreshView((PullToRefreshWebView) findViewById(R.id.pull_refresh_webview));
 	}
 
 	@SuppressWarnings("deprecation")
@@ -59,5 +57,4 @@ public class AtarRefreshWebViewActivity extends AtarRefreshActivity<PullToRefres
 			getRefreshView().setWebViewClient(new ImplWebViewClient(this, this));
 		}
 	}
-
 }

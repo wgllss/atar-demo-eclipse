@@ -27,36 +27,20 @@ import com.handmark.pulltorefresh.library.PullToRefreshGridView;
  */
 public abstract class AtarRefreshGridActivity extends AtarRefreshActivity<PullToRefreshGridView, GridView> implements OnItemLongClickListener, OnItemClickListener {
 
-	protected boolean isExtendsRefreshGridView = true;
-
 	@Override
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
-		if (isExtendsRefreshGridView) {
-			addContentView(R.layout.common_refresh_gridview);
-		}
+		addContentView(getResLayoutID());
+	}
+
+	protected int getResLayoutID() {
+		return R.layout.common_refresh_gridview;
 	}
 
 	@Override
 	protected void initControl() {
-		if (isExtendsRefreshGridView) {
-			setRefreshView((PullToRefreshGridView) findViewById(R.id.pull_refresh_gridview));
-			setTextView((TextView) findViewById(R.id.txt_list_toast));
-		}
-	}
-
-	/**
-	 * 设置是否继承refreshListView;一定要super.onCreate(bundle)之前 默认继承
-	 * @author :Atar
-	 * @createTime:2014-7-9下午3:45:26
-	 * @version:1.0.0
-	 * @modifyTime:
-	 * @modifyAuthor:
-	 * @param isExtendsRefreshGridView 默认true
-	 * @description:
-	 */
-	protected void setExtendsRefreshGridView(boolean isExtendsRefreshGridView) {
-		this.isExtendsRefreshGridView = isExtendsRefreshGridView;
+		setRefreshView((PullToRefreshGridView) findViewById(R.id.pull_refresh_gridview));
+		setTextView((TextView) findViewById(R.id.txt_list_toast));
 	}
 
 	/**
