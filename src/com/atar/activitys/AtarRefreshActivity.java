@@ -10,12 +10,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.atar.common.CommonLoading;
-import com.atar.globe.GlobeSettings;
 import com.atar.widgets.refresh.DataDispose;
 import com.atar.widgets.refresh.OnHandlerDataListener;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
-import com.handmark.pulltorefresh.library.internal.DynamicLoadingLayout;
 
 /**
  *****************************************************************************************************************************************************************************

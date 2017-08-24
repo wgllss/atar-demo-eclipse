@@ -35,6 +35,18 @@ public class AppAdapter extends CommonAdapter<ApplicationInfo> {
 	}
 
 	@Override
+	public int getViewTypeCount() {
+		// menu type count
+		return 3;
+	}
+
+	@Override
+	public int getItemViewType(int position) {
+		// current menu type
+		return position % 3;
+	}
+
+	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if (convertView == null) {
 			convertView = View.inflate(parent.getContext(), R.layout.adapter_item_list_app, null);

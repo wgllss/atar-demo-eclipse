@@ -34,31 +34,22 @@ import com.atar.widgets.refresh.PullToRefreshDragSortListView;
 public abstract class AtarRefreshDragSortListViewActivity<T> extends AtarRefreshActivity<PullToRefreshDragSortListView, DragSortListView> implements DropListener, RemoveListener, OnRemoveingListener,
 		OnRemoveingDoingListener, OnItemClickListener, OnItemLongClickListener {
 
-	private boolean isAtarRefreshDragSortListViewActivity = true;
 	private CommonAdapter<T> adapter;
 	private boolean isRemoveEnable;
 
 	@Override
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
-		if (isAtarRefreshDragSortListViewActivity) {
-			addContentView(R.layout.common_refresh_dragsort_list);
-		}
+		addContentView(getResLayoutID());
+	}
+
+	protected int getResLayoutID() {
+		return R.layout.common_refresh_dragsort_list;
 	}
 
 	@Override
 	protected void initControl() {
-		if (isAtarRefreshDragSortListViewActivity) {
-			setRefreshView((PullToRefreshDragSortListView) findViewById(R.id.common_refresh_dragsort_lst));
-		}
-	}
-
-	@Override
-	protected void bindEvent() {
-		super.bindEvent();
-		if (isAtarRefreshDragSortListViewActivity) {
-
-		}
+		setRefreshView((PullToRefreshDragSortListView) findViewById(R.id.common_refresh_dragsort_lst));
 	}
 
 	/**
@@ -84,20 +75,6 @@ public abstract class AtarRefreshDragSortListViewActivity<T> extends AtarRefresh
 			getRefreshView().setAdapter(adapter);
 			listView = getRefreshView();
 		}
-	}
-
-	/**
-	 * 设置是否继承AtarRefreshDragSortListViewActivity内布局
-	 * @author :Atar
-	 * @createTime:2015-6-18下午3:01:14
-	 * @version:1.0.0
-	 * @modifyTime:
-	 * @modifyAuthor:
-	 * @param isAtarRefreshDragSortListViewActivity
-	 * @description:
-	 */
-	protected void setIsAtarRefreshDragSortListViewActivity(boolean isAtarRefreshDragSortListViewActivity) {
-		this.isAtarRefreshDragSortListViewActivity = isAtarRefreshDragSortListViewActivity;
 	}
 
 	/**

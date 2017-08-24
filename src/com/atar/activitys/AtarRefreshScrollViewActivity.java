@@ -28,24 +28,22 @@ import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
 public abstract class AtarRefreshScrollViewActivity extends AtarRefreshActivity<PullToRefreshScrollView, ScrollView> {
 
 	private static String TAG = AtarRefreshScrollViewActivity.class.getSimpleName();
-	/* 是否继承此控件 */
-	private boolean isExtendsRefreshScrollView = true;
 
 	@Override
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
-		if (isExtendsRefreshScrollView) {
-			addContentView(R.layout.common_refresh_srollview);
-		}
+		addContentView(getResLayoutID());
+	}
+
+	protected int getResLayoutID() {
+		return R.layout.common_refresh_srollview;
 	}
 
 	@Override
 	protected void initControl() {
-		if (isExtendsRefreshScrollView) {
-			setRefreshView((PullToRefreshScrollView) findViewById(R.id.atar_refresh_scrollview));
-			setTextView((TextView) findViewById(R.id.txt_list_toast));
-			setRefreshMode(Mode.PULL_FROM_START);
-		}
+		setRefreshView((PullToRefreshScrollView) findViewById(R.id.atar_refresh_scrollview));
+		setTextView((TextView) findViewById(R.id.txt_list_toast));
+		setRefreshMode(Mode.PULL_FROM_START);
 	}
 
 	/**
@@ -83,19 +81,4 @@ public abstract class AtarRefreshScrollViewActivity extends AtarRefreshActivity<
 	 * @description:findViewById(R.id.xxxx)
 	 */
 	protected abstract void initScrollControl();
-
-	/**
-	 * 设置是否继承刷新布局
-	 * @author :Atar
-	 * @createTime:2014-7-15下午3:55:29
-	 * @version:1.0.0
-	 * @modifyTime:
-	 * @modifyAuthor:
-	 * @param isExtendsRefreshScrollView
-	 * @description:
-	 */
-	public void setIsExtendsRefreshScrollView(boolean isExtendsRefreshScrollView) {
-		this.isExtendsRefreshScrollView = isExtendsRefreshScrollView;
-	}
-
 }

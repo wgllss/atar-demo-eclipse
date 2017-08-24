@@ -10,12 +10,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-/**
- * 
- * @author baoyz
- * @date 2014-8-23
- * 
- */
 public class SwipeMenuView extends LinearLayout implements OnClickListener {
 
 	private SwipeMenuListView mListView;
@@ -44,8 +38,7 @@ public class SwipeMenuView extends LinearLayout implements OnClickListener {
 	}
 
 	private void addItem(SwipeMenuItem item, int id) {
-		LayoutParams params = new LayoutParams(item.getWidth(),
-				LayoutParams.MATCH_PARENT);
+		LayoutParams params = new LayoutParams(item.getWidth(), LayoutParams.MATCH_PARENT);
 		LinearLayout parent = new LinearLayout(getContext());
 		parent.setId(id);
 		parent.setGravity(Gravity.CENTER);

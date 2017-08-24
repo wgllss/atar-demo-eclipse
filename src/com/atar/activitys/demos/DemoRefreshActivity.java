@@ -35,16 +35,18 @@ public class DemoRefreshActivity extends AtarRefreshListViewActivity {
 	@Override
 	protected void initValue() {
 		super.initValue();
-		setActivityTitle("demo主界面");
+		setActivityTitle("refresh主界面");
 		AppConfigSetting.getInstance().saveLoginUserId("15616915");
 		list.add(new MenuItemBean("0", "refresh-ListView", DemoRefreshListViewActivity.class.getName()));
 		list.add(new MenuItemBean("1", "refresh-GridView", DemoRefreshGridViewActivity.class.getName()));
-		list.add(new MenuItemBean("2", "refresh-ScrollView", DemoRefreshScrollViewActivity.class.getName()));
-		list.add(new MenuItemBean("3", "refresh-Webview", DemoRefreshWebViewActivity.class.getName()));
-		list.add(new MenuItemBean("4", "refresh-PinnedSectionListView", DemoRefreshPinnedSectionListViewActivity.class.getName()));
-		list.add(new MenuItemBean("5", "refresh-DragSortListView", DemoRefreshDragSortListViewActivity.class.getName()));
-		list.add(new MenuItemBean("6", "refresh-SwipeMenuList", DemoRefreshSwipeMenuListViewActivity.class.getName()));
-		// list.add(new MenuItemBean("4", "refresh-PinnedSectionListView", DemoRefreshPinnedSectionListViewActivity.class.getName()));
+		list.add(new MenuItemBean("2", "refresh-ExpandableListView", DemoRefreshExpandableListViewActivity.class.getName()));
+		list.add(new MenuItemBean("3", "refresh-ScrollView", DemoRefreshScrollViewActivity.class.getName()));
+		list.add(new MenuItemBean("4", "refresh-Webview", DemoRefreshWebViewActivity.class.getName()));
+		list.add(new MenuItemBean("5", "refresh-PinnedSectionListView", DemoRefreshPinnedSectionListViewActivity.class.getName()));
+		list.add(new MenuItemBean("6", "refresh-DragSortListView", DemoRefreshDragSortListViewActivity.class.getName()));
+		list.add(new MenuItemBean("7", "refresh-SwipeMenuList", DemoRefreshSwipeMenuListViewActivity.class.getName()));
+		list.add(new MenuItemBean("8", "refresh-SwipeMenuList-diff-icon", DemoRefreshSwipeMenuListViewDiffActivity.class.getName()));
+
 		// list.add(new MenuItemBean("4", "refresh-PinnedSectionListView", DemoRefreshPinnedSectionListViewActivity.class.getName()));
 		// list.add(new MenuItemBean("4", "refresh-PinnedSectionListView", DemoRefreshPinnedSectionListViewActivity.class.getName()));
 		// mMainDemoAdapter.notifyDataSetChanged();

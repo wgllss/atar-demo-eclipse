@@ -28,22 +28,21 @@ import com.handmark.pulltorefresh.library.PullToRefreshPinnedSectionListView;
  */
 @SuppressLint("Recycle")
 public abstract class AtarRefreshPinnedSectionListViewActivity extends AtarRefreshActivity<PullToRefreshPinnedSectionListView, ListView> implements OnItemLongClickListener, OnItemClickListener {
-	private boolean isExtendsRefreshPinnedSectionListView = true;
 
 	@Override
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
-		if (isExtendsRefreshPinnedSectionListView) {
-			addContentView(R.layout.common_refresh_section_listveiw);
-		}
+		addContentView(getResLayoutID());
+	}
+
+	protected int getResLayoutID() {
+		return R.layout.common_refresh_section_listveiw;
 	}
 
 	@Override
 	protected void initControl() {
-		if (isExtendsRefreshPinnedSectionListView) {
-			setTextView((TextView) findViewById(R.id.txt_list_toast));
-			setRefreshView((PullToRefreshPinnedSectionListView) findViewById(R.id.common_refresh_section_list));
-		}
+		setTextView((TextView) findViewById(R.id.txt_list_toast));
+		setRefreshView((PullToRefreshPinnedSectionListView) findViewById(R.id.common_refresh_section_list));
 	}
 
 	/**
@@ -63,20 +62,6 @@ public abstract class AtarRefreshPinnedSectionListViewActivity extends AtarRefre
 			getRefreshView().setAdapter(adapter);
 			listView = getRefreshView();
 		}
-	}
-
-	/**
-	 * 是否继承本类布局
-	 * @author :Atar
-	 * @createTime:2015-6-8下午2:50:12
-	 * @version:1.0.0
-	 * @modifyTime:
-	 * @modifyAuthor:
-	 * @param isExtendsRefreshPinnedSectionListView
-	 * @description:
-	 */
-	public void setIsExtendsRefreshPinnedSectionListView(boolean isExtendsRefreshPinnedSectionListView) {
-		this.isExtendsRefreshPinnedSectionListView = isExtendsRefreshPinnedSectionListView;
 	}
 
 	@Override

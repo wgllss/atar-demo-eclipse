@@ -10,7 +10,11 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.atar.widget.swipmenulistview_lib.SwipeMenuCreator;
 import com.atar.widget.swipmenulistview_lib.SwipeMenuListView;
+import com.atar.widget.swipmenulistview_lib.SwipeMenuListView.OnMenuItemClickListener;
+import com.atar.widget.swipmenulistview_lib.SwipeMenuListView.OnSwipeListener;
 import com.atar.widgets.refresh.PullToRefreshSwipeMenuListView;
 
 /**
@@ -24,7 +28,8 @@ import com.atar.widgets.refresh.PullToRefreshSwipeMenuListView;
  * @description:
  *****************************************************************************************************************************************************************************
  */
-public class AtarRefreshSwipeMenuListViewActivity extends AtarRefreshActivity<PullToRefreshSwipeMenuListView, SwipeMenuListView> implements OnItemLongClickListener, OnItemClickListener {
+public abstract class AtarRefreshSwipeMenuListViewActivity extends AtarRefreshActivity<PullToRefreshSwipeMenuListView, SwipeMenuListView> implements OnItemLongClickListener, OnItemClickListener,
+		SwipeMenuCreator, OnMenuItemClickListener, OnSwipeListener {
 
 	@Override
 	protected void onCreate(Bundle bundle) {
@@ -58,6 +63,8 @@ public class AtarRefreshSwipeMenuListViewActivity extends AtarRefreshActivity<Pu
 			getRefreshView().setAdapter(adapter);
 			getRefreshView().setOnItemLongClickListener(this);
 			getRefreshView().setOnItemClickListener(this);
+			getRefreshView().setOnMenuItemClickListener(this);
+			getRefreshView().setOnSwipeListener(this);
 			listView = getRefreshView();
 		}
 	}
@@ -69,6 +76,16 @@ public class AtarRefreshSwipeMenuListViewActivity extends AtarRefreshActivity<Pu
 	@Override
 	public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		return false;
+	}
+
+	@Override
+	public void onSwipeStart(int position) {
+		// swipe start
+	}
+
+	@Override
+	public void onSwipeEnd(int position) {
+		// swipe end
 	}
 
 	@Override

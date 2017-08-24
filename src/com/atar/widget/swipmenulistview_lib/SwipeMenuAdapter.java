@@ -12,15 +12,7 @@ import android.widget.WrapperListAdapter;
 import com.atar.widget.swipmenulistview_lib.SwipeMenuListView.OnMenuItemClickListener;
 import com.atar.widget.swipmenulistview_lib.SwipeMenuView.OnSwipeItemClickListener;
 
-
-/**
- * 
- * @author baoyz
- * @date 2014-8-24
- * 
- */
-public class SwipeMenuAdapter implements WrapperListAdapter,
-		OnSwipeItemClickListener {
+public class SwipeMenuAdapter implements WrapperListAdapter, OnSwipeItemClickListener {
 
 	private ListAdapter mAdapter;
 	private Context mContext;
@@ -54,20 +46,16 @@ public class SwipeMenuAdapter implements WrapperListAdapter,
 			SwipeMenu menu = new SwipeMenu(mContext);
 			menu.setViewType(mAdapter.getItemViewType(position));
 			createMenu(menu);
-			SwipeMenuView menuView = new SwipeMenuView(menu,
-					(SwipeMenuListView) parent);
+			SwipeMenuView menuView = new SwipeMenuView(menu, (SwipeMenuListView) parent);
 			menuView.setOnSwipeItemClickListener(this);
 			SwipeMenuListView listView = (SwipeMenuListView) parent;
-			layout = new SwipeMenuLayout(contentView, menuView,
-					listView.getCloseInterpolator(),
-					listView.getOpenInterpolator());
+			layout = new SwipeMenuLayout(contentView, menuView, listView.getCloseInterpolator(), listView.getOpenInterpolator());
 			layout.setPosition(position);
 		} else {
 			layout = (SwipeMenuLayout) convertView;
 			layout.closeMenu();
 			layout.setPosition(position);
-			View view = mAdapter.getView(position, layout.getContentView(),
-					parent);
+			View view = mAdapter.getView(position, layout.getContentView(), parent);
 		}
 		return layout;
 	}
@@ -90,13 +78,11 @@ public class SwipeMenuAdapter implements WrapperListAdapter,
 	@Override
 	public void onItemClick(SwipeMenuView view, SwipeMenu menu, int index) {
 		if (onMenuItemClickListener != null) {
-			onMenuItemClickListener.onMenuItemClick(view.getPosition(), menu,
-					index);
+			onMenuItemClickListener.onMenuItemClick(view.getPosition(), menu, index);
 		}
 	}
 
-	public void setOnMenuItemClickListener(
-			OnMenuItemClickListener onMenuItemClickListener) {
+	public void setOnMenuItemClickListener(OnMenuItemClickListener onMenuItemClickListener) {
 		this.onMenuItemClickListener = onMenuItemClickListener;
 	}
 
