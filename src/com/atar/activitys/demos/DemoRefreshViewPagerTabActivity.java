@@ -4,6 +4,8 @@
 package com.atar.activitys.demos;
 
 import android.widget.RelativeLayout;
+import android.widget.ScrollableHelper.ScrollableContainer;
+import android.widget.ScrollableLayout;
 
 import com.atar.activitys.AtarCommonTabActivity;
 import com.atar.activitys.R;
@@ -13,19 +15,32 @@ import com.atar.fragment.demos.WonderTopicFragment;
  *****************************************************************************************************************************************************************************
  * 
  * @author :Atar
- * @createTime:2017-8-10下午5:12:28
+ * @createTime:2017-8-24上午10:17:46
  * @version:1.0.0
  * @modifyTime:
  * @modifyAuthor:
  * @description:
  *****************************************************************************************************************************************************************************
  */
-public class ViewPagerDemoActivity extends AtarCommonTabActivity<RelativeLayout> {
+public class DemoRefreshViewPagerTabActivity extends AtarCommonTabActivity<RelativeLayout> {
 	private int[] txtTabResID = { R.string.txt_week_contest, R.string.txt_month_contest, R.string.txt_history_contest };
+
+	private ScrollableLayout mScrollLayout;
+
+	protected int getResLayoutID() {
+		return R.layout.activity_demo_refresh_viewpager;
+	}
+
+	@Override
+	protected void initControl() {
+		super.initControl();
+		mScrollLayout = (ScrollableLayout) findViewById(R.id.scrollableLayout);
+	}
 
 	@Override
 	protected void initValue() {
 		super.initValue();
+		setActivityTitle(getIntent().getStringExtra(DemoRefreshActivity.TITLE_KEY));
 		setTextTab(txtTabResID, false, true);
 		setActivityTitle("比赛");
 		setOnDrawerBackEnabled(false);
@@ -36,5 +51,15 @@ public class ViewPagerDemoActivity extends AtarCommonTabActivity<RelativeLayout>
 		addFragmentToList(WonderTopicFragment.newInstance());
 		addFragmentToList(WonderTopicFragment.newInstance());
 		setViewPagerAdapter();
+
+		mScrollLayout.getHelper().setCurrentScrollableContainer((ScrollableContainer) getFragmentList().get(0));
+	}
+
+	@Override
+	public void onPageSelected(int position) {
+		if (mScrollLayout != null) {
+			mScrollLayout.getHelper().setCurrentScrollableContainer(((ScrollableContainer) getFragmentList().get(position)));
+		}
+		setOnDrawerBackEnabled(position == 0);
 	}
 }

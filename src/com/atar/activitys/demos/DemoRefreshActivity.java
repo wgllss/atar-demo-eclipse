@@ -48,7 +48,9 @@ public class DemoRefreshActivity extends AtarRefreshListViewActivity {
 		list.add(new MenuItemBean("8", "refresh-SwipeMenuList-diff-icon", DemoRefreshSwipeMenuListViewDiffActivity.class.getName()));
 		list.add(new MenuItemBean("9", "refresh-QuickReturnListView", DemoRefreshQuickReturnListViewActivity.class.getName()));
 		list.add(new MenuItemBean("10", "refresh-TitleBarListView", DemoRefreshTitleBarActivity.class.getName()));
-		// list.add(new MenuItemBean("11", "refresh-SingleListView", SingleListViewActivity.class.getName()));
+		list.add(new MenuItemBean("11", "refresh-ViewPagerTab", DemoRefreshViewPagerTabActivity.class.getName()));
+		list.add(new MenuItemBean("12", "refresh-ViewPagerTabTop", DemoRefreshViewPagerTabTopActivity.class.getName()));
+
 		// mMainDemoAdapter.notifyDataSetChanged();
 		setAdapter(mMainDemoAdapter);
 	}

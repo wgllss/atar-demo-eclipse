@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollableHelper.ScrollableContainer;
 import android.widget.TextView;
 
 import com.atar.activitys.R;
@@ -49,7 +50,7 @@ import com.google.gson.reflect.TypeToken;
  *****************************************************************************************************************************************************************************
  */
 @SuppressLint("InflateParams")
-public class WonderTopicFragment extends AtarRefreshListFragment implements OnPageChangeListener, OnADItemClickListener {
+public class WonderTopicFragment extends AtarRefreshListFragment implements OnPageChangeListener, OnADItemClickListener, ScrollableContainer {
 
 	private String whichPage = WonderTopicFragment.class.getSimpleName();
 
@@ -329,5 +330,11 @@ public class WonderTopicFragment extends AtarRefreshListFragment implements OnPa
 		// if (mWonderfulTopicAdapter != null) {
 		// mWonderfulTopicAdapter.setSkinType(skinType);
 		// }
+	}
+
+	@Override
+	public View getScrollableView() {
+		
+		return getRefreshView();
 	}
 }

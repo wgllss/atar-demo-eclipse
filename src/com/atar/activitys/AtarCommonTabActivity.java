@@ -34,42 +34,25 @@ import com.atar.interfaces.OnTabInterface;
  */
 @SuppressLint("Recycle")
 public abstract class AtarCommonTabActivity<V extends ViewGroup> extends AtarDropTitleBarActivity implements OnTabInterface<V, CommonActivity> {
-	/** 默认不继承此类 */
-	private boolean isExtendsAtarCommonTab;
 	protected ImplOnTabInterface<V, CommonActivity> mImplOnTabInterface;
 
 	@Override
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
-		if (isExtendsAtarCommonTab) {
-			addContentView(R.layout.common_tab_viewpager);
+		if (getResLayoutID() > 0) {
+			addContentView(getResLayoutID());
 		}
 	}
 
-	@Override
-	public void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
+	protected int getResLayoutID() {
+		return R.layout.common_tab_viewpager;
 	}
 
 	@Override
 	protected void initControl() {
-		if (isExtendsAtarCommonTab && mImplOnTabInterface == null) {
+		if (mImplOnTabInterface == null) {
 			setTabUI((ViewPager) findViewById(R.id.view_pager), (FrameLayout) findViewById(R.id.frame_move), (LinearLayout) findViewById(R.id.linear_tab_bar), findViewById(R.id.view_move));
 		}
-	}
-
-	/**
-	 * 设置是否继承公共标签tab的activity 在super.onCreate(bundle)之前调用
-	 * @author :Atar
-	 * @createTime:2014-7-17下午4:50:33
-	 * @version:1.0.0
-	 * @modifyTime:
-	 * @modifyAuthor:
-	 * @param isExtendsAtarCommonFiveTab
-	 * @description:
-	 */
-	public void setIsExtendsAtarCommonTab(boolean isExtendsAtarCommonTab) {
-		this.isExtendsAtarCommonTab = isExtendsAtarCommonTab;
 	}
 
 	/**
@@ -196,9 +179,7 @@ public abstract class AtarCommonTabActivity<V extends ViewGroup> extends AtarDro
 	@Override
 	public void ChangeSkin(int skinType) {
 		super.ChangeSkin(skinType);
-		if (isExtendsAtarCommonTab) {
-			setChangeTabSkin(skinType);
-		}
+		setChangeTabSkin(skinType);
 		try {
 			for (Fragment fragment : getFragmentList()) {
 				if (fragment instanceof CommonFragment) {

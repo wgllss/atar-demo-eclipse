@@ -25,7 +25,7 @@ import com.atar.widgets.PagerSlidingTabStrip;
 
 /**
  *****************************************************************************************************************************************************************************
- * 淘股吧 动态fragment配置activity
+ * 动态fragment配置activity
  * @author :Atar
  * @createTime:2017-7-24下午5:30:13
  * @version:1.0.0
@@ -35,7 +35,7 @@ import com.atar.widgets.PagerSlidingTabStrip;
  *****************************************************************************************************************************************************************************
  */
 public class AtarCommonWebViewPagerActivity extends AtarDropTitleBarActivity implements OnPageChangeListener {
-	private boolean isExtendsTaogubaCommonWebViewPagerActivity;
+	private boolean isExtendsAtarCommonWebViewPagerActivity = true;
 
 	protected List<TabMenuItemBean> listMenu = new ArrayList<TabMenuItemBean>();
 	protected MenuAdapter mMenuAdapter = new MenuAdapter(listMenu);
@@ -47,14 +47,14 @@ public class AtarCommonWebViewPagerActivity extends AtarDropTitleBarActivity imp
 	@Override
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
-		if (isExtendsTaogubaCommonWebViewPagerActivity) {
+		if (isExtendsAtarCommonWebViewPagerActivity) {
 			addContentView(R.layout.activity_webview_pager);
 		}
 	}
 
 	@Override
 	protected void initControl() {
-		if (isExtendsTaogubaCommonWebViewPagerActivity) {
+		if (isExtendsAtarCommonWebViewPagerActivity) {
 			tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
 			mViewPager = (ViewPager) findViewById(R.id.view_pager);
 		}
@@ -69,7 +69,7 @@ public class AtarCommonWebViewPagerActivity extends AtarDropTitleBarActivity imp
 			}
 		}
 		try {
-			// ((TaogubaDynamicFragment) getFragmentList().get(getCurrentItem())).loadWebViewUrl("javascript:onPageSelected('" + arg0 + "')");
+			// ((AtarDynamicFragment) getFragmentList().get(getCurrentItem())).loadWebViewUrl("javascript:onPageSelected('" + arg0 + "')");
 		} catch (Exception e) {
 		}
 	}
@@ -82,8 +82,8 @@ public class AtarCommonWebViewPagerActivity extends AtarDropTitleBarActivity imp
 	public void onPageScrolled(int arg0, float arg1, int arg2) {
 	}
 
-	public void setExtendsTaogubaCommonWebViewPagerActivity(boolean isExtendsTaogubaCommonWebViewPagerActivity) {
-		this.isExtendsTaogubaCommonWebViewPagerActivity = isExtendsTaogubaCommonWebViewPagerActivity;
+	public void setExtendsAtarCommonWebViewPagerActivity(boolean isExtendsAtarCommonWebViewPagerActivity) {
+		this.isExtendsAtarCommonWebViewPagerActivity = isExtendsAtarCommonWebViewPagerActivity;
 	}
 
 	protected void setViewPagerAdapter() {
@@ -176,7 +176,7 @@ public class AtarCommonWebViewPagerActivity extends AtarDropTitleBarActivity imp
 			String url = mTabMenuItemBean.getOnClickInfo().getClassName();
 			if (url != null && url.length() > 0 && url.contains("assets/html") && !url.contains("http")) {
 				url = WeexUtils.WEEX_HOST + url;
-				// mFragmentList.add(TaogubaDynamicFragment.newInstance(mTabMenuItemBean.getOnClickInfo().getOptionJson(), mTabMenuItemBean.getOnClickInfo().getPULL_TO_REFRESH_MODE(), url));
+				// mFragmentList.add(AtarDynamicFragment.newInstance(mTabMenuItemBean.getOnClickInfo().getOptionJson(), mTabMenuItemBean.getOnClickInfo().getPULL_TO_REFRESH_MODE(), url));
 			}
 		}
 	}
