@@ -30,7 +30,9 @@ public class AtarRefreshListViewActivity extends AtarRefreshActivity<PullToRefre
 	@Override
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
-		addContentView(getResLayoutID());
+		if (getResLayoutID() > 0) {
+			addContentView(getResLayoutID());
+		}
 	}
 
 	protected int getResLayoutID() {

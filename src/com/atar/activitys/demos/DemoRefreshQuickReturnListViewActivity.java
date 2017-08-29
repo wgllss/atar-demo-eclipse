@@ -8,8 +8,11 @@ import java.util.List;
 
 import android.common.CommonHandler;
 import android.os.Message;
+import android.utils.QuickRturnListViewUtil;
+import android.widget.TextView;
 
-import com.atar.activitys.AtarRefreshGridActivity;
+import com.atar.activitys.AtarRefreshListViewActivity;
+import com.atar.activitys.R;
 import com.atar.adapters.MainDemoAdapter;
 import com.atar.beans.MenuItemBean;
 import com.atar.enums.EnumMsgWhat;
@@ -25,24 +28,45 @@ import com.atar.enums.EnumMsgWhat;
  * @description:
  *****************************************************************************************************************************************************************************
  */
-public class DemoRefreshQuickReturnListViewActivity extends AtarRefreshGridActivity {
+public class DemoRefreshQuickReturnListViewActivity extends AtarRefreshListViewActivity {
 	private List<MenuItemBean> list = new ArrayList<MenuItemBean>();
 	private MainDemoAdapter mMainDemoAdapter = new MainDemoAdapter(list);
+	private TextView mQuickReturnView;
+
+	private QuickRturnListViewUtil mQuickRturnListViewUtil;
+
+	@Override
+	protected int getResLayoutID() {
+		return R.layout.activity_quickreturn_buttom;
+	}
+
+	@Override
+	protected void applyScrollListener() {
+		if (listView != null && mQuickRturnListViewUtil != null) {
+			listView.setOnScrollListener(mQuickRturnListViewUtil.getImplOnScrollListener());
+		}
+	}
+
+	@Override
+	protected void initControl() {
+		super.initControl();
+		mQuickReturnView = (TextView) findViewById(R.id.footer);
+	}
 
 	@Override
 	protected void initValue() {
 		super.initValue();
 		setActivityTitle(getIntent().getStringExtra(DemoRefreshActivity.TITLE_KEY));
-		for (int i = 0; i < 20; i++) {
-			list.add(new MenuItemBean("0", "refresh-ListView"));
-			list.add(new MenuItemBean("1", "refresh-GridView"));
-			list.add(new MenuItemBean("2", "refresh-ScrollView"));
-			list.add(new MenuItemBean("3", "refresh-Webview"));
-			list.add(new MenuItemBean("4", "refresh-PinnedSectionListView"));
+		for (int i = 0; i < 50; i++) {
+			list.add(new MenuItemBean("0", "refresh-item-" + i));
 		}
 		mMainDemoAdapter.notifyDataSetChanged();
 		setAdapter(mMainDemoAdapter);
-		getRefreshView().setNumColumns(2);
+
+		mQuickRturnListViewUtil = new QuickRturnListViewUtil(QuickRturnListViewUtil.BUTTOM, false, getRefreshView());
+		mQuickRturnListViewUtil.setPauseOnScrollListenerParams(imageLoader, pauseOnScroll, pauseOnFling);
+		mQuickRturnListViewUtil.setQuickReturnEvent(mQuickReturnView, null);
+
 		sendEmptyMessageDelayed(EnumMsgWhat.LOAD_FROM_SQL, 400);
 	}
 

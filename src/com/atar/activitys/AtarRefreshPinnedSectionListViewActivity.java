@@ -75,7 +75,7 @@ public abstract class AtarRefreshPinnedSectionListViewActivity extends AtarRefre
 
 	@Override
 	protected void setRefreshSkin(int skinType) {
-		super.setRefreshSkin(skinType);
+		// super.setRefreshSkin(skinType);
 		if (getPullView() != null) {
 			// if (getPullView().getHeaderLoadingView() != null) {
 			// getPullView().getHeaderLoadingView().setRefreshingDrawable(GlobeSettings.refreshImg[skinType]);

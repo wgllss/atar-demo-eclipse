@@ -83,6 +83,15 @@
             android:name="com.atar.activitys.demos.DemoRefreshExpandableListViewActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.atar.activitys.demos.DemoRefreshQuickReturnListViewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.atar.activitys.demos.DemoRefreshTitleBarActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        
         <!-- 阿里热修复 start -->
 
 
