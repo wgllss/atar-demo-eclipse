@@ -99,6 +99,10 @@
             android:name="com.atar.activitys.demos.DemoRefreshViewPagerTabTopActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.atar.activitys.demos.DemoRefreshInFragmentActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <!-- 阿里热修复 start -->
 

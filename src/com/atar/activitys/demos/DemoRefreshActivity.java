@@ -50,6 +50,7 @@ public class DemoRefreshActivity extends AtarRefreshListViewActivity {
 		list.add(new MenuItemBean("10", "refresh-TitleBarListView", DemoRefreshTitleBarActivity.class.getName()));
 		list.add(new MenuItemBean("11", "refresh-ViewPagerTab", DemoRefreshViewPagerTabActivity.class.getName()));
 		list.add(new MenuItemBean("12", "refresh-ViewPagerTabTop", DemoRefreshViewPagerTabTopActivity.class.getName()));
+		list.add(new MenuItemBean("12", "refresh-In-Fragment", DemoRefreshInFragmentActivity.class.getName()));
 
 		// mMainDemoAdapter.notifyDataSetChanged();
 		setAdapter(mMainDemoAdapter);

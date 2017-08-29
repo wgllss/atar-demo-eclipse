@@ -3,16 +3,11 @@
  */
 package com.atar.fragments;
 
-import android.activity.CommonActivity;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -31,7 +26,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshPinnedSectionListView;
  *****************************************************************************************************************************************************************************
  */
 @SuppressLint("Recycle")
-public abstract class AtarRefreshSectionListViewFragment extends AtarRefreshFragment<PullToRefreshPinnedSectionListView, ListView> implements OnItemClickListener, OnItemLongClickListener {
+public abstract class AtarRefreshSectionListViewFragment extends AratRefreshAbsListViewFragment<PullToRefreshPinnedSectionListView, ListView> {
 	protected View view;
 
 	@Override
@@ -48,23 +43,5 @@ public abstract class AtarRefreshSectionListViewFragment extends AtarRefreshFrag
 			}
 		}
 		return view;
-	}
-
-	public void setAdapter(BaseAdapter adapter) {
-		if (getActivity() != null && getRefreshView() != null) {
-			((CommonActivity) getActivity()).listView = getRefreshView();
-			getRefreshView().setOnItemClickListener(this);
-			getRefreshView().setOnItemLongClickListener(this);
-			getRefreshView().setAdapter(adapter);
-		}
-	}
-
-	@Override
-	public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		return false;
-	}
-
-	@Override
-	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 	}
 }

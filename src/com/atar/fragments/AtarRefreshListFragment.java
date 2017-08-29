@@ -1,15 +1,10 @@
 package com.atar.fragments;
 
-import android.activity.CommonActivity;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -28,7 +23,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
  *****************************************************************************************************************************************************************************
  */
 @SuppressLint({ "HandlerLeak", "Recycle" })
-public abstract class AtarRefreshListFragment extends AtarRefreshFragment<PullToRefreshListView, ListView> implements OnItemLongClickListener, OnItemClickListener {
+public abstract class AtarRefreshListFragment extends AratRefreshAbsListViewFragment<PullToRefreshListView, ListView> {
 	protected View view;
 
 	@Override
@@ -45,30 +40,5 @@ public abstract class AtarRefreshListFragment extends AtarRefreshFragment<PullTo
 			}
 		}
 		return view;
-	}
-
-	public void setAdapter(BaseAdapter adapter) {
-		if (getActivity() != null && getRefreshView() != null) {
-			((CommonActivity) getActivity()).listView = getRefreshView();
-			getRefreshView().setOnItemClickListener(this);
-			getRefreshView().setOnItemLongClickListener(this);
-			getRefreshView().setAdapter(adapter);
-		}
-	}
-
-	@Override
-	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-	}
-
-	@Override
-	public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-		return false;
-	}
-
-	@Override
-	public void OnChangeSkin(int skinType) {
-		super.OnChangeSkin(skinType);
-		// LoadUtil.setDivider(getActivity(), getRefreshView(), skinType);
-		// LoadUtil.setBackgroundColor(getActivity(), getPullView(), R.array.more_white_black_bg, skinType);
 	}
 }

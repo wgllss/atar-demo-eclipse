@@ -34,7 +34,9 @@ public abstract class AtarRefreshSwipeMenuListViewActivity extends AtarRefreshAc
 	@Override
 	protected void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
-		addContentView(getResLayoutID());
+		if (getResLayoutID() > 0) {
+			addContentView(getResLayoutID());
+		}
 	}
 
 	protected int getResLayoutID() {

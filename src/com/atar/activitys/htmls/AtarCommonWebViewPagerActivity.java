@@ -155,7 +155,7 @@ public class AtarCommonWebViewPagerActivity extends AtarDropTitleBarActivity imp
 			}
 			tabs.setAdapter(mMenuAdapter, mHtmlsViewPagerJson.isShowDividerLine());
 			tabs.setViewPager(mViewPager);
-			mViewPager.setOffscreenPageLimit(getFragmentList().size() > 5 ? 5 : getFragmentList().size());
+			mViewPager.setOffscreenPageLimit(getFragmentList().size());
 			tabs.setOnPageChangeListener(this);
 			setCurrentItem(0, true);
 		}
