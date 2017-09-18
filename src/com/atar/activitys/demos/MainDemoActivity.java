@@ -156,6 +156,7 @@ public class MainDemoActivity extends AtarRefreshListViewActivity {
 					((CommonActivity) activity).loadSkin(skinType);
 				}
 			}
+			mMainDemoAdapter.notifyDataSetChanged();
 			break;
 		}
 	}

@@ -9,9 +9,6 @@
         android:id="@+id/refresh_quick_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        ptr:ptrAnimationStyle="flip"
-      
-        ptr:ptrHeaderTextColor="#000000"
-        ptr:ptrHeaderSubTextColor="#000000" />
+        ptr:ptrAnimationStyle="flip" />
 
 </LinearLayout>

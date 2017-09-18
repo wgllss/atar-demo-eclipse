@@ -159,7 +159,7 @@ public class DemoRefreshTitleBarActivity extends AtarRefreshListViewActivity {
 			AlphaAnimation inAlphaAnimation = new AlphaAnimation(fraction, 1f);
 			topTitleBarBg.setAnimation(inAlphaAnimation);
 		}
-		topTitleBarBg.setBackgroundColor(ColorUtil.getNewColorByStartEndColor(this, fraction, R.color.transparent0, R.color.common_top_title_bar_bg_day));
+//		topTitleBarBg.setBackgroundColor(ColorUtil.getNewColorByStartEndColor(this, fraction, R.color.transparent0, R.color.common_top_title_bar_bg_day));
 	}
 
 	public class ImplOnScrollListener extends PauseOnScrollListener {
@@ -180,9 +180,9 @@ public class DemoRefreshTitleBarActivity extends AtarRefreshListViewActivity {
 			}
 			Log.i("SingleListViewActivity", "headerViewTopSpace:-->" + headerViewTopSpace + "--headerViewHeight-->" + headerViewHeight + "--firstVisibleItem-->" + firstVisibleItem);
 			if (ScrollableHelper.isAdapterViewTop(view)) {
-				topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.transparent0));
+				//topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.transparent0));
 			} else {
-				topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.common_top_title_bar_bg_day));
+				//topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.common_top_title_bar_bg_day));
 			}
 			handleTitleBarColorEvaluate(firstVisibleItem);
 		}
@@ -198,33 +198,33 @@ public class DemoRefreshTitleBarActivity extends AtarRefreshListViewActivity {
 			// if (getPullView().getFooterLoadingView() != null) {
 			// getPullView().getFooterLoadingView().setRefreshingDrawable(GlobeSettings.refreshImg[skinType]);
 			// }
-			if (getPullView().getHeaderLoadingView() != null) {
-				getPullView().getHeaderLoadingView().setHeaderTextColor(getResources().getColor(R.color.black));
-			}
-			if (getPullView().getFooterLoadingView() != null) {
-				getPullView().getFooterLoadingView().setHeaderTextColor(getResources().getColor(R.color.black));
-			}
-			if (getPullView().getHeaderLoadingView() != null) {
-				getPullView().getHeaderLoadingView().setSubHeaderTextColor(getResources().getColor(R.color.black));
-			}
-			if (getPullView().getFooterLoadingView() != null) {
-				getPullView().getFooterLoadingView().setSubHeaderTextColor(getResources().getColor(R.color.black));
-			}
-			if (getPullView().getHeaderLoadingView() != null) {
-				getPullView().getHeaderLoadingView().setRefreshBgColor(getResources().getColor(R.color.white));
-			}
-			if (getPullView().getFooterLoadingView() != null) {
-				getPullView().getFooterLoadingView().setRefreshBgColor(getResources().getColor(R.color.white));
-			}
-			if (getPullView().getHeaderLayout() != null) {
-				getPullView().getHeaderLayout().setBackgroundColor(getResources().getColor(R.color.white));
-			}
-			if (getPullView().getFooterLayout() != null) {
-				getPullView().getFooterLayout().setBackgroundColor(getResources().getColor(R.color.white));
-			}
-			if (getRefreshView() != null) {
-				getRefreshView().setBackgroundColor(getResources().getColor(R.color.white));
-			}
+			// if (getPullView().getHeaderLoadingView() != null) {
+			// getPullView().getHeaderLoadingView().setHeaderTextColor(getResources().getColor(R.color.black));
+			// }
+			// if (getPullView().getFooterLoadingView() != null) {
+			// getPullView().getFooterLoadingView().setHeaderTextColor(getResources().getColor(R.color.black));
+			// }
+			// if (getPullView().getHeaderLoadingView() != null) {
+			// getPullView().getHeaderLoadingView().setSubHeaderTextColor(getResources().getColor(R.color.black));
+			// }
+			// if (getPullView().getFooterLoadingView() != null) {
+			// getPullView().getFooterLoadingView().setSubHeaderTextColor(getResources().getColor(R.color.black));
+			// }
+			// if (getPullView().getHeaderLoadingView() != null) {
+			// getPullView().getHeaderLoadingView().setRefreshBgColor(getResources().getColor(R.color.white));
+			// }
+			// if (getPullView().getFooterLoadingView() != null) {
+			// getPullView().getFooterLoadingView().setRefreshBgColor(getResources().getColor(R.color.white));
+			// }
+			// if (getPullView().getHeaderLayout() != null) {
+			// getPullView().getHeaderLayout().setBackgroundColor(getResources().getColor(R.color.white));
+			// }
+			// if (getPullView().getFooterLayout() != null) {
+			// getPullView().getFooterLayout().setBackgroundColor(getResources().getColor(R.color.white));
+			// }
+			// if (getRefreshView() != null) {
+			// getRefreshView().setBackgroundColor(getResources().getColor(R.color.white));
+			// }
 		}
 	}
 }

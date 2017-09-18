@@ -118,7 +118,7 @@ public class WeexTabAdapter extends CommonAdapter<TabMenuItemBean> {
 				mViewHolder.menu_title.setPadding(4 * size, 2 * size, 4 * size, 2 * size);
 				lp2.leftMargin = 2 * size;
 				lp2.rightMargin = 2 * size;
-				mViewHolder.menu_lineLayout_item.setBackgroundDrawable(parent.getContext().getResources().getDrawable(R.drawable.corners_transparent1_radius14));
+				// mViewHolder.menu_lineLayout_item.setBackgroundDrawable(parent.getContext().getResources().getDrawable(R.drawable.corners_transparent1_radius14));
 			}
 			mViewHolder.menu_title.setLayoutParams(lp);
 			/** 小红点数字 设置 start*/

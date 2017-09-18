@@ -7,7 +7,4 @@
     android:scrollbars="vertical"
     ptr:ptrAnimationStyle="flip"
     ptr:ptrDrawable="@drawable/default_ptr_flip"
-    ptr:ptrHeaderBackground="@color/transparent1"
-    ptr:ptrHeaderSubTextColor="@color/common_buttom_hight"
-    ptr:ptrHeaderTextColor="@color/common_buttom_hight"
     ptr:ptrMode="both" />

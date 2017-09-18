@@ -134,7 +134,7 @@ public class DemoRefreshViewPagerTabTopActivity extends AtarCommonTabActivity<Re
 
 			topTitleBarBg.setVisibility(View.VISIBLE);
 			topTitleBarBg.bringToFront();
-			topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.transparent0));
+			//topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.transparent0));
 		}
 
 		scrollDistence = scrollDistence > (itemHeaderAdView.getHeight() - stickyOffset - statusBarHeight) ? (itemHeaderAdView.getHeight() - stickyOffset - statusBarHeight) : scrollDistence;
@@ -143,9 +143,9 @@ public class DemoRefreshViewPagerTabTopActivity extends AtarCommonTabActivity<Re
 		// topTitleBarBg.bringToFront();
 
 		if (isSmoothTop) {
-			topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.transparent0));
+			//topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.transparent0));
 		} else {
-			topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.green));
+			//topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.green));
 		}
 		float fraction;
 		if (headerViewTopSpace > 0) {
@@ -169,8 +169,8 @@ public class DemoRefreshViewPagerTabTopActivity extends AtarCommonTabActivity<Re
 			AlphaAnimation inAlphaAnimation = new AlphaAnimation(fraction, 1f);
 			topTitleBarBg.setAnimation(inAlphaAnimation);
 		}
-		int endColor = getCurrentSkinType() == SkinMode.DAY_MODE ? R.color.common_top_title_bar_bg_day : R.color.common_buttom_bg_night;
-		topTitleBarBg.setBackgroundColor(ColorUtil.getNewColorByStartEndColor(this, fraction, R.color.transparent0, endColor));
+		//int endColor = getCurrentSkinType() == SkinMode.DAY_MODE ? R.color.common_top_title_bar_bg_day : R.color.common_buttom_bg_night;
+		//topTitleBarBg.setBackgroundColor(ColorUtil.getNewColorByStartEndColor(this, fraction, R.color.transparent0, endColor));
 	}
 
 	@Override
@@ -187,29 +187,29 @@ public class DemoRefreshViewPagerTabTopActivity extends AtarCommonTabActivity<Re
 	public void ChangeSkin(Resources mResources, int skinType) {
 		super.ChangeSkin(mResources, skinType);
 
-		if (pullToRefreshScrollableLayout != null) {
-			if (pullToRefreshScrollableLayout.getHeaderLayout() != null && pullToRefreshScrollableLayout.getHeaderLayout().getHeaderText() != null) {
-				pullToRefreshScrollableLayout.getHeaderLayout().setHeaderTextColor(getResources().getColor(R.color.black));
-			}
-			if (pullToRefreshScrollableLayout.getFooterLayout() != null && pullToRefreshScrollableLayout.getFooterLayout().getHeaderText() != null) {
-				pullToRefreshScrollableLayout.getFooterLayout().setHeaderTextColor(getResources().getColor(R.color.black));
-			}
-			if (pullToRefreshScrollableLayout.getHeaderLayout() != null && pullToRefreshScrollableLayout.getHeaderLayout().getSubHeaderText() != null) {
-				pullToRefreshScrollableLayout.getHeaderLayout().setSubHeaderTextColor(getResources().getColor(R.color.black));
-			}
-			if (pullToRefreshScrollableLayout.getFooterLayout() != null && pullToRefreshScrollableLayout.getFooterLayout().getSubHeaderText() != null) {
-				pullToRefreshScrollableLayout.getFooterLayout().setSubHeaderTextColor(getResources().getColor(R.color.black));
-			}
-			if (pullToRefreshScrollableLayout.getHeaderLayout() != null) {
-				pullToRefreshScrollableLayout.getHeaderLayout().setRefreshBgColor(getResources().getColor(R.color.common_txt_hint_color_day));
-			}
-			if (pullToRefreshScrollableLayout.getFooterLayout() != null) {
-				pullToRefreshScrollableLayout.getFooterLayout().setRefreshBgColor(getResources().getColor(R.color.common_txt_hint_color_day));
-			}
-			pullToRefreshScrollableLayout.setBackgroundColor(getResources().getColor(R.color.white));
-		}
-		if (topTitleBarBg != null) {
-			topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.green));
-		}
+		// if (pullToRefreshScrollableLayout != null) {
+		// if (pullToRefreshScrollableLayout.getHeaderLayout() != null && pullToRefreshScrollableLayout.getHeaderLayout().getHeaderText() != null) {
+		// pullToRefreshScrollableLayout.getHeaderLayout().setHeaderTextColor(getResources().getColor(R.color.black));
+		// }
+		// if (pullToRefreshScrollableLayout.getFooterLayout() != null && pullToRefreshScrollableLayout.getFooterLayout().getHeaderText() != null) {
+		// pullToRefreshScrollableLayout.getFooterLayout().setHeaderTextColor(getResources().getColor(R.color.black));
+		// }
+		// if (pullToRefreshScrollableLayout.getHeaderLayout() != null && pullToRefreshScrollableLayout.getHeaderLayout().getSubHeaderText() != null) {
+		// pullToRefreshScrollableLayout.getHeaderLayout().setSubHeaderTextColor(getResources().getColor(R.color.black));
+		// }
+		// if (pullToRefreshScrollableLayout.getFooterLayout() != null && pullToRefreshScrollableLayout.getFooterLayout().getSubHeaderText() != null) {
+		// pullToRefreshScrollableLayout.getFooterLayout().setSubHeaderTextColor(getResources().getColor(R.color.black));
+		// }
+		// if (pullToRefreshScrollableLayout.getHeaderLayout() != null) {
+		// pullToRefreshScrollableLayout.getHeaderLayout().setRefreshBgColor(getResources().getColor(R.color.common_txt_hint_color_day));
+		// }
+		// if (pullToRefreshScrollableLayout.getFooterLayout() != null) {
+		// pullToRefreshScrollableLayout.getFooterLayout().setRefreshBgColor(getResources().getColor(R.color.common_txt_hint_color_day));
+		// }
+		// pullToRefreshScrollableLayout.setBackgroundColor(getResources().getColor(R.color.white));
+		// }
+		// if (topTitleBarBg != null) {
+		// topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.green));
+		// }
 	}
 }

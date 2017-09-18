@@ -595,7 +595,7 @@ public class ImplInAndroidScript {
 				@Override
 				public void run() {
 					try {
-						int gravity = 0, x = 0, y = 0, popwindowWidth = 0, textSize = 0, currentPosition = -1, drawableResID = R.drawable.corners_transparent8;
+						int gravity = 0, x = 0, y = 0, popwindowWidth = 0, textSize = 0, currentPosition = -1, drawableResID = 0;// R.drawable.corners_transparent8;
 						if (strGravity != null && strGravity.length() > 0) {
 							if ("0".equals(strGravity)) {// 自定义 xy起始点
 								gravity = Gravity.NO_GRAVITY;

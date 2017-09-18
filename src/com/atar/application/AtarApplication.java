@@ -14,7 +14,6 @@ import android.os.Build;
 import android.skin.SkinResourcesManager;
 import android.support.multidex.MultiDex;
 import android.utils.ShowLog;
-import android.widget.CommonToast;
 
 import com.atar.activitys.R;
 import com.lidroid.xutils.DbUtils;
@@ -57,13 +56,10 @@ public class AtarApplication extends Application {
 		ShowLog.setDebug(true);// 设置不显示日志 上线前记得改成false
 		CommonNetWorkExceptionToast.setIsShowErrorToast(true);// 上线前记得设置不显示错误网络具体提示 测试时可开启
 		CommonApplication.initImageLoader(getApplicationContext());// 初始化加载图片配置
-		CommonToast.initToastResouseId(R.drawable.corners_toast, R.color.black);// 初始化toast字体颜色和背景
+		// CommonToast.initToastResouseId(R.drawable.corners_toast, R.color.black);// 初始化toast字体颜色和背景
 		CrashHandler.getInstance().init(this);// 接收错误异常
 
-		SkinResourcesManager.MAIN_PROJECT_PACKNAME = getPackageName();
-		SkinResourcesManager.SKIN_PROJECT_PACKNAME = "com.atar.skin";
-		SkinResourcesManager.isLoadApkSkin = false;
-
+		SkinResourcesManager.getInstance(this).initSkinResources(this, true, getPackageName(), "com.atar.skin", "https://github.com/wgllss/atar-skin/raw/master/download_skin.apk");
 		db = getDb();
 		initHotfix();
 	}

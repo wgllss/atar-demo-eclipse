@@ -67,7 +67,7 @@ public class DropDownAdapter extends CommonAdapter<PopWindowItemBean> {
 		if (info != null) {
 			txtTitle.setText(info.getDropDownItemName());
 			if (info.isSelect()) {
-				viewSelect.setBackgroundColor(parent.getContext().getResources().getColor(R.color.common_drop_down_select_bg_color));
+				// viewSelect.setBackgroundColor(parent.getContext().getResources().getColor(R.color.common_drop_down_select_bg_color));
 			} else {
 				viewSelect.setBackgroundColor(Color.TRANSPARENT);
 			}
@@ -80,9 +80,9 @@ public class DropDownAdapter extends CommonAdapter<PopWindowItemBean> {
 				viewLineLeft.setVisibility(View.VISIBLE);
 				viewLineRight.setVisibility(View.VISIBLE);
 				txtTitle.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
-				viewLineLeft.setBackgroundColor(parent.getResources().getColor(R.color.common_drop_down_special_txt_color));
-				viewLineRight.setBackgroundColor(parent.getResources().getColor(R.color.common_drop_down_special_txt_color));
-				txtTitle.setTextColor(parent.getResources().getColor(R.color.common_drop_down_special_txt_color));
+				// viewLineLeft.setBackgroundColor(parent.getResources().getColor(R.color.common_drop_down_special_txt_color));
+				// viewLineRight.setBackgroundColor(parent.getResources().getColor(R.color.common_drop_down_special_txt_color));
+				// txtTitle.setTextColor(parent.getResources().getColor(R.color.common_drop_down_special_txt_color));
 			} else {
 				txtTitle.setTextSize(TypedValue.COMPLEX_UNIT_DIP, txtSize);
 				if (getCurrentPostiotn() == -1) {
@@ -90,19 +90,19 @@ public class DropDownAdapter extends CommonAdapter<PopWindowItemBean> {
 					if (getColor() != -1) {
 						// LoadUtil.setTextColor(parent.getContext(), txtTitle, getColor(), getSkinType());
 					} else {
-						txtTitle.setTextColor(parent.getContext().getResources().getColor(R.color.white));
+						// txtTitle.setTextColor(parent.getContext().getResources().getColor(R.color.white));
 					}
 					convertView.setBackgroundColor(Color.TRANSPARENT);
 				} else if (getCurrentPostiotn() == position) {
 					// LoadUtil.setTextColor(parent.getContext(), txtTitle, R.array.common_top_title_bar_bg_color, getSkinType());
-					convertView.setBackgroundColor(parent.getContext().getResources().getColor(R.color.transparent3));
+					// convertView.setBackgroundColor(parent.getContext().getResources().getColor(R.color.transparent3));
 				} else {
 					convertView.setBackgroundColor(Color.TRANSPARENT);
 					viewSelect.setBackgroundColor(Color.TRANSPARENT);
 					if (getColor() != -1) {
 						// LoadUtil.setTextColor(parent.getContext(), txtTitle, getColor(), getSkinType());
 					} else {
-						txtTitle.setTextColor(parent.getContext().getResources().getColor(R.color.white));
+						// txtTitle.setTextColor(parent.getContext().getResources().getColor(R.color.white));
 					}
 				}
 				viewLineLeft.setVisibility(View.INVISIBLE);

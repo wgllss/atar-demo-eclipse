@@ -94,23 +94,23 @@ public abstract class AtarRefreshSwipeMenuListViewActivity extends AtarRefreshAc
 	@Override
 	public void ChangeSkin(Resources mResources, int skinType) {
 		super.ChangeSkin(mResources, skinType);
-		if (getPullView().getHeaderLoadingView() != null) {
-			getPullView().getHeaderLoadingView().setHeaderTextColor(getResources().getColor(R.color.black));
-		}
-		if (getPullView().getFooterLoadingView() != null) {
-			getPullView().getFooterLoadingView().setHeaderTextColor(getResources().getColor(R.color.black));
-		}
-		if (getPullView().getHeaderLoadingView() != null) {
-			getPullView().getHeaderLoadingView().setSubHeaderTextColor(getResources().getColor(R.color.black));
-		}
-		if (getPullView().getFooterLoadingView() != null) {
-			getPullView().getFooterLoadingView().setSubHeaderTextColor(getResources().getColor(R.color.black));
-		}
-		if (getPullView().getHeaderLoadingView() != null) {
-			getPullView().getHeaderLoadingView().setRefreshBgColor(getResources().getColor(R.color.common_txt_hint_color_day));
-		}
-		if (getPullView().getFooterLoadingView() != null) {
-			getPullView().getFooterLoadingView().setRefreshBgColor(getResources().getColor(R.color.common_txt_hint_color_day));
-		}
+		// if (getPullView().getHeaderLoadingView() != null) {
+		// getPullView().getHeaderLoadingView().setHeaderTextColor(getResources().getColor(R.color.black));
+		// }
+		// if (getPullView().getFooterLoadingView() != null) {
+		// getPullView().getFooterLoadingView().setHeaderTextColor(getResources().getColor(R.color.black));
+		// }
+		// if (getPullView().getHeaderLoadingView() != null) {
+		// getPullView().getHeaderLoadingView().setSubHeaderTextColor(getResources().getColor(R.color.black));
+		// }
+		// if (getPullView().getFooterLoadingView() != null) {
+		// getPullView().getFooterLoadingView().setSubHeaderTextColor(getResources().getColor(R.color.black));
+		// }
+		// if (getPullView().getHeaderLoadingView() != null) {
+		// getPullView().getHeaderLoadingView().setRefreshBgColor(getResources().getColor(R.color.common_txt_hint_color_day));
+		// }
+		// if (getPullView().getFooterLoadingView() != null) {
+		// getPullView().getFooterLoadingView().setRefreshBgColor(getResources().getColor(R.color.common_txt_hint_color_day));
+		// }
 	}
 }

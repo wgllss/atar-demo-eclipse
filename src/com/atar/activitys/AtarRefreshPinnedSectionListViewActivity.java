@@ -85,24 +85,24 @@ public abstract class AtarRefreshPinnedSectionListViewActivity extends AtarRefre
 			// if (getPullView().getFooterLoadingView() != null) {
 			// getPullView().getFooterLoadingView().setRefreshingDrawable(GlobeSettings.refreshImg[skinType]);
 			// }
-			if (getPullView().getHeaderLoadingView() != null) {
-				getPullView().getHeaderLoadingView().setHeaderTextColor(getResources().getColor(R.color.black));
-			}
-			if (getPullView().getFooterLoadingView() != null) {
-				getPullView().getFooterLoadingView().setHeaderTextColor(getResources().getColor(R.color.black));
-			}
-			if (getPullView().getHeaderLoadingView() != null) {
-				getPullView().getHeaderLoadingView().setSubHeaderTextColor(getResources().getColor(R.color.black));
-			}
-			if (getPullView().getFooterLoadingView() != null) {
-				getPullView().getFooterLoadingView().setSubHeaderTextColor(getResources().getColor(R.color.black));
-			}
-			if (getPullView().getHeaderLoadingView() != null) {
-				getPullView().getHeaderLoadingView().setRefreshBgColor(getResources().getColor(R.color.common_txt_hint_color_day));
-			}
-			if (getPullView().getFooterLoadingView() != null) {
-				getPullView().getFooterLoadingView().setRefreshBgColor(getResources().getColor(R.color.common_txt_hint_color_day));
-			}
+			// if (getPullView().getHeaderLoadingView() != null) {
+			// getPullView().getHeaderLoadingView().setHeaderTextColor(getResources().getColor(R.color.black));
+			// }
+			// if (getPullView().getFooterLoadingView() != null) {
+			// getPullView().getFooterLoadingView().setHeaderTextColor(getResources().getColor(R.color.black));
+			// }
+			// if (getPullView().getHeaderLoadingView() != null) {
+			// getPullView().getHeaderLoadingView().setSubHeaderTextColor(getResources().getColor(R.color.black));
+			// }
+			// if (getPullView().getFooterLoadingView() != null) {
+			// getPullView().getFooterLoadingView().setSubHeaderTextColor(getResources().getColor(R.color.black));
+			// }
+			// if (getPullView().getHeaderLoadingView() != null) {
+			// getPullView().getHeaderLoadingView().setRefreshBgColor(getResources().getColor(R.color.common_txt_hint_color_day));
+			// }
+			// if (getPullView().getFooterLoadingView() != null) {
+			// getPullView().getFooterLoadingView().setRefreshBgColor(getResources().getColor(R.color.common_txt_hint_color_day));
+			// }
 		}
 	}
 }

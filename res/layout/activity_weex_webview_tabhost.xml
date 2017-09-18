@@ -35,7 +35,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="47dp"
                 android:layout_alignParentBottom="true"
-                android:background="@color/common_buttom_bg_day"
                 android:fadingEdge="none"
                 android:gravity="center"
                 android:listSelector="#00000000"

@@ -22,7 +22,6 @@
         android:layout_marginLeft="10dp"
         android:layout_toLeftOf="@+id/img_more"
         android:layout_toRightOf="@+id/img_album"
-        android:text="@color/common_txt_hint_color_day"
         android:textSize="15dp" />
 
     <ImageView

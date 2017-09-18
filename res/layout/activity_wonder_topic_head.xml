@@ -38,7 +38,6 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/ad_indicator"
             android:gravity="center"
-            android:textColor="@color/white"
             android:textSize="15dp" />
     </RelativeLayout>
 

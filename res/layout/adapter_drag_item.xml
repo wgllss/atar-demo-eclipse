@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_toLeftOf="@+id/drag_handle"
-        android:background="@color/goldenrod"
         android:gravity="center"
         android:text="000" />
 
@@ -19,11 +18,9 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_alignParentRight="true"
-        android:background="@color/red_chart"
         android:gravity="center"
         android:scaleType="fitCenter"
         android:text="按住拖动"
-        android:textColor="@color/white"
         android:textSize="14dp" >
     </TextView>
 

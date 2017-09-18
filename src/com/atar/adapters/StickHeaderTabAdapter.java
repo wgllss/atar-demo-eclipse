@@ -94,7 +94,7 @@ public abstract class StickHeaderTabAdapter<T extends PinnedSectionBean> extends
 					// LoadUtil.setBackgroundColor(getContext(), mViewSectionHolder.linearTabLine.getChildAt(i), R.array.select_tab_txt_color, getSkinType());
 				} else {
 					// LoadUtil.setTextColor(getContext(), ((TextView) mViewSectionHolder.lineaTab.getChildAt(i)), R.array.tab_txt_color, getSkinType());
-					mViewSectionHolder.linearTabLine.getChildAt(i).setBackgroundColor(getContext().getResources().getColor(R.color.transparent0));
+					// mViewSectionHolder.linearTabLine.getChildAt(i).setBackgroundColor(getContext().getResources().getColor(R.color.transparent0));
 				}
 				final int m = i;
 				mViewSectionHolder.lineaTab.getChildAt(i).setOnClickListener(new OnClickListener() {

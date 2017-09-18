@@ -32,9 +32,7 @@
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_gravity="top|right"
-        android:background="@drawable/oval_red"
         android:gravity="center"
-        android:textColor="@color/white"
         android:textSize="8dp" />
 
     <ImageView

@@ -6,9 +6,7 @@
     android:layout_height="match_parent"
     android:fastScrollEnabled="true"
     android:scrollbars="vertical"
-    ptr:ptrAnimationStyle="flip"
-    ptr:ptrHeaderSubTextColor="@color/common_buttom_hight"
-    ptr:ptrHeaderTextColor="@color/common_buttom_hight" >
+    ptr:ptrAnimationStyle="flip" >
 
     <LinearLayout
         android:layout_width="match_parent"

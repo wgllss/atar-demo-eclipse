@@ -15,7 +15,6 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_gravity="bottom|right"
-        android:background="@color/transparent3"
         android:contentDescription="@string/app_name"
         android:src="@drawable/dayu01" />
 

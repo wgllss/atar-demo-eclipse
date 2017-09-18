@@ -3,7 +3,6 @@
     android:id="@+id/linear_loading"
     android:layout_width="120dp"
     android:layout_height="100dp"
-    android:background="@drawable/corners_transparent3"
     android:gravity="center"
     android:orientation="vertical"
     android:visibility="gone" >
@@ -21,8 +20,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
-        android:text="@string/loading_waiting"
-        android:textColor="@color/transparent8"
         android:textSize="13dp" />
 
 </LinearLayout>
