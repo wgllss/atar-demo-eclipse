@@ -5,7 +5,7 @@ import android.annotation.SuppressLint;
 import android.application.CrashHandler;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.interfaces.NetWorkCallListener;
 import android.interfaces.OnOpenDrawerCompleteListener;
@@ -17,6 +17,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.reflection.NetWorkMsg;
+import android.skin.SkinUtils;
 import android.utils.ApplicationManagement;
 import android.utils.ScreenUtils;
 import android.utils.ShowLog;
@@ -842,28 +843,12 @@ public class AtarCommonActivity extends CommonActivity implements OnClickListene
 
 	@Override
 	public void onBackPressed() {
-		// CommonDialog.dialogDismiss();
 		if (linearLoading != null && linearLoading.getVisibility() == View.VISIBLE) {
 			setLoadingViewGone();
 			return;
 		}
 		super.onBackPressed();
 		IntentUtil.finish(this);
-	}
-
-	@Override
-	public void ChangeSkin(int skinType) {
-		if (isExtendsAtarCommonActivity) {
-			commonContentBg.setBackgroundColor(Color.WHITE);
-			// LoadUtil.setBackgroundColor(this, commonContentBg, R.array.common_content_bg_color, skinType);
-			// LoadUtil.setBackgroundColor(this, topTitleBarBg, R.array.common_top_title_bar_bg_color2, skinType);
-			// LoadUtil.setTextColor(this, txtCommonTopTitle, R.array.common_activity_title_color, skinType);
-			// LoadUtil.setImageDrawable(this, imgCommonTopLeft, R.array.img_back, skinType);
-			// LoadUtil.setTextColor(this, txtCommonTopRight, R.array.common_activity_title_color, skinType);
-			// LoadUtil.setTextColor(this, txtCommonTopLeft, R.array.common_activity_title_color, skinType);
-			// LoadUtil.setTextColor(this, (TextView) findViewById(R.id.txt_common_toast), R.array.txt_day_grey_night_greyblack_color, skinType);
-			// LoadUtil.setTextColor(this, txtActivityRightTxt, R.array.cool_title_color, skinType);
-		}
 	}
 
 	public void qrcodeBack() {
@@ -897,5 +882,15 @@ public class AtarCommonActivity extends CommonActivity implements OnClickListene
 			}
 		}
 		return isQRcode;
+	}
+
+	@Override
+	public void ChangeSkin(Resources resources, int skinType) {
+		if (isExtendsAtarCommonActivity) {
+			SkinUtils.setImageDrawable(this, resources, R.string.img_back, skinType, imgCommonTopLeft);
+			SkinUtils.setBackgroundColor(this, resources, R.string.common_tab_bg_color, skinType, commonContentBg);
+			SkinUtils.setTextColor(this, resources, R.string.common_activity_title_color, skinType, txtCommonTopTitle);
+			SkinUtils.setBackgroundColor(this, resources, R.string.common_top_title_bar_bg_color, skinType, topTitleBarBg);
+		}
 	}
 }

@@ -8,7 +8,7 @@ import java.util.List;
 
 import android.common.CommonHandler;
 import android.os.Message;
-import android.utils.QuickRturnListViewUtil;
+import android.utils.QuickReturnViewUtil;
 import android.widget.TextView;
 
 import com.atar.activitys.AtarRefreshListViewActivity;
@@ -33,18 +33,11 @@ public class DemoRefreshQuickReturnListViewActivity extends AtarRefreshListViewA
 	private MainDemoAdapter mMainDemoAdapter = new MainDemoAdapter(list);
 	private TextView mQuickReturnView;
 
-	private QuickRturnListViewUtil mQuickRturnListViewUtil;
+	private QuickReturnViewUtil mQuickReturnViewUtil;
 
 	@Override
 	protected int getResLayoutID() {
 		return R.layout.activity_quickreturn_buttom;
-	}
-
-	@Override
-	protected void applyScrollListener() {
-		if (listView != null && mQuickRturnListViewUtil != null) {
-			listView.setOnScrollListener(mQuickRturnListViewUtil.getImplOnScrollListener());
-		}
 	}
 
 	@Override
@@ -63,9 +56,8 @@ public class DemoRefreshQuickReturnListViewActivity extends AtarRefreshListViewA
 		mMainDemoAdapter.notifyDataSetChanged();
 		setAdapter(mMainDemoAdapter);
 
-		mQuickRturnListViewUtil = new QuickRturnListViewUtil(QuickRturnListViewUtil.BUTTOM, false, getRefreshView());
-		mQuickRturnListViewUtil.setPauseOnScrollListenerParams(imageLoader, pauseOnScroll, pauseOnFling);
-		mQuickRturnListViewUtil.setQuickReturnEvent(mQuickReturnView, null);
+		mQuickReturnViewUtil = new QuickReturnViewUtil();
+		mQuickReturnViewUtil.setReturnView(getRefreshView(), mQuickReturnView);
 
 		sendEmptyMessageDelayed(EnumMsgWhat.LOAD_FROM_SQL, 400);
 	}

@@ -3,6 +3,7 @@
  */
 package com.atar.activitys;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -91,8 +92,8 @@ public abstract class AtarRefreshSwipeMenuListViewActivity extends AtarRefreshAc
 	}
 
 	@Override
-	public void ChangeSkin(int skinType) {
-		super.ChangeSkin(skinType);
+	public void ChangeSkin(Resources mResources, int skinType) {
+		super.ChangeSkin(mResources, skinType);
 		if (getPullView().getHeaderLoadingView() != null) {
 			getPullView().getHeaderLoadingView().setHeaderTextColor(getResources().getColor(R.color.black));
 		}

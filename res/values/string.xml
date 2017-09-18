@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="img_back">img_back</string>
+    <string name="common_top_title_bar_bg_color">common_top_title_bar_bg_color</string>
+    <string name="common_activity_title_color">common_activity_title_color</string>
+    <string name="common_tab_bg_color">common_tab_bg_color</string>
+    <string name="common_tab_line_color">common_tab_line_color</string>
+    <string name="common_tab_line_move_color">common_tab_line_move_color</string>
+    <string name="select_tab_txt_color">select_tab_txt_color</string>
+    <string name="tab_txt_color">tab_txt_color</string>
+    <string name="txt_day_black_night_greywhite_color">txt_day_black_night_greywhite_color</string>
+    <string name="txt_day_grey_night_greyblack_color">txt_day_grey_night_greyblack_color</string>
+
+</resources>

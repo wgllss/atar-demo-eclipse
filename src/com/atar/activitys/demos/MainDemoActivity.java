@@ -8,9 +8,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import android.activity.ActivityManager;
+import android.activity.CommonActivity;
+import android.app.Activity;
 import android.appconfig.AppConfigSetting;
 import android.common.CommonHandler;
 import android.content.Intent;
+import android.enums.SkinMode;
 import android.interfaces.NetWorkCallTListenet;
 import android.os.Message;
 import android.reflection.NetWorkMsg;
@@ -45,6 +49,8 @@ public class MainDemoActivity extends AtarRefreshListViewActivity {
 	@Override
 	protected void initValue() {
 		super.initValue();
+		setOnDrawerBackEnabled(false);
+
 		setActivityTitle("demo主界面");
 		AppConfigSetting.getInstance().saveLoginUserId("15616915");
 		list.add(new MenuItemBean("0", "网络测试1"));
@@ -55,6 +61,7 @@ public class MainDemoActivity extends AtarRefreshListViewActivity {
 		list.add(new MenuItemBean("5", "图片浏览"));
 		list.add(new MenuItemBean("6", "下载"));
 		list.add(new MenuItemBean("7", "刷新"));
+		list.add(new MenuItemBean("8", "夜间模式"));
 		// list.add(new MenuItemBean("8", "网络测试1"));
 		mMainDemoAdapter.notifyDataSetChanged();
 		setAdapter(mMainDemoAdapter);
@@ -134,6 +141,21 @@ public class MainDemoActivity extends AtarRefreshListViewActivity {
 			break;
 		case 7:
 			startActivity(new Intent(this, DemoRefreshActivity.class));
+			break;
+		case 8:
+			list.get((int) arg3).setMenuItemName("白天模式");
+			int skinType = 0;
+			if (getCurrentSkinType() == SkinMode.DAY_MODE) {// 白天模式
+				skinType = SkinMode.NIGHT_MODE;
+			} else {// 晚上模式
+				skinType = SkinMode.DAY_MODE;
+			}
+			AppConfigSetting.getInstance().putInt(SkinMode.SKIN_MODE_KEY, skinType);
+			for (Activity activity : ActivityManager.getActivityManager().getActivityStack()) {
+				if (activity instanceof CommonActivity) {
+					((CommonActivity) activity).loadSkin(skinType);
+				}
+			}
 			break;
 		}
 	}

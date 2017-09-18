@@ -10,7 +10,7 @@ import android.activity.CommonActivity;
 import android.common.CommonHandler;
 import android.os.Bundle;
 import android.os.Message;
-import android.utils.QuickRturnListViewUtil;
+import android.utils.QuickReturnViewUtil;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +39,7 @@ public class DemoRefreshQuickReturnListViewFragment extends AtarRefreshListFragm
 	private MainDemoAdapter mMainDemoAdapter = new MainDemoAdapter(list);
 	private TextView mQuickReturnView;
 
-	private QuickRturnListViewUtil mQuickRturnListViewUtil;
+	private QuickReturnViewUtil mQuickReturnViewUtil;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -67,9 +67,8 @@ public class DemoRefreshQuickReturnListViewFragment extends AtarRefreshListFragm
 		mMainDemoAdapter.notifyDataSetChanged();
 		setAdapter(mMainDemoAdapter);
 
-		mQuickRturnListViewUtil = new QuickRturnListViewUtil(QuickRturnListViewUtil.BUTTOM, false, getRefreshView());
-		mQuickRturnListViewUtil.setPauseOnScrollListenerParams(((CommonActivity) getActivity()).imageLoader, false, false);
-		mQuickRturnListViewUtil.setQuickReturnEvent(mQuickReturnView, null);
+		mQuickReturnViewUtil = new QuickReturnViewUtil();
+		mQuickReturnViewUtil.setReturnView(getRefreshView(), mQuickReturnView);
 	}
 
 	@Override

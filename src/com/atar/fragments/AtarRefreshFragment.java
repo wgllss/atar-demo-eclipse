@@ -6,6 +6,7 @@ package com.atar.fragments;
 
 import android.annotation.SuppressLint;
 import android.common.CommonHandler;
+import android.content.res.Resources;
 import android.fragment.CommonFragment;
 import android.interfaces.NetWorkCallListener;
 import android.os.Message;
@@ -261,8 +262,8 @@ public class AtarRefreshFragment<T extends PullToRefreshBase<V>, V extends View>
 	}
 
 	@Override
-	public void OnChangeSkin(int skinType) {
-		super.OnChangeSkin(skinType);
+	public void ChangeSkin(Resources mResources, int skinType) {
+		super.ChangeSkin(mResources, skinType);
 		if (getPullView() != null && getActivity() != null) {
 			// if (getPullView().getHeaderLayout() != null) {
 			// getPullView().getHeaderLayout().setRefreshingLabel(getResources().getString(R.string.refreshing_waiting));

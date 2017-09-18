@@ -8,6 +8,7 @@ import java.util.List;
 import android.activity.CommonActivity;
 import android.adapter.FragmentAdapter;
 import android.annotation.SuppressLint;
+import android.content.res.Resources;
 import android.fragment.CommonFragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -177,13 +178,13 @@ public abstract class AtarCommonTabActivity<V extends ViewGroup> extends AtarDro
 	}
 
 	@Override
-	public void ChangeSkin(int skinType) {
-		super.ChangeSkin(skinType);
+	public void ChangeSkin(Resources mResources, int skinType) {
+		super.ChangeSkin(mResources, skinType);
 		setChangeTabSkin(skinType);
 		try {
 			for (Fragment fragment : getFragmentList()) {
 				if (fragment instanceof CommonFragment) {
-					((CommonFragment) fragment).OnChangeSkin(skinType);
+					((CommonFragment) fragment).ChangeSkin(mResources, skinType);
 				}
 			}
 		} catch (Exception e) {

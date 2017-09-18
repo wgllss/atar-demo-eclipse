@@ -4,6 +4,7 @@
 package com.atar.activitys;
 
 import android.common.CommonHandler;
+import android.content.res.Resources;
 import android.os.Message;
 import android.reflection.NetWorkMsg;
 import android.view.View;
@@ -224,8 +225,8 @@ public class AtarRefreshActivity<T extends PullToRefreshBase<V>, V extends View>
 	}
 
 	@Override
-	public void ChangeSkin(int skinType) {
-		super.ChangeSkin(skinType);
+	public void ChangeSkin(Resources mResources, int skinType) {
+		super.ChangeSkin(mResources, skinType);
 		setRefreshSkin(skinType);
 	}
 

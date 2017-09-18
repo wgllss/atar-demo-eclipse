@@ -6,6 +6,7 @@ package com.atar.activitys.demos;
 import android.annotation.SuppressLint;
 import android.common.CommonHandler;
 import android.content.Context;
+import android.content.res.Resources;
 import android.enums.SkinMode;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
@@ -183,8 +184,8 @@ public class DemoRefreshViewPagerTabTopActivity extends AtarCommonTabActivity<Re
 	}
 
 	@Override
-	public void ChangeSkin(int skinType) {
-		super.ChangeSkin(skinType);
+	public void ChangeSkin(Resources mResources, int skinType) {
+		super.ChangeSkin(mResources, skinType);
 
 		if (pullToRefreshScrollableLayout != null) {
 			if (pullToRefreshScrollableLayout.getHeaderLayout() != null && pullToRefreshScrollableLayout.getHeaderLayout().getHeaderText() != null) {

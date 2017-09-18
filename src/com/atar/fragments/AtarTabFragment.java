@@ -7,6 +7,7 @@ import java.util.List;
 
 import android.activity.CommonActivity;
 import android.adapter.FragmentAdapter;
+import android.content.res.Resources;
 import android.fragment.CommonFragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -165,14 +166,14 @@ public class AtarTabFragment<V extends ViewGroup> extends CommonFragment impleme
 	}
 
 	@Override
-	public void OnChangeSkin(int skinType) {
-		super.OnChangeSkin(skinType);
+	public void ChangeSkin(Resources mResources, int skinType) {
+		super.ChangeSkin(mResources, skinType);
 		setChangeTabSkin(skinType);
 		try {
 			if (getFragmentList() != null) {
 				for (Fragment fragment : getFragmentList()) {
 					if (fragment instanceof CommonFragment) {
-						((CommonFragment) fragment).OnChangeSkin(skinType);
+						((CommonFragment) fragment).ChangeSkin(mResources, skinType);
 					}
 				}
 			}

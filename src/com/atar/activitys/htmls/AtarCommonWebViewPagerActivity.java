@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.adapter.FragmentAdapter;
+import android.content.res.Resources;
 import android.fragment.CommonFragment;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -228,8 +229,8 @@ public class AtarCommonWebViewPagerActivity extends AtarDropTitleBarActivity imp
 	}
 
 	@Override
-	public void ChangeSkin(int skinType) {
-		super.ChangeSkin(skinType);
+	public void ChangeSkin(Resources mResources, int skinType) {
+		super.ChangeSkin(mResources, skinType);
 		// LoadUtil.setBackgroundColor(this, R.array.common_tab_bg_color, skinType, tabs);
 		if (tabs != null) {
 			if (mMenuAdapter != null) {
@@ -241,7 +242,7 @@ public class AtarCommonWebViewPagerActivity extends AtarDropTitleBarActivity imp
 		if (getFragmentList() != null && getFragmentList().size() > 0) {
 			for (Fragment fragment : getFragmentList()) {
 				if (fragment instanceof CommonFragment) {
-					((CommonFragment) fragment).OnChangeSkin(skinType);
+					((CommonFragment) fragment).ChangeSkin(mResources, skinType);
 				}
 			}
 		}
