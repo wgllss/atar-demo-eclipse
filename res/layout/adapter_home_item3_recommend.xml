@@ -73,7 +73,6 @@
         android:layout_marginTop="6dp"
         android:layout_toLeftOf="@+id/img_topic_praise"
         android:text="2"
-        android:textColor="@color/gray"
         android:textSize="10dp" />
 
     <ImageView

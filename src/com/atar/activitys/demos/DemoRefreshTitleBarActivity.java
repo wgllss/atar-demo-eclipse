@@ -9,9 +9,12 @@ import java.util.List;
 import android.annotation.SuppressLint;
 import android.common.CommonHandler;
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Message;
+import android.skin.SkinResourcesManager;
+import android.skin.SkinUtils;
 import android.util.Log;
 import android.utils.ColorUtil;
 import android.utils.ScreenUtils;
@@ -159,7 +162,8 @@ public class DemoRefreshTitleBarActivity extends AtarRefreshListViewActivity {
 			AlphaAnimation inAlphaAnimation = new AlphaAnimation(fraction, 1f);
 			topTitleBarBg.setAnimation(inAlphaAnimation);
 		}
-//		topTitleBarBg.setBackgroundColor(ColorUtil.getNewColorByStartEndColor(this, fraction, R.color.transparent0, R.color.common_top_title_bar_bg_day));
+		topTitleBarBg.setBackgroundColor(ColorUtil.evaluate(fraction, SkinUtils.getColor(this, SkinResourcesManager.getInstance(this).getResources(), R.string.transparent0),
+				SkinUtils.getColor(this, SkinResourcesManager.getInstance(this).getResources(), R.string.common_top_title_bar_bg_day)));
 	}
 
 	public class ImplOnScrollListener extends PauseOnScrollListener {
@@ -180,51 +184,21 @@ public class DemoRefreshTitleBarActivity extends AtarRefreshListViewActivity {
 			}
 			Log.i("SingleListViewActivity", "headerViewTopSpace:-->" + headerViewTopSpace + "--headerViewHeight-->" + headerViewHeight + "--firstVisibleItem-->" + firstVisibleItem);
 			if (ScrollableHelper.isAdapterViewTop(view)) {
-				//topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.transparent0));
+				topTitleBarBg.setBackgroundColor(SkinUtils.getColor(DemoRefreshTitleBarActivity.this, SkinResourcesManager.getInstance(DemoRefreshTitleBarActivity.this).getResources(),
+						R.string.transparent0));
 			} else {
-				//topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.common_top_title_bar_bg_day));
+				topTitleBarBg.setBackgroundColor(SkinUtils.getColor(DemoRefreshTitleBarActivity.this, SkinResourcesManager.getInstance(DemoRefreshTitleBarActivity.this).getResources(),
+						R.string.common_top_title_bar_bg_day));
 			}
 			handleTitleBarColorEvaluate(firstVisibleItem);
 		}
 	}
 
 	@Override
-	protected void setRefreshSkin(int skinType) {
-		// super.setRefreshSkin(skinType);
-		if (getPullView() != null) {
-			// if (getPullView().getHeaderLoadingView() != null) {
-			// getPullView().getHeaderLoadingView().setRefreshingDrawable(GlobeSettings.refreshImg[skinType]);
-			// }
-			// if (getPullView().getFooterLoadingView() != null) {
-			// getPullView().getFooterLoadingView().setRefreshingDrawable(GlobeSettings.refreshImg[skinType]);
-			// }
-			// if (getPullView().getHeaderLoadingView() != null) {
-			// getPullView().getHeaderLoadingView().setHeaderTextColor(getResources().getColor(R.color.black));
-			// }
-			// if (getPullView().getFooterLoadingView() != null) {
-			// getPullView().getFooterLoadingView().setHeaderTextColor(getResources().getColor(R.color.black));
-			// }
-			// if (getPullView().getHeaderLoadingView() != null) {
-			// getPullView().getHeaderLoadingView().setSubHeaderTextColor(getResources().getColor(R.color.black));
-			// }
-			// if (getPullView().getFooterLoadingView() != null) {
-			// getPullView().getFooterLoadingView().setSubHeaderTextColor(getResources().getColor(R.color.black));
-			// }
-			// if (getPullView().getHeaderLoadingView() != null) {
-			// getPullView().getHeaderLoadingView().setRefreshBgColor(getResources().getColor(R.color.white));
-			// }
-			// if (getPullView().getFooterLoadingView() != null) {
-			// getPullView().getFooterLoadingView().setRefreshBgColor(getResources().getColor(R.color.white));
-			// }
-			// if (getPullView().getHeaderLayout() != null) {
-			// getPullView().getHeaderLayout().setBackgroundColor(getResources().getColor(R.color.white));
-			// }
-			// if (getPullView().getFooterLayout() != null) {
-			// getPullView().getFooterLayout().setBackgroundColor(getResources().getColor(R.color.white));
-			// }
-			// if (getRefreshView() != null) {
-			// getRefreshView().setBackgroundColor(getResources().getColor(R.color.white));
-			// }
+	public void ChangeSkin(Resources mResources, int skinType) {
+		super.ChangeSkin(mResources, skinType);
+		if (mMainDemoAdapter != null) {
+			mMainDemoAdapter.setSkin(mResources, skinType);
 		}
 	}
 }

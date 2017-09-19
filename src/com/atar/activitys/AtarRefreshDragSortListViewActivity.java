@@ -5,7 +5,9 @@ package com.atar.activitys;
 
 import android.adapter.CommonAdapter;
 import android.annotation.SuppressLint;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.skin.SkinUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -148,8 +150,8 @@ public abstract class AtarRefreshDragSortListViewActivity<T> extends AtarRefresh
 	}
 
 	@Override
-	protected void setRefreshSkin(int skinType) {
-		super.setRefreshSkin(skinType);
+	protected void setRefreshSkin(Resources mResources, int skinType) {
+		super.setRefreshSkin(mResources, skinType);
 		if (getPullView() != null) {
 			// if (getPullView().getHeaderLoadingView() != null) {
 			// getPullView().getHeaderLoadingView().setRefreshingDrawable(GlobeSettings.refreshImg[skinType]);
@@ -157,24 +159,21 @@ public abstract class AtarRefreshDragSortListViewActivity<T> extends AtarRefresh
 			// if (getPullView().getFooterLoadingView() != null) {
 			// getPullView().getFooterLoadingView().setRefreshingDrawable(GlobeSettings.refreshImg[skinType]);
 			// }
-			// if (getPullView().getHeaderLoadingView() != null) {
-			// getPullView().getHeaderLoadingView().setHeaderTextColor(getResources().getColor(R.color.black));
-			// }
-			// if (getPullView().getFooterLoadingView() != null) {
-			// getPullView().getFooterLoadingView().setHeaderTextColor(getResources().getColor(R.color.black));
-			// }
-			// if (getPullView().getHeaderLoadingView() != null) {
-			// getPullView().getHeaderLoadingView().setSubHeaderTextColor(getResources().getColor(R.color.black));
-			// }
-			// if (getPullView().getFooterLoadingView() != null) {
-			// getPullView().getFooterLoadingView().setSubHeaderTextColor(getResources().getColor(R.color.black));
-			// }
-			// if (getPullView().getHeaderLoadingView() != null) {
-			// getPullView().getHeaderLoadingView().setRefreshBgColor(getResources().getColor(R.color.common_txt_hint_color_day));
-			// }
-			// if (getPullView().getFooterLoadingView() != null) {
-			// getPullView().getFooterLoadingView().setRefreshBgColor(getResources().getColor(R.color.common_txt_hint_color_day));
-			// }
+
+			if (getPullView().getHeaderLoadingView() != null) {
+				SkinUtils.setTextColor(this, mResources, R.string.refresh_header_text_color, skinType, getPullView().getHeaderLoadingView().getHeaderText());
+			}
+			if (getPullView().getFooterLoadingView() != null) {
+				SkinUtils.setTextColor(this, mResources, R.string.refresh_header_text_color, skinType, getPullView().getFooterLoadingView().getHeaderText());
+			}
+			if (getPullView().getHeaderLoadingView() != null) {
+				SkinUtils.setTextColor(this, mResources, R.string.refresh_header_sub_text_color, skinType, getPullView().getHeaderLoadingView().getSubHeaderText());
+			}
+			if (getPullView().getFooterLoadingView() != null) {
+				SkinUtils.setTextColor(this, mResources, R.string.refresh_header_sub_text_color, skinType, getPullView().getFooterLoadingView().getSubHeaderText());
+			}
+			SkinUtils.setBackgroundColor(this, mResources, R.string.refresh_bg_color, skinType, getPullView().getHeaderLoadingView());
+			SkinUtils.setBackgroundColor(this, mResources, R.string.refresh_bg_color, skinType, getPullView().getFooterLoadingView());
 		}
 	}
 

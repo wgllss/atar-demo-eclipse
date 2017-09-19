@@ -14,6 +14,7 @@ import android.app.Activity;
 import android.appconfig.AppConfigSetting;
 import android.common.CommonHandler;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.enums.SkinMode;
 import android.interfaces.NetWorkCallTListenet;
 import android.os.Message;
@@ -143,12 +144,14 @@ public class MainDemoActivity extends AtarRefreshListViewActivity {
 			startActivity(new Intent(this, DemoRefreshActivity.class));
 			break;
 		case 8:
-			list.get((int) arg3).setMenuItemName("白天模式");
+
 			int skinType = 0;
 			if (getCurrentSkinType() == SkinMode.DAY_MODE) {// 白天模式
 				skinType = SkinMode.NIGHT_MODE;
+				list.get((int) arg3).setMenuItemName("白天模式");
 			} else {// 晚上模式
 				skinType = SkinMode.DAY_MODE;
+				list.get((int) arg3).setMenuItemName("夜间模式");
 			}
 			AppConfigSetting.getInstance().putInt(SkinMode.SKIN_MODE_KEY, skinType);
 			for (Activity activity : ActivityManager.getActivityManager().getActivityStack()) {
@@ -158,6 +161,14 @@ public class MainDemoActivity extends AtarRefreshListViewActivity {
 			}
 			mMainDemoAdapter.notifyDataSetChanged();
 			break;
+		}
+	}
+
+	@Override
+	public void ChangeSkin(Resources mResources, int skinType) {
+		super.ChangeSkin(mResources, skinType);
+		if (mMainDemoAdapter != null) {
+			mMainDemoAdapter.setSkin(mResources, skinType);
 		}
 	}
 }

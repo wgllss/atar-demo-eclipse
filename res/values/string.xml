@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- array start -->
     <string name="img_back">img_back</string>
     <string name="common_top_title_bar_bg_color">common_top_title_bar_bg_color</string>
     <string name="common_activity_title_color">common_activity_title_color</string>
@@ -11,5 +12,22 @@
     <string name="tab_txt_color">tab_txt_color</string>
     <string name="txt_day_black_night_greywhite_color">txt_day_black_night_greywhite_color</string>
     <string name="txt_day_grey_night_greyblack_color">txt_day_grey_night_greyblack_color</string>
+    <string name="refresh_header_text_color">refresh_header_text_color</string>
+    <string name="refresh_header_sub_text_color">refresh_header_sub_text_color</string>
+    <string name="refresh_bg_color">refresh_bg_color</string>
+    <string name="item_white_black_bg">item_white_black_bg</string>
+    <string name="txt_line_color">txt_line_color</string>
+    <string name="txt_line_drawable">txt_line_drawable</string>
+    <string name="photo">photo</string>
+    <!-- array end -->
+    <!-- color start -->
+    <string name="home_green_color">home_green_color</string>
+    <string name="linen">linen</string>
+    <string name="transparent0">transparent0</string>
+    <string name="common_top_title_bar_bg_day">common_top_title_bar_bg_day</string>
+    <!-- color end -->
+    <!-- string end -->
+    <string name="string_name_app_name">skin_string_name_app_name</string>
+    <!-- string end -->
 
 </resources>

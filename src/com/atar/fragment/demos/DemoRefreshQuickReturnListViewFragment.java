@@ -6,8 +6,8 @@ package com.atar.fragment.demos;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.activity.CommonActivity;
 import android.common.CommonHandler;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Message;
 import android.utils.QuickReturnViewUtil;
@@ -91,6 +91,14 @@ public class DemoRefreshQuickReturnListViewFragment extends AtarRefreshListFragm
 				}
 			}, 1000);
 			break;
+		}
+	}
+
+	@Override
+	public void ChangeSkin(Resources mResources, int skinType) {
+		super.ChangeSkin(mResources, skinType);
+		if (mMainDemoAdapter != null) {
+			mMainDemoAdapter.setSkin(mResources, skinType);
 		}
 	}
 }

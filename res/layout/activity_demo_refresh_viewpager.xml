@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:gravity="center"
-        android:background="@color/green"
         android:text="我是头部"
         android:textSize="20dp" />
 

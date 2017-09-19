@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.common.CommonHandler;
+import android.content.res.Resources;
 import android.os.Message;
+import android.skin.SkinUtils;
 import android.utils.QuickReturnViewUtil;
 import android.widget.TextView;
 
@@ -82,6 +84,19 @@ public class DemoRefreshQuickReturnListViewActivity extends AtarRefreshListViewA
 				}
 			}, 1000);
 			break;
+		}
+	}
+
+	@Override
+	public void ChangeSkin(Resources mResources, int skinType) {
+		super.ChangeSkin(mResources, skinType);
+		if (mMainDemoAdapter != null) {
+			mMainDemoAdapter.setSkin(mResources, skinType);
+		}
+		if (mQuickReturnView != null) {
+			mQuickReturnView.setBackgroundColor(SkinUtils.getColor(this, mResources, R.string.home_green_color));
+			mQuickReturnView.setText(SkinUtils.getString(this, mResources, R.string.string_name_app_name));
+			mQuickReturnView.setTextColor(SkinUtils.getColor(this, mResources, R.string.linen));
 		}
 	}
 }

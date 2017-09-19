@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.common.CommonHandler;
+import android.content.res.Resources;
 import android.os.Message;
 
 import com.atar.activitys.AtarRefreshGridActivity;
@@ -70,4 +71,11 @@ public class DemoRefreshGridViewActivity extends AtarRefreshGridActivity {
 		}
 	}
 
+	@Override
+	public void ChangeSkin(Resources mResources, int skinType) {
+		super.ChangeSkin(mResources, skinType);
+		if (mMainDemoAdapter != null) {
+			mMainDemoAdapter.setSkin(mResources, skinType);
+		}
+	}
 }

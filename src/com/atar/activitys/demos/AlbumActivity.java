@@ -18,6 +18,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.skin.SkinUtils;
 import android.utils.FileUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -264,14 +265,14 @@ public class AlbumActivity extends AtarCommonActivity implements OnItemClickList
 	}
 
 	@Override
-	public void ChangeSkin(Resources mResources, int skinType) {
-		super.ChangeSkin(mResources, skinType);
-		// LoadUtil.setImageDrawable(this, imgCommonTopRight, R.array.photo, skinType);
+	public void ChangeSkin(Resources resources, int skinType) {
+		super.ChangeSkin(resources, skinType);
+		SkinUtils.setImageDrawable(this, resources, R.string.photo, skinType, imgCommonTopRight);
 		imgCommonTopRight.setVisibility(View.VISIBLE);
-		// LoadUtil.setBackgroundColor(this, listView, R.array.more_white_black_bg, skinType);
-		// LoadUtil.setDivider(this, AlbumActivity.this.listView, skinType);
+		SkinUtils.setBackgroundColor(this, resources, R.string.item_white_black_bg, skinType, listView);
+		SkinUtils.setDivider(this, resources, R.string.txt_line_drawable, skinType, listView);
 		if (mAlbumAdapter != null) {
-			mAlbumAdapter.setSkinType(skinType);
+			mAlbumAdapter.setSkin(resources, skinType);
 		}
 	}
 }

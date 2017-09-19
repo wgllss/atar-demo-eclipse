@@ -7,6 +7,7 @@ import java.util.List;
 
 import android.adapter.CommonAdapter;
 import android.annotation.SuppressLint;
+import android.skin.SkinUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,10 +45,13 @@ public class MainDemoAdapter extends CommonAdapter<MenuItemBean> {
 		} else {
 			mViewHolder = (ViewHolder) convertView.getTag();
 		}
+		SkinUtils.setTextColor(parent.getContext(), getResources(), R.string.txt_day_black_night_greywhite_color, getSkinType(), mViewHolder.txt_item_name);
+
 		MenuItemBean info = getItem(position);
 		if (info != null) {
 			mViewHolder.txt_item_name.setText(info.getMenuItemName());
 		}
+
 		return convertView;
 	}
 

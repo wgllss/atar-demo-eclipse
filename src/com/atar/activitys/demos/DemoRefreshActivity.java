@@ -8,6 +8,7 @@ import java.util.List;
 
 import android.appconfig.AppConfigSetting;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.view.View;
 import android.widget.AdapterView;
 
@@ -64,6 +65,14 @@ public class DemoRefreshActivity extends AtarRefreshListViewActivity {
 			startActivity(intent);
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void ChangeSkin(Resources mResources, int skinType) {
+		super.ChangeSkin(mResources, skinType);
+		if (mMainDemoAdapter != null) {
+			mMainDemoAdapter.setSkin(mResources, skinType);
 		}
 	}
 }
