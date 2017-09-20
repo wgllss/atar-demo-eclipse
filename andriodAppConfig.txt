@@ -1,8 +1,8 @@
 {
     "versionName":"5.35",
     "isReplace":true,
-    "tpyTel":"95397",
-    "fmTel":"400-058-0188",
+    "skinVersion":"1.0",
+    "isReplaceSkin":true,
     "topMenu":{
         "showDividerLine":false,
         "shouldExpand":false,

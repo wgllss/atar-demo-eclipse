@@ -37,6 +37,9 @@ public class UrlParamCommon {
 	/**  WWW获取新浪的数据**/
 	public static final String WWWGETDATA = "http://hq.sinajs.cn/";
 
+	/**  动态皮肤地址**/
+	public static final String SKIN_URL = "http://hq.sinajs.cn/";
+
 	/* ****************************************************************图片地址 start ************************************************************************** */
 	/** 图片服务器地址**/
 	public static final String IMAGE_HOST = prefix + "://image.taoguba.com.cn/";

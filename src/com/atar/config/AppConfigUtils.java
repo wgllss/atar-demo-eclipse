@@ -47,7 +47,9 @@ public class AppConfigUtils {
 	private static String TAG = AppConfigUtils.class.getSimpleName();
 
 	/**下载配置andriodAppConfig地址key*/
-	public static final String andriod_app_config_home_url = WeexUtils.WEEX_HOST + "andriodAppConfig.txt";
+	// public static final String andriod_app_config_home_url = WeexUtils.WEEX_HOST + "andriodAppConfig.txt";
+
+	public static final String andriod_app_config_home_url = "";
 	/**保存配置文件json key*/
 	public static final String ANDRIOD_APP_CONFIG_HOME_KEY = "ANDRIOD_APP_CONFIG_HOME_KEY";
 	/**保存开机引道json key*/
