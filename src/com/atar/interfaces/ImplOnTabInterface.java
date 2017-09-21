@@ -6,10 +6,15 @@ package com.atar.interfaces;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.atar.activitys.R;
+
 import android.activity.CommonActivity;
 import android.adapter.FragmentAdapter;
 import android.annotation.SuppressLint;
 import android.application.CrashHandler;
+import android.content.res.Resources;
+import android.skin.SkinResourcesManager;
+import android.skin.SkinUtils;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -228,9 +233,11 @@ public class ImplOnTabInterface<V extends ViewGroup, A extends CommonActivity> i
 		if (mLinearLayout != null) {
 			for (int i = 0; i < tabCount; i++) {
 				if (arg0 == i) {
-					// LoadUtil.setTextColor(mFragmentActivity, ((TextView) mLinearLayout.getChildAt(i)), R.array.select_tab_txt_color, mFragmentActivity.getCurrentSkinType());
+					SkinUtils.setText(mFragmentActivity, SkinResourcesManager.getInstance(mFragmentActivity).getResources(), R.string.select_tab_txt_color, mFragmentActivity.getCurrentSkinType(),
+							((TextView) mLinearLayout.getChildAt(i)));
 				} else {
-					// LoadUtil.setTextColor(mFragmentActivity, ((TextView) mLinearLayout.getChildAt(i)), R.array.tab_txt_color, mFragmentActivity.getCurrentSkinType());
+					SkinUtils.setText(mFragmentActivity, SkinResourcesManager.getInstance(mFragmentActivity).getResources(), R.string.tab_txt_color, mFragmentActivity.getCurrentSkinType(),
+							((TextView) mLinearLayout.getChildAt(i)));
 				}
 			}
 		}
@@ -271,16 +278,16 @@ public class ImplOnTabInterface<V extends ViewGroup, A extends CommonActivity> i
 	}
 
 	@Override
-	public void setChangeTabSkin(int skinType) {
-		// LoadUtil.setBackgroundColor(mFragmentActivity, viewMove, R.array.common_tab_line_move_color, skinType);
-		// LoadUtil.setBackgroundColor(mFragmentActivity, mLinearLayout, R.array.common_tab_bg_color, skinType);
-		// LoadUtil.setBackgroundColor(mFragmentActivity, mViewPager, R.array.common_content_bg_color, skinType);
-		// if (mLinearLayout != null) {
-		// for (int i = 0; i < tabCount; i++) {
-		// LoadUtil.setTextColor(mFragmentActivity, ((TextView) mLinearLayout.getChildAt(i)), R.array.tab_txt_color, skinType);
-		// }
-		// LoadUtil.setTextColor(mFragmentActivity, ((TextView) mLinearLayout.getChildAt(getCurrentItem())), R.array.select_tab_txt_color, skinType);
-		// }
+	public void setChangeTabSkin(Resources resources, int skinType) {
+		SkinUtils.setBackgroundColor(mFragmentActivity, resources, R.string.common_tab_bg_color, skinType, mLinearLayout);
+		SkinUtils.setBackgroundColor(mFragmentActivity, resources, R.string.common_tab_line_move_color, skinType, viewMove);
+		SkinUtils.setBackgroundColor(mFragmentActivity, resources, R.string.common_tab_bg_color, skinType, mLinearLayout);
+		if (mLinearLayout != null) {
+			for (int i = 0; i < tabCount; i++) {
+				SkinUtils.setText(mFragmentActivity, resources, R.string.tab_txt_color, skinType, ((TextView) mLinearLayout.getChildAt(i)));
+			}
+			SkinUtils.setText(mFragmentActivity, resources, R.string.select_tab_txt_color, skinType, ((TextView) mLinearLayout.getChildAt(getCurrentItem())));
+		}
 	}
 
 	@Override

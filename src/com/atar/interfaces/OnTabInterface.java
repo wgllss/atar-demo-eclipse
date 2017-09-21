@@ -7,6 +7,7 @@ import java.util.List;
 
 import android.activity.CommonActivity;
 import android.adapter.FragmentAdapter;
+import android.content.res.Resources;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -180,7 +181,7 @@ public interface OnTabInterface<V extends ViewGroup, A extends CommonActivity> {
 	 * @param skinType
 	 * @description:
 	 */
-	void setChangeTabSkin(int skinType);
+	void setChangeTabSkin(Resources resources, int skinType);
 
 	/**
 	 * ViewPager当前滑动到第几页

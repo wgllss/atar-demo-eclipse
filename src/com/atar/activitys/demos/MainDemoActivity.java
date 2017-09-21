@@ -25,12 +25,14 @@ import android.widget.AdapterView;
 import android.widget.CommonToast;
 
 import com.atar.activitys.AtarRefreshListViewActivity;
+import com.atar.activitys.R;
 import com.atar.adapters.MainDemoAdapter;
 import com.atar.beans.MenuItemBean;
 import com.atar.enums.EnumMsgWhat;
 import com.atar.modles.WonderfulTopicJson;
 import com.atar.net.NetWorkInterfaces;
 import com.atar.net.UrlParamCommon;
+import com.atar.utils.IntentUtil;
 
 /**
  *****************************************************************************************************************************************************************************
@@ -162,6 +164,19 @@ public class MainDemoActivity extends AtarRefreshListViewActivity {
 			mMainDemoAdapter.notifyDataSetChanged();
 			break;
 		}
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.img_common_top_left:// 顶部左边
+			onBackPressed();
+			break;
+		default:
+			super.onClick(v);
+			break;
+		}
+
 	}
 
 	@Override

@@ -168,7 +168,7 @@ public class AtarTabFragment<V extends ViewGroup> extends CommonFragment impleme
 	@Override
 	public void ChangeSkin(Resources mResources, int skinType) {
 		super.ChangeSkin(mResources, skinType);
-		setChangeTabSkin(skinType);
+		setChangeTabSkin(mResources, skinType);
 		try {
 			if (getFragmentList() != null) {
 				for (Fragment fragment : getFragmentList()) {
@@ -182,9 +182,9 @@ public class AtarTabFragment<V extends ViewGroup> extends CommonFragment impleme
 	}
 
 	@Override
-	public void setChangeTabSkin(int skinType) {
+	public void setChangeTabSkin(Resources resources, int skinType) {
 		if (mImplOnTabInterface != null) {
-			mImplOnTabInterface.setChangeTabSkin(skinType);
+			mImplOnTabInterface.setChangeTabSkin(resources, skinType);
 		}
 	}
 

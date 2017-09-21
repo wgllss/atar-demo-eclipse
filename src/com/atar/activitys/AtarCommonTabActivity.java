@@ -171,16 +171,16 @@ public abstract class AtarCommonTabActivity<V extends ViewGroup> extends AtarDro
 	}
 
 	@Override
-	public void setChangeTabSkin(int skinType) {
+	public void setChangeTabSkin(Resources mResources, int skinType) {
 		if (mImplOnTabInterface != null) {
-			mImplOnTabInterface.setChangeTabSkin(skinType);
+			mImplOnTabInterface.setChangeTabSkin(mResources, skinType);
 		}
 	}
 
 	@Override
 	public void ChangeSkin(Resources mResources, int skinType) {
 		super.ChangeSkin(mResources, skinType);
-		setChangeTabSkin(skinType);
+		setChangeTabSkin(mResources, skinType);
 		try {
 			for (Fragment fragment : getFragmentList()) {
 				if (fragment instanceof CommonFragment) {
