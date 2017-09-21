@@ -165,6 +165,11 @@ public class MainDemoActivity extends AtarRefreshListViewActivity {
 	}
 
 	@Override
+	public void onBackPressed() {
+		runOnBackground();
+	}
+
+	@Override
 	public void ChangeSkin(Resources mResources, int skinType) {
 		super.ChangeSkin(mResources, skinType);
 		if (mMainDemoAdapter != null) {

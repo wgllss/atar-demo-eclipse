@@ -11,7 +11,6 @@ import android.application.CrashHandler;
 import android.content.Context;
 import android.interfaces.CommonNetWorkExceptionToast;
 import android.os.Build;
-import android.skin.SkinResourcesManager;
 import android.support.multidex.MultiDex;
 import android.utils.ShowLog;
 
@@ -59,9 +58,8 @@ public class AtarApplication extends Application {
 		// CommonToast.initToastResouseId(R.drawable.corners_toast, R.color.black);// 初始化toast字体颜色和背景
 		CrashHandler.getInstance().init(this);// 接收错误异常
 
-		SkinResourcesManager.getInstance(this).initSkinResources(this, true, getPackageName(), "com.atar.skin", "https://github.com/wgllss/atar-skin/raw/master/download_skin.apk");
 		db = getDb();
-		initHotfix();
+		// initHotfix();
 	}
 
 	public static AtarApplication getApplication() {

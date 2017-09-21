@@ -17,12 +17,13 @@ import android.activity.ActivityManager;
 import android.app.Activity;
 import android.appconfig.AppConfigModel;
 import android.application.CrashHandler;
+import android.common.CommonHandler;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.interfaces.HandlerListener;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
-import android.os.Handler;
 import android.reflection.ThreadPoolTool;
 import android.utils.ApplicationManagement;
 import android.utils.ShowLog;
@@ -49,7 +50,7 @@ public class AppConfigUtils {
 	/**下载配置andriodAppConfig地址key*/
 	// public static final String andriod_app_config_home_url = WeexUtils.WEEX_HOST + "andriodAppConfig.txt";
 
-	public static final String andriod_app_config_home_url = "";
+	public static final String andriod_app_config_home_url = "https://raw.githubusercontent.com/wgllss/atar-demo/master/andriodAppConfig.txt";
 	/**保存配置文件json key*/
 	public static final String ANDRIOD_APP_CONFIG_HOME_KEY = "ANDRIOD_APP_CONFIG_HOME_KEY";
 	/**保存开机引道json key*/
@@ -115,7 +116,7 @@ public class AppConfigUtils {
 	 * @param handlerMsgWhat:回调msg.what
 	 * @description:
 	 */
-	public static void getServerTextJson(final String FileUrl, final String saveToSharedPreferencesKey, final Handler handler, final int resultMsgWhat) {
+	public static void getServerTextJson(final String FileUrl, final String saveToSharedPreferencesKey, final HandlerListener handlerListener, final int resultMsgWhat) {
 		ThreadPoolTool.getInstance().execute(new Runnable() {
 			@Override
 			public void run() {
@@ -140,7 +141,9 @@ public class AppConfigUtils {
 					if (result != null && saveToSharedPreferencesKey != null && result.length() > 0) {
 						Gson gson = new Gson();
 						AppConfigJson mAppConfigJson = gson.fromJson(result, AppConfigJson.class);
-						// JSONObject resultJson = new JSONObject(result);
+						if (mAppConfigJson == null) {
+							return;
+						}
 						String versionName = "";
 						String localVersion = "";
 						if (AppConfigModel.getInstance().getString(AppConfigModel.VERSION_KEY, "") != null && AppConfigModel.getInstance().getString(AppConfigModel.VERSION_KEY, "").length() > 0) {
@@ -166,9 +169,19 @@ public class AppConfigUtils {
 						} else {
 							AppConfigModel.getInstance().putString(saveToSharedPreferencesKey, result, true);
 						}
-						if (mAppConfigJson.getLoading_images() != null && mAppConfigJson.getLoading_images().size() > 0 && handler != null) {
+						if (mAppConfigJson.getLoading_images() != null && mAppConfigJson.getLoading_images().size() > 0 && handlerListener != null) {
 							AppConfigModel.getInstance().putString(APP_LOADING_IMAGES_KEY, gson.toJson(mAppConfigJson.getLoading_images()));
-							handler.obtainMessage(resultMsgWhat, mAppConfigJson.getLoading_images());
+							CommonHandler.getInstatnce().handerMessage(handlerListener, resultMsgWhat, 0, 0, mAppConfigJson.getLoading_images());
+						}
+
+						String skinVersion = mAppConfigJson.getSkinVersion();
+						boolean isReplaceSkin = true;
+						if (skinVersion.compareToIgnoreCase(localVersion) > 0) {
+							if (isReplaceSkin) {
+								CommonHandler.getInstatnce().handerMessage(handlerListener, resultMsgWhat, 1, 0, null);
+							}
+						} else {
+							CommonHandler.getInstatnce().handerMessage(handlerListener, resultMsgWhat, 1, 0, null);
 						}
 					}
 				} catch (Exception e) {

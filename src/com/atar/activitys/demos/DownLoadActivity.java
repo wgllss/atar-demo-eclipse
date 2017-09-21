@@ -39,15 +39,16 @@ public class DownLoadActivity extends AtarRefreshScrollViewActivity {
 	private String strDownloadDir = Environment.getExternalStorageDirectory() + "";
 
 	private String strDownloadFileName1 = "baiduteiba.apk";
-	private String strDownloadFileName2 = "baiduxinwen.apk";
+	private String strDownloadFileName2 = "baidushoujizushou.apk";
 	private String strDownloadFileName3 = "baiduxinwen3.apk";
-	private String strDownloadFileName4 = "baiduxinwen4.apk";
+	private String strDownloadFileName4 = "taoguba.apk";
 	private String strDownloadFileName5 = "baiduxinwen5.apk";
 	private String strDownloadFileName6 = "baiduxinwen6.apk";
 
 	private String url1 = "http://gdown.baidu.com/data/wisegame/6e220cc18d807060/shoujibaidu_38032640.apk";
-	private String url2 = "http://gdown.baidu.com/data/wisegame/23315dd5f0bbe8ab/baiduxinwen_6402.apk";
-	private String url3 = "http://gdown.baidu.com/data/wisegame/23315dd5f0bbe8ab/baiduxinwen_6402.apk";
+	private String url2 = "https://github.com/wgllss/atar-skin/raw/master/download_skin.apk";
+	private String url3 = "https://gdown.baidu.com/data/wisegame/23315dd5f0bbe8ab/baiduxinwen_6402.apk";
+	private String url4 = "https://m.taoguba.com.cn/downloadApp?channelType=android";
 
 	@Override
 	protected void onCreate(Bundle bundle) {
@@ -84,7 +85,7 @@ public class DownLoadActivity extends AtarRefreshScrollViewActivity {
 		DownLoadFileManager.getInstance().initTempFilePercent(0, this, url1, strDownloadFileName1, strDownloadDir);
 		DownLoadFileManager.getInstance().initTempFilePercent(1, this, url2, strDownloadFileName2, strDownloadDir);
 		DownLoadFileManager.getInstance().initTempFilePercent(2, this, url3, strDownloadFileName3, strDownloadDir);
-		DownLoadFileManager.getInstance().initTempFilePercent(3, this, url3, strDownloadFileName4, strDownloadDir);
+		DownLoadFileManager.getInstance().initTempFilePercent(3, this, url4, strDownloadFileName4, strDownloadDir);
 		DownLoadFileManager.getInstance().initTempFilePercent(4, this, url3, strDownloadFileName5, strDownloadDir);
 		DownLoadFileManager.getInstance().initTempFilePercent(5, this, url3, strDownloadFileName6, strDownloadDir);
 	}
@@ -103,13 +104,13 @@ public class DownLoadActivity extends AtarRefreshScrollViewActivity {
 			DownLoadFileManager.getInstance().downLoad(this, this, 2, url3, strDownloadFileName3, strDownloadDir);
 			break;
 		case R.id.btn_down4:
-			DownLoadFileManager.getInstance().downLoad(this, this, 3, url3, 2, strDownloadFileName4, strDownloadDir);
+			DownLoadFileManager.getInstance().downLoad(this, this, 3, url4, 2, false, strDownloadFileName4, strDownloadDir);
 			break;
 		case R.id.btn_down5:
-			DownLoadFileManager.getInstance().downLoad(this, this, 4, url3, 3, strDownloadFileName5, strDownloadDir);
+			DownLoadFileManager.getInstance().downLoad(this, this, 4, url3, 3, false, strDownloadFileName5, strDownloadDir);
 			break;
 		case R.id.btn_down6:
-			DownLoadFileManager.getInstance().downLoad(this, this, 5, url3, 4, strDownloadFileName6, strDownloadDir);
+			DownLoadFileManager.getInstance().downLoad(this, this, 5, url3, 4, false, strDownloadFileName6, strDownloadDir);
 			break;
 		case R.id.btn_down_cancle:
 			DownLoadFileManager.getInstance().pauseDownload(0);

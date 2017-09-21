@@ -12,9 +12,10 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.interfaces.HandlerListener;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.Message;
+import android.skin.SkinResourcesManager;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -48,7 +49,7 @@ import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
  * @description:
  *****************************************************************************************************************************************************************************
  */
-public class AtarLoadActivity extends Activity implements OnPageChangeListener {
+public class AtarLoadActivity extends Activity implements OnPageChangeListener, HandlerListener {
 
 	private String versionName = "";
 
@@ -94,13 +95,13 @@ public class AtarLoadActivity extends Activity implements OnPageChangeListener {
 
 		}
 
-		// SkinResourcesManager.getInstance(this).initSkinResources(this, true, getPackageName(), "com.atar.skin", "https://github.com/wgllss/atar-skin/raw/master/download_skin.apk");
+		SkinResourcesManager.getInstance(this).initSkinResources(true, getPackageName(), "com.atar.skin", "https://github.com/wgllss/atar-skin/raw/master/download_skin.apk");
 
 		setContentView(R.layout.activity_load);
 
 		// 获取app配置首页txt文件配置信息 及 开机引导图片 获取配置版本要放在前面getServerTextJson
 		String configVersion = "";
-		AppConfigUtils.getServerTextJson(AppConfigUtils.andriod_app_config_home_url, AppConfigUtils.ANDRIOD_APP_CONFIG_HOME_KEY, handler, 50505);
+		AppConfigUtils.getServerTextJson(AppConfigUtils.andriod_app_config_home_url, AppConfigUtils.ANDRIOD_APP_CONFIG_HOME_KEY, this, 50505);
 
 		mViewPager = (ViewPager) findViewById(R.id.view_pager);
 		indicator = (LinearLayout) findViewById(R.id.ad_indicator);
@@ -162,15 +163,11 @@ public class AtarLoadActivity extends Activity implements OnPageChangeListener {
 		}
 	}
 
-	Handler handler = new Handler() {
-		@Override
-		public void handleMessage(Message msg) {
-			super.handleMessage(msg);
-			switch (msg.what) {
-			case 50505:
-				finishThis(MainDemoActivity.class);
-				break;
-			case 50506:
+	@Override
+	public void onHandlerData(Message msg) {
+		switch (msg.what) {
+		case 50505:
+			if (msg.arg1 == 0) {// 下载引导图
 				try {
 					@SuppressWarnings("unchecked")
 					List<String> loading_images = (List<String>) msg.obj;
@@ -183,20 +180,12 @@ public class AtarLoadActivity extends Activity implements OnPageChangeListener {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				break;
-			default:
-				break;
+			} else if (msg.arg1 == 1) {// 下载皮肤
+				SkinResourcesManager.getInstance(this).downLoadSkin();
 			}
+			break;
 		}
-	};
-
-	// @Override
-	// protected void onStop() {
-	// super.onStop();
-	// if (handler != null) {
-	// handler.removeMessages(-1);
-	// }
-	// }
+	}
 
 	private void finishThis(Class<?> cls) {
 		IntentUtil.startActivityWithOutTween(this, new Intent(this, cls));
