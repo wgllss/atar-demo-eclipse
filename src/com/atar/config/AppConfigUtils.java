@@ -3,11 +3,6 @@
  */
 package com.atar.config;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
@@ -15,6 +10,8 @@ import org.json.JSONObject;
 
 import android.activity.ActivityManager;
 import android.app.Activity;
+import android.appconfig.AppConfigDownloadManager;
+import android.appconfig.AppConfigDownloadManager.HttpCallBackResult;
 import android.appconfig.AppConfigModel;
 import android.application.CrashHandler;
 import android.common.CommonHandler;
@@ -50,7 +47,7 @@ public class AppConfigUtils {
 	/**下载配置andriodAppConfig地址key*/
 	// public static final String andriod_app_config_home_url = WeexUtils.WEEX_HOST + "andriodAppConfig.txt";
 
-	public static final String andriod_app_config_home_url = "https://raw.githubusercontent.com/wgllss/atar-demo/master/andriodAppConfig.txt";
+	public static final String andriod_app_config_home_url = "http://192.168.1.10:8080/andriodAppConfig.txt";
 	/**保存配置文件json key*/
 	public static final String ANDRIOD_APP_CONFIG_HOME_KEY = "ANDRIOD_APP_CONFIG_HOME_KEY";
 	/**保存开机引道json key*/
@@ -117,75 +114,46 @@ public class AppConfigUtils {
 	 * @description:
 	 */
 	public static void getServerTextJson(final String FileUrl, final String saveToSharedPreferencesKey, final HandlerListener handlerListener, final int resultMsgWhat) {
-		ThreadPoolTool.getInstance().execute(new Runnable() {
+		AppConfigDownloadManager.getInstance().getServerJson(FileUrl, new HttpCallBackResult() {
 			@Override
-			public void run() {
-				try {
-					String result = "";
-					URL url = new URL(FileUrl);
-					HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-					conn.setConnectTimeout(5000);
-					InputStream instream = conn.getInputStream();
-					if (instream != null) {
-						InputStreamReader inputreader = new InputStreamReader(instream);
-						BufferedReader buffreader = new BufferedReader(inputreader);
-						String line;
-						// 分行读取
-						while ((line = buffreader.readLine()) != null) {
-							result += line;
-						}
-						inputreader.close();
-						instream.close();
-						buffreader.close();
+			public void onResult(String result) {
+				if (result != null && saveToSharedPreferencesKey != null && result.length() > 0) {
+					Gson gson = new Gson();
+					AppConfigJson mAppConfigJson = gson.fromJson(result, AppConfigJson.class);
+					if (mAppConfigJson == null) {
+						return;
 					}
-					if (result != null && saveToSharedPreferencesKey != null && result.length() > 0) {
-						Gson gson = new Gson();
-						AppConfigJson mAppConfigJson = gson.fromJson(result, AppConfigJson.class);
-						if (mAppConfigJson == null) {
-							return;
+					String versionName = "";
+					String localVersion = "";
+					if (AppConfigModel.getInstance().getString(AppConfigModel.VERSION_KEY, "") != null && AppConfigModel.getInstance().getString(AppConfigModel.VERSION_KEY, "").length() > 0) {
+						localVersion = AppConfigModel.getInstance().getString(AppConfigModel.VERSION_KEY, "");
+					} else {
+						try {
+							localVersion = ApplicationManagement.getVersionName();
+						} catch (Exception e) {
+							ShowLog.e(TAG, CrashHandler.crashToString(e));
 						}
-						String versionName = "";
-						String localVersion = "";
-						if (AppConfigModel.getInstance().getString(AppConfigModel.VERSION_KEY, "") != null && AppConfigModel.getInstance().getString(AppConfigModel.VERSION_KEY, "").length() > 0) {
-							localVersion = AppConfigModel.getInstance().getString(AppConfigModel.VERSION_KEY, "");
-						} else {
-							try {
-								localVersion = ApplicationManagement.getVersionName();
-							} catch (Exception e) {
-								ShowLog.e(TAG, CrashHandler.crashToString(e));
-							}
-						}
-						boolean isReplace = true;
-						// versionName 版本号 和apk 的versionName一样的值
-						// isReplace 如果apk新发版本 这个配置也新发配置.txt文件，为true: 老版本要替换该配置.txt, false :老版本不替换该.txt
-						versionName = mAppConfigJson.getVersionName();
-						AppConfigModel.getInstance().putString(APP_CONFIG_TEXT_VERSION_KEY, versionName, true);
+					}
+					boolean isReplace = true;
+					// versionName 版本号 和apk 的versionName一样的值
+					// isReplace 如果apk新发版本 这个配置也新发配置.txt文件，为true: 老版本要替换该配置.txt, false :老版本不替换该.txt
+					versionName = mAppConfigJson.getVersionName();
+					AppConfigModel.getInstance().putString(APP_CONFIG_TEXT_VERSION_KEY, versionName, true);
 
-						isReplace = mAppConfigJson.isReplace();
-						if (versionName.compareToIgnoreCase(localVersion) > 0) {
-							if (isReplace) {
-								AppConfigModel.getInstance().putString(saveToSharedPreferencesKey, result, true);
-							}
-						} else {
+					isReplace = mAppConfigJson.isReplace();
+					if (versionName.compareToIgnoreCase(localVersion) > 0) {
+						if (isReplace) {
 							AppConfigModel.getInstance().putString(saveToSharedPreferencesKey, result, true);
 						}
-						if (mAppConfigJson.getLoading_images() != null && mAppConfigJson.getLoading_images().size() > 0 && handlerListener != null) {
-							AppConfigModel.getInstance().putString(APP_LOADING_IMAGES_KEY, gson.toJson(mAppConfigJson.getLoading_images()));
-							CommonHandler.getInstatnce().handerMessage(handlerListener, resultMsgWhat, 0, 0, mAppConfigJson.getLoading_images());
-						}
-
-						String skinVersion = mAppConfigJson.getSkinVersion();
-						boolean isReplaceSkin = true;
-						if (skinVersion.compareToIgnoreCase(localVersion) > 0) {
-							if (isReplaceSkin) {
-								CommonHandler.getInstatnce().handerMessage(handlerListener, resultMsgWhat, 1, 0, null);
-							}
-						} else {
-							CommonHandler.getInstatnce().handerMessage(handlerListener, resultMsgWhat, 1, 0, null);
-						}
+					} else {
+						AppConfigModel.getInstance().putString(saveToSharedPreferencesKey, result, true);
 					}
-				} catch (Exception e) {
-					ShowLog.w(TAG, CrashHandler.crashToString(e));
+					if (mAppConfigJson.getLoading_images() != null && mAppConfigJson.getLoading_images().size() > 0 && handlerListener != null) {
+						AppConfigModel.getInstance().putString(APP_LOADING_IMAGES_KEY, gson.toJson(mAppConfigJson.getLoading_images()));
+						CommonHandler.getInstatnce().handerMessage(handlerListener, resultMsgWhat, 0, 0, mAppConfigJson.getLoading_images());
+					}
+					// 处理下载皮肤
+					CommonHandler.getInstatnce().handerMessage(handlerListener, resultMsgWhat, 1, 0, mAppConfigJson);
 				}
 			}
 		});

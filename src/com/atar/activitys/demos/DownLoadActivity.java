@@ -104,7 +104,7 @@ public class DownLoadActivity extends AtarRefreshScrollViewActivity {
 			DownLoadFileManager.getInstance().downLoad(this, this, 2, url3, strDownloadFileName3, strDownloadDir);
 			break;
 		case R.id.btn_down4:
-			DownLoadFileManager.getInstance().downLoad(this, this, 3, url4, 2, false, strDownloadFileName4, strDownloadDir);
+			DownLoadFileManager.getInstance().downLoad(this, this, 3, url4, 2, true, strDownloadFileName4, strDownloadDir);
 			break;
 		case R.id.btn_down5:
 			DownLoadFileManager.getInstance().downLoad(this, this, 4, url3, 3, false, strDownloadFileName5, strDownloadDir);
@@ -146,10 +146,9 @@ public class DownLoadActivity extends AtarRefreshScrollViewActivity {
 		case android.download.DownLoadFileBean.DOWLOAD_FLAG_SUCCESS:
 			ProgressBarArr[msg.arg2].setProgress(100);
 			txt_percentArr[msg.arg2].setText("100%");
-			ShowLog.i(TAG, msg.arg2 + "---" + "DOWLOAD_FLAG_SUCCESS");
+			ShowLog.i(TAG, msg.arg2 + "---" + "下载成功");
 			break;
 		case android.download.DownLoadFileBean.DOWLOAD_FLAG_ING:
-			ShowLog.i(TAG, msg.arg2 + "---" + "下载成功");
 			int progress = (Integer) msg.obj;
 			ProgressBarArr[msg.arg2].setProgress(progress);
 			txt_percentArr[msg.arg2].setText(progress + "%");

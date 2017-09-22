@@ -30,6 +30,7 @@ import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 
 import com.atar.activitys.R;
+import com.atar.config.AppConfigJson;
 import com.atar.config.AppConfigUtils;
 import com.atar.utils.IntentUtil;
 import com.google.gson.Gson;
@@ -181,7 +182,10 @@ public class AtarLoadActivity extends Activity implements OnPageChangeListener, 
 					e.printStackTrace();
 				}
 			} else if (msg.arg1 == 1) {// 下载皮肤
-				SkinResourcesManager.getInstance(this).downLoadSkin(this);
+				if (msg.obj != null) {
+					AppConfigJson mAppConfigJson = (AppConfigJson) msg.obj;
+					SkinResourcesManager.getInstance(this).downLoadSkin(this, mAppConfigJson.getSkinVersion(), mAppConfigJson.getReplaceMinVersion());
+				}
 			}
 			break;
 		}

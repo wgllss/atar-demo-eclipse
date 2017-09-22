@@ -2,7 +2,7 @@
     "versionName":"5.35",
     "isReplace":true,
     "skinVersion":"1.0",
-    "isReplaceSkin":true,
+    "replaceMinVersion":"1.0",
     "topMenu":{
         "showDividerLine":false,
         "shouldExpand":false,
