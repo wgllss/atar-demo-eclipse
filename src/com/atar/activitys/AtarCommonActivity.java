@@ -5,7 +5,6 @@ import android.annotation.SuppressLint;
 import android.application.CrashHandler;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.interfaces.NetWorkCallListener;
 import android.interfaces.OnOpenDrawerCompleteListener;
@@ -885,12 +884,12 @@ public class AtarCommonActivity extends CommonActivity implements OnClickListene
 	}
 
 	@Override
-	public void ChangeSkin(Resources resources, int skinType) {
+	public void ChangeSkin(int skinType) {
 		if (isExtendsAtarCommonActivity) {
-			SkinUtils.setImageDrawable(this, resources, R.string.img_back, skinType, imgCommonTopLeft);
-			SkinUtils.setBackgroundColor(this, resources, R.string.common_tab_bg_color, skinType, commonContentBg);
-			SkinUtils.setTextColor(this, resources, R.string.common_activity_title_color, skinType, txtCommonTopTitle);
-			SkinUtils.setBackgroundColor(this, resources, R.string.common_top_title_bar_bg_color, skinType, topTitleBarBg);
+			SkinUtils.setImageDrawable(this, R.string.img_back, skinType, imgCommonTopLeft);
+			SkinUtils.setBackgroundColor(this, R.string.common_tab_bg_color, skinType, commonContentBg);
+			SkinUtils.setTextColor(this, R.string.common_activity_title_color, skinType, txtCommonTopTitle);
+			SkinUtils.setBackgroundColor(this, R.string.common_top_title_bar_bg_color, skinType, topTitleBarBg);
 		}
 	}
 }

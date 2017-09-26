@@ -11,10 +11,12 @@ import android.application.CrashHandler;
 import android.content.Context;
 import android.interfaces.CommonNetWorkExceptionToast;
 import android.os.Build;
+import android.skin.SkinResourcesManager;
 import android.support.multidex.MultiDex;
 import android.utils.ShowLog;
 
 import com.atar.activitys.R;
+import com.atar.net.UrlParamCommon;
 import com.lidroid.xutils.DbUtils;
 import com.taobao.sophix.PatchStatus;
 import com.taobao.sophix.SophixManager;
@@ -50,6 +52,8 @@ public class AtarApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 		mInstance = this;
+		SkinResourcesManager.getInstance(this).initSkinResources(true, getPackageName(), "com.atar.skin", UrlParamCommon.download_skin_url);
+
 		CommonApplication.initApplication(this);// 初始化全局Context
 		CommonNetWorkExceptionToast.initToastError(this, R.array.err_toast_string);// 初始化全局网络错误提示信息
 		ShowLog.setDebug(true);// 设置不显示日志 上线前记得改成false

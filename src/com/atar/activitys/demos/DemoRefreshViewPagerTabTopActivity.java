@@ -6,11 +6,9 @@ package com.atar.activitys.demos;
 import android.annotation.SuppressLint;
 import android.common.CommonHandler;
 import android.content.Context;
-import android.content.res.Resources;
-import android.enums.SkinMode;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
-import android.utils.ColorUtil;
+import android.skin.SkinUtils;
 import android.utils.ScreenUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -43,7 +41,6 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
  *****************************************************************************************************************************************************************************
  */
 public class DemoRefreshViewPagerTabTopActivity extends AtarCommonTabActivity<RelativeLayout> implements OnRefreshListener<ScrollableLayout>, ScrollLayoutListener {
-	private int[] txtTabResID = { R.string.txt_week_contest, R.string.txt_month_contest, R.string.txt_history_contest };
 
 	private PullToRefreshScrollableLayout pullToRefreshScrollableLayout;
 
@@ -70,7 +67,7 @@ public class DemoRefreshViewPagerTabTopActivity extends AtarCommonTabActivity<Re
 	protected void initValue() {
 		super.initValue();
 		setActivityTitle(getIntent().getStringExtra(DemoRefreshActivity.TITLE_KEY));
-		setTextTab(txtTabResID, false, true);
+		setTextTab(SkinUtils.getStringArray(this, R.string.viewpager_demo_tabs), false, true);
 		setActivityTitle("比赛");
 		setOnDrawerBackEnabled(false);
 		setLoadingViewGone();
@@ -134,7 +131,7 @@ public class DemoRefreshViewPagerTabTopActivity extends AtarCommonTabActivity<Re
 
 			topTitleBarBg.setVisibility(View.VISIBLE);
 			topTitleBarBg.bringToFront();
-			//topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.transparent0));
+			// topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.transparent0));
 		}
 
 		scrollDistence = scrollDistence > (itemHeaderAdView.getHeight() - stickyOffset - statusBarHeight) ? (itemHeaderAdView.getHeight() - stickyOffset - statusBarHeight) : scrollDistence;
@@ -143,9 +140,9 @@ public class DemoRefreshViewPagerTabTopActivity extends AtarCommonTabActivity<Re
 		// topTitleBarBg.bringToFront();
 
 		if (isSmoothTop) {
-			//topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.transparent0));
+			// topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.transparent0));
 		} else {
-			//topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.green));
+			// topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.green));
 		}
 		float fraction;
 		if (headerViewTopSpace > 0) {
@@ -169,8 +166,8 @@ public class DemoRefreshViewPagerTabTopActivity extends AtarCommonTabActivity<Re
 			AlphaAnimation inAlphaAnimation = new AlphaAnimation(fraction, 1f);
 			topTitleBarBg.setAnimation(inAlphaAnimation);
 		}
-		//int endColor = getCurrentSkinType() == SkinMode.DAY_MODE ? R.color.common_top_title_bar_bg_day : R.color.common_buttom_bg_night;
-		//topTitleBarBg.setBackgroundColor(ColorUtil.getNewColorByStartEndColor(this, fraction, R.color.transparent0, endColor));
+		// int endColor = getCurrentSkinType() == SkinMode.DAY_MODE ? R.color.common_top_title_bar_bg_day : R.color.common_buttom_bg_night;
+		// topTitleBarBg.setBackgroundColor(ColorUtil.getNewColorByStartEndColor(this, fraction, R.color.transparent0, endColor));
 	}
 
 	@Override
@@ -184,8 +181,8 @@ public class DemoRefreshViewPagerTabTopActivity extends AtarCommonTabActivity<Re
 	}
 
 	@Override
-	public void ChangeSkin(Resources mResources, int skinType) {
-		super.ChangeSkin(mResources, skinType);
+	public void ChangeSkin(int skinType) {
+		super.ChangeSkin(skinType);
 
 		// if (pullToRefreshScrollableLayout != null) {
 		// if (pullToRefreshScrollableLayout.getHeaderLayout() != null && pullToRefreshScrollableLayout.getHeaderLayout().getHeaderText() != null) {

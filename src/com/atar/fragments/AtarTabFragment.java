@@ -7,7 +7,6 @@ import java.util.List;
 
 import android.activity.CommonActivity;
 import android.adapter.FragmentAdapter;
-import android.content.res.Resources;
 import android.fragment.CommonFragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -147,9 +146,9 @@ public class AtarTabFragment<V extends ViewGroup> extends CommonFragment impleme
 	}
 
 	@Override
-	public void setTextTab(String[] strArray) {
+	public void setTextTab(String[] strArray, boolean isDropDown, boolean smoothScroll) {
 		if (mImplOnTabInterface != null) {
-			mImplOnTabInterface.setTextTab(strArray);
+			mImplOnTabInterface.setTextTab(strArray, isDropDown, smoothScroll);
 		}
 	}
 
@@ -166,14 +165,14 @@ public class AtarTabFragment<V extends ViewGroup> extends CommonFragment impleme
 	}
 
 	@Override
-	public void ChangeSkin(Resources mResources, int skinType) {
-		super.ChangeSkin(mResources, skinType);
-		setChangeTabSkin(mResources, skinType);
+	public void ChangeSkin(int skinType) {
+		super.ChangeSkin(skinType);
+		setChangeTabSkin(skinType);
 		try {
 			if (getFragmentList() != null) {
 				for (Fragment fragment : getFragmentList()) {
 					if (fragment instanceof CommonFragment) {
-						((CommonFragment) fragment).ChangeSkin(mResources, skinType);
+						((CommonFragment) fragment).ChangeSkin(skinType);
 					}
 				}
 			}
@@ -182,9 +181,9 @@ public class AtarTabFragment<V extends ViewGroup> extends CommonFragment impleme
 	}
 
 	@Override
-	public void setChangeTabSkin(Resources resources, int skinType) {
+	public void setChangeTabSkin(int skinType) {
 		if (mImplOnTabInterface != null) {
-			mImplOnTabInterface.setChangeTabSkin(resources, skinType);
+			mImplOnTabInterface.setChangeTabSkin(skinType);
 		}
 	}
 

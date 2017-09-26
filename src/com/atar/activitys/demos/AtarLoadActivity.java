@@ -95,8 +95,6 @@ public class AtarLoadActivity extends Activity implements OnPageChangeListener, 
 		} catch (Exception e) {
 
 		}
-		// http://192.168.1.10:8080/assets/html/download_skin.apk https://github.com/wgllss/atar-skin/raw/master/download_skin.apk
-		SkinResourcesManager.getInstance(this).initSkinResources(true, getPackageName(), "com.atar.skin", "http://192.168.1.10:8080/assets/html/download_skin.apk");
 
 		setContentView(R.layout.activity_load);
 

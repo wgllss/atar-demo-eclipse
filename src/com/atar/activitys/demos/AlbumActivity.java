@@ -11,7 +11,6 @@ import java.util.Map;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
@@ -265,14 +264,14 @@ public class AlbumActivity extends AtarCommonActivity implements OnItemClickList
 	}
 
 	@Override
-	public void ChangeSkin(Resources resources, int skinType) {
-		super.ChangeSkin(resources, skinType);
-		SkinUtils.setImageDrawable(this, resources, R.string.photo, skinType, imgCommonTopRight);
+	public void ChangeSkin(int skinType) {
+		super.ChangeSkin(skinType);
+		SkinUtils.setImageDrawable(this, R.string.photo, skinType, imgCommonTopRight);
 		imgCommonTopRight.setVisibility(View.VISIBLE);
-		SkinUtils.setBackgroundColor(this, resources, R.string.item_white_black_bg, skinType, listView);
-		SkinUtils.setDivider(this, resources, R.string.txt_line_drawable, skinType, listView);
+		SkinUtils.setBackgroundColor(this, R.string.item_white_black_bg, skinType, listView);
+		SkinUtils.setDivider(this, R.string.txt_line_drawable, skinType, listView);
 		if (mAlbumAdapter != null) {
-			mAlbumAdapter.setSkin(resources, skinType);
+			mAlbumAdapter.setSkinType(skinType);
 		}
 	}
 }

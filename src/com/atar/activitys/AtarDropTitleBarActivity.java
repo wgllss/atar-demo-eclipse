@@ -6,7 +6,6 @@ package com.atar.activitys;
 import java.util.List;
 
 import android.annotation.SuppressLint;
-import android.content.res.Resources;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.utils.DeviceManager;
@@ -383,8 +382,8 @@ public abstract class AtarDropTitleBarActivity extends AtarCommonActivity implem
 	}
 
 	@Override
-	public void ChangeSkin(Resources mResources, int skinType) {
-		super.ChangeSkin(mResources, skinType);
+	public void ChangeSkin(int skinType) {
+		super.ChangeSkin(skinType);
 		if (isExtendsAtarDropTitleBarActivity && (mDropDownMode == DropDownMode.DROP_DOWN_CENTER || mDropDownMode == DropDownMode.DROP_DOWN_BOTH)) {
 			// txtCommonTopTitle.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().obtainTypedArray(R.array.drop_down).getDrawable(skinType), null);
 		}

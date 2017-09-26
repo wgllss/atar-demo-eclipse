@@ -45,7 +45,7 @@ public class MainDemoAdapter extends CommonAdapter<MenuItemBean> {
 		} else {
 			mViewHolder = (ViewHolder) convertView.getTag();
 		}
-		SkinUtils.setTextColor(parent.getContext(), getResources(), R.string.txt_day_black_night_greywhite_color, getSkinType(), mViewHolder.txt_item_name);
+		SkinUtils.setTextColor(parent.getContext(), R.string.txt_day_black_night_greywhite_color, getSkinType(), mViewHolder.txt_item_name);
 
 		MenuItemBean info = getItem(position);
 		if (info != null) {

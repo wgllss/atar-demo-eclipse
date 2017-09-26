@@ -9,7 +9,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import android.annotation.SuppressLint;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Message;
 import android.reflection.NetWorkMsg;
@@ -324,8 +323,8 @@ public class WonderTopicFragment extends AtarRefreshListFragment implements OnPa
 	}
 
 	@Override
-	public void ChangeSkin(Resources mResources, int skinType) {
-		super.ChangeSkin(mResources, skinType);
+	public void ChangeSkin(int skinType) {
+		super.ChangeSkin(skinType);
 		// LoadUtil.setBackgroundColor(getActivity(), getRefreshView(), R.array.more_white_black_bg, skinType);
 		// LoadUtil.setTextColor(getActivity(), txtAdTitle, R.array.txt_wondderful_ad_title, skinType);
 		// if (mWonderfulTopicAdapter != null) {

@@ -14,7 +14,6 @@ import android.app.Activity;
 import android.appconfig.AppConfigSetting;
 import android.common.CommonHandler;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.enums.SkinMode;
 import android.interfaces.NetWorkCallTListenet;
 import android.os.Message;
@@ -32,7 +31,6 @@ import com.atar.enums.EnumMsgWhat;
 import com.atar.modles.WonderfulTopicJson;
 import com.atar.net.NetWorkInterfaces;
 import com.atar.net.UrlParamCommon;
-import com.atar.utils.IntentUtil;
 
 /**
  *****************************************************************************************************************************************************************************
@@ -176,7 +174,6 @@ public class MainDemoActivity extends AtarRefreshListViewActivity {
 			super.onClick(v);
 			break;
 		}
-
 	}
 
 	@Override
@@ -185,10 +182,10 @@ public class MainDemoActivity extends AtarRefreshListViewActivity {
 	}
 
 	@Override
-	public void ChangeSkin(Resources mResources, int skinType) {
-		super.ChangeSkin(mResources, skinType);
+	public void ChangeSkin(int skinType) {
+		super.ChangeSkin(skinType);
 		if (mMainDemoAdapter != null) {
-			mMainDemoAdapter.setSkin(mResources, skinType);
+			mMainDemoAdapter.setSkinType(skinType);
 		}
 	}
 }

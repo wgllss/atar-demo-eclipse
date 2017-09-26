@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.common.CommonHandler;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Message;
 import android.view.View;
@@ -83,10 +82,10 @@ public class DemoRefreshGridViewFragment extends AtarRefreshGridViewFragment {
 	}
 
 	@Override
-	public void ChangeSkin(Resources mResources, int skinType) {
-		super.ChangeSkin(mResources, skinType);
+	public void ChangeSkin(int skinType) {
+		super.ChangeSkin(skinType);
 		if (mMainDemoAdapter != null) {
-			mMainDemoAdapter.setSkin(mResources, skinType);
+			mMainDemoAdapter.setSkinType(skinType);
 		}
 	}
 }

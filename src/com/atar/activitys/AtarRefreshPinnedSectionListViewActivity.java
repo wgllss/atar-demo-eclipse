@@ -4,7 +4,6 @@
 package com.atar.activitys;
 
 import android.annotation.SuppressLint;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.skin.SkinUtils;
 import android.view.View;
@@ -78,8 +77,8 @@ public abstract class AtarRefreshPinnedSectionListViewActivity extends AtarRefre
 	}
 
 	@Override
-	protected void setRefreshSkin(Resources mResources, int skinType) {
-		super.setRefreshSkin(mResources, skinType);
+	protected void setRefreshSkin(int skinType) {
+		super.setRefreshSkin(skinType);
 		if (getPullView() != null) {
 			// if (getPullView().getHeaderLoadingView() != null) {
 			// getPullView().getHeaderLoadingView().setRefreshingDrawable(GlobeSettings.refreshImg[skinType]);
@@ -88,19 +87,19 @@ public abstract class AtarRefreshPinnedSectionListViewActivity extends AtarRefre
 			// getPullView().getFooterLoadingView().setRefreshingDrawable(GlobeSettings.refreshImg[skinType]);
 			// }
 			if (getPullView().getHeaderLoadingView() != null) {
-				SkinUtils.setTextColor(this, mResources, R.string.refresh_header_text_color, skinType, getPullView().getHeaderLoadingView().getHeaderText());
+				SkinUtils.setTextColor(this, R.string.refresh_header_text_color, skinType, getPullView().getHeaderLoadingView().getHeaderText());
 			}
 			if (getPullView().getFooterLoadingView() != null) {
-				SkinUtils.setTextColor(this, mResources, R.string.refresh_header_text_color, skinType, getPullView().getFooterLoadingView().getHeaderText());
+				SkinUtils.setTextColor(this, R.string.refresh_header_text_color, skinType, getPullView().getFooterLoadingView().getHeaderText());
 			}
 			if (getPullView().getHeaderLoadingView() != null) {
-				SkinUtils.setTextColor(this, mResources, R.string.refresh_header_sub_text_color, skinType, getPullView().getHeaderLoadingView().getSubHeaderText());
+				SkinUtils.setTextColor(this, R.string.refresh_header_sub_text_color, skinType, getPullView().getHeaderLoadingView().getSubHeaderText());
 			}
 			if (getPullView().getFooterLoadingView() != null) {
-				SkinUtils.setTextColor(this, mResources, R.string.refresh_header_sub_text_color, skinType, getPullView().getFooterLoadingView().getSubHeaderText());
+				SkinUtils.setTextColor(this, R.string.refresh_header_sub_text_color, skinType, getPullView().getFooterLoadingView().getSubHeaderText());
 			}
-			SkinUtils.setBackgroundColor(this, mResources, R.string.refresh_bg_color, skinType, getPullView().getHeaderLoadingView());
-			SkinUtils.setBackgroundColor(this, mResources, R.string.refresh_bg_color, skinType, getPullView().getFooterLoadingView());
+			SkinUtils.setBackgroundColor(this, R.string.refresh_bg_color, skinType, getPullView().getHeaderLoadingView());
+			SkinUtils.setBackgroundColor(this, R.string.refresh_bg_color, skinType, getPullView().getFooterLoadingView());
 		}
 	}
 }

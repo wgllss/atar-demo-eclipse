@@ -794,36 +794,36 @@ containing a value of this type.
         public static final int common_tab_line_move_color=0x7f05000c;
         public static final int common_top_title_bar_bg_color=0x7f050008;
         public static final int common_top_title_bar_bg_day=0x7f05001b;
-        public static final int eclassnotfound_msg=0x7f050024;
-        public static final int econnecttimeout_msg=0x7f050027;
-        public static final int ehttp_eunknownhost_msg=0x7f050034;
-        public static final int ehttp_request_fail400=0x7f05002c;
-        public static final int ehttp_request_fail403=0x7f05002d;
-        public static final int ehttp_request_fail404=0x7f05002e;
-        public static final int ehttp_request_fail405=0x7f05002f;
-        public static final int ehttp_request_fail500=0x7f050033;
-        public static final int ehttp_request_fail502=0x7f050030;
-        public static final int ehttp_request_fail503=0x7f050031;
-        public static final int ehttp_request_fail504=0x7f050032;
-        public static final int ehttp_unknownservice_msg=0x7f050035;
-        public static final int ehttp_unsupportedencoding_msg=0x7f050036;
+        public static final int eclassnotfound_msg=0x7f050025;
+        public static final int econnecttimeout_msg=0x7f050028;
+        public static final int ehttp_eunknownhost_msg=0x7f050035;
+        public static final int ehttp_request_fail400=0x7f05002d;
+        public static final int ehttp_request_fail403=0x7f05002e;
+        public static final int ehttp_request_fail404=0x7f05002f;
+        public static final int ehttp_request_fail405=0x7f050030;
+        public static final int ehttp_request_fail500=0x7f050034;
+        public static final int ehttp_request_fail502=0x7f050031;
+        public static final int ehttp_request_fail503=0x7f050032;
+        public static final int ehttp_request_fail504=0x7f050033;
+        public static final int ehttp_unknownservice_msg=0x7f050036;
+        public static final int ehttp_unsupportedencoding_msg=0x7f050037;
         /**  异常错误提示  by Atar start 
          */
-        public static final int ehttpio_msg=0x7f05001d;
-        public static final int ehttpprotocol_msg=0x7f050021;
-        public static final int eillegalaccess_msg=0x7f050025;
-        public static final int ejsonparser_msg=0x7f05002a;
-        public static final int emobilenetuseless_msg=0x7f05001e;
-        public static final int enetworkio_msg=0x7f05001f;
+        public static final int ehttpio_msg=0x7f05001e;
+        public static final int ehttpprotocol_msg=0x7f050022;
+        public static final int eillegalaccess_msg=0x7f050026;
+        public static final int ejsonparser_msg=0x7f05002b;
+        public static final int emobilenetuseless_msg=0x7f05001f;
+        public static final int enetworkio_msg=0x7f050020;
         /**  Json解析出错 
          */
-        public static final int enotdefine_msg=0x7f05002b;
-        public static final int enotfoundmethods_msg=0x7f050020;
-        public static final int eparamhasnull_msg=0x7f050028;
-        public static final int eparamuninvalid_msg=0x7f050029;
-        public static final int esecurity_msg=0x7f050026;
-        public static final int exmlio_msg=0x7f050023;
-        public static final int exmlparser_msg=0x7f050022;
+        public static final int enotdefine_msg=0x7f05002c;
+        public static final int enotfoundmethods_msg=0x7f050021;
+        public static final int eparamhasnull_msg=0x7f050029;
+        public static final int eparamuninvalid_msg=0x7f05002a;
+        public static final int esecurity_msg=0x7f050027;
+        public static final int exmlio_msg=0x7f050024;
+        public static final int exmlparser_msg=0x7f050023;
         /**  array end 
  color start 
          */
@@ -833,11 +833,11 @@ containing a value of this type.
         public static final int img_back=0x7f050007;
         public static final int item_white_black_bg=0x7f050014;
         public static final int linen=0x7f050019;
-        public static final int loading_waiting=0x7f050042;
+        public static final int loading_waiting=0x7f050043;
         public static final int photo=0x7f050017;
-        public static final int pull_to_end_loading=0x7f050039;
-        public static final int pull_to_last_time=0x7f05003f;
-        public static final int pull_to_no_more_data=0x7f050040;
+        public static final int pull_to_end_loading=0x7f05003a;
+        public static final int pull_to_last_time=0x7f050040;
+        public static final int pull_to_no_more_data=0x7f050041;
         /**  Just use standard Pull Down String when pulling up. These can be set for languages which require it 
  Just use standard Pull Down String when pulling up. These can be set for languages which require it 
          */
@@ -847,15 +847,15 @@ containing a value of this type.
         public static final int pull_to_refresh_pull_label=0x7f050001;
         public static final int pull_to_refresh_refreshing_label=0x7f050003;
         public static final int pull_to_refresh_release_label=0x7f050002;
-        public static final int pull_to_start_loading=0x7f05003c;
-        public static final int pull_to_start_refresh=0x7f05003d;
-        public static final int pull_to_start_reset=0x7f05003e;
-        public static final int pull_to_up_load_more=0x7f05003a;
-        public static final int pull_to_up_reset=0x7f05003b;
+        public static final int pull_to_start_loading=0x7f05003d;
+        public static final int pull_to_start_refresh=0x7f05003e;
+        public static final int pull_to_start_reset=0x7f05003f;
+        public static final int pull_to_up_load_more=0x7f05003b;
+        public static final int pull_to_up_reset=0x7f05003c;
         public static final int refresh_bg_color=0x7f050013;
         public static final int refresh_header_sub_text_color=0x7f050012;
         public static final int refresh_header_text_color=0x7f050011;
-        public static final int refreshing_waiting=0x7f050041;
+        public static final int refreshing_waiting=0x7f050042;
         public static final int select_tab_txt_color=0x7f05000d;
         /**  color end 
  string end 
@@ -865,18 +865,17 @@ containing a value of this type.
         public static final int transparent0=0x7f05001a;
         public static final int txt_day_black_night_greywhite_color=0x7f05000f;
         public static final int txt_day_grey_night_greyblack_color=0x7f050010;
-        public static final int txt_history_contest=0x7f050045;
         public static final int txt_line_color=0x7f050015;
         public static final int txt_line_drawable=0x7f050016;
-        public static final int txt_month_contest=0x7f050044;
-        /**  Atar end 
-         */
-        public static final int txt_week_contest=0x7f050043;
-        public static final int umeng_sharebutton_custom=0x7f050038;
+        public static final int umeng_sharebutton_custom=0x7f050039;
         /**  异常错误提示  by Atar end 
  Atar start 
          */
-        public static final int umeng_socialize_sina=0x7f050037;
+        public static final int umeng_socialize_sina=0x7f050038;
+        /**  string end 
+ array string start 
+         */
+        public static final int viewpager_demo_tabs=0x7f05001d;
     }
     public static final class style {
         /** 

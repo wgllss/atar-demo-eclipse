@@ -3,6 +3,7 @@
  */
 package com.atar.activitys.demos;
 
+import android.skin.SkinUtils;
 import android.widget.RelativeLayout;
 import android.widget.ScrollableHelper.ScrollableContainer;
 import android.widget.ScrollableLayout;
@@ -23,7 +24,6 @@ import com.atar.fragment.demos.WonderTopicFragment;
  *****************************************************************************************************************************************************************************
  */
 public class DemoRefreshViewPagerTabActivity extends AtarCommonTabActivity<RelativeLayout> {
-	private int[] txtTabResID = { R.string.txt_week_contest, R.string.txt_month_contest, R.string.txt_history_contest };
 
 	private ScrollableLayout mScrollLayout;
 
@@ -41,7 +41,7 @@ public class DemoRefreshViewPagerTabActivity extends AtarCommonTabActivity<Relat
 	protected void initValue() {
 		super.initValue();
 		setActivityTitle(getIntent().getStringExtra(DemoRefreshActivity.TITLE_KEY));
-		setTextTab(txtTabResID, false, true);
+		setTextTab(SkinUtils.getStringArray(this, R.string.viewpager_demo_tabs), false, true);
 		setActivityTitle("比赛");
 		setOnDrawerBackEnabled(false);
 		setLoadingViewGone();

@@ -7,7 +7,6 @@ import java.util.List;
 
 import android.activity.CommonActivity;
 import android.adapter.FragmentAdapter;
-import android.content.res.Resources;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -120,7 +119,7 @@ public interface OnTabInterface<V extends ViewGroup, A extends CommonActivity> {
 	 * @param strArray
 	 * @description:
 	 */
-	void setTextTab(String[] strArray);
+	void setTextTab(String[] strArray, boolean isDropDown, boolean smoothScroll);
 
 	/**
 	 * 设置tab文字
@@ -181,7 +180,7 @@ public interface OnTabInterface<V extends ViewGroup, A extends CommonActivity> {
 	 * @param skinType
 	 * @description:
 	 */
-	void setChangeTabSkin(Resources resources, int skinType);
+	void setChangeTabSkin(int skinType);
 
 	/**
 	 * ViewPager当前滑动到第几页

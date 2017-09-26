@@ -48,6 +48,9 @@ public class UrlParamCommon {
 	/** 表情地址**/
 	public static final String IMAGE_FACE_HOST = prefix + "://css.taoguba.com.cn/";
 
+	// public static final String download_skin_url = "https://github.com/wgllss/atar-skin/raw/master/download_skin.apk";
+	public static final String download_skin_url = "http://192.168.1.10:8080/assets/html/download_skin.apk";
+
 	/**
 	 * 得到表情图片路径
 	 * @author :Atar

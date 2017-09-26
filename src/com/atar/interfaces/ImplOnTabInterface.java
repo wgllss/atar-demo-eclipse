@@ -6,14 +6,10 @@ package com.atar.interfaces;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.atar.activitys.R;
-
 import android.activity.CommonActivity;
 import android.adapter.FragmentAdapter;
 import android.annotation.SuppressLint;
 import android.application.CrashHandler;
-import android.content.res.Resources;
-import android.skin.SkinResourcesManager;
 import android.skin.SkinUtils;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -31,6 +27,8 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
+
+import com.atar.activitys.R;
 
 /**
  *****************************************************************************************************************************************************************************
@@ -163,14 +161,19 @@ public class ImplOnTabInterface<V extends ViewGroup, A extends CommonActivity> i
 	}
 
 	@Override
-	public void setTextTab(String[] strArray) {
+	public void setTextTab(String[] strArray, boolean isDropDown, boolean smoothScroll) {
 		if (strArray != null) {
 			tabCount = strArray.length;
 			initTabView();
 			if (mLinearLayout != null) {
 				for (int i = 0; i < strArray.length; i++) {
 					((TextView) mLinearLayout.getChildAt(i)).setText(strArray[i]);
-					((TextView) mLinearLayout.getChildAt(i)).setOnClickListener(new OnClickMenuListener(i, true));
+					if (isDropDown) {
+						// ((TextView) mLinearLayout.getChildAt(i)).setCompoundDrawablesWithIntrinsicBounds(null, null, mFragmentActivity.getResources().getDrawable(R.drawable.down02), null);
+						int padding = (int) ScreenUtils.getIntToDip(11);
+						((TextView) mLinearLayout.getChildAt(i)).setPadding(padding, (int) ScreenUtils.getIntToDip(4), padding, 0);
+					}
+					((TextView) mLinearLayout.getChildAt(i)).setOnClickListener(new OnClickMenuListener(i, smoothScroll));
 				}
 			}
 		}
@@ -233,11 +236,9 @@ public class ImplOnTabInterface<V extends ViewGroup, A extends CommonActivity> i
 		if (mLinearLayout != null) {
 			for (int i = 0; i < tabCount; i++) {
 				if (arg0 == i) {
-					SkinUtils.setText(mFragmentActivity, SkinResourcesManager.getInstance(mFragmentActivity).getResources(), R.string.select_tab_txt_color, mFragmentActivity.getCurrentSkinType(),
-							((TextView) mLinearLayout.getChildAt(i)));
+					SkinUtils.setTextColor(mFragmentActivity, R.string.select_tab_txt_color, mFragmentActivity.getCurrentSkinType(), ((TextView) mLinearLayout.getChildAt(i)));
 				} else {
-					SkinUtils.setText(mFragmentActivity, SkinResourcesManager.getInstance(mFragmentActivity).getResources(), R.string.tab_txt_color, mFragmentActivity.getCurrentSkinType(),
-							((TextView) mLinearLayout.getChildAt(i)));
+					SkinUtils.setTextColor(mFragmentActivity, R.string.tab_txt_color, mFragmentActivity.getCurrentSkinType(), ((TextView) mLinearLayout.getChildAt(i)));
 				}
 			}
 		}
@@ -278,15 +279,15 @@ public class ImplOnTabInterface<V extends ViewGroup, A extends CommonActivity> i
 	}
 
 	@Override
-	public void setChangeTabSkin(Resources resources, int skinType) {
-		SkinUtils.setBackgroundColor(mFragmentActivity, resources, R.string.common_tab_bg_color, skinType, mLinearLayout);
-		SkinUtils.setBackgroundColor(mFragmentActivity, resources, R.string.common_tab_line_move_color, skinType, viewMove);
-		SkinUtils.setBackgroundColor(mFragmentActivity, resources, R.string.common_tab_bg_color, skinType, mLinearLayout);
+	public void setChangeTabSkin(int skinType) {
+		SkinUtils.setBackgroundColor(mFragmentActivity, R.string.common_tab_bg_color, skinType, mLinearLayout);
+		SkinUtils.setBackgroundColor(mFragmentActivity, R.string.common_tab_line_move_color, skinType, viewMove);
+		SkinUtils.setBackgroundColor(mFragmentActivity, R.string.common_tab_bg_color, skinType, mLinearLayout);
 		if (mLinearLayout != null) {
 			for (int i = 0; i < tabCount; i++) {
-				SkinUtils.setText(mFragmentActivity, resources, R.string.tab_txt_color, skinType, ((TextView) mLinearLayout.getChildAt(i)));
+				SkinUtils.setTextColor(mFragmentActivity, R.string.tab_txt_color, skinType, ((TextView) mLinearLayout.getChildAt(i)));
 			}
-			SkinUtils.setText(mFragmentActivity, resources, R.string.select_tab_txt_color, skinType, ((TextView) mLinearLayout.getChildAt(getCurrentItem())));
+			SkinUtils.setTextColor(mFragmentActivity, R.string.select_tab_txt_color, skinType, ((TextView) mLinearLayout.getChildAt(getCurrentItem())));
 		}
 	}
 

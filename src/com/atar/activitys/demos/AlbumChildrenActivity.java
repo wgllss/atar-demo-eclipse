@@ -6,7 +6,6 @@ package com.atar.activitys.demos;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.utils.DeviceManager;
 import android.utils.ScreenUtils;
@@ -195,8 +194,8 @@ public class AlbumChildrenActivity extends AtarCommonActivity implements OnItemC
 	}
 
 	@Override
-	public void ChangeSkin(Resources mResources, int skinType) {
-		super.ChangeSkin(mResources, skinType);
+	public void ChangeSkin(int skinType) {
+		super.ChangeSkin(skinType);
 		// LoadUtil.setTextColor(this, btnComplete, R.array.common_activity_title_color, skinType);
 		// LoadUtil.setBackgroundColor(this, btnComplete, R.array.common_top_title_bar_bg_color, skinType);
 		// LoadUtil.setBackgroundColor(this, listView, R.array.more_white_black_bg, skinType);

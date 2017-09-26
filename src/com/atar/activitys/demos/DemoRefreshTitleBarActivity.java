@@ -9,11 +9,9 @@ import java.util.List;
 import android.annotation.SuppressLint;
 import android.common.CommonHandler;
 import android.content.Context;
-import android.content.res.Resources;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Message;
-import android.skin.SkinResourcesManager;
 import android.skin.SkinUtils;
 import android.util.Log;
 import android.utils.ColorUtil;
@@ -162,8 +160,7 @@ public class DemoRefreshTitleBarActivity extends AtarRefreshListViewActivity {
 			AlphaAnimation inAlphaAnimation = new AlphaAnimation(fraction, 1f);
 			topTitleBarBg.setAnimation(inAlphaAnimation);
 		}
-		topTitleBarBg.setBackgroundColor(ColorUtil.evaluate(fraction, SkinUtils.getColor(this, SkinResourcesManager.getInstance(this).getResources(), R.string.transparent0),
-				SkinUtils.getColor(this, SkinResourcesManager.getInstance(this).getResources(), R.string.common_top_title_bar_bg_day)));
+		topTitleBarBg.setBackgroundColor(ColorUtil.evaluate(fraction, SkinUtils.getColor(this, R.string.transparent0), SkinUtils.getColor(this, R.string.common_top_title_bar_bg_day)));
 	}
 
 	public class ImplOnScrollListener extends PauseOnScrollListener {
@@ -184,21 +181,19 @@ public class DemoRefreshTitleBarActivity extends AtarRefreshListViewActivity {
 			}
 			Log.i("SingleListViewActivity", "headerViewTopSpace:-->" + headerViewTopSpace + "--headerViewHeight-->" + headerViewHeight + "--firstVisibleItem-->" + firstVisibleItem);
 			if (ScrollableHelper.isAdapterViewTop(view)) {
-				topTitleBarBg.setBackgroundColor(SkinUtils.getColor(DemoRefreshTitleBarActivity.this, SkinResourcesManager.getInstance(DemoRefreshTitleBarActivity.this).getResources(),
-						R.string.transparent0));
+				topTitleBarBg.setBackgroundColor(SkinUtils.getColor(DemoRefreshTitleBarActivity.this, R.string.transparent0));
 			} else {
-				topTitleBarBg.setBackgroundColor(SkinUtils.getColor(DemoRefreshTitleBarActivity.this, SkinResourcesManager.getInstance(DemoRefreshTitleBarActivity.this).getResources(),
-						R.string.common_top_title_bar_bg_day));
+				topTitleBarBg.setBackgroundColor(SkinUtils.getColor(DemoRefreshTitleBarActivity.this, R.string.common_top_title_bar_bg_day));
 			}
 			handleTitleBarColorEvaluate(firstVisibleItem);
 		}
 	}
 
 	@Override
-	public void ChangeSkin(Resources mResources, int skinType) {
-		super.ChangeSkin(mResources, skinType);
+	public void ChangeSkin(int skinType) {
+		super.ChangeSkin(skinType);
 		if (mMainDemoAdapter != null) {
-			mMainDemoAdapter.setSkin(mResources, skinType);
+			mMainDemoAdapter.setSkinType(skinType);
 		}
 	}
 }

@@ -7,11 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.adapter.FragmentAdapter;
-import android.content.res.Resources;
 import android.fragment.CommonFragment;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.skin.SkinResourcesManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -140,7 +138,7 @@ public class AtarCommonWebViewPagerActivity extends AtarDropTitleBarActivity imp
 
 			mMenuAdapter.setWebViewPagerActivityTop(true);
 			mMenuAdapter.setContext(this);
-			mMenuAdapter.setSkin(SkinResourcesManager.getInstance(this).getResources(), getCurrentSkinType());
+			mMenuAdapter.setSkinType(getCurrentSkinType());
 			tabs.setShouldExpand(mHtmlsViewPagerJson.isShouldExpand());
 			mMenuAdapter.setCondition(mHtmlsViewPagerJson.isShouldExpand() ? 1 : 0);
 			if (mHtmlsViewPagerJson.getIndicatorColor() != null && mHtmlsViewPagerJson.getIndicatorColor().length() > 0 && mHtmlsViewPagerJson.getIndicatorColor().contains(",")) {
@@ -230,12 +228,12 @@ public class AtarCommonWebViewPagerActivity extends AtarDropTitleBarActivity imp
 	}
 
 	@Override
-	public void ChangeSkin(Resources mResources, int skinType) {
-		super.ChangeSkin(mResources, skinType);
+	public void ChangeSkin(int skinType) {
+		super.ChangeSkin(skinType);
 		// LoadUtil.setBackgroundColor(this, R.array.common_tab_bg_color, skinType, tabs);
 		if (tabs != null) {
 			if (mMenuAdapter != null) {
-				mMenuAdapter.setSkin(mResources, skinType);
+				mMenuAdapter.setSkinType(skinType);
 			}
 			tabs.notifyDataSetChanged();
 		}
@@ -243,7 +241,7 @@ public class AtarCommonWebViewPagerActivity extends AtarDropTitleBarActivity imp
 		if (getFragmentList() != null && getFragmentList().size() > 0) {
 			for (Fragment fragment : getFragmentList()) {
 				if (fragment instanceof CommonFragment) {
-					((CommonFragment) fragment).ChangeSkin(mResources, skinType);
+					((CommonFragment) fragment).ChangeSkin(skinType);
 				}
 			}
 		}

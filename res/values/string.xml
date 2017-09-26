@@ -29,5 +29,8 @@
     <!-- string end -->
     <string name="string_name_app_name">skin_string_name_app_name</string>
     <!-- string end -->
+    <!-- array string start -->
+    <string name="viewpager_demo_tabs">viewpager_demo_tabs</string>
+    <!-- array end start -->
 
 </resources>

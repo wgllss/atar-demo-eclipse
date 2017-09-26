@@ -3,6 +3,7 @@
  */
 package com.atar.activitys.demos;
 
+import android.skin.SkinUtils;
 import android.widget.RelativeLayout;
 
 import com.atar.activitys.AtarCommonTabActivity;
@@ -21,12 +22,12 @@ import com.atar.fragment.demos.WonderTopicFragment;
  *****************************************************************************************************************************************************************************
  */
 public class ViewPagerDemoActivity extends AtarCommonTabActivity<RelativeLayout> {
-	private int[] txtTabResID = { R.string.txt_week_contest, R.string.txt_month_contest, R.string.txt_history_contest };
 
 	@Override
 	protected void initValue() {
 		super.initValue();
-		setTextTab(txtTabResID, false, true);
+		setTextTab(SkinUtils.getStringArray(this, R.string.viewpager_demo_tabs), false, true);
+
 		setActivityTitle("比赛");
 		setOnDrawerBackEnabled(false);
 		setLoadingViewGone();
