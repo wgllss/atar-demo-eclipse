@@ -15,8 +15,8 @@ import android.widget.TextView;
 
 import com.atar.activitys.AtarCommonActivity;
 import com.atar.activitys.R;
-import com.atar.widgets.ZhiHuRecordImageView;
-import com.atar.widgets.ZhiHuRecordImageView.OnAudioImageViewStatusListener;
+import com.atar.widgets.RecordImageView;
+import com.atar.widgets.RecordImageView.OnAudioImageViewStatusListener;
 
 /**
  *****************************************************************************************************************************************************************************
@@ -35,7 +35,7 @@ public class DemoSpeexAudioActivity extends AtarCommonActivity implements OnAudi
 	private TextView txt_second, txt_re_record, txt_record_introduce;
 
 	/**录音按钮*/
-	private ZhiHuRecordImageView img_record;
+	private RecordImageView img_record;
 	/** 录音本地文件路径 */
 	private String strRecordFilePath;
 	/** 录音时长 */
@@ -78,7 +78,7 @@ public class DemoSpeexAudioActivity extends AtarCommonActivity implements OnAudi
 		txt_second = (TextView) findViewById(R.id.txt_second);
 		txt_re_record = (TextView) findViewById(R.id.txt_re_record);
 		txt_record_introduce = (TextView) findViewById(R.id.txt_record_introduce);
-		img_record = (ZhiHuRecordImageView) findViewById(R.id.img_record);
+		img_record = (RecordImageView) findViewById(R.id.img_record);
 	}
 
 	@Override
@@ -100,10 +100,10 @@ public class DemoSpeexAudioActivity extends AtarCommonActivity implements OnAudi
 	public void onHandlerData(Message msg) {
 		switch (msg.what) {
 		case AUDIO_STOP:// 播放完成
-			if (img_record != null && (img_record.getRecordStatus() == ZhiHuRecordImageView.PLAYING || img_record.getRecordStatus() == ZhiHuRecordImageView.PLAY_COMPLETE)) {
+			if (img_record != null && (img_record.getRecordStatus() == RecordImageView.PLAYING || img_record.getRecordStatus() == RecordImageView.PLAY_COMPLETE)) {
 				img_record.setTimer(false);
-				img_record.setRecordStatus(ZhiHuRecordImageView.PLAY_COMPLETE);
-				img_record.setBackgroundDrawable(SkinUtils.getDrawable(this, R.string.drawable_zhi_hu_play));
+				img_record.setRecordStatus(RecordImageView.PLAY_COMPLETE);
+				img_record.setImageDrawable(SkinUtils.getDrawable(this, R.string.drawable_zhi_hu_play));
 				txt_record_introduce.setText("播放试听");
 				if (strVoiceTime != null && strVoiceTime.length() > 0) {
 					txt_second.setText(strVoiceTime + "\"");
@@ -116,47 +116,47 @@ public class DemoSpeexAudioActivity extends AtarCommonActivity implements OnAudi
 	@Override
 	public void onAudioImageViewStatus(int recordStatus, String strVoiceName, int strTime, String filePath) {
 		switch (recordStatus) {
-		case ZhiHuRecordImageView.RECORD_PRE:// 录音前
+		case RecordImageView.RECORD_PRE:// 录音前
 			img_record.setBackgroundDrawable(SkinUtils.getDrawable(this, R.string.drawable_zhi_hu_record_pre));
 			txt_record_introduce.setText("按住开始录音 最多可录制60\"");
 			break;
-		case ZhiHuRecordImageView.RECORD_START:// 录音开始
-			img_record.setRecordStatus(ZhiHuRecordImageView.RECORD_ING);
+		case RecordImageView.RECORD_START:// 录音开始
+			img_record.setRecordStatus(RecordImageView.RECORD_ING);
 			txt_record_introduce.setText("录制中再次点击停止录制");
-			img_record.setBackgroundDrawable(SkinUtils.getDrawable(this, R.string.drawable_zhi_hu_recording));
+			// img_record.setImageDrawable(SkinUtils.getDrawable(this, R.string.drawable_zhi_hu_recording));
 			if (mAnimationDrawable == null) {
-				mAnimationDrawable = (AnimationDrawable) getResources().getDrawable(R.anim.anim_recording);
+				mAnimationDrawable = (AnimationDrawable) SkinUtils.getArrayDrawable(this, R.string.drawable_zhi_hu_recording, getCurrentSkinType());
 			}
 			img_record.setImageDrawable(mAnimationDrawable);
 			mAnimationDrawable.start();
 			txt_second.setText("0\"");
 			break;
-		case ZhiHuRecordImageView.RECORD_ING:// *录音中
+		case RecordImageView.RECORD_ING:// *录音中
 			txt_second.setText(strTime + "\"");
 			break;
-		case ZhiHuRecordImageView.RECORD_COMPLETE:// 录音完成
+		case RecordImageView.RECORD_COMPLETE:// 录音完成
 			if (mAnimationDrawable != null) {
 				mAnimationDrawable.stop();
 			}
-			img_record.setBackgroundDrawable(SkinUtils.getDrawable(this, R.string.drawable_zhi_hu_play));
+			img_record.setImageDrawable(SkinUtils.getDrawable(this, R.string.drawable_zhi_hu_play));
 			txt_re_record.setBackgroundDrawable(SkinUtils.getDrawable(this, R.string.drawable_oval_red_zhi_hu));
 			strRecordFilePath = filePath;
 			strVoiceTime = strTime + "";
 			txt_record_introduce.setText("播放试听");
 			break;
-		case ZhiHuRecordImageView.PLAY_START:// 播放开始
+		case RecordImageView.PLAY_START:// 播放开始
 			txt_second.setText("0\"");
-			img_record.setRecordStatus(ZhiHuRecordImageView.PLAYING);
-			img_record.setBackgroundDrawable(SkinUtils.getDrawable(this, R.string.drawable_zhi_hu_stop));
+			img_record.setRecordStatus(RecordImageView.PLAYING);
+			img_record.setImageDrawable(SkinUtils.getDrawable(this, R.string.drawable_zhi_hu_stop));
 			txt_record_introduce.setText("播放中...");
 			txt_re_record.setBackgroundDrawable(SkinUtils.getDrawable(this, R.string.drawable_oval_red_zhi_hu));
 			stop();
 			play(strRecordFilePath, null, img_record, 0, this);
 			break;
-		case ZhiHuRecordImageView.PLAYING:// 播放中
+		case RecordImageView.PLAYING:// 播放中
 			txt_second.setText(strTime + "\"");
 			break;
-		case ZhiHuRecordImageView.PLAY_COMPLETE:// 播放完成
+		case RecordImageView.PLAY_COMPLETE:// 播放完成
 			stop();
 			CommonHandler.getInstatnce().handerMessage(this, AUDIO_STOP, 0, 0, null);
 			break;
@@ -168,17 +168,20 @@ public class DemoSpeexAudioActivity extends AtarCommonActivity implements OnAudi
 		super.onClick(v);
 		switch (v.getId()) {
 		case R.id.txt_re_record:
-			if (img_record.getRecordStatus() != ZhiHuRecordImageView.RECORD_ING || img_record.getRecordStatus() != ZhiHuRecordImageView.RECORD_PRE) {
-				stop();
+			if (img_record.getRecordStatus() == RecordImageView.RECORD_COMPLETE || img_record.getRecordStatus() == RecordImageView.PLAY_COMPLETE
+					|| img_record.getRecordStatus() == RecordImageView.PLAYING) {
+				if (img_record.getRecordStatus() == RecordImageView.PLAYING) {
+					stop();
+				}
 				if (strRecordFilePath != null && !"".equals(strRecordFilePath)) {
 					FileUtils.deleteFile(strRecordFilePath);
 				}
 				txt_second.setText("");
 				img_record.setTimer(false);
-				img_record.setRecordStatus(ZhiHuRecordImageView.RECORD_PRE);
-				img_record.setBackgroundDrawable(SkinUtils.getDrawable(this, R.string.drawable_zhi_hu_record_pre));
+				img_record.setRecordStatus(RecordImageView.RECORD_PRE);
+				img_record.setImageDrawable(SkinUtils.getDrawable(this, R.string.drawable_zhi_hu_record_pre));
 				txt_record_introduce.setText("点击开始录音 最多可录制60\"");
-				SkinUtils.setBackgroundColor(this, R.string.oval_grey_bg, getCurrentSkinType(), txt_re_record);
+				txt_re_record.setBackgroundDrawable(SkinUtils.getDrawable(this, R.string.drawable_oval_grey_c3c3c3));
 			}
 			break;
 		case R.id.img_record:

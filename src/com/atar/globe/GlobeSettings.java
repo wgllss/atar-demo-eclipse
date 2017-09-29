@@ -46,11 +46,6 @@ public class GlobeSettings {
 	public static final int request_code_at_user = 1009;
 	public static final int request_code_select_pic2 = 1010;
 
-	/**K线游戏字体*/
-	public static final String kGameFontsPath = "fonts/zzgflht.OTF";
-
-	public static final int[] refreshImg = { R.anim.anim_refresh_day, R.anim.anim_refresh_night };
-
 	/** 本地总文件夹 */
 	public static final String appCommonDir = "atar";
 

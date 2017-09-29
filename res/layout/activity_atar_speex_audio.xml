@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <com.atar.widgets.ZhiHuRecordImageView
+    <com.atar.widgets.RecordImageView
         android:id="@+id/img_record"
         android:layout_width="120dp"
         android:layout_height="120dp"

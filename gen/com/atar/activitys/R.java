@@ -27,25 +27,23 @@ public final class R {
         public static final int anim_play_audio_right=0x7f04000f;
         public static final int anim_record=0x7f040010;
         public static final int anim_recording=0x7f040011;
-        public static final int anim_refresh_day=0x7f040012;
-        public static final int anim_refresh_night=0x7f040013;
-        public static final int anim_right_in=0x7f040014;
-        public static final int anim_right_out=0x7f040015;
-        public static final int anim_top_in=0x7f040016;
-        public static final int anim_top_out=0x7f040017;
-        public static final int detel_button_anim_right_in=0x7f040018;
-        public static final int detel_button_anim_right_out=0x7f040019;
-        public static final int fade=0x7f04001a;
-        public static final int hold=0x7f04001b;
-        public static final int popup_enter=0x7f04001c;
-        public static final int popup_exit=0x7f04001d;
-        public static final int slide_in_buttom=0x7f04001e;
-        public static final int slide_in_from_bottom=0x7f04001f;
-        public static final int slide_in_from_top=0x7f040020;
-        public static final int slide_out_to_bottom=0x7f040021;
-        public static final int slide_out_to_top=0x7f040022;
-        public static final int slide_out_top=0x7f040023;
-        public static final int voice_anim=0x7f040024;
+        public static final int anim_right_in=0x7f040012;
+        public static final int anim_right_out=0x7f040013;
+        public static final int anim_top_in=0x7f040014;
+        public static final int anim_top_out=0x7f040015;
+        public static final int detel_button_anim_right_in=0x7f040016;
+        public static final int detel_button_anim_right_out=0x7f040017;
+        public static final int fade=0x7f040018;
+        public static final int hold=0x7f040019;
+        public static final int popup_enter=0x7f04001a;
+        public static final int popup_exit=0x7f04001b;
+        public static final int slide_in_buttom=0x7f04001c;
+        public static final int slide_in_from_bottom=0x7f04001d;
+        public static final int slide_in_from_top=0x7f04001e;
+        public static final int slide_out_to_bottom=0x7f04001f;
+        public static final int slide_out_to_top=0x7f040020;
+        public static final int slide_out_top=0x7f040021;
+        public static final int voice_anim=0x7f040022;
     }
     public static final class array {
         public static final int common_activity_title_color=0x7f050004;
@@ -71,16 +69,16 @@ public final class R {
  头部条背景色 
          */
         public static final int common_top_title_bar_bg_color=0x7f050002;
-        public static final int crh_img_source=0x7f050015;
+        public static final int crh_img_source=0x7f050016;
         /**  网络错误异常提示 start 
          */
-        public static final int err_toast_string=0x7f050016;
+        public static final int err_toast_string=0x7f050017;
         public static final int grey_bg_color=0x7f050010;
         /**  color 颜色值 #############################  end 
  ————————————————————————————————————————————————————————————皮肤颜色 0：白天，1夜间  end —————————————————————— 
  ————————————————————————————————————————————————————————————皮肤 drawable 图片 0：白天，1夜间  start —————————————————————— 
          */
-        public static final int img_back=0x7f050014;
+        public static final int img_back=0x7f050015;
         /**  更多中item bg颜色 
          */
         public static final int item_white_black_bg=0x7f05000f;
@@ -108,6 +106,7 @@ public final class R {
         /**  网络错误异常提示 start 
          */
         public static final int viewpager_demo_tabs=0x7f050000;
+        public static final int zhi_hu_recording=0x7f050014;
     }
     public static final class attr {
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -1303,36 +1302,28 @@ containing a value of this type.
         public static final int indicator_arrow=0x7f020019;
         public static final int indicator_bg_bottom=0x7f02001a;
         public static final int indicator_bg_top=0x7f02001b;
-        public static final int jiantou_1=0x7f02001c;
-        public static final int jiantou_2=0x7f02001d;
-        public static final int jiantou_3=0x7f02001e;
-        public static final int jiantou_4=0x7f02001f;
-        public static final int jiantou_5=0x7f020020;
-        public static final int jiantou_6=0x7f020021;
-        public static final int jiantou_7=0x7f020022;
-        public static final int jiantou_8=0x7f020023;
-        public static final int jinr011=0x7f020024;
-        public static final int jinr02=0x7f020025;
-        public static final int k_game_back=0x7f020026;
-        public static final int leftw=0x7f020027;
-        public static final int leftw_n=0x7f020028;
-        public static final int oval_grey_c3c3c3=0x7f020029;
-        public static final int oval_red=0x7f02002a;
-        public static final int oval_red_zhi_hu=0x7f02002b;
-        public static final int progressbar=0x7f02002c;
-        public static final int rectangle_line_day=0x7f02002d;
-        public static final int rectangle_line_night=0x7f02002e;
-        public static final int select_day_btn_blue_light_blue=0x7f02002f;
-        public static final int select_transparent0_to_transparent2_bg=0x7f020030;
-        public static final int zhaox=0x7f020031;
-        public static final int zhaox_n=0x7f020032;
-        public static final int zhi_hu_play=0x7f020033;
-        public static final int zhi_hu_record_pre=0x7f020034;
-        public static final int zhi_hu_recording=0x7f020035;
-        public static final int zhi_hu_recording0=0x7f020036;
-        public static final int zhi_hu_recording1=0x7f020037;
-        public static final int zhi_hu_recording2=0x7f020038;
-        public static final int zhi_hu_stop=0x7f020039;
+        public static final int jinr011=0x7f02001c;
+        public static final int jinr02=0x7f02001d;
+        public static final int k_game_back=0x7f02001e;
+        public static final int leftw=0x7f02001f;
+        public static final int leftw_n=0x7f020020;
+        public static final int oval_grey_c3c3c3=0x7f020021;
+        public static final int oval_red=0x7f020022;
+        public static final int oval_red_zhi_hu=0x7f020023;
+        public static final int progressbar=0x7f020024;
+        public static final int rectangle_line_day=0x7f020025;
+        public static final int rectangle_line_night=0x7f020026;
+        public static final int select_day_btn_blue_light_blue=0x7f020027;
+        public static final int select_transparent0_to_transparent2_bg=0x7f020028;
+        public static final int zhaox=0x7f020029;
+        public static final int zhaox_n=0x7f02002a;
+        public static final int zhi_hu_play=0x7f02002b;
+        public static final int zhi_hu_record_pre=0x7f02002c;
+        public static final int zhi_hu_recording=0x7f02002d;
+        public static final int zhi_hu_recording0=0x7f02002e;
+        public static final int zhi_hu_recording1=0x7f02002f;
+        public static final int zhi_hu_recording2=0x7f020030;
+        public static final int zhi_hu_stop=0x7f020031;
     }
     public static final class id {
         public static final int activity_common_tab=0x7f0a007f;
@@ -1575,6 +1566,7 @@ containing a value of this type.
         public static final int esecurity_msg=0x7f070039;
         public static final int exmlio_msg=0x7f070036;
         public static final int exmlparser_msg=0x7f070035;
+        public static final int grey_bg_color=0x7f070019;
         /**  array end 
  color start 
          */
@@ -1585,7 +1577,6 @@ containing a value of this type.
         public static final int item_white_black_bg=0x7f070015;
         public static final int linen=0x7f07001b;
         public static final int loading_waiting=0x7f070055;
-        public static final int oval_grey_bg=0x7f070019;
         public static final int photo=0x7f070018;
         public static final int pull_to_end_loading=0x7f07004c;
         public static final int pull_to_last_time=0x7f070052;

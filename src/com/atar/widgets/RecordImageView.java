@@ -37,10 +37,10 @@ import com.ytsoft.cpvs2.common.speex.SpeexRecorder;
  *****************************************************************************************************************************************************************************
  */
 @SuppressLint({ "SimpleDateFormat", "HandlerLeak", "ClickableViewAccessibility" })
-public class ZhiHuRecordImageView extends ImageView {
+public class RecordImageView extends ImageView {
 
 	@SuppressWarnings("unused")
-	private static final String TAG = ZhiHuRecordImageView.class.getSimpleName();
+	private static final String TAG = RecordImageView.class.getSimpleName();
 
 	/** 录音时间 */
 	private int second = 0;
@@ -87,15 +87,15 @@ public class ZhiHuRecordImageView extends ImageView {
 		this.listener = listener;
 	}
 
-	public ZhiHuRecordImageView(Context context) {
+	public RecordImageView(Context context) {
 		super(context);
 	}
 
-	public ZhiHuRecordImageView(Context context, AttributeSet attrs) {
+	public RecordImageView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 	}
 
-	public ZhiHuRecordImageView(Context context, AttributeSet attrs, int defStyle) {
+	public RecordImageView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 	}
 

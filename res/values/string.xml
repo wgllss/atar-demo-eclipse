@@ -19,7 +19,7 @@
     <string name="txt_line_color">txt_line_color</string>
     <string name="txt_line_drawable">txt_line_drawable</string>
     <string name="photo">photo</string>
-    <string name="oval_grey_bg">oval_grey_bg</string>
+    <string name="grey_bg_color">grey_bg_color</string>
     <!-- array end -->
     <!-- color start -->
     <string name="home_green_color">home_green_color</string>
