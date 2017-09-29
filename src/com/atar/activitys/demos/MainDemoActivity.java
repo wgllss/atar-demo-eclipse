@@ -53,7 +53,6 @@ public class MainDemoActivity extends AtarRefreshListViewActivity {
 		setOnDrawerBackEnabled(false);
 
 		setActivityTitle("demo主界面");
-		AppConfigSetting.getInstance().saveLoginUserId("15616915");
 		list.add(new MenuItemBean("0", "网络测试1"));
 		list.add(new MenuItemBean("1", "网络测试2"));
 		list.add(new MenuItemBean("2", "ViewPagerDemoActivity"));

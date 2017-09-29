@@ -1,7 +1,6 @@
 package com.atar.net;
 
 import java.lang.reflect.Type;
-import java.util.HashMap;
 import java.util.Map;
 
 import android.app.Activity;
@@ -13,8 +12,6 @@ import android.reflection.ThreadPoolTool;
 import android.utils.CommonStringUtil;
 
 import com.atar.enums.EnumMsgWhat;
-import com.atar.modles.AtarBBSJson;
-import com.atar.modles.WonderfulTopicJson;
 
 /**
  * 
@@ -72,24 +69,19 @@ public class NetWorkInterfaces {
 		}, activity, HttpUrlConnectionRequest.class.getName(), method, params, typeOfT);
 	}
 
+	// /** 获取今日赞 **/
+	// public static void GetWonderTopicList(Activity activity, NetWorkCallListener mNetWorkCallListener, String pageNo) {
+	// Map<String, String> map = new HashMap<String, String>();
+	// CommonStringUtil.setMap(map, "pageNo", pageNo);
+	// Object[] params = new Object[] { UrlParamCommon.UrlWonderfulList, map, UrlParamCommon.UTF_8, activity };
+	// ThreadPoolTool.getInstance().setAsyncTask(EnumMsgWhat.EInterface_Get_Wonder_Topic_List, mNetWorkCallListener, activity, HttpUrlConnectionRequest.class.getName(), HttpUrlConnectionRequest.GET,
+	// params, WonderfulTopicJson.class);
+	// }
+
 	/** 获取今日赞 **/
 	public static void GetWonderTopicList(Activity activity, NetWorkCallListener mNetWorkCallListener, String pageNo) {
-		Map<String, String> map = new HashMap<String, String>();
-		CommonStringUtil.setMap(map, "pageNo", pageNo);
-		Object[] params = new Object[] { UrlParamCommon.UrlWonderfulList, map, UrlParamCommon.UTF_8, activity };
-		ThreadPoolTool.getInstance().setAsyncTask(EnumMsgWhat.EInterface_Get_Wonder_Topic_List, mNetWorkCallListener, activity, HttpUrlConnectionRequest.class.getName(), HttpUrlConnectionRequest.GET,
-				params, WonderfulTopicJson.class);
+		pageNo = CommonStringUtil.emptyIfNull(pageNo);
+		Object[] params = new Object[] { activity, pageNo };
+		ThreadPoolTool.getInstance().setAsyncTask(EnumMsgWhat.EInterface_Get_Wonder_Topic_List, mNetWorkCallListener, activity, NetWorkImpl.class.getName(), "GetWonderTopicList", params, null);
 	}
-
-	/** 获取淘股论坛数据 **/
-	public static void GetForumList(Activity activity, NetWorkCallListener mNetWorkCallListener, int which, int which2, String actionName, String pageNo, String blockID, String flag) {
-		Map<String, String> map = new HashMap<String, String>();
-		CommonStringUtil.setMap(map, "pageNo", pageNo);
-		CommonStringUtil.setMap(map, "blockID", blockID);
-		CommonStringUtil.setMap(map, "flag", flag);
-		Object[] params = new Object[] { actionName, map, UrlParamCommon.UTF_8, activity };
-		ThreadPoolTool.getInstance().setAsyncTask(EnumMsgWhat.EInterface_Get_Forum_List, which, which2, mNetWorkCallListener, activity, HttpUrlConnectionRequest.class.getName(),
-				HttpUrlConnectionRequest.GET, params, AtarBBSJson.class);
-	}
-
 }

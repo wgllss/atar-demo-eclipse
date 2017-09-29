@@ -19,6 +19,12 @@ public class UrlParamCommon {
 
 	/** 是否请求中带MD5加密*/
 	public static boolean isHasMD5 = true;
+	// public static String postfix = AppConfigModel.getInstance().getString("POSTFIX_KEY", "sp/");
+	// /** 前缀线上环境是https 本地和测试环境是http 2016年12.15.10:06*/
+	// public static String prefix = postfix.contains("com.cn") ? "https" : "http";
+	// public static final String UrlPkWebSocket = AppConfigModel.getInstance().getString("WEBSOCKET_KEY", "ws://ws.taoguba.sp/kline");
+	// /** 域名后缀 com.cn 打包上线时用 注意 注释掉上面三行 放开下面三行*/
+
 	public static String prefix = "https";
 	public static String postfix = "sp/";
 	public static final String UrlPkWebSocket = "ws://ws.taoguba.com.cn/kline";
@@ -58,5 +64,5 @@ public class UrlParamCommon {
 	/** 获取微信用户信息**/
 	public static final String UrlGetWeixinUserInfo = "https://api.weixin.qq.com/sns/userinfo?";
 	/** 今日赞**/
-	public static final String UrlWonderfulList = API_HOST + "free/topic/apiGetWonderLists";
+	public static final String UrlWonderfulList = "";
 }
