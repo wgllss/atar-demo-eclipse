@@ -122,7 +122,7 @@ public class AtarLoadActivity extends Activity implements OnPageChangeListener, 
 
 			String imagesJson = AppConfigModel.getInstance().getString(AppConfigUtils.APP_LOADING_IMAGES_KEY, "");
 			if (imagesJson == null || imagesJson.length() == 0) {
-				imagesJson = "[\"assets://images/loading1.jpg\",\"assets://images/loading2.jpg\",\"assets://images/loading3.jpg\",\"assets://images/loading4.jpg\"]";
+				imagesJson = "[\"assets://images/loading1.png\",\"assets://images/loading2.jpg\",\"assets://images/loading3.jpeg\"]";
 			}
 			try {
 				Gson gson = new Gson();

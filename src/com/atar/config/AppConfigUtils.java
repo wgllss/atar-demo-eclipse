@@ -149,7 +149,7 @@ public class AppConfigUtils {
 						AppConfigModel.getInstance().putString(saveToSharedPreferencesKey, result, true);
 					}
 					if (mAppConfigJson.getLoading_images() != null && mAppConfigJson.getLoading_images().size() > 0 && handlerListener != null) {
-						AppConfigModel.getInstance().putString(APP_LOADING_IMAGES_KEY, gson.toJson(mAppConfigJson.getLoading_images()));
+						AppConfigModel.getInstance().putString(APP_LOADING_IMAGES_KEY, gson.toJson(mAppConfigJson.getLoading_images()), true);
 						CommonHandler.getInstatnce().handerMessage(handlerListener, resultMsgWhat, 0, 0, mAppConfigJson.getLoading_images());
 					}
 					// 处理下载皮肤
