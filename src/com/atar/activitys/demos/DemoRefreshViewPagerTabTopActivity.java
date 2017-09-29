@@ -9,6 +9,7 @@ import android.content.Context;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.skin.SkinUtils;
+import android.utils.ColorUtil;
 import android.utils.ScreenUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollableHelper.ScrollableContainer;
 import android.widget.ScrollableLayout;
 import android.widget.ScrollableLayout.ScrollLayoutListener;
+import android.widget.TextView;
 
 import com.atar.activitys.AtarCommonTabActivity;
 import com.atar.activitys.R;
@@ -94,14 +96,12 @@ public class DemoRefreshViewPagerTabTopActivity extends AtarCommonTabActivity<Re
 		FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 		lp.gravity = Gravity.TOP | Gravity.LEFT;
 		addContentView(commonContentBg, lp);
-		// rel_core = (RelativeLayout) findViewById(R.id.rel_core);
 		if (VERSION.SDK_INT >= VERSION_CODES.KITKAT) {
 			int statusBarHeight = ScreenUtils.getStatusBarHeight(this) > 0 ? ScreenUtils.getStatusBarHeight(this) : 36;
 			int layoutHeight = statusBarHeight + (int) ScreenUtils.getIntToDip(45);
 			topTitleBarBg.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, layoutHeight));
 			topTitleBarBg.setPadding(0, statusBarHeight, 0, 0);
 			setTitleBarGone();
-			// rel_core.setPadding(0, statusBarHeight, 0, 0);
 		} else {
 			topTitleBarBg.bringToFront();
 			topTitleBarBg.setVisibility(View.INVISIBLE);
@@ -120,6 +120,7 @@ public class DemoRefreshViewPagerTabTopActivity extends AtarCommonTabActivity<Re
 	public void onScrollLayout(ScrollableLayout view, boolean isSmoothTop, int scrollDistence) {
 		if (itemHeaderAdView == null) {
 			itemHeaderAdView = findViewById(R.id.txt_top);
+			SkinUtils.setBackgroundColor(this, R.string.common_top_title_bar_bg_color, getCurrentSkinType(), itemHeaderAdView);
 			if (pullToRefreshScrollableLayout != null && pullToRefreshScrollableLayout.getRefreshableView() != null && topTitleBarBg != null) {
 				if (VERSION.SDK_INT >= VERSION_CODES.KITKAT) {
 					statusBarHeight = ScreenUtils.getStatusBarHeight(this) > 0 ? ScreenUtils.getStatusBarHeight(this) : 36;
@@ -131,7 +132,7 @@ public class DemoRefreshViewPagerTabTopActivity extends AtarCommonTabActivity<Re
 
 			topTitleBarBg.setVisibility(View.VISIBLE);
 			topTitleBarBg.bringToFront();
-			// topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.transparent0));
+			topTitleBarBg.setBackgroundColor(SkinUtils.getColor(this, R.string.transparent0));
 		}
 
 		scrollDistence = scrollDistence > (itemHeaderAdView.getHeight() - stickyOffset - statusBarHeight) ? (itemHeaderAdView.getHeight() - stickyOffset - statusBarHeight) : scrollDistence;
@@ -140,9 +141,9 @@ public class DemoRefreshViewPagerTabTopActivity extends AtarCommonTabActivity<Re
 		// topTitleBarBg.bringToFront();
 
 		if (isSmoothTop) {
-			// topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.transparent0));
+			topTitleBarBg.setBackgroundColor(SkinUtils.getColor(this, R.string.transparent0));
 		} else {
-			// topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.green));
+			SkinUtils.setBackgroundColor(this, R.string.common_top_title_bar_bg_color, getCurrentSkinType(), topTitleBarBg);
 		}
 		float fraction;
 		if (headerViewTopSpace > 0) {
@@ -166,8 +167,8 @@ public class DemoRefreshViewPagerTabTopActivity extends AtarCommonTabActivity<Re
 			AlphaAnimation inAlphaAnimation = new AlphaAnimation(fraction, 1f);
 			topTitleBarBg.setAnimation(inAlphaAnimation);
 		}
-		// int endColor = getCurrentSkinType() == SkinMode.DAY_MODE ? R.color.common_top_title_bar_bg_day : R.color.common_buttom_bg_night;
-		// topTitleBarBg.setBackgroundColor(ColorUtil.getNewColorByStartEndColor(this, fraction, R.color.transparent0, endColor));
+		int endColor = SkinUtils.getArrayColor(this, R.string.common_top_title_bar_bg_color, getCurrentSkinType());
+		topTitleBarBg.setBackgroundColor(ColorUtil.evaluate(fraction, SkinUtils.getColor(this, R.string.transparent0), endColor));
 	}
 
 	@Override
@@ -183,30 +184,23 @@ public class DemoRefreshViewPagerTabTopActivity extends AtarCommonTabActivity<Re
 	@Override
 	public void ChangeSkin(int skinType) {
 		super.ChangeSkin(skinType);
-
-		// if (pullToRefreshScrollableLayout != null) {
-		// if (pullToRefreshScrollableLayout.getHeaderLayout() != null && pullToRefreshScrollableLayout.getHeaderLayout().getHeaderText() != null) {
-		// pullToRefreshScrollableLayout.getHeaderLayout().setHeaderTextColor(getResources().getColor(R.color.black));
-		// }
-		// if (pullToRefreshScrollableLayout.getFooterLayout() != null && pullToRefreshScrollableLayout.getFooterLayout().getHeaderText() != null) {
-		// pullToRefreshScrollableLayout.getFooterLayout().setHeaderTextColor(getResources().getColor(R.color.black));
-		// }
-		// if (pullToRefreshScrollableLayout.getHeaderLayout() != null && pullToRefreshScrollableLayout.getHeaderLayout().getSubHeaderText() != null) {
-		// pullToRefreshScrollableLayout.getHeaderLayout().setSubHeaderTextColor(getResources().getColor(R.color.black));
-		// }
-		// if (pullToRefreshScrollableLayout.getFooterLayout() != null && pullToRefreshScrollableLayout.getFooterLayout().getSubHeaderText() != null) {
-		// pullToRefreshScrollableLayout.getFooterLayout().setSubHeaderTextColor(getResources().getColor(R.color.black));
-		// }
-		// if (pullToRefreshScrollableLayout.getHeaderLayout() != null) {
-		// pullToRefreshScrollableLayout.getHeaderLayout().setRefreshBgColor(getResources().getColor(R.color.common_txt_hint_color_day));
-		// }
-		// if (pullToRefreshScrollableLayout.getFooterLayout() != null) {
-		// pullToRefreshScrollableLayout.getFooterLayout().setRefreshBgColor(getResources().getColor(R.color.common_txt_hint_color_day));
-		// }
-		// pullToRefreshScrollableLayout.setBackgroundColor(getResources().getColor(R.color.white));
-		// }
-		// if (topTitleBarBg != null) {
-		// topTitleBarBg.setBackgroundColor(getResources().getColor(R.color.green));
-		// }
+		if (pullToRefreshScrollableLayout != null) {
+			if (pullToRefreshScrollableLayout.getHeaderLayout() != null && pullToRefreshScrollableLayout.getHeaderLayout().getHeaderText() != null) {
+				pullToRefreshScrollableLayout.getHeaderLayout().setHeaderTextColor(SkinUtils.getArrayColor(this, R.string.txt_day_black_night_greywhite_color, skinType));
+			}
+			if (pullToRefreshScrollableLayout.getFooterLayout() != null && pullToRefreshScrollableLayout.getFooterLayout().getHeaderText() != null) {
+				pullToRefreshScrollableLayout.getFooterLayout().setHeaderTextColor(SkinUtils.getArrayColor(this, R.string.txt_day_black_night_greywhite_color, skinType));
+			}
+			if (pullToRefreshScrollableLayout.getHeaderLayout() != null && pullToRefreshScrollableLayout.getHeaderLayout().getSubHeaderText() != null) {
+				pullToRefreshScrollableLayout.getHeaderLayout().setSubHeaderTextColor(SkinUtils.getArrayColor(this, R.string.txt_day_black_night_greywhite_color, skinType));
+			}
+			if (pullToRefreshScrollableLayout.getFooterLayout() != null && pullToRefreshScrollableLayout.getFooterLayout().getSubHeaderText() != null) {
+				pullToRefreshScrollableLayout.getFooterLayout().setSubHeaderTextColor(SkinUtils.getArrayColor(this, R.string.txt_day_black_night_greywhite_color, skinType));
+			}
+			SkinUtils.setBackgroundColor(this, R.string.common_top_title_bar_bg_color, skinType, pullToRefreshScrollableLayout.getHeaderLayout());
+		}
+		SkinUtils.setBackgroundColor(this, R.string.common_top_title_bar_bg_color, skinType, topTitleBarBg);
+		SkinUtils.setBackgroundColor(this, R.string.common_top_title_bar_bg_color, skinType, findViewById(R.id.txt_top));
+		SkinUtils.setTextColor(this, R.string.common_activity_title_color, skinType, (TextView) findViewById(R.id.txt_top));
 	}
 }

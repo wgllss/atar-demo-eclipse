@@ -4,6 +4,7 @@
 package com.atar.activitys;
 
 import android.os.Bundle;
+import android.skin.SkinUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -71,5 +72,11 @@ public class AtarRefreshListViewActivity extends AtarRefreshActivity<PullToRefre
 	@Override
 	public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		return false;
+	}
+
+	@Override
+	public void ChangeSkin(int skinType) {
+		super.ChangeSkin(skinType);
+		SkinUtils.setDivider(this, R.string.txt_line_drawable, skinType, getRefreshView());
 	}
 }

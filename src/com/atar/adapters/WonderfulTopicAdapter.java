@@ -5,6 +5,7 @@ import java.util.List;
 import android.activity.CommonActivity;
 import android.adapter.CommonAdapter;
 import android.annotation.SuppressLint;
+import android.skin.SkinUtils;
 import android.utils.CommonStringUtil;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,11 +60,11 @@ public class WonderfulTopicAdapter extends CommonAdapter<WonderfulTopicBean> {
 
 		final WonderfulTopicBean info = getList().get(position);
 		if (info != null) {
-			// LoadUtil.setTextColor(parent.getContext(), mViewHoldrRecommend.txt_user_name, R.array.txt_day_black_night_greywhite_style3_color, getSkinType());
-			// LoadUtil.setTextColor(parent.getContext(), mViewHoldrRecommend.title, R.array.txt_day_black_night_greywhite_style2_color, getSkinType());
-			// LoadUtil.setTextColor(parent.getContext(), mViewHoldrRecommend.txt_content, R.array.txt_day_black_night_greywhite_style_color, getSkinType());
-			// LoadUtil.setTextColor(parent.getContext(), mViewHoldrRecommend.txt_reply_num, R.array.txt_day_black_night_greywhite_style3_color, getSkinType());
-			// LoadUtil.setTextColor(parent.getContext(), mViewHoldrRecommend.txt_topic_praise, R.array.txt_day_black_night_greywhite_style3_color, getSkinType());
+			SkinUtils.setTextColor(parent.getContext(), R.string.txt_day_grey_night_greyblack_color, getSkinType(), mViewHoldrRecommend.txt_user_name);
+			SkinUtils.setTextColor(parent.getContext(), R.string.txt_day_black_night_greywhite_color, getSkinType(), mViewHoldrRecommend.title);
+			SkinUtils.setTextColor(parent.getContext(), R.string.txt_day_grey_night_greyblack_color, getSkinType(), mViewHoldrRecommend.txt_content);
+			SkinUtils.setTextColor(parent.getContext(), R.string.txt_day_grey_night_greyblack_color, getSkinType(), mViewHoldrRecommend.txt_reply_num);
+			SkinUtils.setTextColor(parent.getContext(), R.string.txt_day_grey_night_greyblack_color, getSkinType(), mViewHoldrRecommend.txt_topic_praise);
 			if (info.getPoratrait() != null && !"".equals(info.getPoratrait())) {
 				String imgUrl = UrlParamCommon.getPortrait(info.getPoratrait());
 				if (imgUrl != null && !"".equals(imgUrl)) {
@@ -90,8 +91,6 @@ public class WonderfulTopicAdapter extends CommonAdapter<WonderfulTopicBean> {
 			String strReplyNum = info.getReplyNum() < 10000 ? info.getReplyNum() + "评" : "9999+评";
 			mViewHoldrRecommend.txt_reply_num.setText(strReplyNum);
 			mViewHoldrRecommend.txt_user_name.setText(info.getUserName());
-			// mViewHoldrRecommend.txt_user_name.setOnClickListener(new ToUserCenterOnClickListener(info.getUserID() + ""));
-			// mViewHoldrRecommend.img_user.setOnClickListener(new ToUserCenterOnClickListener(info.getUserID() + ""));
 		}
 		return convertView;
 	}
