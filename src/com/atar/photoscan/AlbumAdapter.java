@@ -7,6 +7,7 @@ import java.util.List;
 
 import android.activity.CommonActivity;
 import android.adapter.CommonAdapter;
+import android.skin.SkinUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,11 +41,13 @@ public class AlbumAdapter extends CommonAdapter<AlbumBean> {
 			convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_album_item, null);
 			mViewHolder.imgAlbumFirst = (ImageView) convertView.findViewById(R.id.img_album);
 			mViewHolder.txtDesc = (TextView) convertView.findViewById(R.id.txt_desc);
+			mViewHolder.img_more = (ImageView) convertView.findViewById(R.id.img_more);
 			convertView.setTag(mViewHolder);
 		} else {
 			mViewHolder = (ViewHolder) convertView.getTag();
 		}
 		AlbumBean info = getList().get(position);
+		mViewHolder.img_more.setImageDrawable(SkinUtils.getDrawable(parent.getContext(), R.string.drawable_dayu01));
 		if (info != null) {
 			// Bitmap bitmap = MediaStore.Images.Thumbnails.getThumbnail(parent.getContext().getContentResolver(), info.getBitmap(), Thumbnails.MICRO_KIND, null);
 			// mViewHolder.imgAlbumFirst.setImageBitmap(bitmap);
@@ -62,6 +65,6 @@ public class AlbumAdapter extends CommonAdapter<AlbumBean> {
 
 	static class ViewHolder {
 		TextView txtDesc;
-		ImageView imgAlbumFirst;
+		ImageView imgAlbumFirst, img_more;
 	}
 }

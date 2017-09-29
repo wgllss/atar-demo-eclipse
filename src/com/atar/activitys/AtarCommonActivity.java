@@ -3,18 +3,18 @@ package com.atar.activitys;
 import android.activity.CommonActivity;
 import android.annotation.SuppressLint;
 import android.application.CrashHandler;
+import android.common.CommonHandler;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
+import android.interfaces.HandlerListener;
 import android.interfaces.NetWorkCallListener;
 import android.interfaces.OnOpenDrawerCompleteListener;
 import android.net.Uri;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import android.reflection.NetWorkMsg;
 import android.skin.SkinUtils;
 import android.utils.ApplicationManagement;
@@ -26,6 +26,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.CommonToast;
 import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
 import android.widget.ImageView;
@@ -34,6 +35,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.atar.utils.IntentUtil;
+import com.ytsoft.cpvs2.common.speex.SpeexPlayer;
+import com.ytsoft.cpvs2.common.speex.SpeexPlayer.SpeexFinishListener;
 
 /**
  * 
@@ -69,10 +72,10 @@ public class AtarCommonActivity extends CommonActivity implements OnClickListene
 	/* android 4.4+上状态栏默认透明 */
 	protected boolean isFlagTranslucentStatus = true;
 
-	// /* 播放器speex 由于需要的包放在本工程里面，固没有放放commons7里面 */
-	// private static SpeexPlayer splayer;
-	// /* 是否正在播放 */
-	// private static boolean isPlaying;
+	/* 播放器speex 由于需要的包放在本工程里面，固没有放放commons7里面 */
+	private static SpeexPlayer splayer;
+	/* 是否正在播放 */
+	private static boolean isPlaying;
 
 	/**一个activity 一个网络请求回调*/
 
@@ -118,26 +121,19 @@ public class AtarCommonActivity extends CommonActivity implements OnClickListene
 	@Override
 	protected void onPause() {
 		super.onPause();
-		// stop();
+		stop();
 	}
 
 	@Override
 	protected void onStop() {
 		super.onStop();
-		// stop();
+		stop();
 	}
 
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		// stop();
-		try {
-			if (mHandler != null) {
-				mHandler.removeCallbacksAndMessages(null);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		stop();
 	}
 
 	@Override
@@ -575,62 +571,6 @@ public class AtarCommonActivity extends CommonActivity implements OnClickListene
 	}
 
 	/**
-	* 进入界面时操作 从本地加载，从服务器加载，本地加载完成
-	*/
-	private Handler mHandler = new Handler(Looper.getMainLooper()) {
-		@Override
-		public void handleMessage(Message msg) {
-			HandleMessage(msg);
-		}
-	};
-
-	public void sendEmptyMessageL(int what) {
-		mHandler.sendEmptyMessage(what);
-	}
-
-	public void sendMessageDelayedL(int what, long delayMillis) {
-		mHandler.sendEmptyMessageDelayed(what, delayMillis);
-	}
-
-	public void sendEmptyMessageL(int what, int msg1, int msg2) {
-		mHandler.sendMessage(mHandler.obtainMessage(what, msg1, msg2));
-	}
-
-	public void sendEmptyMessageL(int what, int msg1, int msg2, Object obj) {
-		mHandler.sendMessage(mHandler.obtainMessage(what, msg1, msg2, obj));
-	}
-
-	public void sendEmptyMessageL(int what, Object obj) {
-		mHandler.sendMessage(mHandler.obtainMessage(what, obj));
-	}
-
-	public void postL(Runnable mRunnable) {
-		mHandler.post(mRunnable);
-	}
-
-	public void postDelayedL(Runnable mRunnable, long delayMillis) {
-		mHandler.postDelayed(mRunnable, delayMillis);
-	}
-
-	public Handler getLocalHandler() {
-		return mHandler;
-	}
-
-	/**
-	* 进入界面时操作 从本地加载，从服务器加载，本地加载完成
-	* @author :Atar
-	* @createTime:2014-7-8下午6:45:38
-	* @version:1.0.0
-	* @modifyTime:
-	* @modifyAuthor:
-	* @param msg
-	* @description:
-	*/
-	protected void HandleMessage(Message msg) {
-		// CommonLoading.dissMissLoading();
-	}
-
-	/**
 	 * 是否继承该AtarCommonActivity所有布局
 	 * @author :Atar
 	 * @createTime:2014-8-25下午5:05:32
@@ -658,166 +598,165 @@ public class AtarCommonActivity extends CommonActivity implements OnClickListene
 		this.isFlagTranslucentStatus = isFlagTranslucentStatus;
 	}
 
-	// /**
-	// * 播放speex格式语音
-	// * @author :Atar
-	// * @createTime:2016-7-6下午3:00:26
-	// * @version:1.0.0
-	// * @modifyTime:
-	// * @modifyAuthor:
-	// * @param strAudioPath0 本地文件名
-	// * @param mAnimationDrawable 图片动画
-	// * @param imageView 图片
-	// * @param stopImgResID 播放默认or停止时的显示的图片
-	// * @param handler msg2为播放时间每秒从0开始
-	// * @description:
-	// */
-	// public void play(String strAudioPath0, AnimationDrawable mAnimationDrawable, final ImageView imageView, int stopImgResID, final Handler handler) {
-	// if (strAudioPath0 != null && strAudioPath0.length() > 0) {
-	// String end = strAudioPath0.substring(strAudioPath0.lastIndexOf("."), strAudioPath0.length());
-	// if (".spx".equals(end)) {
-	// if (mImageView != null && mStopImgResID != 0) {
-	// mImageView.setImageResource(mStopImgResID);
-	// }
-	// if (isPlaying) {
-	// isPlaying = false;
-	// splayer.stopPlay();
-	// if (handlerStatus != null) {
-	// handlerStatus.sendMessage(handlerStatus.obtainMessage(AUDIO_STOP, 1, 0));// 中途停止播放
-	// // handlerStatus.sendEmptyMessage(AUDIO_STOP);
-	// }
-	// if (animationDrawable != null) {
-	// runOnUiThread(new Runnable() {
-	// @Override
-	// public void run() {
-	// animationDrawable.stop();
-	// animationDrawable.selectDrawable(0);
-	// }
-	// });
-	// }
-	// if (mImageView != null && mStopImgResID != 0) {
-	// mImageView.setImageResource(mStopImgResID);
-	// }
-	// if (strAudioPath != null && strAudioPath.length() > 0 && strAudioPath.equals(strAudioPath0)) {
-	// // 正在播放又再次点击就停止播放
-	// return;
-	// }
-	// }
-	// isPlaying = true;
-	// splayer = new SpeexPlayer(strAudioPath0);
-	// strAudioPath = strAudioPath0;
-	// mStopImgResID = stopImgResID;
-	// mImageView = imageView;
-	// handlerStatus = handler;
-	// splayer.setOnSpeexFinishListener(new SpeexFinishListener() {
-	// @Override
-	// public void finishPlayListener() {
-	// isPlaying = false;
-	// splayer.stopPlay();
-	// if (handlerStatus != null) {
-	// handlerStatus.sendEmptyMessage(AUDIO_STOP);
-	// }
-	// runOnUiThread(new Runnable() {
-	// @Override
-	// public void run() {
-	// if (animationDrawable != null) {
-	// animationDrawable.stop();
-	// animationDrawable.selectDrawable(0);
-	// }
-	// if (mImageView != null && mStopImgResID != 0) {
-	// mImageView.setImageResource(mStopImgResID);
-	// }
-	// }
-	// });
-	// }
-	// });
-	// animationDrawable = mAnimationDrawable;
-	// if (animationDrawable != null && mImageView != null) {
-	// mImageView.setImageDrawable(animationDrawable);
-	// animationDrawable.start();
-	// }
-	// splayer.startPlay();
-	// if (handlerStatus != null) {
-	// handlerStatus.sendEmptyMessage(AUDIO_PLAYING);
-	// }
-	// } else {
-	// CommonToast.show("亲,语音格式不对");
-	// }
-	// }
-	// }
+	/**
+	* 播放speex格式语音
+	* @author :Atar
+	* @createTime:2016-7-6下午3:00:26
+	* @version:1.0.0
+	* @modifyTime:
+	* @modifyAuthor:
+	* @param strAudioPath0 本地文件名
+	* @param mAnimationDrawable 图片动画
+	* @param imageView 图片
+	* @param stopImgResID 播放默认or停止时的显示的图片
+	* @param handler msg2为播放时间每秒从0开始
+	* @description:
+	*/
+	public void play(String strAudioPath0, AnimationDrawable mAnimationDrawable, final ImageView imageView, int stopImgResID, final HandlerListener mHandlerListener) {
+		if (strAudioPath0 != null && strAudioPath0.length() > 0) {
+			String end = strAudioPath0.substring(strAudioPath0.lastIndexOf("."), strAudioPath0.length());
+			if (".spx".equals(end)) {
+				if (mImageView != null && mStopImgResID != 0) {
+					mImageView.setImageResource(mStopImgResID);
+				}
+				if (isPlaying) {
+					isPlaying = false;
+					splayer.stopPlay();
+					if (mHandlerStatusListener != null) {
+						CommonHandler.getInstatnce().handerMessage(mHandlerStatusListener, AUDIO_STOP, 1, 0, null);// 中途停止播放
+					}
+					if (animationDrawable != null) {
+						runOnUiThread(new Runnable() {
+							@Override
+							public void run() {
+								animationDrawable.stop();
+								animationDrawable.selectDrawable(0);
+							}
+						});
+					}
+					if (mImageView != null && mStopImgResID != 0) {
+						mImageView.setImageResource(mStopImgResID);
+					}
+					if (strAudioPath != null && strAudioPath.length() > 0 && strAudioPath.equals(strAudioPath0)) {
+						// 正在播放又再次点击就停止播放
+						return;
+					}
+				}
+				isPlaying = true;
+				splayer = new SpeexPlayer(strAudioPath0);
+				strAudioPath = strAudioPath0;
+				mStopImgResID = stopImgResID;
+				mImageView = imageView;
+				mHandlerStatusListener = mHandlerListener;
+				splayer.setOnSpeexFinishListener(new SpeexFinishListener() {
+					@Override
+					public void finishPlayListener() {
+						isPlaying = false;
+						splayer.stopPlay();
+						if (mHandlerStatusListener != null) {
+							CommonHandler.getInstatnce().handerMessage(mHandlerStatusListener, AUDIO_STOP, 0, 0, null);
+						}
+						runOnUiThread(new Runnable() {
+							@Override
+							public void run() {
+								if (animationDrawable != null) {
+									animationDrawable.stop();
+									animationDrawable.selectDrawable(0);
+								}
+								if (mImageView != null && mStopImgResID != 0) {
+									mImageView.setImageResource(mStopImgResID);
+								}
+							}
+						});
+					}
+				});
+				animationDrawable = mAnimationDrawable;
+				if (animationDrawable != null && mImageView != null) {
+					mImageView.setImageDrawable(animationDrawable);
+					animationDrawable.start();
+				}
+				splayer.startPlay();
+				if (mHandlerStatusListener != null) {
+					CommonHandler.getInstatnce().handerMessage(mHandlerStatusListener, AUDIO_PLAYING, 0, 0, null);
+				}
+			} else {
+				CommonToast.show("亲,语音格式不对");
+			}
+		}
+	}
 
-	// /**
-	// * 播放 播放HTML中语音
-	// * @author :Atar
-	// * @createTime:2014-9-25上午10:23:34
-	// * @version:1.0.0
-	// * @modifyTime:
-	// * @modifyAuthor:
-	// * @param strAudioPath
-	// * @description:
-	// */
-	// public void play(String strAudioPath0, Handler handler) {
-	// if (strAudioPath0 != null && strAudioPath0.length() > 0) {
-	// String end = strAudioPath0.substring(strAudioPath0.lastIndexOf("."), strAudioPath0.length());
-	// if (".spx".equals(end)) {
-	// if (isPlaying) {
-	// isPlaying = false;
-	// splayer.stopPlay();
-	// if (handlerStatus != null) {
-	// handlerStatus.sendEmptyMessage(AUDIO_STOP);
-	// }
-	// if (strAudioPath != null && strAudioPath.length() > 0 && strAudioPath.equals(strAudioPath0)) {
-	// // 正在播放又再次点击就停止播放
-	// return;
-	// }
-	// }
-	// isPlaying = true;
-	// splayer = new SpeexPlayer(strAudioPath0);
-	// strAudioPath = strAudioPath0;
-	// handlerStatus = handler;
-	// splayer.setOnSpeexFinishListener(new SpeexFinishListener() {
-	// @Override
-	// public void finishPlayListener() {
-	// isPlaying = false;
-	// splayer.stopPlay();
-	// if (handlerStatus != null) {
-	// handlerStatus.sendEmptyMessage(AUDIO_STOP);
-	// }
-	// }
-	// });
-	// if (handlerStatus != null) {
-	// handlerStatus.sendEmptyMessage(AUDIO_PLAYING);
-	// }
-	// splayer.startPlay();
-	// } else {
-	// CommonToast.show("亲,语音格式不对");
-	// }
-	// }
-	// }
-	//
-	// /**
-	// * 停止播放
-	// * @author :Atar
-	// * @createTime:2014-9-25上午10:24:50
-	// * @version:1.0.0
-	// * @modifyTime:
-	// * @modifyAuthor:
-	// * @description:
-	// */
-	// public void stop() {
-	// if (splayer != null) {
-	// if (isPlaying) {
-	// if (handlerStatus != null) {
-	// handlerStatus.sendEmptyMessage(AUDIO_STOP);
-	// }
-	// isPlaying = false;
-	// splayer.stopPlay();
-	// if (animationDrawable != null) {
-	// animationDrawable.selectDrawable(0);
-	// }
-	// }
-	// }
-	// }
+	/**
+	* 播放 播放HTML中语音
+	* @author :Atar
+	* @createTime:2014-9-25上午10:23:34
+	* @version:1.0.0
+	* @modifyTime:
+	* @modifyAuthor:
+	* @param strAudioPath
+	* @description:
+	*/
+	public void play(String strAudioPath0, HandlerListener mHandlerListener) {
+		if (strAudioPath0 != null && strAudioPath0.length() > 0) {
+			String end = strAudioPath0.substring(strAudioPath0.lastIndexOf("."), strAudioPath0.length());
+			if (".spx".equals(end)) {
+				if (isPlaying) {
+					isPlaying = false;
+					splayer.stopPlay();
+					if (mHandlerStatusListener != null) {
+						CommonHandler.getInstatnce().handerMessage(mHandlerStatusListener, AUDIO_STOP, 1, 0, null);
+					}
+					if (strAudioPath != null && strAudioPath.length() > 0 && strAudioPath.equals(strAudioPath0)) {
+						// 正在播放又再次点击就停止播放
+						return;
+					}
+				}
+				isPlaying = true;
+				splayer = new SpeexPlayer(strAudioPath0);
+				strAudioPath = strAudioPath0;
+				mHandlerStatusListener = mHandlerListener;
+				splayer.setOnSpeexFinishListener(new SpeexFinishListener() {
+					@Override
+					public void finishPlayListener() {
+						isPlaying = false;
+						splayer.stopPlay();
+						if (mHandlerStatusListener != null) {
+							CommonHandler.getInstatnce().handerMessage(mHandlerStatusListener, AUDIO_STOP, 0, 0, null);
+						}
+					}
+				});
+				if (mHandlerStatusListener != null) {
+					CommonHandler.getInstatnce().handerMessage(mHandlerStatusListener, AUDIO_PLAYING, 0, 0, null);
+				}
+				splayer.startPlay();
+			} else {
+				CommonToast.show("亲,语音格式不对");
+			}
+		}
+	}
+
+	/**
+	* 停止播放
+	* @author :Atar
+	* @createTime:2014-9-25上午10:24:50
+	* @version:1.0.0
+	* @modifyTime:
+	* @modifyAuthor:
+	* @description:
+	*/
+	public void stop() {
+		if (splayer != null) {
+			if (isPlaying) {
+				if (mHandlerStatusListener != null) {
+					CommonHandler.getInstatnce().handerMessage(mHandlerStatusListener, AUDIO_STOP, 0, 0, null);
+				}
+				isPlaying = false;
+				splayer.stopPlay();
+				if (animationDrawable != null) {
+					animationDrawable.selectDrawable(0);
+				}
+			}
+		}
+	}
 
 	/**
 	 * 确认退到后台

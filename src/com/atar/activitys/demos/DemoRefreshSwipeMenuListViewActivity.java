@@ -13,6 +13,7 @@ import android.content.pm.ResolveInfo;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Message;
+import android.skin.SkinUtils;
 import android.utils.ScreenUtils;
 import android.view.View;
 import android.widget.AdapterView;
@@ -63,7 +64,7 @@ public class DemoRefreshSwipeMenuListViewActivity extends AtarRefreshSwipeMenuLi
 		// set item width
 		deleteItem.setWidth((int) ScreenUtils.dpToPx(DemoRefreshSwipeMenuListViewActivity.this, 90));
 		// set a icon
-		deleteItem.setIcon(R.drawable.ic_delete);
+		deleteItem.setIconDrawable(SkinUtils.getDrawable(this, R.string.drawable_ic_delete));
 		// add to menu
 		menu.addMenuItem(deleteItem);
 	}

@@ -22,10 +22,10 @@ import android.http.HttpUrlConnectionRequest;
 import android.interfaces.HandlerListener;
 import android.interfaces.NetWorkCallListener;
 import android.os.Handler;
-import android.os.Looper;
 import android.os.Message;
 import android.reflection.NetWorkMsg;
 import android.reflection.ThreadPoolTool;
+import android.skin.SkinUtils;
 import android.utils.ScreenUtils;
 import android.utils.ShowLog;
 import android.view.Gravity;
@@ -601,7 +601,7 @@ public class ImplInAndroidScript {
 								gravity = Gravity.NO_GRAVITY;
 							} else if ("1".equals(strGravity)) {// 右上角
 								gravity = Gravity.TOP | Gravity.RIGHT;
-								drawableResID = R.drawable.drop_r;
+								// drawableResID = R.drawable.drop_r;
 							} else if ("2".equals(strGravity)) {// 左上角
 								gravity = Gravity.TOP | Gravity.LEFT;
 							} else if ("3".equals(strGravity)) {// 上边中间
@@ -649,7 +649,9 @@ public class ImplInAndroidScript {
 						((ListView) dropView).setDividerHeight(0);
 						final PopupWindow mPopupWindow = new PopupWindow(dropView, popwindowWidth, ViewGroup.LayoutParams.WRAP_CONTENT, true);
 						mPopupWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-						mPopupWindow.setBackgroundDrawable(activity.getResources().getDrawable(drawableResID));
+						if ("1".equals(strGravity)) {// 右上角
+							mPopupWindow.setBackgroundDrawable(SkinUtils.getDrawable(activity, R.string.drawable_drop_r));
+						}
 						mPopupWindow.showAtLocation(activity.getWindow().getDecorView(), gravity, x, y);
 						((ListView) dropView).setOnItemClickListener(new OnItemClickListener() {
 							@Override

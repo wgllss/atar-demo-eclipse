@@ -31,7 +31,6 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:padding="10dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/dayu01" />
+        android:scaleType="fitCenter" />
 
 </RelativeLayout>

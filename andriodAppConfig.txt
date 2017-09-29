@@ -1,7 +1,7 @@
 {
-    "versionName":"5.35",
-    "isReplace":true,
-    "skinVersion":"1.0",
+    "versionName":"5.397",
+    "isReplace":false,
+    "skinVersion":"4.20",
     "replaceMinVersion":"1.0",
     "topMenu":{
         "showDividerLine":false,
@@ -53,15 +53,15 @@
                 }
             },
             {
-                "ID":1013,
-                "menuName":"开户",
-                 "menuNameColor":"#656565,#999999",
+                "ID":4554,
+                "menuName":"交易练习",
                 "menuNameTextSize":13,
                 "orientation":"0",
-                "infoNum":0,
                 "onClickInfo":{
-                    "className":"com.taoguba.app.activity.tpy.TpyAccountLoginActivity",
-                   "onEventInfo":"{\"eventName\":\"买啥-开户\",\"eventID\":\"1013\",\"eventType\":\"0\"}"
+                    "needLogin":false,
+                    "className":"com.taoguba.app.activity.kgame.KGameHomeActivity",
+                    "onEventInfo":"{\"eventName\":\"买啥-交易练习\",\"eventID\":\"1006\",\"eventType\":\"0\"}"
+
                 }
             },
             {
@@ -106,38 +106,39 @@
                 "menuIcon":"assets://images/shipan_match.png",
                 "huo_flag_icon_url":"assets://images/huo_flag.png",
                 "huo_flag_marginLeft":50,
-                "huo_flag_marginTop":0,
+                "huo_flag_marginTop":10,
                 "huo_flag_size":10,
                 "onClickInfo":{
                     "needLogin":true,
                     "className":"com.taoguba.app.activity.shipan.TaogubaShiPanTabActivity"
                 }
             },
-
             {
-                "ID":4554,
-                "menuName":"交易练习",
+                "ID":1013,
+                "menuName":"极速开户",
                 "menuNameTextSize":15,
                 "orientation":"0",
                 "isShowIcon":true,
-                "menuIconWidthAndHeight":25,
-                "infoNumMarginLeft":50,
                 "infoNum":0,
-                "menuIcon":"assets://images/kxian.png",
+                "menuIconWidthAndHeight":25,
+                "menuIconMarginTopAndButtom":10,
+                "menuIcon":"https://image.taoguba.com.cn/img/2017/08/31/wnfxo15q5k4o.png",
+                "selectMenuIcon":"https://image.taoguba.com.cn/img/2017/08/31/ksusayk61dq4.png",
+                "huo_flag_icon_url":"https://image.taoguba.com.cn/img/2017/09/06/rrjckt9dwyp9.png",
+                "huo_flag_marginLeft":58,
+                "huo_flag_marginTop":-11,
+                "huo_flag_size":42,
                 "onClickInfo":{
                     "needLogin":false,
-                    "className":"com.taoguba.app.activity.kgame.KGameHomeActivity",
-                    "onEventInfo":"{\"eventName\":\"买啥-交易练习\",\"eventID\":\"1006\",\"eventType\":\"0\"}"
-
+                    "className":"com.taoguba.app.activity.tpy.TpyAccountLoginActivity",
+                    "onEventInfo":"{\"eventName\":\"买啥-开户\",\"eventID\":\"1013\",\"eventType\":\"0\"}"
                 }
             }
         ]
     },
 	"loading_images" :[
-			"https://image.taoguba.com.cn/img/2017/06/26/f041b97zltbf.jpg",
-			"https://image.taoguba.com.cn/img/2017/06/26/4ewabxzwiusb.jpg",
-			"https://image.taoguba.com.cn/img/2017/06/26/a4ps79sq0bfq.jpg",
-			"https://image.taoguba.com.cn/img/2017/06/26/hhj5p9epuebf.jpg"
+			"http://img.zcool.cn/community/01acc1571de5fb6ac72538120e3836.png",
+			"http://img.zcool.cn/community/01a03b564da3d632f87512f695e7b4.png"
 	],
 	"CommunityActivityJson":{
             "TITLE":"今日推荐",
@@ -180,11 +181,22 @@
                "orientation": "1",
                "isShowIcon": false,
                "onClickInfo": {
-                   "onEventInfo": "{\"eventName\":\"社区-港股吧\",\"eventID\":\"0029\",\"eventType\":\"0\"}"
+                   "onEventInfo": "{\"eventName\":\"社区-港股吧\",\"eventID\":\"0029\",\"eventType\":\"0\"}",
+                   "optionJson":"https://image.taoguba.com.cn/img/2017/09/05/ap79ry9aip88.jpg"
                }
             },
             {
                "ID": 30315531,
+               "menuName": "美股吧",
+               "menuNameTextSize": 15,
+               "orientation": "1",
+               "isShowIcon": false,
+               "onClickInfo": {
+                 "optionJson":"https://image.taoguba.com.cn/img/2017/09/05/hu1f1wztt968.jpg"
+               }
+            },
+            {
+               "ID": 30315532,
                "menuName": "新三板",
                "menuNameTextSize": 15,
                "orientation": "1",

@@ -3,6 +3,8 @@
  */
 package com.atar.activitys.demos;
 
+import android.common.CommonHandler;
+
 import com.atar.activitys.htmls.AtarCommonWebViewPagerActivity;
 import com.atar.config.AppConfigJson;
 import com.atar.config.HtmlsViewPagerJson;
@@ -49,7 +51,7 @@ public class DemoRefreshInFragmentActivity extends AtarCommonWebViewPagerActivit
 		}
 		final int currentItem = getIntent().getIntExtra("setCurrentItem", -1);
 		if (currentItem != -1) {
-			postDelayedL(new Runnable() {
+			CommonHandler.getInstatnce().getHandler().postDelayed(new Runnable() {
 				@Override
 				public void run() {
 					setCurrentItem(currentItem, true);

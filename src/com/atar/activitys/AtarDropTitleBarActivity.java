@@ -8,6 +8,7 @@ import java.util.List;
 import android.annotation.SuppressLint;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
+import android.skin.SkinUtils;
 import android.utils.DeviceManager;
 import android.utils.ScreenUtils;
 import android.utils.ViewUtils;
@@ -217,14 +218,15 @@ public abstract class AtarDropTitleBarActivity extends AtarCommonActivity implem
 		}
 		mPopupWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 		if (statusMode == DropDownMode.DROP_DOWN_CENTER) {
-			mPopupWindow.setBackgroundDrawable(getResources().getDrawable(R.drawable.drop_c));
+			mPopupWindow.setBackgroundDrawable(SkinUtils.getDrawable(this, R.string.drawable_drop_c));
 			if (VERSION.SDK_INT >= VERSION_CODES.KITKAT) {
 				mPopupWindow.showAtLocation(v, Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, txtCommonTopTitle.getBottom());
 			} else {
 				mPopupWindow.showAtLocation(v, Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, txtCommonTopTitle.getBottom() + (int) ScreenUtils.getIntToDip(25));
 			}
 		} else if (statusMode == DropDownMode.DROP_DOWN_RIGHT) {
-			mPopupWindow.setBackgroundDrawable(getResources().getDrawable(R.drawable.drop_r));
+			mPopupWindow.setBackgroundDrawable(SkinUtils.getDrawable(this, R.string.drawable_drop_r));
+			;
 			if (VERSION.SDK_INT >= VERSION_CODES.KITKAT) {
 				mPopupWindow.showAtLocation(v, Gravity.TOP | Gravity.RIGHT, (int) ScreenUtils.getIntToDip(2), txtCommonTopTitle.getBottom());
 			} else {

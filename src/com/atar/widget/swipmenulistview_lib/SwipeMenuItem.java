@@ -66,6 +66,10 @@ public class SwipeMenuItem {
 		this.icon = mContext.getResources().getDrawable(resId);
 	}
 
+	public void setIconDrawable(Drawable drawable) {
+		this.icon = drawable;
+	}
+
 	public Drawable getBackground() {
 		return background;
 	}

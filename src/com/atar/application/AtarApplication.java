@@ -52,7 +52,7 @@ public class AtarApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 		mInstance = this;
-		SkinResourcesManager.getInstance(this).initSkinResources(true, "com.atar.skin", UrlParamCommon.download_skin_url);
+		SkinResourcesManager.getInstance(this).initSkinResources(false, "com.atar.skin", UrlParamCommon.download_skin_url);
 
 		CommonApplication.initApplication(this);// 初始化全局Context
 		CommonNetWorkExceptionToast.initToastError(this, R.array.err_toast_string);// 初始化全局网络错误提示信息

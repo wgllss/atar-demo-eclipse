@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.atar.widgets.ZhiHuRecordImageView
+        android:id="@+id/img_record"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="50dp" />
+
+    <TextView
+        android:id="@+id/txt_second"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        android:layout_toLeftOf="@+id/img_record"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="0&apos;&apos;"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/txt_re_record"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="50dp"
+        android:layout_toRightOf="@+id/img_record"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="重录" />
+
+    <TextView
+        android:id="@+id/txt_record_introduce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_record"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="点击开始录音 最多可录制60&apos;&apos;"
+        android:textColor="#ff0000" />
+
+</RelativeLayout>

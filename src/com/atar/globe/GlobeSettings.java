@@ -50,4 +50,10 @@ public class GlobeSettings {
 	public static final String kGameFontsPath = "fonts/zzgflht.OTF";
 
 	public static final int[] refreshImg = { R.anim.anim_refresh_day, R.anim.anim_refresh_night };
+
+	/** 本地总文件夹 */
+	public static final String appCommonDir = "atar";
+
+	/** 本地语音文件目录 */
+	public static final String audioDir = appCommonDir + "/audio/";
 }

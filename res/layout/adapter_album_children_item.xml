@@ -15,7 +15,6 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_gravity="bottom|right"
-        android:contentDescription="@string/app_name"
-        android:src="@drawable/dayu01" />
+        android:contentDescription="@string/app_name" />
 
 </FrameLayout>

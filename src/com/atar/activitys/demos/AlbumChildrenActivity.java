@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.skin.SkinUtils;
 import android.utils.DeviceManager;
 import android.utils.ScreenUtils;
 import android.view.View;

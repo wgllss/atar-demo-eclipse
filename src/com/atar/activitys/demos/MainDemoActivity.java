@@ -62,6 +62,8 @@ public class MainDemoActivity extends AtarRefreshListViewActivity {
 		list.add(new MenuItemBean("6", "下载"));
 		list.add(new MenuItemBean("7", "刷新"));
 		list.add(new MenuItemBean("8", "夜间模式"));
+		list.add(new MenuItemBean("9", "语音录放"));
+
 		// list.add(new MenuItemBean("8", "网络测试1"));
 		mMainDemoAdapter.notifyDataSetChanged();
 		setAdapter(mMainDemoAdapter);
@@ -159,6 +161,9 @@ public class MainDemoActivity extends AtarRefreshListViewActivity {
 				}
 			}
 			mMainDemoAdapter.notifyDataSetChanged();
+			break;
+		case 9:
+			startActivity(new Intent(this, DemoSpeexAudioActivity.class));
 			break;
 		}
 	}

@@ -108,9 +108,12 @@
             android:name="com.atar.activitys.demos.DemoRefreshInFragmentActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
+        <activity
+            android:name="com.atar.activitys.demos.DemoSpeexAudioActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <!-- 阿里热修复 start -->
-        
+
         <service
             android:name="com.taobao.atlas.dexmerge.DexMergeService"
             android:process=":dexmerge" >
@@ -169,5 +172,6 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- 录音权限 -->
 
 </manifest>

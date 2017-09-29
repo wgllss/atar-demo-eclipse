@@ -10,6 +10,7 @@ import android.content.pm.ApplicationInfo;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Message;
+import android.skin.SkinUtils;
 import android.utils.ScreenUtils;
 import android.view.View;
 import android.widget.AdapterView;
@@ -45,37 +46,37 @@ public class DemoRefreshSwipeMenuListViewDiffActivity extends AtarRefreshSwipeMe
 			SwipeMenuItem item1 = new SwipeMenuItem(getApplicationContext());
 			item1.setBackground(new ColorDrawable(Color.rgb(0xE5, 0x18, 0x5E)));
 			item1.setWidth((int) ScreenUtils.dpToPx(this, 90));
-			item1.setIcon(R.drawable.ic_action_favorite);
+			item1.setIconDrawable(SkinUtils.getDrawable(this, R.string.drawable_ic_action_favorite));
 			menu.addMenuItem(item1);
 
 			SwipeMenuItem item2 = new SwipeMenuItem(getApplicationContext());
 			item2.setBackground(new ColorDrawable(Color.rgb(0xC9, 0xC9, 0xCE)));
 			item2.setWidth((int) ScreenUtils.dpToPx(this, 90));
-			item2.setIcon(R.drawable.ic_action_good);
+			item2.setIconDrawable(SkinUtils.getDrawable(this, R.string.drawable_ic_action_good));
 			menu.addMenuItem(item2);
 			break;
 		case 1:
 			SwipeMenuItem item3 = new SwipeMenuItem(getApplicationContext());
 			item3.setBackground(new ColorDrawable(Color.rgb(0xE5, 0xE0, 0x3F)));
 			item3.setWidth((int) ScreenUtils.dpToPx(this, 90));
-			item3.setIcon(R.drawable.ic_action_important);
+			item3.setIconDrawable(SkinUtils.getDrawable(this, R.string.drawable_ic_action_important));
 			menu.addMenuItem(item3);
 			SwipeMenuItem item4 = new SwipeMenuItem(getApplicationContext());
 			item4.setBackground(new ColorDrawable(Color.rgb(0xF9, 0x3F, 0x25)));
 			item4.setWidth((int) ScreenUtils.dpToPx(this, 90));
-			item4.setIcon(R.drawable.ic_action_discard);
+			item4.setIconDrawable(SkinUtils.getDrawable(this, R.string.drawable_ic_action_discard));
 			menu.addMenuItem(item4);
 			break;
 		case 2:
 			SwipeMenuItem item5 = new SwipeMenuItem(getApplicationContext());
 			item5.setBackground(new ColorDrawable(Color.rgb(0x30, 0xB1, 0xF5)));
 			item5.setWidth((int) ScreenUtils.dpToPx(this, 90));
-			item5.setIcon(R.drawable.ic_action_about);
+			item5.setIconDrawable(SkinUtils.getDrawable(this, R.string.drawable_ic_action_about));
 			menu.addMenuItem(item5);
 			SwipeMenuItem item6 = new SwipeMenuItem(getApplicationContext());
 			item6.setBackground(new ColorDrawable(Color.rgb(0xC9, 0xC9, 0xCE)));
 			item6.setWidth((int) ScreenUtils.dpToPx(this, 90));
-			item6.setIcon(R.drawable.ic_action_share);
+			item6.setIconDrawable(SkinUtils.getDrawable(this, R.string.drawable_ic_action_share));
 			menu.addMenuItem(item6);
 			break;
 		}
