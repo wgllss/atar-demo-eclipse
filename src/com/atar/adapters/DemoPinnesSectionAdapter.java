@@ -3,8 +3,7 @@
  */
 package com.atar.adapters;
 
-import java.util.List;
-
+import android.skin.SkinUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,8 @@ import android.widget.TextView;
 
 import com.atar.activitys.R;
 import com.atar.beans.DemoPinnesBean;
+
+import java.util.List;
 
 /**
  *****************************************************************************************************************************************************************************
@@ -41,6 +42,7 @@ public class DemoPinnesSectionAdapter extends StickHeaderAdapter<DemoPinnesBean>
 		} else {
 			mViewHolder = (ViewHolderSection) convertView.getTag();
 		}
+		SkinUtils.setBackgroundColor(parent.getContext(),R.string.common_top_title_bar_bg_color,getSkinType(),mViewHolder.txt_section,convertView);
 		DemoPinnesBean info = getItem(position);
 		if (info != null) {
 			mViewHolder.txt_section.setText(info.getItemName());

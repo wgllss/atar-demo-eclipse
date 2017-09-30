@@ -827,7 +827,7 @@ public class AtarCommonActivity extends CommonActivity implements OnClickListene
 		if (isExtendsAtarCommonActivity) {
 			SkinUtils.setImageDrawable(this, R.string.img_back, skinType, imgCommonTopLeft);
 			SkinUtils.setBackgroundColor(this, R.string.common_tab_bg_color, skinType, commonContentBg);
-			SkinUtils.setTextColor(this, R.string.common_activity_title_color, skinType, txtCommonTopTitle);
+			SkinUtils.setTextColor(this, R.string.common_activity_title_color, skinType, txtCommonTopTitle,txtCommonTopRight);
 			SkinUtils.setBackgroundColor(this, R.string.common_top_title_bar_bg_color, skinType, topTitleBarBg);
 		}
 	}

@@ -3,13 +3,11 @@
  */
 package com.atar.activitys.htmls;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.adapter.FragmentAdapter;
 import android.fragment.CommonFragment;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.skin.SkinUtils;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -22,6 +20,9 @@ import com.atar.adapters.MenuAdapter;
 import com.atar.config.HtmlsViewPagerJson;
 import com.atar.config.TabMenuItemBean;
 import com.atar.widgets.PagerSlidingTabStrip;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *****************************************************************************************************************************************************************************
@@ -231,6 +232,9 @@ public class AtarCommonWebViewPagerActivity extends AtarDropTitleBarActivity imp
 	public void ChangeSkin(int skinType) {
 		super.ChangeSkin(skinType);
 		// LoadUtil.setBackgroundColor(this, R.array.common_tab_bg_color, skinType, tabs);
+		if (tabs != null) {
+			tabs.setIndicatorColor(SkinUtils.getArrayColor(this, R.string.common_tab_line_move_color, skinType));
+		}
 		if (tabs != null) {
 			if (mMenuAdapter != null) {
 				mMenuAdapter.setSkinType(skinType);
