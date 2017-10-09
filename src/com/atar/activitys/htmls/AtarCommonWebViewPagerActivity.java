@@ -15,10 +15,11 @@ import android.view.View;
 
 import com.atar.activitys.AtarDropTitleBarActivity;
 import com.atar.activitys.R;
-import com.atar.activitys.weex.WeexUtils;
 import com.atar.adapters.MenuAdapter;
 import com.atar.config.HtmlsViewPagerJson;
 import com.atar.config.TabMenuItemBean;
+import com.atar.fragments.htmls.AtarDynamicFragment;
+import com.atar.weex.utils.WeexUtils;
 import com.atar.widgets.PagerSlidingTabStrip;
 
 import java.util.ArrayList;
@@ -177,7 +178,7 @@ public class AtarCommonWebViewPagerActivity extends AtarDropTitleBarActivity imp
 			String url = mTabMenuItemBean.getOnClickInfo().getClassName();
 			if (url != null && url.length() > 0 && url.contains("assets/html") && !url.contains("http")) {
 				url = WeexUtils.WEEX_HOST + url;
-				// mFragmentList.add(AtarDynamicFragment.newInstance(mTabMenuItemBean.getOnClickInfo().getOptionJson(), mTabMenuItemBean.getOnClickInfo().getPULL_TO_REFRESH_MODE(), url));
+				mFragmentList.add(AtarDynamicFragment.newInstance(mTabMenuItemBean.getOnClickInfo().getOptionJson(), mTabMenuItemBean.getOnClickInfo().getPULL_TO_REFRESH_MODE(), url));
 			}
 		}
 	}

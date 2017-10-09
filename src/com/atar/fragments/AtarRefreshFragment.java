@@ -10,10 +10,12 @@ import android.fragment.CommonFragment;
 import android.interfaces.NetWorkCallListener;
 import android.os.Message;
 import android.reflection.NetWorkMsg;
+import android.skin.SkinUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
+import com.atar.activitys.R;
 import com.atar.common.CommonLoading;
 import com.atar.enums.EnumMsgWhat;
 import com.atar.widgets.refresh.DataDispose;
@@ -277,26 +279,21 @@ public class AtarRefreshFragment<T extends PullToRefreshBase<V>, V extends View>
 			// ((DynamicLoadingLayout) getPullView().getHeaderLayout()).setRefreshingDrawable(com.handmark.pulltorefresh.library.R.drawable.default_ptr_rotate);
 			// getPullView().getFooterLayout().setRefreshingDrawable(GlobeSettings.refreshImg[skinType]);
 			// }
-			//
-			// if (getPullView().getHeaderLayout() != null && getPullView().getHeaderLayout().getHeaderText() != null) {
-			// getPullView().getHeaderLayout().setHeaderTextColor(getResources().getColor(R.color.black));
-			// }
-			// if (getPullView().getFooterLayout() != null && getPullView().getFooterLayout().getHeaderText() != null) {
-			// getPullView().getFooterLayout().setHeaderTextColor(getResources().getColor(R.color.black));
-			// }
-			// if (getPullView().getHeaderLayout() != null && getPullView().getHeaderLayout().getSubHeaderText() != null) {
-			// getPullView().getHeaderLayout().setSubHeaderTextColor(getResources().getColor(R.color.black));
-			// }
-			// if (getPullView().getFooterLayout() != null && getPullView().getFooterLayout().getSubHeaderText() != null) {
-			// getPullView().getFooterLayout().setSubHeaderTextColor(getResources().getColor(R.color.black));
-			// }
-			// if (getPullView().getHeaderLayout() != null) {
-			// getPullView().getHeaderLayout().setRefreshBgColor(getResources().getColor(R.color.common_txt_hint_color_day));
-			// }
-			// if (getPullView().getFooterLayout() != null) {
-			// getPullView().getFooterLayout().setRefreshBgColor(getResources().getColor(R.color.common_txt_hint_color_day));
-			// }
+			if (getPullView().getHeaderLayout() != null) {
+				SkinUtils.setTextColor(getActivity(), R.string.refresh_header_text_color, skinType, getPullView().getHeaderLayout().getHeaderText());
+			}
+			if (getPullView().getFooterLayout() != null) {
+				SkinUtils.setTextColor(getActivity(), R.string.refresh_header_text_color, skinType, getPullView().getFooterLayout().getHeaderText());
+			}
+			if (getPullView().getHeaderLayout() != null) {
+				SkinUtils.setTextColor(getActivity(), R.string.refresh_header_sub_text_color, skinType, getPullView().getHeaderLayout().getSubHeaderText());
+			}
+			if (getPullView().getFooterLayout() != null) {
+				SkinUtils.setTextColor(getActivity(), R.string.refresh_header_sub_text_color, skinType, getPullView().getFooterLayout().getSubHeaderText());
+			}
+			SkinUtils.setBackgroundColor(getActivity(), R.string.refresh_bg_color, skinType, getPullView().getHeaderLayout());
+			SkinUtils.setBackgroundColor(getActivity(), R.string.refresh_bg_color, skinType, getPullView().getFooterLayout());
 		}
-		// LoadUtil.setTextColor(getActivity(), txtToast, R.array.txt_day_grey_night_greyblack_color, skinType);
+		SkinUtils.setTextColor(getActivity(), R.string.txt_day_grey_night_greyblack_color, skinType, txtToast);
 	}
 }

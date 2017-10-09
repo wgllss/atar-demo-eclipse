@@ -114,7 +114,7 @@ public class AtarLoadActivity extends Activity implements OnPageChangeListener, 
 
 		}
 
-		// 获取app assets下离线文件 供TaogubaDynamicWebViewActivity用 需要放在上面try catch 判断版本之后 防止被AppConfigModel.getInstance().cleanAll() 清除掉
+		// 获取app assets下离线文件 供AtarDynamicWebViewActivity用 需要放在上面try catch 判断版本之后 防止被AppConfigModel.getInstance().cleanAll() 清除掉
 		AppConfigUtils.getOffineFilePath(this);
 
 		if (AppConfigModel.getInstance().getBoolean(AtarLoadActivity.class.getSimpleName() + versionName, true)

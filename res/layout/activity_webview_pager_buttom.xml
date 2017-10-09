@@ -12,7 +12,7 @@
         android:focusable="false"
         android:persistentDrawingCache="animation" />
 
-    <com.taoguba.widgets.PagerSlidingTabStrip
+    <com.atar.widgets.PagerSlidingTabStrip
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -26,8 +26,8 @@ import android.utils.ApplicationManagement;
 import android.utils.ShowLog;
 import android.widget.CommonToast;
 
-import com.atar.activitys.weex.WeexUtils;
 import com.atar.utils.IntentUtil;
+import com.atar.weex.utils.WeexUtils;
 import com.google.gson.Gson;
 
 /**
@@ -45,8 +45,8 @@ public class AppConfigUtils {
 	private static String TAG = AppConfigUtils.class.getSimpleName();
 
 	/**下载配置andriodAppConfig地址key*/
-	// public static final String andriod_app_config_home_url = WeexUtils.WEEX_HOST + "andriodAppConfig.txt";
-	public static final String andriod_app_config_home_url = "https://raw.githubusercontent.com/wgllss/atar-demo-eclipse/master/andriodAppConfig.txt";
+	public static final String andriod_app_config_home_url = WeexUtils.WEEX_HOST + "andriodAppConfig.txt";
+	// public static final String andriod_app_config_home_url = "https://raw.githubusercontent.com/wgllss/atar-demo-eclipse/master/andriodAppConfig.txt";
 	// public static final String andriod_app_config_home_url = "http://192.168.1.10:8080/andriodAppConfig.txt";
 	/**保存配置文件json key*/
 	public static final String ANDRIOD_APP_CONFIG_HOME_KEY = "ANDRIOD_APP_CONFIG_HOME_KEY";

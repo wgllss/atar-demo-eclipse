@@ -49,11 +49,11 @@ public class ImplWebViewClient extends WebViewClient {
 		if (url.indexOf("tel:") < 0) {
 			view.loadUrl(url);
 		}
-		if (url != null && url.contains("taoguba")) {
-			initUrl(view, url);
-		} else {
-			view.loadUrl(url);
-		}
+		// if (url != null && url.contains("taoguba")) {
+		// initUrl(view, url);
+		// } else {
+		// view.loadUrl(url);
+		// }
 		return true;
 	}
 
@@ -100,6 +100,7 @@ public class ImplWebViewClient extends WebViewClient {
 	public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
 		// handler.cancel(); 默认的处理方式，WebView变成空白页
 		handler.proceed();// 接受证书
+		super.onReceivedSslError(view, handler, error);
 		// handleMessage(Message msg); 其他处理
 	}
 

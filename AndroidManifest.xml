@@ -116,6 +116,46 @@
             android:name="com.atar.activitys.demos.DemoSettingActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        
+        
+        <activity
+            android:name="com.atar.activitys.htmls.AtarDynamicWebViewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.atar.activitys.htmls.WebViewPagerActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.atar.activitys.htmls.WeexTabHostWithWebViewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- weex项目 start -->
+        <activity
+            android:name="com.atar.weex.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.atar.weex.WeexNavigatorActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="com.taobao.android.intent.action.WEEX" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.taobao.android.intent.category.WEEX" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:scheme="file" />
+                <data android:scheme="wxpage" />
+            </intent-filter>
+        </activity>
+        <!-- weex项目 end -->
+
+
         <!-- 阿里热修复 start -->
 
         <service
