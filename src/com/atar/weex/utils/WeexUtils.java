@@ -16,6 +16,19 @@ import android.appconfig.AppConfigModel;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 
+import com.atar.weex.adapter.DefaultWebSocketAdapterFactory;
+import com.atar.weex.adapter.HttpAdapter;
+import com.atar.weex.adapter.ImageAdapter;
+import com.atar.weex.moudle.WXEventModule;
+import com.atar.weex.moudle.WXNavigatorModule;
+import com.atar.weex.moudle.WeeXWebViewModule;
+import com.atar.weex.moudle.WeexModalUIModule;
+import com.atar.weex.moudle.WeexModule;
+import com.taobao.weex.InitConfig;
+import com.taobao.weex.WXSDKEngine;
+import com.taobao.weex.dom.TextAreaEditTextDomObject;
+import com.taobao.weex.ui.SimpleComponentHolder;
+
 /**
  *****************************************************************************************************************************************************************************
  * 
@@ -53,24 +66,26 @@ public class WeexUtils {
 	 */
 	public static void weexInit(Activity activity) {
 		try {
-			if (VERSION.SDK_INT >= VERSION_CODES.ICE_CREAM_SANDWICH) {
-				// InitConfig config = new InitConfig.Builder().setWebSocketAdapterFactory(new DefaultWebSocketAdapterFactory()).setHttpAdapter(new HttpAdapter()).setImgAdapter(new ImageAdapter())
-				// .build();
-				// WXSDKEngine.initialize(activity.getApplication(), config);
-				// WXSDKEngine.registerModule("weexModule", WeexModule.class);
-				// WXSDKEngine.registerModule("weexModalUIModule", WeexModalUIModule.class);
-				// WXSDKEngine.registerModule("weexEventModule", WXEventModule.class);
-				// WXSDKEngine.registerModule("weexNavigatorModule", WXNavigatorModule.class);
-				// WXSDKEngine.registerModule("mywebview", WeeXWebViewModule.class);
-				// // WXSDKEngine.registerComponent("myinput", MyInput.class);
-				// // WXSDKEngine.registerComponent("richtext",RichText.class);
-				// WXSDKEngine.registerComponent("web", WeeXWeb.class);
-				// WXSDKEngine.registerComponent("myrichtext", RichText.class);
-				// WXSDKEngine.registerComponent(new SimpleComponentHolder(WeeXText.class, new WeeXText.Creator()), false, "mystockview");
-				// WXSDKEngine.registerDomObject("mystockview", WeeXTextDomObject.class);
-				// WXSDKEngine.registerComponent("richview", WeexTextarea.class, false);
-				// WXSDKEngine.registerDomObject("richview", TextAreaEditTextDomObject.class);
-				// WXEnvironment.sLogLevel = LogLevel.WARN;// 上线关闭日志级别 如本地调试 注释此行
+			if (!WXSDKEngine.isInitialized()) {
+				if (VERSION.SDK_INT >= VERSION_CODES.ICE_CREAM_SANDWICH) {
+					InitConfig config = new InitConfig.Builder().setWebSocketAdapterFactory(new DefaultWebSocketAdapterFactory()).setHttpAdapter(new HttpAdapter()).setImgAdapter(new ImageAdapter())
+							.build();
+					WXSDKEngine.initialize(activity.getApplication(), config);
+					WXSDKEngine.registerModule("weexModule", WeexModule.class);
+					WXSDKEngine.registerModule("weexModalUIModule", WeexModalUIModule.class);
+					WXSDKEngine.registerModule("weexEventModule", WXEventModule.class);
+					WXSDKEngine.registerModule("weexNavigatorModule", WXNavigatorModule.class);
+					WXSDKEngine.registerModule("mywebview", WeeXWebViewModule.class);
+					// WXSDKEngine.registerComponent("myinput", MyInput.class);
+					// WXSDKEngine.registerComponent("richtext",RichText.class);
+					// WXSDKEngine.registerComponent("web", WeeXWeb.class);
+					// WXSDKEngine.registerComponent("myrichtext", RichText.class);
+					// WXSDKEngine.registerComponent(new SimpleComponentHolder(WeeXText.class, new WeeXText.Creator()), false, "mystockview");
+					// WXSDKEngine.registerDomObject("mystockview", WeeXTextDomObject.class);
+					// WXSDKEngine.registerComponent("richview", WeexTextarea.class, false);
+					WXSDKEngine.registerDomObject("richview", TextAreaEditTextDomObject.class);
+					// WXEnvironment.sLogLevel = LogLevel.WARN;// 上线关闭日志级别 如本地调试 注释此行
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

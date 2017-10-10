@@ -33,6 +33,7 @@ import com.atar.activitys.R;
 import com.atar.config.AppConfigJson;
 import com.atar.config.AppConfigUtils;
 import com.atar.utils.IntentUtil;
+import com.atar.weex.utils.WeexUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -97,7 +98,8 @@ public class AtarLoadActivity extends Activity implements OnPageChangeListener, 
 		}
 
 		setContentView(R.layout.activity_load);
-
+		WeexUtils.weexInit(this);
+		
 		// 获取app配置首页txt文件配置信息 及 开机引导图片 获取配置版本要放在前面getServerTextJson
 		String configVersion = "";
 		AppConfigUtils.getServerTextJson(AppConfigUtils.andriod_app_config_home_url, AppConfigUtils.ANDRIOD_APP_CONFIG_HOME_KEY, this, 50505);

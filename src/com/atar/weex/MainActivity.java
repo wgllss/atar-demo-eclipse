@@ -371,6 +371,7 @@ public class MainActivity extends AtarCommonActivity implements IWXRenderListene
 		SkinUtils.setImageDrawable(this, R.string.img_back, skinType, imgCommonTopLeft);
 		SkinUtils.setTextColor(this, R.string.common_activity_title_color, skinType, txtCommonTopTitle, txtCommonTopRight);
 		SkinUtils.setBackgroundColor(this, R.string.common_top_title_bar_bg_color, skinType, topTitleBarBg);
+		SkinUtils.setBackgroundColor(this, R.string.item_white_black_bg, skinType, view);
 		if (mWXSDKInstance != null && options != null) {
 			options.put("skinType", skinType);
 			mWXSDKInstance.fireGlobalEventCallback("skinType_day_night", options);
