@@ -67,7 +67,7 @@ public class ImplWebViewClient extends WebViewClient {
 			CookieTool.getCookieFromWebViewUrl(activity, url);
 		}
 		if (onHandlerDataListener != null) {
-			onHandlerDataListener.sendEmptyMessage(EnumMsgWhat.LOAD_FROM_SQL);
+			onHandlerDataListener.sendEmptyMessage(EnumMsgWhat.REFRESH_HANDLER1);
 		}
 		if (activity != null) {
 			activity.setLoadingViewGone();
