@@ -44,8 +44,8 @@ public class DemoRefreshQuickReturnListViewFragment extends AtarRefreshListFragm
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		if (view == null) {
 			view = inflater.inflate(R.layout.activity_quickreturn_buttom, container, false);
-			setTextView((TextView) view.findViewById(R.id.txt_list_toast));
-			setRefreshView((PullToRefreshListView) view.findViewById(R.id.atar_refresh_lst));
+			setTextView((TextView) view.findViewById(R.id.txt_list_toast0));
+			setRefreshView((PullToRefreshListView) view.findViewById(R.id.atar_refresh_lst0));
 			mQuickReturnView = (TextView) view.findViewById(R.id.footer);
 		}
 		if (view != null && view.getParent() != null) {

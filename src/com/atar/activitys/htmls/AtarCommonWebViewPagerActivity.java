@@ -71,7 +71,7 @@ public class AtarCommonWebViewPagerActivity extends AtarDropTitleBarActivity imp
 			}
 		}
 		try {
-			// ((AtarDynamicFragment) getFragmentList().get(getCurrentItem())).loadWebViewUrl("javascript:onPageSelected('" + arg0 + "')");
+			((AtarDynamicFragment) getFragmentList().get(getCurrentItem())).loadWebViewUrl("javascript:onPageSelected('" + arg0 + "')");
 		} catch (Exception e) {
 		}
 	}

@@ -5,7 +5,7 @@
 
     <com.handmark.pulltorefresh.library.PullToRefreshListView
         xmlns:ptr="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/atar_refresh_lst"
+        android:id="@+id/atar_refresh_lst0"
         style="@style/BaseListViewStyle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,7 +15,7 @@
         ptr:ptrListViewExtrasEnabled="false" />
 
     <TextView
-        android:id="@+id/txt_list_toast"
+        android:id="@+id/txt_list_toast0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
