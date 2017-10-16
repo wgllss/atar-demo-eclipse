@@ -5,6 +5,7 @@ package com.atar.fragments;
 
 import android.adapter.CommonAdapter;
 import android.os.Bundle;
+import android.skin.SkinUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -113,6 +114,27 @@ public class AtarRefreshDragSortListViewFragment<T> extends AratRefreshAbsListVi
 			T t = adapter.getItem(from);
 			adapter.removeItem(from);
 			adapter.insertItem(t, to);
+		}
+	}
+
+	@Override
+	public void ChangeSkin(int skinType) {
+		super.ChangeSkin(skinType);
+		if (getPullView() != null) {
+			if (getPullView().getHeaderLoadingView() != null) {
+				SkinUtils.setTextColor(getActivity(), R.string.refresh_header_text_color, skinType, getPullView().getHeaderLoadingView().getHeaderText());
+			}
+			if (getPullView().getFooterLoadingView() != null) {
+				SkinUtils.setTextColor(getActivity(), R.string.refresh_header_text_color, skinType, getPullView().getFooterLoadingView().getHeaderText());
+			}
+			if (getPullView().getHeaderLoadingView() != null) {
+				SkinUtils.setTextColor(getActivity(), R.string.refresh_header_sub_text_color, skinType, getPullView().getHeaderLoadingView().getSubHeaderText());
+			}
+			if (getPullView().getFooterLoadingView() != null) {
+				SkinUtils.setTextColor(getActivity(), R.string.refresh_header_sub_text_color, skinType, getPullView().getFooterLoadingView().getSubHeaderText());
+			}
+			SkinUtils.setBackgroundColor(getActivity(), R.string.refresh_bg_color, skinType, getPullView().getHeaderLoadingView());
+			SkinUtils.setBackgroundColor(getActivity(), R.string.refresh_bg_color, skinType, getPullView().getFooterLoadingView());
 		}
 	}
 }

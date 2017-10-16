@@ -9,6 +9,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.appconfig.AppConfigSetting;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -248,7 +249,9 @@ public class RecordImageView extends ImageView {
 			timer.cancel();
 		}
 		if (strRecordTime < 1) {
-			CommonToast.show(getContext(), "时间太短", 3, 4, Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM, 600, false);
+			if (!((Activity) getContext()).isFinishing()) {
+				CommonToast.show(getContext(), "时间太短", 3, 4, Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM, 600, false);
+			}
 			if (path != null && path.length() > 0) {
 				File file = new File(path);
 				file.delete();

@@ -17,6 +17,7 @@ import com.atar.activitys.R;
 import com.atar.adapters.MainDemoAdapter;
 import com.atar.beans.MenuItemBean;
 import com.atar.enums.EnumMsgWhat;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 /**
  *****************************************************************************************************************************************************************************
@@ -43,7 +44,9 @@ public class DemoRefreshQuickReturnListViewActivity extends AtarRefreshListViewA
 
 	@Override
 	protected void initControl() {
-		super.initControl();
+		// super.initControl();
+		setRefreshView((PullToRefreshListView) findViewById(R.id.atar_refresh_lst0));
+		setTextView((TextView) findViewById(R.id.txt_list_toast0));
 		mQuickReturnView = (TextView) findViewById(R.id.footer);
 	}
 
@@ -93,9 +96,9 @@ public class DemoRefreshQuickReturnListViewActivity extends AtarRefreshListViewA
 			mMainDemoAdapter.setSkinType(skinType);
 		}
 		if (mQuickReturnView != null) {
-			mQuickReturnView.setBackgroundColor(SkinUtils.getColor(this, R.string.home_green_color));
+			mQuickReturnView.setBackgroundColor(SkinUtils.getColor(this, R.string.common_top_title_bar_bg_color));
 			mQuickReturnView.setText(SkinUtils.getString(this, R.string.string_name_app_name));
-			mQuickReturnView.setTextColor(SkinUtils.getColor(this, R.string.linen));
+			mQuickReturnView.setTextColor(SkinUtils.getColor(this, R.string.common_activity_title_color));
 		}
 	}
 }
