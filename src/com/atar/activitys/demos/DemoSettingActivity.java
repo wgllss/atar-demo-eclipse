@@ -26,6 +26,7 @@ import android.widget.TextView;
 
 import com.atar.activitys.AtarRefreshScrollViewActivity;
 import com.atar.activitys.R;
+import com.atar.enums.EnumMsgWhat;
 import com.atar.widgets.DownloadProgressButton;
 import com.atar.widgets.DownloadProgressButton.OnDownLoadClickListener;
 import com.zf.view.UISwitchButton;
@@ -139,6 +140,16 @@ public class DemoSettingActivity extends AtarRefreshScrollViewActivity implement
 		case android.download.DownLoadFileBean.DOWLOAD_FLAG_ING:
 			int progress = (Integer) msg.obj;
 			mDownloadProgressButtons[msg.arg2].setProgress(progress);
+			break;
+		case EnumMsgWhat.REFRESH_PULL_DOWN:
+		case EnumMsgWhat.REFRESH_PULL_UP:
+		case EnumMsgWhat.REFRESH_HANDLER:
+			CommonHandler.getInstatnce().getHandler().postDelayed(new Runnable() {
+				@Override
+				public void run() {
+					onStopRefresh();
+				}
+			}, 1000);
 			break;
 		}
 	}
