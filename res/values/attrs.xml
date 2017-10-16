@@ -40,5 +40,18 @@
     <declare-styleable name="NineGridLayout">
         <attr name="sapcing" format="dimension" />
     </declare-styleable>
+    <declare-styleable name="DownloadProgressButton">
+        <attr name="radius" format="float" />
+        <attr name="backgroud_color" format="color" />
+        <attr name="backgroud_second_color" format="color" />
+        <attr name="text_color" format="color" />
+        <attr name="text_covercolor" format="color" />
+        <attr name="backgroud_strokeWidth" format="dimension" />
+        <attr name="text_normal" format="string" />
+        <attr name="text_downing" format="string" />
+        <attr name="text_pause" format="string" />
+        <attr name="text_finish" format="string" />
+        <attr name="animation_duration" format="integer" />
+    </declare-styleable>
 
 </resources>

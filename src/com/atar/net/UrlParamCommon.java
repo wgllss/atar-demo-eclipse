@@ -34,7 +34,7 @@ public class UrlParamCommon {
 	/* ****************************************************************图片地址 start ************************************************************************** */
 	/** 图片服务器地址**/
 	public static final String IMAGE_HOST = prefix + "://image.taoguba.com.cn/";
-	public static final String download_skin_url = "https://github.com/wgllss/atar-skin/raw/master/download_skin.apk";
+	public static final String download_skin_url = "https://raw.githubusercontent.com/wgllss/atar-skin/raw/master/download_skin.apk";
 	// public static final String download_skin_url = "http://192.168.1.10:8080/assets/html/download_skin.apk";
 
 	/** 头像图片服务器地址**/
