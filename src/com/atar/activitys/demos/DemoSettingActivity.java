@@ -209,17 +209,23 @@ public class DemoSettingActivity extends AtarRefreshScrollViewActivity implement
 			@Override
 			public void loadSkinSuccess(Resources mResources) {
 				if (getCurrentSkinType() == SkinMode.NIGHT_MODE) {
+					AppConfigSetting.getInstance().putInt(SkinMode.SKIN_MODE_KEY, SkinMode.DAY_MODE);
 					CommonHandler.getInstatnce().getHandler().post(new Runnable() {
 						@Override
 						public void run() {
 							common_ui_switch_button.setChecked(false);
 						}
 					});
-					AppConfigSetting.getInstance().putInt(SkinMode.SKIN_MODE_KEY, SkinMode.DAY_MODE);
+
 				}
-				for (Activity activity : ActivityManager.getActivityManager().getActivityStack()) {
+				for (final Activity activity : ActivityManager.getActivityManager().getActivityStack()) {
 					if (activity instanceof CommonActivity) {
-						((CommonActivity) activity).loadSkin(getCurrentSkinType());
+						CommonHandler.getInstatnce().getHandler().post(new Runnable() {
+							@Override
+							public void run() {
+								((CommonActivity) activity).ChangeSkin(getCurrentSkinType());
+							}
+						});
 					}
 				}
 			}
