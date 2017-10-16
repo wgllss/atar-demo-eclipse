@@ -24,12 +24,35 @@
         switch:bmWidth="45dp" />
 
     <com.atar.widgets.DownloadProgressButton
-        android:id="@+id/down_btn"
+        android:id="@+id/down_btn_purple"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_below="@+id/txt_yejianmoshi"
         android:layout_marginTop="20dp"
-        android:textSize="16dp" >
-    </com.atar.widgets.DownloadProgressButton>
+        android:textSize="16dp" />
+
+    <com.atar.widgets.DownloadProgressButton
+        android:id="@+id/down_btn_red"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@+id/down_btn_purple"
+        android:layout_marginTop="20dp"
+        android:textSize="16dp" />
+
+    <com.atar.widgets.DownloadProgressButton
+        android:id="@+id/down_btn_green"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@+id/down_btn_red"
+        android:layout_marginTop="20dp"
+        android:textSize="16dp" />
+
+    <com.atar.widgets.DownloadProgressButton
+        android:id="@+id/down_btn_blue"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@+id/down_btn_green"
+        android:layout_marginTop="20dp"
+        android:textSize="16dp" />
 
 </RelativeLayout>
