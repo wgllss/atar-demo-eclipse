@@ -227,7 +227,6 @@ public class DemoSettingActivity extends AtarRefreshScrollViewActivity implement
 							common_ui_switch_button.setChecked(false);
 						}
 					});
-
 				}
 				for (final Activity activity : ActivityManager.getActivityManager().getActivityStack()) {
 					if (activity instanceof CommonActivity) {
