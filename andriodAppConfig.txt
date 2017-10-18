@@ -1,6 +1,6 @@
 {
     "versionName":"5.397",
-    "isReplace":false,
+    "isReplace":true,
     "skinVersion":"4.213",
     "replaceMinVersion":"1.0",
     "loadImage_Version":"1.0",
