@@ -100,7 +100,7 @@ public class SkinAdapter extends CommonAdapter<DynamicSkinBean> {
 					@Override
 					public void onClick(View v) {
 						File oldDownloadFile = new File(strDownloadDir + MDPassword.getPassword32(info.getSkinName()));
-						oldDownloadFile.deleteOnExit();
+						oldDownloadFile.delete();
 						mViewHolder.mDownloadProgressButton.reset();
 						mViewHolder.mDownloadProgressButton.setCurrentText(info.getDownloadName());
 					}
