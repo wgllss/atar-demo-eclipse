@@ -97,7 +97,7 @@ public class DownloadProgressButton extends TextView {
 
 	private ValueAnimator mProgressAnimation;
 
-	private CharSequence mCurrentText;
+	private String mCurrentText;
 
 	public static final int NORMAL = 1;
 	public static final int DOWNLOADING = 2;
@@ -128,7 +128,8 @@ public class DownloadProgressButton extends TextView {
 		TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.DownloadProgressButton);
 		mBackgroundColor = a.getColor(R.styleable.DownloadProgressButton_backgroud_color, Color.parseColor("#6699ff"));
 		mBackgroundSecondColor = a.getColor(R.styleable.DownloadProgressButton_backgroud_second_color, Color.LTGRAY);
-		mButtonRadius = a.getFloat(R.styleable.DownloadProgressButton_radius, getMeasuredHeight() / 2);
+		// mButtonRadius = a.getFloat(R.styleable.DownloadProgressButton_radius, getMeasuredHeight() / 2);
+		mButtonRadius = a.getFloat(R.styleable.DownloadProgressButton_radius, 0);
 		mTextColor = a.getColor(R.styleable.DownloadProgressButton_text_color, mBackgroundColor);
 		mTextCoverColor = a.getColor(R.styleable.DownloadProgressButton_text_covercolor, Color.WHITE);
 		backgroud_strokeWidth = a.getDimension(R.styleable.DownloadProgressButton_backgroud_strokeWidth, 3F);
@@ -264,9 +265,9 @@ public class DownloadProgressButton extends TextView {
 	private void drawBackground(Canvas canvas) {
 		if (mBackgroundBounds == null) {
 			mBackgroundBounds = new RectF();
-			if (mButtonRadius == 0) {
-				mButtonRadius = getMeasuredHeight() / 2;
-			}
+			// if (mButtonRadius == 0) {
+			// mButtonRadius = getMeasuredHeight() / 2;
+			// }
 			mBackgroundBounds.left = backgroud_strokeWidth;
 			mBackgroundBounds.top = backgroud_strokeWidth;
 			mBackgroundBounds.right = getMeasuredWidth() - backgroud_strokeWidth;
@@ -299,7 +300,7 @@ public class DownloadProgressButton extends TextView {
 		if (mCurrentText == null) {
 			mCurrentText = "";
 		}
-		final float textWidth = mTextPaint.measureText(mCurrentText.toString());
+		final float textWidth = mTextPaint.measureText(mCurrentText);
 		switch (mState) {
 		case NORMAL:
 			mTextPaint.setShader(null);
@@ -367,7 +368,7 @@ public class DownloadProgressButton extends TextView {
 		}
 	}
 
-	public void setCurrentText(CharSequence charSequence) {
+	public void setCurrentText(String charSequence) {
 		mCurrentText = charSequence;
 		invalidate();
 	}
@@ -411,6 +412,7 @@ public class DownloadProgressButton extends TextView {
 
 	public void setButtonRadius(float buttonRadius) {
 		mButtonRadius = buttonRadius;
+		invalidate();
 	}
 
 	public int getTextColor() {

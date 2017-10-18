@@ -21,13 +21,17 @@ public class AppConfigJson {
 	private boolean isReplace = true;// 如果apk新发版本 这个配置也新发配置.txt文件，为true: 老版本要替换该配置.txt, false :老版本不替换该.txt
 	private String skinVersion;// 皮肤版本
 	private String replaceMinVersion;// 替换皮肤的最小版本
-
+	private List<String> all_skins; // 所有种类的皮肤
 	private FunctionMenu topMenu;// 顶部功能菜单
 	private FunctionMenu centerMenu;// 广告下面功能菜单
 	private List<String> loading_images;// 开机引道页图片
 	private HtmlsViewPagerJson CommunityActivityJson;// 社区配置json
 	private String tpyTel;// 太平洋开户联系电话
 	private String fmTel;// 福米开户联系电话
+
+	public List<String> getAll_skins() {
+		return all_skins;
+	}
 
 	public FunctionMenu getCenterMenu() {
 		return centerMenu;

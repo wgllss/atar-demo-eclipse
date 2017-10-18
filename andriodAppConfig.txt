@@ -1,7 +1,7 @@
 {
     "versionName":"5.397",
     "isReplace":false,
-    "skinVersion":"4.20",
+    "skinVersion":"4.213",
     "replaceMinVersion":"1.0",
     "topMenu":{
         "showDividerLine":false,
@@ -206,5 +206,11 @@
                }
             }
          ]
-     }
+     },
+     "all_skins" :[
+            "https://raw.githubusercontent.com/wgllss/atar-skin-eclipse/master/skin/purple/download_skin.apk,下载紫色皮肤,加载紫色皮肤,#FF0FF0,purple",
+            "https://raw.githubusercontent.com/wgllss/atar-skin-eclipse/master/skin/red/download_skin.apk,下载红色皮肤,加载红色皮肤,#FF0000,red",
+            "https://raw.githubusercontent.com/wgllss/atar-skin-eclipse/master/skin/green/download_skin.apk,下载绿色皮肤,加载绿色皮肤,#0ef000,green",
+            "https://raw.githubusercontent.com/wgllss/atar-skin-eclipse/master/skin/blue/download_skin.apk,下载蓝色皮肤,加载蓝色皮肤,#1191f6,blue"
+    ]
 }
