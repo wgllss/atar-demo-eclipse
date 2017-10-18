@@ -3,6 +3,7 @@
     "isReplace":false,
     "skinVersion":"4.213",
     "replaceMinVersion":"1.0",
+    "loadImage_Version":"1.0",
     "topMenu":{
         "showDividerLine":false,
         "shouldExpand":false,

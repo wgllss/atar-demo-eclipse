@@ -26,6 +26,7 @@ import android.utils.ApplicationManagement;
 import android.utils.ShowLog;
 import android.widget.CommonToast;
 
+import com.atar.activitys.demos.AtarLoadActivity;
 import com.atar.utils.IntentUtil;
 import com.atar.weex.utils.WeexUtils;
 import com.google.gson.Gson;
@@ -46,8 +47,8 @@ public class AppConfigUtils {
 
 	/**下载配置andriodAppConfig地址key*/
 	// public static final String andriod_app_config_home_url = WeexUtils.WEEX_HOST + "andriodAppConfig.txt";
-	// public static final String andriod_app_config_home_url = "https://raw.githubusercontent.com/wgllss/atar-demo-eclipse/master/andriodAppConfig.txt";
-	public static final String andriod_app_config_home_url = "http://192.168.1.10:8080/andriodAppConfig.txt";
+	public static final String andriod_app_config_home_url = "https://raw.githubusercontent.com/wgllss/atar-demo-eclipse/master/andriodAppConfig.txt";
+	// public static final String andriod_app_config_home_url = "http://192.168.1.10:8080/andriodAppConfig.txt";
 	/**保存配置文件json key*/
 	public static final String ANDRIOD_APP_CONFIG_HOME_KEY = "ANDRIOD_APP_CONFIG_HOME_KEY";
 	/**保存开机引道json key*/
@@ -144,6 +145,7 @@ public class AppConfigUtils {
 					if (versionName.compareToIgnoreCase(localVersion) > 0) {
 						if (isReplace) {
 							AppConfigModel.getInstance().putString(saveToSharedPreferencesKey, result, true);
+							AppConfigModel.getInstance().putString(AtarLoadActivity.LOADIMAGE_VERSION_KEY, mAppConfigJson.getLoadImage_Version(), true);
 						}
 					} else {
 						AppConfigModel.getInstance().putString(saveToSharedPreferencesKey, result, true);

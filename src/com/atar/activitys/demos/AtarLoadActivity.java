@@ -52,6 +52,10 @@ import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
  *****************************************************************************************************************************************************************************
  */
 public class AtarLoadActivity extends Activity implements OnPageChangeListener, HandlerListener {
+	/** 引导图版本key*/
+	public static final String LOADIMAGE_VERSION_KEY = "LOADIMAGE_VERSION_KEY";
+	/** 引导图版本*/
+	public static String loadImage_Version = "1.0";// 本次版本有引导图时or 延用上一次引导图 则 改成和本次发布版本号一样 (如本次发布 6.00版本，本次6.00版本有引导图 此处就填 6.00 反之不用处理)
 
 	private String versionName = "";
 
@@ -99,16 +103,15 @@ public class AtarLoadActivity extends Activity implements OnPageChangeListener, 
 
 		setContentView(R.layout.activity_load);
 		WeexUtils.weexInit(this);
-		
+
 		// 获取app配置首页txt文件配置信息 及 开机引导图片 获取配置版本要放在前面getServerTextJson
-		String configVersion = "";
 		AppConfigUtils.getServerTextJson(AppConfigUtils.andriod_app_config_home_url, AppConfigUtils.ANDRIOD_APP_CONFIG_HOME_KEY, this, 50505);
 
 		mViewPager = (ViewPager) findViewById(R.id.view_pager);
 		indicator = (LinearLayout) findViewById(R.id.ad_indicator);
 		versionName = ApplicationManagement.getVersionName();
+		loadImage_Version = AppConfigModel.getInstance().getString(LOADIMAGE_VERSION_KEY, loadImage_Version);// 获取引导版本
 		// 获取app配置首页txt文件配置信息 及 开机引导图片 获取配置版本要放在前面getServerTextJson
-		configVersion = AppConfigModel.getInstance().getString(AppConfigUtils.APP_CONFIG_TEXT_VERSION_KEY, versionName);
 		try {
 			options = new DisplayImageOptions.Builder().showStubImage(0).showImageForEmptyUri(0).showImageOnFail(0).cacheInMemory().cacheOnDisc().extraForDownloader(1)
 					.displayer(new RoundedBitmapDisplayer(0)).bitmapConfig(Bitmap.Config.RGB_565).build();
@@ -118,49 +121,48 @@ public class AtarLoadActivity extends Activity implements OnPageChangeListener, 
 
 		// 获取app assets下离线文件 供AtarDynamicWebViewActivity用 需要放在上面try catch 判断版本之后 防止被AppConfigModel.getInstance().cleanAll() 清除掉
 		AppConfigUtils.getOffineFilePath(this);
-
-		if (AppConfigModel.getInstance().getBoolean(AtarLoadActivity.class.getSimpleName() + versionName, true)
-				|| AppConfigModel.getInstance().getBoolean(AppConfigUtils.APP_CONFIG_TEXT_VERSION_KEY + configVersion, true)) {
-
-			String imagesJson = AppConfigModel.getInstance().getString(AppConfigUtils.APP_LOADING_IMAGES_KEY, "");
-			if (imagesJson == null || imagesJson.length() == 0) {
-				imagesJson = "[\"assets://images/loading1.png\",\"assets://images/loading2.jpg\",\"assets://images/loading3.jpeg\"]";
-			}
-			try {
-				Gson gson = new Gson();
-				loading_images = gson.fromJson(imagesJson, new TypeToken<List<String>>() {
-				}.getType());
-			} catch (Exception e) {
-
-			}
-
-			mViewPager.setAdapter(mPagerAdapter);
-			if (loading_images.size() > 1) {
-				for (int i = 0; i < loading_images.size(); i++) {
-					ImageView imagerView = new ImageView(this);
-					int size = (int) ScreenUtils.getIntToDip(20);
-					imagerView.setLayoutParams(new LinearLayout.LayoutParams(size, size));
-					imagerView.setPadding(15, 0, 15, 0);
-					imagerView.setScaleType(ScaleType.FIT_CENTER);
-					if (i == 0) {
-						imagerView.setImageResource(R.drawable.jinr02);
-					} else {
-						imagerView.setImageResource(R.drawable.jinr011);
-					}
-					indicator.addView(imagerView);
-				}
-				indicator.setVisibility(View.GONE);
-			} else {
-				indicator.setVisibility(View.GONE);
-			}
-			mViewPager.setOffscreenPageLimit(loading_images.size());
-			mViewPager.setOnPageChangeListener(this);
-
-			AppConfigModel.getInstance().putBoolean(AppConfigUtils.APP_CONFIG_TEXT_VERSION_KEY + configVersion, false);
-			AppConfigModel.getInstance().putBoolean(AtarLoadActivity.class.getSimpleName() + versionName, false);
-			AppConfigModel.getInstance().commit();
-		} else {
+		if (versionName.compareToIgnoreCase(loadImage_Version) > 0) {
 			finishThis(MainDemoActivity.class);
+		} else {
+			if (AppConfigModel.getInstance().getBoolean(AtarLoadActivity.class.getSimpleName() + loadImage_Version, true)) {
+				String imagesJson = AppConfigModel.getInstance().getString(AppConfigUtils.APP_LOADING_IMAGES_KEY, "");
+				if (imagesJson == null || imagesJson.length() == 0) {
+					imagesJson = "[\"assets://images/loading1.png\",\"assets://images/loading2.jpg\",\"assets://images/loading3.jpeg\"]";
+				}
+				try {
+					Gson gson = new Gson();
+					loading_images = gson.fromJson(imagesJson, new TypeToken<List<String>>() {
+					}.getType());
+				} catch (Exception e) {
+
+				}
+
+				mViewPager.setAdapter(mPagerAdapter);
+				if (loading_images.size() > 1) {
+					for (int i = 0; i < loading_images.size(); i++) {
+						ImageView imagerView = new ImageView(this);
+						int size = (int) ScreenUtils.getIntToDip(20);
+						imagerView.setLayoutParams(new LinearLayout.LayoutParams(size, size));
+						imagerView.setPadding(15, 0, 15, 0);
+						imagerView.setScaleType(ScaleType.FIT_CENTER);
+						if (i == 0) {
+							imagerView.setImageResource(R.drawable.jinr02);
+						} else {
+							imagerView.setImageResource(R.drawable.jinr011);
+						}
+						indicator.addView(imagerView);
+					}
+					indicator.setVisibility(View.GONE);
+				} else {
+					indicator.setVisibility(View.GONE);
+				}
+				mViewPager.setOffscreenPageLimit(loading_images.size());
+				mViewPager.setOnPageChangeListener(this);
+
+				AppConfigModel.getInstance().putBoolean(AtarLoadActivity.class.getSimpleName() + loadImage_Version, false, true);
+			} else {
+				finishThis(MainDemoActivity.class);
+			}
 		}
 	}
 
