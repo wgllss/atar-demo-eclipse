@@ -141,7 +141,10 @@ public class ImplInAndroidScript {
 			} else {
 				map = new HashMap<String, String>();
 			}
-			Object[] params = new Object[] { UrlParamCommon.API_HOST + url, map, UrlParamCommon.UTF_8, activity };
+			if (!url.contains("http")) {
+				url = UrlParamCommon.API_HOST + url;
+			}
+			Object[] params = new Object[] { url, map, UrlParamCommon.UTF_8, activity };
 			final int requestMsgwhat = msgwhat;
 			final String savrUrl = url + map.hashCode() + msgwhat + msgArg1 + msgArg2;
 			ThreadPoolTool.getInstance().setAsyncTask(msgwhat, msgArg1, msgArg2, new NetWorkCallListener() {

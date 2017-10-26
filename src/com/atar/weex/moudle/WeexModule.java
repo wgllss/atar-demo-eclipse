@@ -34,7 +34,7 @@ import com.taobao.weex.common.WXModuleAnno;
 @SuppressWarnings("deprecation")
 public class WeexModule extends WXModule {
 	private static final String TAG = WeexModule.class.getSimpleName();
-	private static final String WEEX_CATEGORY = "com.taobao.android.intent.category.WEEX";
+	private static final String WEEX_CATEGORY = "com.atar.android.intent.category.WEEX";
 
 	@WXModuleAnno(moduleMethod = true, runOnUIThread = true)
 	public void openUrl(String url) {
