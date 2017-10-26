@@ -143,7 +143,7 @@
                 <action android:name="com.taobao.android.intent.action.WEEX" />
 
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="com.taobao.android.intent.category.WEEX" />
+                <category android:name="com.atar.android.intent.category.WEEX" />
 
                 <action android:name="android.intent.action.VIEW" />
 
