@@ -236,7 +236,7 @@ public class AtarCommonWebViewPagerActivity extends AtarDropTitleBarActivity imp
 	 * @createTime:2017-10-31上午10:18:06
 	 * @version:1.0.0
 	 * @modifyTime:
-	 * @modifyAuthor:
+	 * @modifyAuthor: Atar
 	 * @param disallowIntercept:1:只触发swiper 滑动事件， 0,触发原生viewpager事件
 	 * @description:
 	 */
