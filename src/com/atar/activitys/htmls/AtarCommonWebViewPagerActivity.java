@@ -11,6 +11,7 @@ import android.skin.SkinUtils;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.utils.ShowLog;
 import android.view.View;
 
 import com.atar.activitys.AtarDropTitleBarActivity;
@@ -226,6 +227,12 @@ public class AtarCommonWebViewPagerActivity extends AtarDropTitleBarActivity imp
 					tabs.notifyDataSetChanged();
 				}
 			}
+		}
+	}
+
+	public void requestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+		if (mViewPager != null) {
+			mViewPager.requestDisallowInterceptTouchEvent(disallowIntercept);
 		}
 	}
 

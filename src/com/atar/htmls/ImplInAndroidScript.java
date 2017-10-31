@@ -1139,6 +1139,23 @@ public class ImplInAndroidScript {
 		}
 	}
 
+	@JavascriptInterface
+	public void setViewPagerRequestDisallowInterceptTouchEvent(final String disallowIntercept) {
+		try {
+			if (handler != null) {
+				handler.post(new Runnable() {
+					@Override
+					public void run() {
+						if (activity instanceof WebViewPagerActivity) {
+							((WebViewPagerActivity) activity).requestDisallowInterceptTouchEvent("1".equals(disallowIntercept));
+						}
+					}
+				});
+			}
+		} catch (Exception e) {
+			ShowLog.e(TAG, CrashHandler.crashToString(e));
+		}
+	}
 	// /**
 	// * 设置CommunityActivity顶部左边图片
 	// * @author :Atar
