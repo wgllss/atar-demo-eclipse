@@ -1139,6 +1139,16 @@ public class ImplInAndroidScript {
 		}
 	}
 
+	/**
+	 * webview 中 swiper和viewpager 冲突解决
+	 * @author :Atar
+	 * @createTime:2017-10-31上午10:18:06
+	 * @version:1.0.0
+	 * @modifyTime:
+	 * @modifyAuthor:
+	 * @param disallowIntercept:1:只触发swiper 滑动事件， 0,触发原生viewpager事件
+	 * @description:
+	 */
 	@JavascriptInterface
 	public void setViewPagerRequestDisallowInterceptTouchEvent(final String disallowIntercept) {
 		try {
